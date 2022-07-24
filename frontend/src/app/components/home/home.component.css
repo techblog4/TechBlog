@@ -1,19 +1,17 @@
 @import url(http://fonts.googleapis.com/css?family=Raleway);
-body{
-    
-    background-color:#ff666f;
-
-}
 
 a{
     
     color:#fff !important;
     
 }
+.nave{
+    background-color: #ff666f;
+}
 .nav-item {
     font-family: Century Gothic;
     margin: 0 auto;
-    padding: 5em 3em;
+    padding: 2em 1em;
     text-align: center;
 }
 .nav-item a {
