@@ -8,7 +8,13 @@ footer {
     color: white;
     margin-top:100px;
   }
-
+  .footer-middle {
+    padding-top: 2em;
+    color: white;
+  }
+ .footer-middle p{
+  font-size:15px;
+ }
  
   
   
