@@ -18,6 +18,7 @@ oncreate(){
   dialogconfig.disableClose=true;
   dialogconfig.autoFocus=true;
   dialogconfig.width="40%";
+  
   this.MatDialog.open(LoginComponent,dialogconfig);
 }
 ngOnInit(): void {  }
