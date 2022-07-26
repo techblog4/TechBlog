@@ -76,3 +76,7 @@
   
   .dropdown:hover .dropdown-content {display: block;}
    
+  .log{
+    padding: 15%;
+    text-align: center;
+  }
