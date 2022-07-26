@@ -2,6 +2,7 @@
 
 .nave{
     background-color: #ff666f;
+    position: fixed;
 }
 .nav-item {
     font-family: Century Gothic;
