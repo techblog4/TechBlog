@@ -1,5 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import {MaterialModule} from './material/material.module';
+
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -25,6 +27,11 @@ import {MatDialogModule, MatDialogRef} from '@angular/material/dialog';
   imports: [
     BrowserModule,
     AppRoutingModule,
+
+    MaterialModule,
+    
+    
+
     BrowserAnimationsModule,
     FormsModule,
     ReactiveFormsModule,
@@ -32,6 +39,7 @@ import {MatDialogModule, MatDialogRef} from '@angular/material/dialog';
     MatDialogModule
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents:[LoginComponent]
 })
 export class AppModule { }
