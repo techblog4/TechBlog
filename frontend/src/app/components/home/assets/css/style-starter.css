@@ -3,7 +3,7 @@ Author: W3layouts
 Author URL: http://w3layouts.com
  */
  
- html {
+html {
   scroll-behavior: smooth;
 }
 
@@ -156,8 +156,13 @@ h2.hny-food-title {
  */
 /* FONT PATH
  * -------------------------- */
-/* 
- */
+@font-face {
+  font-family: 'FontAwesome';
+  src: url("../fonts/fontawesome-webfont.eot?v=4.7.0");
+  src: url("../fonts/fontawesome-webfont.eot?#iefix&v=4.7.0") format("embedded-opentype"), url("../fonts/fontawesome-webfont.woff2?v=4.7.0") format("woff2"), url("../fonts/fontawesome-webfont.woff?v=4.7.0") format("woff"), url("../fonts/fontawesome-webfont.ttf?v=4.7.0") format("truetype"), url("../fonts/fontawesome-webfont.svg?v=4.7.0#fontawesomeregular") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
 
 .fa {
   display: inline-block;
@@ -4010,7 +4015,7 @@ h2.hny-food-title {
 }
 
 .w3l-banner-slider-main .main-slider .banner-vv {
-  /* background: url(../images/banner1.jpg) no-repeat; */
+  background: url(../images/banner1.jpg) no-repeat;
   background-size: cover;
   -webkit-background-size: cover;
   -moz-background-size: cover;
@@ -4025,7 +4030,7 @@ h2.hny-food-title {
 }
 
 .w3l-banner-slider-main .main-slider .banner-top1 {
-  /* background: url(../images/banner2.jpg) no-repeat; */
+  background: url(../images/banner2.jpg) no-repeat;
   background-size: cover;
   -webkit-background-size: cover;
   -moz-background-size: cover;
@@ -4035,7 +4040,7 @@ h2.hny-food-title {
 }
 
 .w3l-banner-slider-main .main-slider .banner-top2 {
-  /* background: url(../images/banner3.jpg) no-repeat; */
+  background: url(../images/banner3.jpg) no-repeat;
   background-size: cover;
   -webkit-background-size: cover;
   -moz-background-size: cover;
@@ -4045,7 +4050,7 @@ h2.hny-food-title {
 }
 
 .w3l-banner-slider-main .main-slider .banner-top3 {
-  /* background: url(../images/banner4.jpg) no-repeat; */
+  background: url(../images/banner4.jpg) no-repeat;
   background-size: cover;
   -webkit-background-size: cover;
   -moz-background-size: cover;
@@ -5202,7 +5207,7 @@ h2.hny-food-title {
 }
 
 .w3l-mag-main .video-content {
-  /* background: linear-gradient(rgba(23, 22, 23, 0.2), rgba(23, 22, 23, 0.5)), url(../images/banner1.jpg) no-repeat; */
+  background: linear-gradient(rgba(23, 22, 23, 0.2), rgba(23, 22, 23, 0.5)), url(../images/banner1.jpg) no-repeat;
   background-size: cover;
   -webkit-background-size: cover;
   -moz-background-size: cover;
@@ -5215,7 +5220,7 @@ h2.hny-food-title {
 }
 
 .w3l-mag-main .video-content2 {
-  /* background: linear-gradient(rgba(23, 22, 23, 0.2), rgba(23, 22, 23, 0.5)), url(../images/banner3.jpg) no-repeat; */
+  background: linear-gradient(rgba(23, 22, 23, 0.2), rgba(23, 22, 23, 0.5)), url(../images/banner3.jpg) no-repeat;
   background-size: cover;
   -webkit-background-size: cover;
   -moz-background-size: cover;
@@ -5335,7 +5340,7 @@ h2.hny-food-title {
   position: relative;
   box-shadow: 0 0 1px rgba(20, 21, 22, 0.48);
   border-radius: 4px;
-  /* background: rgba(35, 50, 102, 0.05) url(../images/strip.png) no-repeat; */
+  background: rgba(35, 50, 102, 0.05) url(../images/strip.png) no-repeat;
 }
 
 .w3l-mag-main .newsletter-infhny h2 {
@@ -5838,7 +5843,7 @@ h2.hny-food-title {
   top: 50%;
   margin-left: -40px;
   margin-top: -40px;
-  /* background: url(owl.video.play.png) no-repeat; */
+  background: url(owl.video.play.png) no-repeat;
   cursor: pointer;
   z-index: 1;
   -webkit-backface-visibility: hidden;
@@ -6090,7 +6095,7 @@ h2.hny-food-title {
 }
 
 .w3l-banner-slider2-main .slider-pro {
-  /* background: url(../images/banner-slider2.jpg) no-repeat; */
+  background: url(../images/banner-slider2.jpg) no-repeat;
   background-size: cover;
   -webkit-background-size: cover;
   -o-background-size: cover;
@@ -6215,7 +6220,7 @@ h2.hny-food-title {
 .blog-post-main .blog-post-imghny {
   position: relative;
   z-index: 0;
-  /* background: url(../images/banner1.jpg); */
+  background: url(../images/banner1.jpg);
   background-size: cover;
   display: grid;
   align-items: center;
@@ -6665,7 +6670,7 @@ h2.hny-food-title {
 .w3l-author-page .author-page-content {
   position: relative;
   z-index: 0;
-  /* background: url(../images/author2.jpg) center; */
+  background: url(../images/author2.jpg) center;
   background-size: cover;
   min-height:40em;
   display: grid;
@@ -7172,7 +7177,7 @@ h2.hny-food-title {
 .w3l-coming-page .cominghny-page-content {
   position: relative;
   z-index: 0;
-  /* background: url(../images/banner1.jpg) center; */
+  background: url(../images/banner1.jpg) center;
   background-size: cover;
   min-height:40em;
   display: grid;
@@ -7435,7 +7440,7 @@ h2.hny-food-title {
 .w3l-errorhny-page .error-page-content {
   position: relative;
   z-index: 0;
-  /* background: url(../images/banner3.jpg) center; */
+  background: url(../images/banner3.jpg) center;
   background-size: cover;
   min-height:40em;
   display: grid;
@@ -7697,7 +7702,7 @@ h2.hny-food-title {
 .w3l-formshny-page .formshny-page-content {
   position: relative;
   z-index: 0;
-  /* background: url(../images/author1.jpg) center; */
+  background: url(../images/author1.jpg) center;
   background-size: cover;
   min-height:40em;
   display: grid;
