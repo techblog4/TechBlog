@@ -1,0 +1,46 @@
+
+<mat-sidenav-container class = "tp-container">
+    <mat-sidenav #drawer class="sidenav" mode="side">
+     <section class = "tp-section">
+        <mat-list>
+          <div mat-subheader>Dashboard</div>
+            <mat-list-item>
+              <mat-icon mat-list-icon>dashboard</mat-icon>
+              <div mat-line><a routerLink="/admin-dashboard">Dashboard</a></div>
+              </mat-list-item>
+              <mat-divider></mat-divider>
+            <mat-list-item>
+              <mat-icon mat-list-icon>article</mat-icon>
+              <div mat-line>Blog Posts</div>
+              </mat-list-item>
+              <mat-divider></mat-divider>
+            <mat-list-item>
+              <mat-icon mat-list-icon>view_list</mat-icon>
+              <div mat-line>Categories</div>
+              </mat-list-item>
+              <mat-divider></mat-divider>
+            <mat-list-item>
+              <mat-icon mat-list-icon>manage_accounts</mat-icon>
+              <div mat-line>Change Password</div>
+              </mat-list-item>
+              <mat-divider></mat-divider>
+            <mat-list-item>
+              <mat-icon mat-list-icon>logout</mat-icon>
+              <div mat-line>Log out</div>
+              </mat-list-item>
+            </mat-list>
+         </section>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <mat-toolbar>
+      <button mat-icon-button class="icon" aria-label="Example icon-button with menu icon">
+        <mat-icon (click)="drawer.toggle()">menu</mat-icon>
+      </button>
+      <span>Admin Dashboard</span>
+      <span class="spacer"></span>
+      <button mat-icon-button class="icon settings-icon" aria-label="Example icon-button with heart icon">
+        <mat-icon>settings</mat-icon>
+      </button>
+    </mat-toolbar>
+  </mat-sidenav-content>
+</mat-sidenav-container>
