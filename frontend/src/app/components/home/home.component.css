@@ -2,7 +2,7 @@
 
 .nave{
     background-color: #ff666f;
-    position: fixed;
+    /* position: fixed; */
 }
 .nav-item {
     font-family: Century Gothic;
@@ -90,4 +90,7 @@
   
   .dropdown:hover .dropdown-content {display: block;}
    
-  
+  section{
+    height: 1000px;
+    width: 1000px;
+  }
