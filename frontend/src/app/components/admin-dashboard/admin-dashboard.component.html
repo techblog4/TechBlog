@@ -11,19 +11,19 @@
               <mat-divider></mat-divider>
             <mat-list-item>
               <mat-icon mat-list-icon>article</mat-icon>
-              <div mat-line>Blog Posts</div>
+              <div mat-line><a routerLink="admin-blog-list">Blog Posts</a></div>
               </mat-list-item>
               <mat-divider></mat-divider>
             <mat-list-item>
               <mat-icon mat-list-icon>view_list</mat-icon>
-              <div mat-line>Categories</div>
+              <div mat-line><a routerLink="admin-blog-category">Categories</a></div>
               </mat-list-item>
               <mat-divider></mat-divider>
             <mat-list-item>
               <mat-icon mat-list-icon>manage_accounts</mat-icon>
               <div mat-line>Change Password</div>
-              </mat-list-item>
-              <mat-divider></mat-divider>
+            </mat-list-item>
+            <mat-divider></mat-divider>
             <mat-list-item>
               <mat-icon mat-list-icon>logout</mat-icon>
               <div mat-line>Log out</div>
@@ -42,5 +42,8 @@
         <mat-icon>settings</mat-icon>
       </button>
     </mat-toolbar>
+      <div>
+        <router-outlet></router-outlet>
+      </div>
   </mat-sidenav-content>
 </mat-sidenav-container>

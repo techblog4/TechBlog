@@ -21,6 +21,8 @@ import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatSidenavModule} from '@angular/material/sidenav';
 
 import {MatListModule} from '@angular/material/list';
+import { AdminBlogListComponent } from './components/admin-blog-list/admin-blog-list.component';
+import { AdminBlogCategoryComponent } from './components/admin-blog-category/admin-blog-category.component';
 
 
 
@@ -37,6 +39,8 @@ import {MatListModule} from '@angular/material/list';
     AdminDashboardComponent,
     StudentDashboardComponent,
     TrainerDashboardComponent,
+    AdminBlogListComponent,
+    AdminBlogCategoryComponent,
   ],
   imports: [
     BrowserModule,

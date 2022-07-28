@@ -58,10 +58,6 @@
              <mat-error *ngIf = "signup?.['email']?.errors?.['required'] && submittedsignup">Required email</mat-error>
              </mat-form-field>
    
-   
-   
-   
-   
            <mat-form-field appearance="outline">
              <mat-label>Password</mat-label>
              <input matInput placeholder="Enter your password" [type]="signuphide?'password':'text'" formControlName="password">
