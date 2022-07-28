@@ -1,0 +1,38 @@
+/* 
+.sidenav-content {
+  display: flex;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+}
+
+.sidenav {
+  padding: 20px;
+  width: 200px;
+  height: 100%;
+  border: 1px solid rgba(134, 130, 130, 0.5);
+}
+.example-container {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: #eee;
+}
+ */
+ .tp-container {
+   position: absolute;
+   top: 0;
+   bottom: 0;
+   left: 0;
+   right: 0;
+   background: #eee;
+}
+.tp-section {
+   display: flex;
+   align-content: center;
+   align-items: center;
+   /* height: 60px; */
+   width:100%;   
+}

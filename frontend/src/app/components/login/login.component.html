@@ -20,7 +20,6 @@
              <mat-error *ngIf = "login?.['password']?.errors?.['password'] && submitted">Invalid password</mat-error>
              <mat-error *ngIf = "login?.['password']?.errors?.['required'] && submitted">Required password</mat-error>
            </mat-form-field><br>
-
            <mat-dialog-actions>
             <button class="btn" mat-raised-button color="accent">Submit</button>
             <button class="btn" mat-raised-button color="warn" mat-dialog-close>Close</button>

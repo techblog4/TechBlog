@@ -13,6 +13,17 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule} from '@angular/common/http';
 import {MatDialogModule, MatDialogRef} from '@angular/material/dialog';
+import { AdminDashboardComponent } from './components/admin-dashboard/admin-dashboard.component';
+import { StudentDashboardComponent } from './components/student-dashboard/student-dashboard.component';
+import { TrainerDashboardComponent } from './components/trainer-dashboard/trainer-dashboard.component';
+import {MatIconModule} from '@angular/material/icon';
+import {MatToolbarModule} from '@angular/material/toolbar';
+import {MatSidenavModule} from '@angular/material/sidenav';
+
+import {MatListModule} from '@angular/material/list';
+
+
+
 
 
 
@@ -23,17 +34,23 @@ import {MatDialogModule, MatDialogRef} from '@angular/material/dialog';
     SignUpComponent,
     HomeComponent,
     FooterComponent,
+    AdminDashboardComponent,
+    StudentDashboardComponent,
+    TrainerDashboardComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-
     MaterialModule,
     BrowserAnimationsModule,
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-    MatDialogModule
+    MatDialogModule,
+    MatIconModule,
+    MatToolbarModule,
+    MatSidenavModule,
+    MatListModule
   ],
   providers: [],
   bootstrap: [AppComponent],
