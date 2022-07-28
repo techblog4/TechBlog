@@ -1,4 +1,4 @@
-<div class=" form">
+<div class=" form1">
     <mat-tab-group mat-align-tabs="start">
      <mat-tab  label ="LogIn"><br>
        <mat-card class="logincard">
@@ -20,15 +20,19 @@
              <mat-error *ngIf = "login?.['password']?.errors?.['password'] && submitted">Invalid password</mat-error>
              <mat-error *ngIf = "login?.['password']?.errors?.['required'] && submitted">Required password</mat-error>
            </mat-form-field><br>
-             <div>
-             <button class="btn" mat-raised-button color="accent">Submit</button>
-           </div> 
-            </form>
+
+           <mat-dialog-actions>
+            <button class="btn" mat-raised-button color="accent">Submit</button>
+            <button class="btn" mat-raised-button color="warn" mat-dialog-close>Close</button>
+          </mat-dialog-actions>
+            
+           </form>
          </mat-card>
+        </mat-tab>
    <!-- signup form -->
-     </mat-tab>
+    
      <mat-tab label="SignUp">
-       <mat-card class="logincard">
+       <mat-card class=" signup">
          <form [formGroup] ='signupForm' (ngSubmit)= onsubmitsignup(signupForm)>
    
            <mat-form-field appearance="outline">
@@ -42,13 +46,13 @@
            <input matInput placeholder="Enter your name" formControlName="lastname">
            <mat-error *ngIf = "signup?.['lastname']?.errors?.['required'] && submittedsignup">Required last name</mat-error>
            </mat-form-field>
-           <br><br>
+           <br>
            <mat-radio-group aria-label="Select an option"formControlName="user">
              <mat-radio-button value="student">Student</mat-radio-button>
              <span style="margin: 5px;"></span>
              <mat-radio-button value="trinee">Trainee</mat-radio-button>
            </mat-radio-group>
-           <br><br>
+           <br>
    
            <mat-form-field appearance="outline">
              <mat-label>Email</mat-label>
@@ -57,15 +61,11 @@
              <mat-error *ngIf = "signup?.['email']?.errors?.['required'] && submittedsignup">Required email</mat-error>
              </mat-form-field>
    
-   
-   
-   
-   
-           <mat-form-field appearance="outline">
+             <mat-form-field appearance="outline">
              <mat-label>Password</mat-label>
              <input matInput placeholder="Enter your password" [type]="signuphide?'password':'text'" formControlName="password">
              <button mat-icon-button matSuffix (click)="signuphide = !signuphide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="signuphide">
-               <mat-icon>{{signuphide ? 'visibility_off' : 'visibility'}}</mat-icon>
+             <mat-icon>{{signuphide ? 'visibility_off' : 'visibility'}}</mat-icon>
              </button>
              <mat-error *ngIf = "signup?.['password']?.errors?.['password'] && submittedsignup">Invalid password</mat-error>
              <mat-error *ngIf = "signup?.['password']?.errors?.['required'] && submittedsignup">Required password</mat-error>
@@ -81,14 +81,14 @@
              <mat-error *ngIf = "signup?.['confirmpassword']?.errors?.['required'] && submittedsignup">Required password</mat-error>
              <mat-error *ngIf = "signup?.['confirmpassword']?.errors?.['passwordMismatch']&& submittedsignup">Mismatched password</mat-error>
            </mat-form-field>
-   
-   
-   
-           <div>
-             <button class="btn" mat-raised-button color="accent">Submit</button>
-           </div> 
-        </form>
-       </mat-card>   
+
+           <mat-dialog-actions>
+            <button class="btn" mat-raised-button color="accent">Submit</button>
+            <button class="btn" mat-raised-button color="warn" mat-dialog-close>Close</button>
+           </mat-dialog-actions>
+            
+           </form>
+        </mat-card>   
      </mat-tab>
      </mat-tab-group>
    </div>
