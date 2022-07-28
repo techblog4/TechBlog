@@ -19,7 +19,7 @@ constructor(private fb:FormBuilder) { }
 /*loginform*/
 loginForm =this.fb.group({
 email:['',[Validators.required,Validators.email]],
-password:['',[Validators.required]],
+password:['',[Validators.required,Validators.minLength(5)]]
 })
 
 
@@ -29,18 +29,18 @@ get login() {
  onsubmitlogin(values:any){
  this.submitted=true;
  console.log({values});
-//  alert("submitted");
+ //alert("submitted");
  } 
 
 
 
 /*signup form*/
 signupForm =this.fb.group({
-  firstname:['',[Validators.required]],
+  name:['',[Validators.required]],
   lastname:['',[Validators.required]],
   user:['',[Validators.required]],
   email:['',[Validators.required,Validators.email]],
-  password:['',[Validators.required]],
+  password:['',[Validators.required,Validators.minLength(5)]],
   confirmpassword:['',[Validators.required]]
   },{
     validator:()=>{
@@ -51,7 +51,9 @@ signupForm =this.fb.group({
       }
     }
 
-  } )
+  } 
+  
+  )
 get signup(){
   return this.signupForm.controls
 }

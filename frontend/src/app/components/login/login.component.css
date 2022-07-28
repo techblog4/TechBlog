@@ -1,6 +1,6 @@
 .form1 .signup{
   width:100%;
-  height:435px;
+  height:440px;
  
 }
 
@@ -19,10 +19,14 @@
     }
   .mat-form-field{
     width: 100%;
+    
   }
   .signup{
     background-color:whitesmoke;
     border: 2px solid rgb(236, 77, 141);
     border-radius: .5rem;
     
+  }
+  .radio{
+    font-size: small;
   }
