@@ -25,7 +25,6 @@ import {MatRadioModule} from '@angular/material/radio';
     MatInputModule,
     MatIconModule,
     MatRadioModule
-
   ],
   exports:[
     MatDialogModule,
@@ -36,7 +35,6 @@ import {MatRadioModule} from '@angular/material/radio';
     MatInputModule,
     MatIconModule,
     MatRadioModule
-
 
   ]
 })
