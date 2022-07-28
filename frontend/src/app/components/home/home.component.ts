@@ -3,6 +3,7 @@ import {MatDialog} from '@angular/material/dialog';
 import { MatDialogConfig } from '@angular/material/dialog';
 import { LoginComponent } from '../login/login.component';
 
+
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
