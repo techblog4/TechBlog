@@ -25,7 +25,17 @@ const signUp = async (req, res) => {
   }
 };
 
+const getName = async (req, res) => {
+  try {
+    const user = await User.find({ _id: req.params.id });
+    res.status(200).json({ fullName: user[0].fullName });
+  } catch (err) {
+    res.status(403);
+  }
+};
+
 module.exports = {
   checkCred,
   signUp,
+  getName,
 };

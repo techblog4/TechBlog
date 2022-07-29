@@ -32,7 +32,8 @@ npm run dev
 | http method | api endpoint     | desc                                    |
 | ----------- | ---------------- | --------------------------------------- |
 | POST        | /api/auth/login  | logins & returns a boolean (authStatus) |
-| POST        | /api/blog/signup | creates a new user                      |
+| POST        | /api/auth/signup | creates a new user                      |
+| GET         | /api/auth/:id    | gets users FullName                     |
 
 ```
 /api/blog
