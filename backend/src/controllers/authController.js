@@ -1,10 +1,14 @@
 const User = require("../models/userModel");
 
-const checkCred = (req, res) => {
-  const userEmail = req.body.email;
-  const userPass = req.body.password;
-  console.log(userEmail, userPass);
-  res.status(200).json({ message: "Logged In" });
+const checkCred = async (req, res) => {
+  try {
+    const user = await User.find({ email: req.body.email });
+    if (user[0].password == req.body.password)
+      res.status(200).json({ authStatus: true });
+    else throw err;
+  } catch (err) {
+    res.status(403).json({ authStatus: false });
+  }
 };
 
 const signUp = async (req, res) => {

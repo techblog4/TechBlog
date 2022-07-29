@@ -16,7 +16,23 @@ npm install
 npm run dev
 ```
 
-## api endpoints
+## API endpoints for blog
+
+| http method | api endpoint          | desc                     |
+| ----------- | --------------------- | ------------------------ |
+| POST        | /api/blog/            | creates a blog           |
+| GET         | /api/blog/add         | gets all blog            |
+| GET         | /api/blog/:id         | gets a blog with that id |
+| DELETE      | /api/blog/:id         | deletes blog with id     |
+| PATCH       | /api/blog/:id         | updates a blog with id   |
+| PATCH       | /api/blog/approve/:id | approve & add categories |
+
+## API endpoints for auth
+
+| http method | api endpoint     | desc                                    |
+| ----------- | ---------------- | --------------------------------------- |
+| POST        | /api/auth/login  | logins & returns a boolean (authStatus) |
+| POST        | /api/blog/signup | creates a new user                      |
 
 ```
 /api/blog
