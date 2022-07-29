@@ -19,10 +19,6 @@ const userSchema = new mongoose.Schema({
     enum: ["student", "trainee", "admin"],
     default: "student",
   },
-  blogList: {
-    type: Array,
-    default: null,
-  },
 });
 
 module.exports = mongoose.model("User", userSchema);
