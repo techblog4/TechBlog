@@ -58,6 +58,7 @@ import { AdminBlogCategoryComponent } from './components/admin-blog-category/adm
   ],
   providers: [],
   bootstrap: [AppComponent],
-  entryComponents:[SignUpComponent]
+  entryComponents:[SignUpComponent,LoginComponent]
+  
 })
 export class AppModule { }

@@ -1,5 +1,6 @@
 <div class=" form1">
     <mat-card>
+      <h3>SignUp</h3>
         <form [formGroup] ='signupForm'(ngSubmit)= onsubmitsignup(signupForm)>
    
             <mat-form-field appearance="outline">
@@ -56,7 +57,9 @@
              <button class="btn" mat-raised-button color="accent">Submit</button>
              <button class="btn" mat-raised-button color="primary" mat-dialog-close>Close</button>
             </mat-dialog-actions>
-             
+            <br>
+            <span>Already Registered? <a class="author-user"  mat-button (click) ="oncreate()"><span class="link">Login</span>
+            </a></span>
             </form>
             
     </mat-card>
