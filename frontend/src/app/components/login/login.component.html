@@ -1,11 +1,11 @@
 <div class=" form1">
-    <mat-tab-group mat-align-tabs="start">
-     <mat-tab  label ="LogIn"><br>
-       <mat-card class="logincard">
-   
+    
+<mat-card>
+  
       <form [formGroup] ='loginForm' (ngSubmit)= onsubmitlogin(loginForm)>
+        
          <mat-form-field appearance="outline">
-           <mat-label>Email</mat-label>
+          <mat-label>Email</mat-label>
            <input matInput placeholder="Enter your email" formControlName="email">
            <mat-error *ngIf = "login?.['email']?.errors?.['email'] && submitted">Invalid email</mat-error>
            <mat-error *ngIf = "login?.['email']?.errors?.['required'] && submitted">Required email</mat-error>
@@ -19,7 +19,6 @@
              </button>
              <mat-error *ngIf="loginForm.controls['password'].hasError('minlength')">
               Your password must be at least 5 characters long.</mat-error>
-              <!-- <mat-error *ngIf = "login?.['password']?.errors?.['minLength'] && submitted">Invalid password</mat-error> -->
              <mat-error *ngIf = "login?.['password']?.errors?.['required'] && submitted">Required password</mat-error>
            </mat-form-field><br>
            <mat-dialog-actions>
@@ -29,68 +28,45 @@
             
            </form>
          </mat-card>
-        </mat-tab>
-   <!-- signup form -->
-    
-     <mat-tab label="SignUp">
-       <mat-card class=" signup">
-         <form [formGroup] ='signupForm' (ngSubmit)= onsubmitsignup(signupForm)>
+        </div>
+
+
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
    
-           <mat-form-field appearance="outline">
-           <mat-label>Name of user</mat-label>
-           <input matInput placeholder="Enter your name" formControlName="name">
-           <mat-error *ngIf = "signup?.['name']?.errors?.['required'] && submittedsignup">Required  name</mat-error>
-         </mat-form-field>
-   
-           <!-- <mat-form-field appearance="outline">
-           <mat-label>Lastname</mat-label>
-           <input matInput placeholder="Enter your name" formControlName="lastname">
-           <mat-error *ngIf = "signup?.['lastname']?.errors?.['required'] && submittedsignup">Required last name</mat-error>
-           </mat-form-field> -->
            
-           <mat-radio-group aria-label="Select an option" formControlName="user">
-             <mat-radio-button class="radio" value="student">Student</mat-radio-button>
-             <span style="padding-right:3px"></span>
-             <mat-radio-button class="radio" value="trinee">Trainar</mat-radio-button>
-            <mat-error *ngIf = "signup?.['user']?.errors?.['required'] && submittedsignup">select user</mat-error>
-          </mat-radio-group>
-
-            <mat-form-field appearance="outline">
-             <mat-label>Email</mat-label>
-             <input matInput placeholder="Enter your email" formControlName="email">
-             <mat-error *ngIf = "signup?.['email']?.errors?.['email'] && submittedsignup">Invalid email</mat-error>
-             <mat-error *ngIf = "signup?.['email']?.errors?.['required'] && submittedsignup">Required email</mat-error>
-             </mat-form-field>
-   
-             <mat-form-field appearance="outline">
-             <mat-label>Password</mat-label>
-             <input matInput placeholder="Enter your password" [type]="signuphide?'password':'text'" formControlName="password">
-             <button mat-icon-button matSuffix (click)="signuphide = !signuphide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="signuphide">
-             <mat-icon>{{signuphide ? 'visibility_off' : 'visibility'}}</mat-icon>
-             </button>
-            <mat-error *ngIf="signupForm.controls['password'].hasError('minlength')">
-            Your password must be at least 5 characters long.</mat-error>
-            <mat-error *ngIf = "signup?.['password']?.errors?.['required'] && submittedsignup">Required password</mat-error>
-           </mat-form-field>
-   
-           <mat-form-field appearance="outline">
-             <mat-label>Confim Password</mat-label>
-             <input matInput placeholder="Enter your password" [type]="signuphide?'password':'text'" formControlName="confirmpassword">
-             <button mat-icon-button matSuffix (click)="signuphide = !signuphide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="signuphide">
-               <mat-icon>{{signuphide ? 'visibility_off' : 'visibility'}}</mat-icon>
-             </button>
-             <mat-error *ngIf = "signup?.['confirmpassword']?.errors?.['confirmpassword'] && submittedsignup">Invalid password</mat-error>
-             <mat-error *ngIf = "signup?.['confirmpassword']?.errors?.['required'] && submittedsignup">Required password</mat-error>
-             <mat-error *ngIf = "signup?.['confirmpassword']?.errors?.['passwordMismatch']&& submittedsignup">Mismatched password</mat-error>
-           </mat-form-field>
-
-           <mat-dialog-actions>
-            <button class="btn" mat-raised-button color="accent">Submit</button>
-            <button class="btn" mat-raised-button color="primary" mat-dialog-close>Close</button>
-           </mat-dialog-actions>
-            
-           </form>
-        </mat-card>   
-     </mat-tab>
-     </mat-tab-group>
-   </div>
+  
+ 
