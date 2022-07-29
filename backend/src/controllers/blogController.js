@@ -16,7 +16,7 @@ const createBlog = async (req, res) => {
 
 const getBlog = async (req, res) => {
   try {
-    const blog = await Blog.findOne({ _id: req.params.id });
+    const blog = await Blog.findById(req.params.id);
     res.status(200).json(blog);
   } catch {
     res.status(400);
@@ -36,7 +36,7 @@ const getBlogs = async (req, res) => {
 
 const updateBlog = async (req, res) => {
   try {
-    const blog = await blog.findOne({ _id: req.params.id });
+    const blog = await Blog.findById(req.params.id);
 
     if (req.body.title) blog.title = req.body.title;
 
@@ -62,11 +62,10 @@ const deleteBlog = async (req, res) => {
 
 const approveBlog = async (req, res) => {
   try {
-    const blog = await blog.findOne({ _id: req.params.id });
-    console.log(blog);
+    const blog = await Blog.findById(req.params.id);
     blog.isApproved = true;
 
-    // if (req.body.categoryList) blog.categoryList = req.body.categoryList;
+    if (req.body.categoryList) blog.categoryList = req.body.categoryList;
 
     await blog.save();
     res.send(blog);

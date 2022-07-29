@@ -26,8 +26,8 @@ const blogSchema = new mongoose.Schema({
     default: false,
   },
   categoryList: {
-    type: Array,
-    default: ["other"],
+    type: [String],
+    default: "other",
   },
 });
 

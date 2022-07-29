@@ -25,8 +25,12 @@ npm run dev
     /all - GET, all blogs
     /:id - GET, blog of id
     /:id - DELETE, delete blog with id
-    /:id - PATCH, update blog with id - NOT WORKING
-    /approve/:id - PATCH, approve and add categories to a blog with id - NOT_WORKING
+    /:id - PATCH, update blog with id (only title & blogBody can be updated)
+    /approve/:id - PATCH, approve and add categories to a blog with id (hiting the endpoint itself approves, categories can be added too.
+                      eg:  {
+                           categoryList[0] : science,
+                           categoryList[1]: nuclear
+                           }
 
 /api/auth
     /login - POST - NOT_WORKING
