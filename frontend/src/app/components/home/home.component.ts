@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {MatDialog} from '@angular/material/dialog';
 import { MatDialogConfig } from '@angular/material/dialog';
+import { SignUpComponent } from '../sign-up/sign-up.component';
 import { LoginComponent } from '../login/login.component';
-
 
 @Component({
   selector: 'app-home',
@@ -16,6 +16,14 @@ export class HomeComponent implements OnInit {
   
   
 oncreate(){
+  const dialogconfig=new MatDialogConfig();
+  dialogconfig.disableClose=true;
+  dialogconfig.autoFocus=true;
+  dialogconfig.width="40%";
+  
+  this.MatDialog.open(SignUpComponent,dialogconfig);
+}
+oncreate2(){
   const dialogconfig=new MatDialogConfig();
   dialogconfig.disableClose=true;
   dialogconfig.autoFocus=true;

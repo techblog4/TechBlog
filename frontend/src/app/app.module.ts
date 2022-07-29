@@ -23,8 +23,9 @@ import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatListModule} from '@angular/material/list';
 import { AdminBlogListComponent } from './components/admin-blog-list/admin-blog-list.component';
 import { AdminBlogCategoryComponent } from './components/admin-blog-category/admin-blog-category.component';
-
-
+import {MatTableModule} from '@angular/material/table';
+import {MatPaginatorModule} from '@angular/material/paginator';
+import {MatTreeModule} from '@angular/material/tree';
 
 
 
@@ -54,10 +55,15 @@ import { AdminBlogCategoryComponent } from './components/admin-blog-category/adm
     MatIconModule,
     MatToolbarModule,
     MatSidenavModule,
-    MatListModule
+    MatListModule,
+    MatTableModule,
+    MatPaginatorModule,
+    MatTreeModule
+    
   ],
   providers: [],
   bootstrap: [AppComponent],
-  entryComponents:[LoginComponent]
+  entryComponents:[SignUpComponent,LoginComponent]
+  
 })
 export class AppModule { }
