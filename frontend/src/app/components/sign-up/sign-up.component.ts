@@ -3,6 +3,11 @@ import {FormBuilder, Validators} from '@angular/forms';
 import { ServiceService } from 'src/app/service.service';
 import { signupmodel } from './signupmode';
 import { Router } from '@angular/router';
+import { MatDialogConfig } from '@angular/material/dialog';
+import { MatDialog } from '@angular/material/dialog';
+import { LoginComponent } from '../login/login.component';
+
+
 @Component({
   selector: 'app-sign-up',
   templateUrl: './sign-up.component.html',
@@ -12,7 +17,8 @@ export class SignUpComponent implements OnInit {
   sign=new signupmodel( "" , "", "", "" , "");
   signuphide=true;
   submittedsignup=false;
-  constructor(private fb:FormBuilder,private service:ServiceService,private router:Router) { }
+  constructor(private fb:FormBuilder,private service:ServiceService,
+    private router:Router,private MatDialog:MatDialog) { }
   
   signupForm =this.fb.group({
     name:['',[Validators.required]],
@@ -44,11 +50,19 @@ export class SignUpComponent implements OnInit {
   
   this.service.addsignup(this.sign);
       console.log("item added");
-      alert ("item is added");
+    
       this.router.navigate(["/admin-dashboard"]);
   }
 
-
+  oncreate(){
+    const dialogconfig=new MatDialogConfig();
+    dialogconfig.disableClose=true;
+    dialogconfig.autoFocus=true;
+    dialogconfig.width="40%";
+    
+    this.MatDialog.open(LoginComponent,dialogconfig);
+    
+  }
   ngOnInit(): void {
   }
 

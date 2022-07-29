@@ -3,8 +3,17 @@
     height:440px;
    
   }
+  h3{
+    text-align: center;
+    color: #ff666f;;
+  }
+  .link{
+    color: black;
+}
+.link:hover{
+  color: blue;
   
-  
+}
   .btn{
       position: relative;
       display:flex;
