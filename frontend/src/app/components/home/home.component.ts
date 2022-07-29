@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {MatDialog} from '@angular/material/dialog';
 import { MatDialogConfig } from '@angular/material/dialog';
-import { LoginComponent } from '../login/login.component';
+import { SignUpComponent } from '../sign-up/sign-up.component';
 
 
 @Component({
@@ -21,7 +21,7 @@ oncreate(){
   dialogconfig.autoFocus=true;
   dialogconfig.width="40%";
   
-  this.MatDialog.open(LoginComponent,dialogconfig);
+  this.MatDialog.open(SignUpComponent,dialogconfig);
 }
 ngOnInit(): void {  }
  }
