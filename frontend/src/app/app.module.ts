@@ -63,6 +63,7 @@ import {MatTreeModule} from '@angular/material/tree';
   ],
   providers: [],
   bootstrap: [AppComponent],
-  entryComponents:[LoginComponent]
+  entryComponents:[SignUpComponent,LoginComponent]
+  
 })
 export class AppModule { }
