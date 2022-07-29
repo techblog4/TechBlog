@@ -2,6 +2,13 @@
 
 An RESTful API for a blog web application, created using ExpressJS, MongoDB &amp; NodeJS
 
+## create a .env file
+
+```
+PORT = 5000
+MONGODB_URI = mongodb+srv://techblog:api4tech@maincluster.rgcxgy4.mongodb.net/?retryWrites=true&w=majority
+```
+
 ## to start the server
 
 ```
