@@ -23,7 +23,7 @@ export class SignUpComponent implements OnInit {
   signupForm =this.fb.group({
     name:['',[Validators.required]],
     
-    // user:['',[Validators.required]],
+    user:['',[Validators.required]],
     email:['',[Validators.required,Validators.email]],
     password:['',[Validators.required,Validators.minLength(5)]],
     confirmpassword:['',[Validators.required]]
@@ -49,9 +49,8 @@ export class SignUpComponent implements OnInit {
   // alert("submitted");
   
   this.service.addsignup(this.sign);
-      console.log("item added");
-    
-      this.router.navigate(["/admin-dashboard"]);
+  console.log("item added");
+  this.router.navigate(["/admin-dashboard"]);
   }
 
   oncreate(){
