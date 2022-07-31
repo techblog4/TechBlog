@@ -7,7 +7,11 @@ export class ServiceService {
 
   constructor( private http:HttpClient) { }
   addsignup=(item:any)=>{
-    return  this.http.post<any>("http://localhost:3000/register",item)
+    return  this.http.post("http://localhost:4001/register",item)
+   .subscribe((data=>{console.log(data)}));
+  }
+  addBlogCategory=(item:any)=>{
+    return  this.http.post("http://localhost:4001/addBlogCategory",item)
    .subscribe((data=>{console.log(data)}));
   }
 }

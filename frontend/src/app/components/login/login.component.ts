@@ -17,7 +17,7 @@ import { SignUpComponent } from '../sign-up/sign-up.component';
 })
 export class LoginComponent implements OnInit {
 
-  hide=true; 
+hide=true; 
 submitted=false;
   
 constructor(public fb:FormBuilder,private service:ServiceService,private router:Router,private MatDialog:MatDialog) { }
