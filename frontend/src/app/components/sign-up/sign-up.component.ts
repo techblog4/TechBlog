@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {FormBuilder, Validators} from '@angular/forms';
+import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import { ServiceService } from 'src/app/service.service';
 import { signupmodel } from './signupmode';
 import { Router } from '@angular/router';
@@ -14,12 +14,15 @@ import { LoginComponent } from '../login/login.component';
   styleUrls: ['./sign-up.component.css']
 })
 export class SignUpComponent implements OnInit {
-  sign=new signupmodel( "" , "", "", "" , "");
+  sign=new signupmodel( "" , "", "", "");
   signuphide=true;
   submittedsignup=false;
+  
+
   constructor(private fb:FormBuilder,private service:ServiceService,
     private router:Router,private MatDialog:MatDialog) { }
-  
+
+   
   signupForm =this.fb.group({
     name:['',[Validators.required]],
     
@@ -46,12 +49,29 @@ export class SignUpComponent implements OnInit {
   onsubmitsignup(values:any){
   this.submittedsignup=true;
   console.log({values});
-  // alert("submitted");
+  //  alert("submitted")
   
-  this.service.addsignup(this.sign);
-  console.log("item added");
-  this.router.navigate(["/admin-dashboard"]);
-  }
+   var register=this.service.addsignup(this.sign);
+  //  if (register){
+  //   alert(JSON.stringify(register));
+  //  }else{
+  //   alert(JSON.stringify(register));
+  //  }
+  //  register(function (err) {
+  //   if (!err) {
+  //     res.status(200);
+      
+  //   }
+  //   else{
+  //       console.log("error");
+    // }
+  // });
+  // .subscribe((data)=>{
+  //   alert(data);
+  //this.router.navigate(['/admin-dashboard']);
+  // window.location.reload;
+  
+  };
 
   oncreate(){
     const dialogconfig=new MatDialogConfig();
@@ -61,7 +81,7 @@ export class SignUpComponent implements OnInit {
     
     this.MatDialog.open(LoginComponent,dialogconfig);
     
-  }
+}
   ngOnInit(): void {
   }
 

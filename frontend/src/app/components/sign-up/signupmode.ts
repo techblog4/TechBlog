@@ -4,7 +4,7 @@ export class signupmodel{
  public user:String,
  public email:String,
  public password:String,
- public confirmpassword:String,
+ 
  
  ){}
 }
