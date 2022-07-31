@@ -8,7 +8,17 @@ export class ServiceService {
 
   constructor( private http:HttpClient) { }
   addsignup=(item:any)=>{
-    return  this.http.post("http://localhost:3000/signup",{item})
-   .subscribe((data=>{console.log(data)}));
+    return  this.http.post("http://localhost:4001/signup",{item});
+
   }
+ loginadd=(item:any)=>{
+   return this.http.post("http://localhost:4001/login",{item});
+ }
 }
+
+
+
+
+
+
+

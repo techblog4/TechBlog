@@ -13,12 +13,12 @@
             <mat-label>Lastname</mat-label>
             <input matInput placeholder="Enter your name" formControlName="lastname">
             <mat-error *ngIf = "signup?.['lastname']?.errors?.['required'] && submittedsignup">Required last name</mat-error>
-            </mat-form-field> -->
+            </mat-form-field> -->   
             
             <mat-radio-group aria-label="Select an option" formControlName="user" [(ngModel)]="sign.user">
               <mat-radio-button class="radio" value="student">Student</mat-radio-button>
               <span style="padding-right:3px"></span>
-              <mat-radio-button class="radio" value="trinee">Trainar</mat-radio-button>
+              <mat-radio-button class="radio" value="trinee">Trainer</mat-radio-button>
              <mat-error *ngIf = "signup?.['user']?.errors?.['required'] && submittedsignup">select user</mat-error>
            </mat-radio-group>
  
@@ -44,7 +44,7 @@
     
             <mat-form-field appearance="outline">
               <mat-label>Confim Password</mat-label>
-              <input matInput placeholder="Enter your password" [type]="signuphide?'password':'text'" formControlName="confirmpassword" [(ngModel)]="sign.confirmpassword">
+              <input matInput placeholder="Enter your password" [type]="signuphide?'password':'text'" formControlName="confirmpassword">
               <button mat-icon-button matSuffix (click)="signuphide = !signuphide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="signuphide">
                 <mat-icon>{{signuphide ? 'visibility_off' : 'visibility'}}</mat-icon>
               </button>
