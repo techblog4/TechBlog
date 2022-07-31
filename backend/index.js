@@ -2,17 +2,19 @@ const express=require("express");
 const cors = require("cors");
 const jwt =require("jsonwebtoken");
 const signupmongo=require("./src/model/signup");
-const blogCategoryMongo=require("./src/model/addBlogCategory");
+const adminmongo =require("./src/model/admin");
 const app = new express();
-const PORT = process.env.PORT || 4001;
+
 app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({extended:true}));
+const PORT = process.env.PORT || 4001;
 
-app.post("/register",(req,res)=>{
+
+app.post("/signup",(req,res)=>{
      res.header("Access-Control-Allow-Origin","*");
-    // res.header("Access-Control-Allow-Headers: Content-Type, Authorization");
-    res.header('Access-Control-Allow-Methods:GET,POST,PATCH,PUT,DELETE,OPTIONS');
+    res.header("Access-Control-Allow-Headers: Content-Type, application/json");
+    res.header("Access-Control-Allow-Methods:GET,POST,PATCH,PUT,DELETE,OPTIONS");
     console.log(req.body);
 
     var signups = {
@@ -20,7 +22,7 @@ app.post("/register",(req,res)=>{
         user:req.body.item.user,
         email:req.body.item.email,
         password:req.body.item.password,
-        confirmpassword:req.body.item.confirmpassword
+      
     }
    var post = new signupmongo(signups)
 //    user.save();
@@ -28,10 +30,11 @@ app.post("/register",(req,res)=>{
     
 post.save(function (err) {
     if (!err) {
-      res.redirect('/');
+      res.status(200);
+      
     }
     else{
-        console.log("data entered");
+        console.log("error");
     }
   });
 })
@@ -58,6 +61,24 @@ app.post("/addBlogCategory",(req,res)=>{
 
 
 
+
+
+      // adminmongo.findOne({
+      // //   if(adminpword==="password" &&adminmail=== "adminemail"){
+      //     let payload = {subject:uname+pword};
+      //     let token = jwt.sign(payload , "secretkey")
+      //     res.send({status: true , token})}
+      //     else{
+
+      //     }})
+      
+      
+      
+         
+    
+      
+      
+  
 app.listen(PORT,()=>{
     console.log("server is running");
 });

@@ -3,9 +3,6 @@ import { Component, OnInit } from '@angular/core';
 import {FormBuilder, Validator, Validators} from '@angular/forms';
 import { ServiceService } from 'src/app/service.service';
 import {MatDialog} from '@angular/material/dialog';
-
-
-
 import { Router } from '@angular/router';
 import { MatDialogConfig } from '@angular/material/dialog';
 import { SignUpComponent } from '../sign-up/sign-up.component';
@@ -33,8 +30,16 @@ constructor(public fb:FormBuilder,private service:ServiceService,private router:
        }
       onsubmitlogin(values:any){
       this.submitted=true;
-     console.log({values});
+      console.log({values});
       //alert("submitted");
+      
+       this.service.loginadd(this.loginForm).subscribe((data)=>{
+    console.log(JSON.stringify(data));
+      
+       });
+
+
+
       } 
       oncreate(){
         const dialogconfig=new MatDialogConfig();
