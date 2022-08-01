@@ -4,9 +4,24 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 50%;
+  width: 40%;
   
   
+}
+.id{
+  height:600px;  
+    background-image: url("../../../assets/images/Project_79-02.jpg");    
+    background-size:cover; 
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+  background-position: center;
+}
+.id:before {
+  content: "";
+  position: absolute;
+  left: 0; right: 0;
+  top: 0; bottom: 0;
+  background: rgba(7, 7, 7, 0.7);
 }
 .centering{
   display:flex;
@@ -15,12 +30,12 @@
       align-items: center;
 }
 .mat-card{
-  padding: 50px;
+  padding: 30px;
   
 }
 
 
-  h3{
+  h1{
     text-align: center;
     color: #ff666f;;
   }
