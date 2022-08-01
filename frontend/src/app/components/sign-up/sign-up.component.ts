@@ -1,12 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import { ServiceService } from 'src/app/service.service';
-import { signupmodel } from './signupmode';
+import { signupmodel } from './signupmodel';
 import { Router } from '@angular/router';
-import { MatDialogConfig } from '@angular/material/dialog';
-import { MatDialog } from '@angular/material/dialog';
-import { LoginComponent } from '../login/login.component';
-
 
 @Component({
   selector: 'app-sign-up',
@@ -20,14 +16,14 @@ export class SignUpComponent implements OnInit {
   
 
   constructor(private fb:FormBuilder,private service:ServiceService,
-    private router:Router,private MatDialog:MatDialog) { }
+  private router:Router) { }
 
    
-  signupForm =this.fb.group({
+    signupForm =this.fb.group({
     name:['',[Validators.required]],
     
     user:['',[Validators.required]],
-    email:['',[Validators.required,Validators.email]],
+    email:['',[Validators.required,Validators.pattern('^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$')]],
     password:['',[Validators.required,Validators.minLength(5)]],
     confirmpassword:['',[Validators.required]]
     },{
@@ -48,41 +44,22 @@ export class SignUpComponent implements OnInit {
   
   onsubmitsignup(values:any){
   this.submittedsignup=true;
-  console.log({values});
-  //  alert("submitted")
-  
-   var register=this.service.addsignup(this.sign);
-  //  if (register){
-  //   alert(JSON.stringify(register));
-  //  }else{
-  //   alert(JSON.stringify(register));
-  //  }
-  //  register(function (err) {
-  //   if (!err) {
-  //     res.status(200);
-      
-  //   }
-  //   else{
-  //       console.log("error");
-    // }
-  // });
-  // .subscribe((data)=>{
-  //   alert(data);
-  //this.router.navigate(['/admin-dashboard']);
-  // window.location.reload;
-  
-  };
+  //console.log({values});
 
-  oncreate(){
-    const dialogconfig=new MatDialogConfig();
-    dialogconfig.disableClose=true;
-    dialogconfig.autoFocus=true;
-    dialogconfig.width="40%";
-    
-    this.MatDialog.open(LoginComponent,dialogconfig);
-    
-}
-  ngOnInit(): void {
+  this.service.addsignup(this.sign)
+  .subscribe((res)=>{
+    console.log(res);
+    this.router.navigate(["/"]);
+});
   }
 
+  ngOnInit(): void {
+    
+  }
 }
+
+
+
+
+  
+    
