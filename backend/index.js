@@ -3,6 +3,7 @@ const cors = require("cors");
 const jwt =require("jsonwebtoken");
 const signupmongo=require("./src/model/signup");
 const adminmongo =require("./src/model/admin");
+const blogCategoryMongo = require("./src/model/addBlogCategory");
 const app = new express();
 
 app.use(cors());
@@ -38,23 +39,26 @@ post.save(function (err) {
     }
   });
 })
-    //  loginform
+app.post("/addBlogCategory",(req,res)=>{
+     res.header("Access-Control-Allow-Origin","*");
+    res.header("Access-Control-Allow-Headers: Content-Type, Authorization");
+    res.header('Access-Control-Allow-Methods:GET,POST,PATCH,PUT,DELETE,OPTIONS');
+    console.log(req.body);
+    console.log("NOt required");
 
-    app.post("/login",(req,res)=>{
-      console.log("admin");
-      res.header("Access-Control-Allow-Origin","*");
-      res.header("Access-Control-Allow-Headers: Content-Type, Authorization");
-      res.header("Access-Control-Allow-Methods:GET,POST,PUT,DELETE");
-      
-
-      let logindata = req.body;
-      console.log(logindata.data.email);
-      adminmail= logindata.data.email;
-      adminpword= logindata.data.password;
-      console.log(adminemail);
-
-      adminmongo.findOne({"adminemail":adminmail , "password":adminpword}).then((data)=>{
-        console.log(data)})});
+    var addBlogCategory = {
+        blogCategory:req.body.item.blogCategory
+    }
+   var blogCategoryDB = new blogCategoryMongo(addBlogCategory)   
+   blogCategoryDB.save(function (err) {
+    if (!err) {
+      res.redirect('/');
+    }
+    else{
+        console.log("data entered");
+    }
+  });
+})
 
 
 
