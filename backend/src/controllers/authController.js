@@ -1,11 +1,31 @@
 const User = require("../models/userModel");
+const Admin = require("../models/adminModel");
 
 const checkCred = async (req, res) => {
   try {
     const user = await User.find({ email: req.body.email });
-    if (user[0].password == req.body.password)
+    const admin = await Admin.find({ adminEmail: req.body.adminEmail });
+    if(admin[0].adminPassword == req.body.adminPassword)
+    {
       res.status(200).json({ authStatus: true });
-    else throw err;
+    }
+    else if (user[0].password == req.body.password)
+    {
+      // const user = await User.find({ email: req.body.email });
+      // res.status(200).json({ authStatus: true });
+      if(user[0].userType == "student")
+      {
+        res.status(200).json({ authStatus: true });
+      }
+      else
+      {
+        res.status(200).json({ authStatus: true });
+      }
+    }
+    else
+    { 
+      throw err;
+    }
   } catch (err) {
     res.status(403).json({ authStatus: false });
   }
