@@ -13,8 +13,8 @@ export class ServiceService {
   addBlogCategory=(item:any)=>{
     return  this.http.post("http://localhost:4001/addBlogCategory",{item});
   }
- loginadd=(item:any)=>{
-   return this.http.post("http://localhost:4001/login",{item});
+ loginadd=(data:any)=>{
+   return this.http.post("http://localhost:4001/login",{data});
  }
 }
 

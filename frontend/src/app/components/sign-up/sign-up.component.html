@@ -1,6 +1,8 @@
+<div class="id">
+<div class="container d-flex justify-content-center">
 <div class=" form1">
     <mat-card>
-      <h3>SignUp</h3>
+      <h1>SignUp</h1>
         <form [formGroup] ='signupForm'(ngSubmit)= onsubmitsignup(signupForm)>
    
             <mat-form-field appearance="outline">
@@ -27,7 +29,7 @@
              <mat-form-field appearance="outline">
               <mat-label>Email</mat-label>
               <input matInput placeholder="Enter your email" formControlName="email" [(ngModel)]="sign.email">
-              <mat-error *ngIf = "signup?.['email']?.errors?.['email'] && submittedsignup">Invalid email</mat-error>
+              <mat-error *ngIf = "signup?.['email']?.errors?.['pattern'] && submittedsignup">Invalid email</mat-error>
               <mat-error *ngIf = "signup?.['email']?.errors?.['required'] && submittedsignup">Required email</mat-error>
               </mat-form-field>
     
@@ -53,18 +55,19 @@
               <mat-error *ngIf = "signup?.['confirmpassword']?.errors?.['passwordMismatch']&& submittedsignup">Mismatched password</mat-error>
             </mat-form-field>
  
-            <mat-dialog-actions>
+            <mat-dialog-actions class="centering">
              <button class="btn" mat-raised-button color="accent">Submit</button>
-             <button class="btn" mat-raised-button color="primary" mat-dialog-close>Close</button>
-            </mat-dialog-actions>
-            <br>
-            <span>Already Registered? <a class="author-user"  mat-button (click) ="oncreate()"><span class="link">Login</span>
+             <!-- <button class="btn" mat-raised-button color="primary" mat-dialog-close>Close</button> -->
+             <br>
+            <span>Already Registered? <a class="author-user" routerLink="/login"><span class="link">Login</span>
             </a></span>
+            </mat-dialog-actions>
+           
             </form>
             
     </mat-card>
 </div>
-
+</div></div>
 
 
 
