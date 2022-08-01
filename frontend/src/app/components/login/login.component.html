@@ -1,3 +1,5 @@
+<div class="id">
+<div class="container">
 <div class=" form1">
     
 <mat-card>
@@ -21,17 +23,18 @@
               Your password must be at least 5 characters long.</mat-error>
              <mat-error *ngIf = "login?.['password']?.errors?.['required'] && submitted">Required password</mat-error>
            </mat-form-field>
-           <mat-dialog-actions>
+           <mat-dialog-actions class="centering">
             <button class="btn" mat-raised-button color="accent">Submit</button>
-            <button class="btn" mat-raised-button color="primary" mat-dialog-close>Close</button>
-          </mat-dialog-actions><br>
+            <br>
           <span>New user? <a class="author-user"  mat-button (click) ="oncreate()"><span class="link">Register Now</span>
           </a></span>
+            <!-- <button class="btn" mat-raised-button color="primary" mat-dialog-close>Close</button> -->
+          </mat-dialog-actions>
            </form>
          </mat-card>
         </div>
-
-
+      </div>
+    </div>
         
 
 

@@ -30,10 +30,10 @@
                     </div>
                     <div class="menu-overlay-left col-6 ml-auto">
                         <div class="two-pops d-flex">
-                            <a class="author-user mr-3"  mat-raised-button (click) ="oncreate()"><span class="fa fa-user-plus"
-                                    aria-hidden="true"></span></a>
+                           <a class="author-user mr-3" routerLink="/signup" mat-raised-button><span class="fa fa-user-plus"
+							aria-hidden="true"></span></a> 
                       
-									<a class="author-user" mat-raised-button (click) ="oncreate2()"><span class="fa fa-user"
+									<a class="author-user" routerLink="/login" mat-raised-button><span class="fa fa-user"
 										aria-hidden="true"></span></a>
 						  
                             <!-- overlay-menuv-menu -->
@@ -177,7 +177,7 @@
     </div>
 </section>
 <!--w3l-banner-slider-main-->
-<section class="w3l-banner-slider-main">
+ <section class="w3l-banner-slider-main">
 	<div class="container">
 		<div class="content-baner-inf">
 			<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
@@ -189,33 +189,58 @@
 				</ol>
 				<div class="carousel-inner">
 					<div class="carousel-item active">
-						<div class="carousel-caption">
-							<h3>A New Report Shows That Fashion Ads Are Still Overwhelmingly White Dresses</h3>
-							<p>Lorem ipsum dolor sit amet,Vestibulum orci justo, vehicula vel sapien sit amet.</p>
-							<div class="date-caption">
-								 20.Dec.2019
+						<div class=" col-lg-12">
+							<div class="maghny-grid">
+								
+									<img class="img-fluid" src="../../../assets/images/sample-img.jpg" alt="">
+									
+										<div>
+											<h4 class="top-text">Man in black jacket and brown hat standing on rock
+												<span>near lake</span></h4>
+											<p>Jan.20.2020 </p>
+										</div>
+	
+									
+								
+							</div>
+						</div>
+						
+					</div>
+					<div class="carousel-item item2">
+						<div class="maghny-gd-1 col-lg-12">
+							<div class="maghny-grid">
+								<figure class="effect-lily">
+									<img class="img-fluid" src="../../../assets/images/sample-img.jpg" alt="">
+									<figcaption class="w3set-hny">
+										<div>
+											<h4 class="top-text">Man in black jacket and brown hat standing on rock
+												<span>near lake</span></h4>
+											<p>Jan.20.2020 </p>
+										</div>
+	
+									</figcaption>
+								</figure>
 							</div>
 						</div>
 					</div>
-					<div class="carousel-item item2">
-							<div class="carousel-caption">
-									<h3>Santorini, Greece white and blue painted buildings near body of water</h3>
-									<p>Lorem ipsum dolor sit amet,Vestibulum orci justo, vehicula vel sapien sit amet.</p>
-									<div class="date-caption">
-										 22.Dec.2019
-										</div>
-								</div>
-					</div>
 					<div class="carousel-item item3">
-							<div class="carousel-caption">
-									<h3>Penguins on snow covered ground,Looking Awesome to see</h3>
-									<p>Lorem ipsum dolor sit amet,Vestibulum orci justo, vehicula vel sapien sit amet.</p>
-									<div class="date-caption">
-											23.Dec.2019
-									</div>
-								</div>
+						<div class="maghny-gd-1 col-lg-12">
+							<div class="maghny-grid">
+								<figure class="effect-lily">
+									<img class="img-fluid" src="../../../assets/images/sample-img.jpg" alt="">
+									<figcaption class="w3set-hny">
+										<div>
+											<h4 class="top-text">Man in black jacket and brown hat standing on rock
+												<span>near lake</span></h4>
+											<p>Jan.20.2020 </p>
+										</div>
+	
+									</figcaption>
+								</figure>
+							</div>
+						</div>
 					</div>
-					<div class="carousel-item item4">
+					<!-- <div class="carousel-item item4">
 							<div class="carousel-caption">
 									<h3>7 Ways Amazon Whole Foods Is Catering to Every Millennial’s Whims</h3>
 									<p>Lorem ipsum dolor sit amet,Vestibulum orci justo, vehicula vel sapien sit amet.</p>
@@ -223,7 +248,7 @@
 											25.Dec.2019
 										</div>
 								</div>
-					</div>
+					</div> -->
 				</div>
 				<a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
 					<span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -239,7 +264,7 @@
 	<script src="assets/js/jquery-3.3.1.min.js"></script>
 	<script src="assets/js/bootstrap.min.js"></script>
 	
-</section>
+</section> 
 <!-- //w3l-banner-slider-main -->
 <section class="w3l-mag-main">
 	<!--/mag-content-->
@@ -264,6 +289,21 @@
 						</div>
 					</div>
 					<div class="maghny-gd-1 col-lg-6">
+						<div class="maghny-grid">
+							<figure class="effect-lily">
+								<img class="img-fluid" src="../../../assets/images/sample-img.jpg" alt="">
+								<figcaption class="w3set-hny">
+									<div>
+										<h4 class="top-text">Man in black jacket and brown hat standing on rock
+											<span>near lake</span></h4>
+										<p>Jan.20.2020 </p>
+									</div>
+
+								</figcaption>
+							</figure>
+						</div>
+					</div>
+					<!-- <div class="maghny-gd-1 col-lg-6">
 						<div class="row">
 							<div class="maghny-gd-1 col-md-6">
 								<div class="maghny-grid">
@@ -313,7 +353,7 @@
 								<a href="#" class="read-more btn mt-3">Read More</a>
 							</div>
 						</div>
-					</div>
+					</div> -->
 				</div>
 			</div>
 			<div class="blog-inner-grids py-md-4 row">
@@ -322,22 +362,22 @@
 					<div class="mag-hny-content">
 						<h3 class="hny-title">Latest <span>Articles</span></h3>
 						<!--/mag-left-grid-1-->
-						<div class="maghny-grids-inf row">
-							<div class="maghny-gd-1 col-lg-4 col-md-6">
-								<div class="maghny-grid">
-									<figure class="effect-lily">
+						<div class=" row">
+							<div class=" col-lg-4 col-md-6">
+								
+									
 										<img class="img-fluid" src="../../../assets/images/sample-img.jpg" alt="">
-										<figcaption>
-											<div>
-												<h4>Man holding camera and woman playing <span>violin</span></h4>
+										
+											<!-- <figure class="img-text-caption">
+												<h4>batch 1 meetup<span></span></h4>
 												<p>Jan.20.2020 </p>
-											</div>
+											</figure> -->
 
-										</figcaption>
-									</figure>
-								</div>
-								<h5><a href="#">
-										There are many variations that focuses on presenting</a></h5>
+										
+									
+								
+								<!-- <h5><a href="#">
+										There are many variations that focuses on presenting</a></h5> -->
 
 								<div class="mag-post-meta mt-3"><a href="#"><img src="../../../assets/images/sample-img.jpg"
 											class="img-fluid rounded-circle admin-img" alt=""></a> <span
@@ -346,21 +386,18 @@
 									<span class="author-date">Jan 5, 2020</span>
 								</div>
 							</div>
-							<div class="maghny-gd-1 col-lg-4 col-md-6">
-								<div class="maghny-grid">
-									<figure class="effect-lily">
+							<div class=" col-lg-4 col-md-6">
+								
+									
 										<img class="img-fluid" src="../../../assets/images/sample-img.jpg" alt="">
-										<figcaption>
-											<div>
-												<h4>Adult beautiful breakfast <span>brunette</span></h4>
-												<p>Jan.20.2020 </p>
-											</div>
+										
+											
 
-										</figcaption>
-									</figure>
-								</div>
-								<h5><a href="#">
-										There are many variations that focuses on presenting</a></h5>
+										
+									
+								
+								<!-- <h5><a href="#">
+										There are many variations that focuses on presenting</a></h5> -->
 
 								<div class="mag-post-meta mt-3"> <a href="#"><img src="../../../assets/images/sample-img.jpg"
 											class="img-fluid rounded-circle admin-img" alt=""></a><span
@@ -369,21 +406,17 @@
 									<span class="author-date">Jan 5, 2020</span>
 								</div>
 							</div>
-							<div class="maghny-gd-1 col-lg-4 col-md-6">
-								<div class="maghny-grid">
-									<figure class="effect-lily">
+							<div class="col-lg-4 col-md-6">
+								
+									
 										<img class="img-fluid" src="../../../assets/images/sample-img.jpg" alt="">
-										<figcaption>
-											<div>
-												<h4>Man in black shorts on <span>boat end</span></h4>
-												<p>Jan.20.2020 </p>
-											</div>
-
-										</figcaption>
-									</figure>
-								</div>
-								<h5><a href="#">
-										There are many variations that focuses on presenting</a></h5>
+										
+											
+										
+									
+								
+								<!-- <h5><a href="#">
+										There are many variations that focuses on presenting</a></h5> -->
 								<div class="mag-post-meta mt-3"><a href="#"><img src="../../../assets/images/sample-img.jpg"
 											class="img-fluid rounded-circle admin-img" alt=""></a> <span
 										class="meta-author"><span>By&nbsp;</span><a href="#" class="author-name"> John
@@ -399,7 +432,7 @@
 						<h3 class="hny-title">About <span>Blog</span></h3>
 						<!--/mag-left-grid-1-->
 						<div class="maghny-grids-inf row">
-							<div class="maghny-gd-1 col-md-6">
+							<!-- <div class="maghny-gd-1 col-md-6">
 								<div class="maghny-grid">
 									<figure class="effect-lily">
 										<img class="img-fluid" src="../../../assets/images/sample-img.jpg" alt="">
@@ -421,9 +454,9 @@
 											Brain</a> </span>
 									<span class="author-date">Jan 5, 2020</span>
 								</div>
-							</div>
-							<div class="maghny-gd-1 col-md-6">
-								<div class="maghny-grid">
+							</div> -->
+							<div class="maghny-gd-1 col-md-12">
+								<!-- <div class="maghny-grid">
 									<figure class="effect-lily">
 										<img class="img-fluid" src="../../../assets/images/sample-img.jpg">
 										<figcaption>
@@ -434,7 +467,7 @@
 
 										</figcaption>
 									</figure>
-								</div>
+								</div> -->
 								<h5><a href="#">
 										There are many variations that focuses on presenting</a></h5>
 								<p>Vivamus a ligula quam. Ut blandit eu leo non suscipit. Duis feugiat tortor sed.</p>
@@ -447,13 +480,10 @@
 							</div>
 						</div>
 						<!--/mag-sub-grids-->
-						<div class="row mng-front-cont mt-5">
+						<!-- <div class="row mng-front-cont mt-5">
 							<div class="mag-small-post col-md-6">
 								<div class="post-item-grid row mb-4">
-									<div class="mag-post-thumb col-4">
-										<a href="#"><img src="../../../assets/images/sample-img.jpg" class="img-fluid" alt=""></a>
-
-									</div>
+									
 									<div class="mag-post-details col-8">
 										<h4 class="mag-post-title">
 											<a href="#">There are many variations that focuses on presenting</a> </h4>
@@ -468,10 +498,7 @@
 
 
 								<div class="post-item-grid row mb-4">
-									<div class="mag-post-thumb col-4">
-										<a href="#"><img src="../../../assets/images/sample-img.jpg" class="img-fluid" alt=""></a>
-
-									</div>
+									
 									<div class="mag-post-details col-8">
 										<h4 class="mag-post-title">
 											<a href="#">There are many variations that focuses on presenting</a>
@@ -487,10 +514,7 @@
 
 
 								<div class="post-item-grid row mb-4">
-									<div class="mag-post-thumb col-4">
-										<a href="#"><img src="../../../assets/images/sample-img.jpg" class="img-fluid" alt=""></a>
-
-									</div>
+									
 									<div class="mag-post-details col-8">
 										<h4 class="mag-post-title">
 											<a href="#">There are many variations that focuses on presenting</a> </h4>
@@ -505,10 +529,7 @@
 
 
 								<div class="post-item-grid row mb-4">
-									<div class="mag-post-thumb col-4">
-										<a href="#"><img src="../../../assets/images/sample-img.jpg" class="img-fluid" alt=""></a>
-
-									</div>
+									
 									<div class="mag-post-details col-8">
 										<h4 class="mag-post-title">
 											<a href="#">There are many variations that focuses on presenting</a>
@@ -526,10 +547,7 @@
 							</div>
 							<div class="mag-small-post col-md-6">
 								<div class="post-item-grid row mb-4">
-									<div class="mag-post-thumb col-4">
-										<a href="#"><img src="../../../assets/images/sample-img.jpg" class="img-fluid" alt=""></a>
-
-									</div>
+									
 									<div class="mag-post-details col-8">
 										<h4 class="mag-post-title">
 											<a href="#">There are many variations that focuses on presenting</a> </h4>
@@ -544,10 +562,7 @@
 
 
 								<div class="post-item-grid row mb-4">
-									<div class="mag-post-thumb col-4">
-										<a href="#"><img src="../../../assets/images/sample-img.jpg" class="img-fluid" alt=""></a>
-
-									</div>
+									
 									<div class="mag-post-details col-8">
 										<h4 class="mag-post-title">
 											<a href="#">There are many variations that focuses on presenting</a>
@@ -563,10 +578,7 @@
 
 
 								<div class="post-item-grid row mb-4">
-									<div class="mag-post-thumb col-4">
-										<a href="#"><img src="../../../assets/images/sample-img.jpg" class="img-fluid" alt=""></a>
-
-									</div>
+									
 									<div class="mag-post-details col-8">
 										<h4 class="mag-post-title">
 											<a href="#">There are many variations that focuses on presenting</a> </h4>
@@ -582,10 +594,7 @@
 
 
 								<div class="post-item-grid row mb-4">
-									<div class="mag-post-thumb col-4">
-										<a href="#"><img src="../../../assets/images/sample-img.jpg" class="img-fluid" alt=""></a>
-
-									</div>
+									
 									<div class="mag-post-details col-8">
 										<h4 class="mag-post-title">
 											<a href="#">There are many variations that focuses on presenting</a>
@@ -599,7 +608,7 @@
 									</div>
 								</div>
 							</div>
-						</div>
+						</div> -->
 						<!--//mag-sub-grids-->
 					</div>
 					<!--//mag-left-grid-2-->
@@ -612,17 +621,17 @@
 								<div class="maghny-grid">
 									<figure class="effect-lily">
 										<img class="img-fluid" src="../../../assets/images/sample-img.jpg">
-										<figcaption>
+										<!-- <figcaption>
 											<div>
 												<h4>Person lying down on white <span>surface</span></h4>
 												<p>Jan.20.2020 </p>
 											</div>
 
-										</figcaption>
+										</figcaption> -->
 									</figure>
 								</div>
-								<h5><a href="#">
-										There are many variations that focuses on presenting</a></h5>
+								<!-- <h5><a href="#">
+										There are many variations that focuses on presenting</a></h5> -->
 
 								<div class="mag-post-meta mt-3"><a href="#"><img src="../../../assets/images/sample-img.jpg"
 											class="img-fluid rounded-circle admin-img" alt=""></a> <span
@@ -635,16 +644,16 @@
 								<div class="maghny-grid">
 									<figure class="effect-lily">
 										<img class="img-fluid" src="../../../assets/images/sample-img.jpg">
-										<figcaption>
+										<!-- <figcaption>
 											<div>
 												<h4>woman near <span>pigeons</span></h4>
 												<p>Jan.20.2020 </p>
 											</div>
 
-										</figcaption>
+										</figcaption> -->
 									</figure>
 								</div>
-								<h5><a href="#">There are many variations that focuses on presenting</a></h5>
+								<!-- <h5><a href="#">There are many variations that focuses on presenting</a></h5> -->
 
 								<div class="mag-post-meta mt-3"><a href="#"><img src="../../../assets/images/sample-img.jpg"
 											class="img-fluid rounded-circle admin-img" alt=""></a> <span
@@ -657,17 +666,17 @@
 								<div class="maghny-grid">
 									<figure class="effect-lily">
 										<img class="img-fluid" src="../../../assets/images/sample-img.jpg">
-										<figcaption>
+										<!-- <figcaption>
 											<div>
 												<h4>Man standing on railroad near <span>plants</span></h4>
 												<p>Jan.20.2020 </p>
 											</div>
 
-										</figcaption>
+										</figcaption> -->
 									</figure>
 								</div>
-								<h5><a href="#">
-										There are many variations that focuses on presenting</a></h5>
+								<!-- <h5><a href="#">
+										There are many variations that focuses on presenting</a></h5> -->
 								<div class="mag-post-meta mt-3"><a href="#"><img src="../../../assets/images/sample-img.jpg"
 											class="img-fluid rounded-circle admin-img" alt=""></a> <span
 										class="meta-author"><span>By&nbsp;</span><a href="#" class="author-name"> John
@@ -733,88 +742,6 @@
 
 				<div class="mag-content-right-hny col-lg-4">
 					<aside>
-						<div class="side-bar-hny-recent mb-5">
-							<h4 class="mag-side-title">Must <span>Read</span></h4>
-							<div class="mag-small-post">
-								<div class="post-item-grid row mb-4">
-									<div class="mag-post-thumb col-4">
-										<a href="#"><img src="../../../assets/images/sample-img.jpg" class="img-fluid" alt=""></a>
-
-									</div>
-									<div class="mag-post-details col-8">
-										<h4 class="mag-post-title">
-											<a href="#">Group of women dancing on stage</a> </h4>
-
-										<div class="mag-post-meta"><span class="meta-author"><span>By&nbsp;</span><a
-													href="#" class="author-name">John Brain</a> </span>
-											<span class="author-date">Jan 5, 2020</span>
-										</div>
-									</div>
-								</div>
-
-
-
-								<div class="post-item-grid row mb-4">
-									<div class="mag-post-thumb col-4">
-										<a href="#"><img src="../../../assets/images/sample-img.jpg" class="img-fluid" alt=""></a>
-
-									</div>
-									<div class="mag-post-details col-8">
-										<h4 class="mag-post-title">
-											<a href="#">Photo of man wearing astronaut suit hanging near cameras</a>
-										</h4>
-
-										<div class="mag-post-meta"><span class="meta-author"><span>By&nbsp;</span><a
-													href="#" class="author-name">John Brain</a> </span>
-											<span class="author-date">Jan 5, 2020</span>
-										</div>
-									</div>
-								</div>
-
-
-
-								<div class="post-item-grid row mb-4">
-									<div class="mag-post-thumb col-4">
-										<a href="#"><img src="../../../assets/images/sample-img.jpg" class="img-fluid" alt=""></a>
-
-									</div>
-									<div class="mag-post-details col-8">
-										<h4 class="mag-post-title">
-											<a href="#">Pancake with chocolate syrup on ceramic plate</a> </h4>
-
-
-										<div class="mag-post-meta"><span class="meta-author"><span>By&nbsp;</span><a
-													href="#" class="author-name">John Brain</a> </span>
-											<span class="author-date">Jan 5, 2020</span>
-										</div>
-									</div>
-								</div>
-
-
-
-								<div class="post-item-grid row mb-4">
-									<div class="mag-post-thumb col-4">
-										<a href="#"><img src="../../../assets/images/sample-img.jpg" class="img-fluid" alt=""></a>
-
-									</div>
-									<div class="mag-post-details col-8">
-										<h4 class="mag-post-title">
-											<a href="#">White and pink petaled flowers on metal fence near
-												concrete</a>
-										</h4>
-
-
-										<div class="mag-post-meta"><span class="meta-author"><span>By&nbsp;</span><a
-													href="#" class="author-name">John Brain</a> </span>
-											<span class="author-date">Jan 5, 2020</span>
-										</div>
-									</div>
-								</div>
-
-
-
-							</div>
-						</div>
 						<div class="side-bar-hny-recent mb-5">
 							<h4 class="mag-side-title">Top <span>Categories</span></h4>
 							<div class="mag-small-post">
@@ -890,14 +817,14 @@
 
 							</div>
 						</div>
-						<div class="side-bar-hny-recent mb-5">
+						<!-- <div class="side-bar-hny-recent mb-5">
 							<div class="mag-small-post">
 								<div class="mag-add-post">
 									<a href="#"><img src="../../../assets/images/sample-img.jpg" alt=""
 											class="img-fluid"></a>
 								</div>
 							</div>
-						</div>
+						</div> -->
 
 						
 						<div class="side-bar-hny-recent mb-5">
@@ -910,7 +837,9 @@
 									</div>
 									<div class="mag-post-details col-9">
 										<h4 class="mag-post-title">
-											<a href="#">There are many variations that focuses on presenting</a>
+											<a href="#"> lorem text
+							
+											</a>
 										</h4>
 
 
@@ -926,7 +855,7 @@
 									</div>
 									<div class="mag-post-details col-9">
 										<h4 class="mag-post-title">
-											<a href="#">There are many variations that focuses on presenting</a>
+											<a href="#">There are many variations </a>
 										</h4>
 
 									</div>
@@ -941,7 +870,7 @@
 									</div>
 									<div class="mag-post-details col-9">
 										<h4 class="mag-post-title">
-											<a href="#">There are many variations that focuses on presenting</a>
+											<a href="#"> focuses on presenting</a>
 										</h4>
 
 									</div>
@@ -956,7 +885,7 @@
 									</div>
 									<div class="mag-post-details col-9">
 										<h4 class="mag-post-title">
-											<a href="#">There are many variations that focuses on presenting</a>
+											<a href="#">There are many variations </a>
 										</h4>
 
 
@@ -972,7 +901,7 @@
 									</div>
 									<div class="mag-post-details col-9">
 										<h4 class="mag-post-title">
-											<a href="#">There are many variations that focuses on presenting</a>
+											<a href="#"> focuses on presenting</a>
 										</h4>
 
 
@@ -980,53 +909,86 @@
 									</div>
 								</div>
 
-								<div class="post-item-grid row mb-4">
-									<div class="mag-post-thumb col-3">
-										<h6 class="num-text">06</h6>
-
-									</div>
-									<div class="mag-post-details col-9">
-										<h4 class="mag-post-title">
-											<a href="#">There are many variations that focuses on presenting</a>
-										</h4>
-
-
-
-									</div>
-								</div>
-
-								<div class="post-item-grid row mb-4">
-									<div class="mag-post-thumb col-3">
-										<h6 class="num-text">07</h6>
-
-									</div>
-									<div class="mag-post-details col-9">
-										<h4 class="mag-post-title">
-											<a href="#">There are many variations that focuses on presenting</a>
-										</h4>
-
-
-
-									</div>
-								</div>
-
-                <div class="post-item-grid row mb-4">
-									<div class="mag-post-thumb col-3">
-										<h6 class="num-text">08</h6>
-
-									</div>
-									<div class="mag-post-details col-9">
-										<h4 class="mag-post-title">
-											<a href="#">There are many variations that focuses on presenting</a>
-										</h4>
-
-
-
-									</div>
+								
+									
+									
 								</div>
 
 							</div>
-						</div>
+
+
+							
+						 <div class="side-bar-hny-recent mb-5">
+							<h4 class="mag-side-title">Must <span>Read</span></h4>
+							<div class="mag-small-post">
+								<div class="post-item-grid row mb-4">
+									
+									<div class="mag-post-details col-8">
+										<h4 class="mag-post-title">
+											<a href="#"> dancing on stage</a> </h4>
+
+										<div class="mag-post-meta"><span class="meta-author"><span>By&nbsp;</span><a
+													href="#" class="author-name">John Brain</a> </span>
+											<span class="author-date">Jan 5, 2020</span>
+										</div>
+									</div>
+								</div>
+
+
+
+								<div class="post-item-grid row mb-4">
+									
+									<div class="mag-post-details col-8">
+										<h4 class="mag-post-title">
+											<a href="#">Photo of man wearing astronaut suit hanging near cameras</a>
+										</h4>
+
+										<div class="mag-post-meta"><span class="meta-author"><span>By&nbsp;</span><a
+													href="#" class="author-name">John Brain</a> </span>
+											<span class="author-date">Jan 5, 2020</span>
+										</div>
+									</div>
+								</div>
+
+
+
+								<div class="post-item-grid row mb-4">
+									
+									<div class="mag-post-details col-8">
+										<h4 class="mag-post-title">
+											<a href="#">Pancake with chocolate syrup on ceramic plate</a> </h4>
+
+
+										<div class="mag-post-meta"><span class="meta-author"><span>By&nbsp;</span><a
+													href="#" class="author-name">John Brain</a> </span>
+											<span class="author-date">Jan 5, 2020</span>
+										</div>
+									</div>
+								</div>
+
+
+
+								<div class="post-item-grid row mb-4">
+									
+									<div class="mag-post-details col-8">
+										<h4 class="mag-post-title">
+											<a href="#">White and pink petaled flowers on metal fence near
+												concrete</a>
+										</h4>
+
+
+										<div class="mag-post-meta"><span class="meta-author"><span>By&nbsp;</span><a
+													href="#" class="author-name">John Brain</a> </span>
+											<span class="author-date">Jan 5, 2020</span>
+										</div>
+									</div>
+								</div>
+
+
+
+							</div>
+						</div> 
+						
 						<!-- <div class="side-bar-hny-recent mb-5">
 							<h4 class="mag-side-title">Recent <span>Comments</span></h4>
 							<div class="mag-small-post">
