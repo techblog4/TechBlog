@@ -3,6 +3,7 @@ const cors = require("cors");
 const jwt =require("jsonwebtoken");
 const signupmongo=require("./src/model/signup");
 const adminmongo =require("./src/model/admin");
+const blogCategoryMongo = require("./src/model/addBlogCategory");
 const app = new express();
 
 app.use(cors());
