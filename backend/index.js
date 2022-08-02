@@ -3,7 +3,7 @@ const cors = require("cors");
 const jwt =require("jsonwebtoken");
 const signupmongo=require("./src/model/signup");
 const adminmongo =require("./src/model/admin");
-const { request } = require("express");
+// const { request } = require("express");
 const app = new express();
 
 app.use(cors());
@@ -39,7 +39,12 @@ post.save(function (err) {
     }
   });
 })
-    //  loginform
+app.post("/addBlogCategory",(req,res)=>{
+     res.header("Access-Control-Allow-Origin","*");
+    res.header("Access-Control-Allow-Headers: Content-Type, Authorization");
+    res.header('Access-Control-Allow-Methods:GET,POST,PATCH,PUT,DELETE,OPTIONS');
+    console.log(req.body);
+    console.log("NOt required");})
 
     app.post("/login",(req,res)=>{
       console.log("admin");

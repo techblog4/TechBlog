@@ -26,6 +26,9 @@ import { AdminBlogCategoryComponent } from './components/admin-blog-category/adm
 import {MatTableModule} from '@angular/material/table';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import {MatTreeModule} from '@angular/material/tree';
+import { AdminApproveBlogComponent } from './components/admin-approve-blog/admin-approve-blog.component';
+import { MatSortModule } from '@angular/material/sort';
+import { AdminChangePasswordComponent } from './components/admin-change-password/admin-change-password.component';
 
 
 
@@ -42,7 +45,8 @@ import {MatTreeModule} from '@angular/material/tree';
     TrainerDashboardComponent,
     AdminBlogListComponent,
     AdminBlogCategoryComponent,
-    
+    AdminApproveBlogComponent,
+    AdminChangePasswordComponent,
   ],
   imports: [
     BrowserModule,
@@ -59,7 +63,8 @@ import {MatTreeModule} from '@angular/material/tree';
     MatListModule,
     MatTableModule,
     MatPaginatorModule,
-    MatTreeModule
+    MatTreeModule,
+    MatSortModule
     
   ],
   providers: [],
