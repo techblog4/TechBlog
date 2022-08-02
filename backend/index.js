@@ -92,7 +92,6 @@ else{
       
   app.post("/addBlogCategory",(req,res)=>{
    res.header("Access-Control-Allow-Origin","*");
-   res.header("Access-Control-Allow-Headers: Content-Type, Authorization");
    res.header('Access-Control-Allow-Methods:GET,POST,PATCH,PUT,DELETE,OPTIONS');
    console.log(req.body);
    console.log("NOt required");})   
