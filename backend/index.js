@@ -38,16 +38,11 @@ post.save(function (err) {
         console.log("error");
     }
   });
-})
-app.post("/addBlogCategory",(req,res)=>{
-     res.header("Access-Control-Allow-Origin","*");
-    res.header("Access-Control-Allow-Headers: Content-Type, Authorization");
-    res.header('Access-Control-Allow-Methods:GET,POST,PATCH,PUT,DELETE,OPTIONS');
-    console.log(req.body);
-    console.log("NOt required");})
+});
+
 
     app.post("/login",(req,res)=>{
-      console.log("admin");
+      
       res.header("Access-Control-Allow-Origin","*");
       res.header("Access-Control-Allow-Headers: Content-Type, application/json");
       res.header("Access-Control-Allow-Headers: Content-Type, Authorization");
@@ -70,20 +65,21 @@ else{
 }
  }
  else{
-  res.status(401).send("password error");
+  res.status(401).send("invalid authorization");
  }
   })
 
+});
 
 
-  // let logindata = req.body;
-      // console.log(logindata.data.email);
-      // adminmail= logindata.data.email;
-      // adminpword= logindata.data.password;
-      // console.log(adminemail);
+  //  let logindata = req.body;
+  //      console.log(logindata.data.email);
+  //      adminmail= logindata.data.email;
+  //      adminpword= logindata.data.password;
+  //      console.log(adminemail);
 
-      // adminmongo.findOne({"adminemail":adminmail , "password":adminpword}).then((data)=>{
-      //   console.log(data)})});
+  //      adminmongo.findOne({"adminemail":adminmail , "password":adminpword}).then((data)=>{
+  //        console.log(data)})});
 
 
       // adminmongo.findOne({
@@ -93,9 +89,13 @@ else{
       //     res.send({status: true , token})}
       //     else{
 
-          })
       
-      
+  app.post("/addBlogCategory",(req,res)=>{
+   res.header("Access-Control-Allow-Origin","*");
+   res.header("Access-Control-Allow-Headers: Content-Type, Authorization");
+   res.header('Access-Control-Allow-Methods:GET,POST,PATCH,PUT,DELETE,OPTIONS');
+   console.log(req.body);
+   console.log("NOt required");})   
       
          
     

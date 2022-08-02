@@ -34,14 +34,14 @@ onsubmitlogin(values:any){
         this.submitted=true;
         //console.log({values});
         
-      this.service.loginadd(this.loginForm)
+      this.service.loginadd(values)
       .subscribe((data)=>{
            var x=JSON.parse(JSON.stringify(data))
           console.log(x);
           if(x.student){
               this.router.navigate(['studenthome']);
           }
-          else if(x.trainer) {
+          else if(x.trainer){
             this.router.navigate(['trainerhome']);
             }
           else{
