@@ -2,12 +2,15 @@
 <div class="container d-flex justify-content-center">
 <div class=" form1">
     <mat-card>
+      <a routerLink="/"><button mat-icon-button aria-label="close mat-card-close" mat-card-close>
+        <mat-icon>home</mat-icon>
+        </button></a> 
       <h1>SignUp</h1>
-        <form [formGroup] ='signupForm'(ngSubmit)= onsubmitsignup(signupForm)>
+        <form [formGroup] ='signupForm'(ngSubmit)= "onsubmitsignup(signupForm.value)">
    
             <mat-form-field appearance="outline">
             <mat-label>Name of user</mat-label>
-            <input matInput placeholder="Enter your name" formControlName="name" [(ngModel)]="sign.name">
+            <input matInput placeholder="Enter your name" formControlName="name">
             <mat-error *ngIf = "signup?.['name']?.errors?.['required'] && submittedsignup">Required  name</mat-error>
           </mat-form-field>
     
@@ -17,10 +20,10 @@
             <mat-error *ngIf = "signup?.['lastname']?.errors?.['required'] && submittedsignup">Required last name</mat-error>
             </mat-form-field> -->   
             
-            <mat-radio-group aria-label="Select an option" formControlName="user" [(ngModel)]="sign.user">
+            <mat-radio-group aria-label="Select an option" formControlName="user">
               <mat-radio-button class="radio" value="student">Student</mat-radio-button>
               <span style="padding-right:3px"></span>
-              <mat-radio-button class="radio" value="trinee">Trainer</mat-radio-button>
+              <mat-radio-button class="radio" value="trainer">Trainer</mat-radio-button>
              <mat-error *ngIf = "signup?.['user']?.errors?.['required'] && submittedsignup">select user</mat-error>
            </mat-radio-group>
  
@@ -28,14 +31,14 @@
  
              <mat-form-field appearance="outline">
               <mat-label>Email</mat-label>
-              <input matInput placeholder="Enter your email" formControlName="email" [(ngModel)]="sign.email">
+              <input matInput placeholder="Enter your email" formControlName="email">
               <mat-error *ngIf = "signup?.['email']?.errors?.['pattern'] && submittedsignup">Invalid email</mat-error>
               <mat-error *ngIf = "signup?.['email']?.errors?.['required'] && submittedsignup">Required email</mat-error>
               </mat-form-field>
     
               <mat-form-field appearance="outline">
               <mat-label>Password</mat-label>
-              <input matInput placeholder="Enter your password" [type]="signuphide?'password':'text'" formControlName="password" [(ngModel)]="sign.password">
+              <input matInput placeholder="Enter your password" [type]="signuphide?'password':'text'" formControlName="password">
               <button mat-icon-button matSuffix (click)="signuphide = !signuphide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="signuphide">
               <mat-icon>{{signuphide ? 'visibility_off' : 'visibility'}}</mat-icon>
               </button>
@@ -56,10 +59,10 @@
             </mat-form-field>
  
             <mat-dialog-actions class="centering">
-             <button class="btn" mat-raised-button color="accent">Submit</button>
+             <button class="btn" mat-raised-button color="accent"[disabled]="!signupForm.valid">Submit</button>
              <!-- <button class="btn" mat-raised-button color="primary" mat-dialog-close>Close</button> -->
              <br>
-            <span>Already Registered? <a class="author-user" routerLink="/login"><span class="link">Login</span>
+            <span>Already Registered? <a class="link" routerLink="/login"><span style="color:crimson;">Login</span>
             </a></span>
             </mat-dialog-actions>
            

@@ -3,6 +3,7 @@ const cors = require("cors");
 const jwt =require("jsonwebtoken");
 const signupmongo=require("./src/model/signup");
 const adminmongo =require("./src/model/admin");
+const { request } = require("express");
 const app = new express();
 
 app.use(cors());
@@ -30,7 +31,7 @@ app.post("/signup",(req,res)=>{
     
 post.save(function (err) {
     if (!err) {
-      res.status(200);
+      res.json({status:true}).status(200);
       
     }
     else{
@@ -43,21 +44,41 @@ post.save(function (err) {
     app.post("/login",(req,res)=>{
       console.log("admin");
       res.header("Access-Control-Allow-Origin","*");
+      res.header("Access-Control-Allow-Headers: Content-Type, application/json");
       res.header("Access-Control-Allow-Headers: Content-Type, Authorization");
       res.header("Access-Control-Allow-Methods:GET,POST,PUT,DELETE");
-      
+    
+      let logindata= {
+              email:req.body.data.email,
+              password:req.body.data.password
+             }
+  signupmongo.findOne({
+        "email":logindata.email
+        },
+function(err,user){
+if(logindata.password==user.password){
+if(user.user=="student"){
+  res.json({student:true}).status(200);
+}
+else{
+  res.json({trainer:true}).status(200); 
+}
+ }
+ else{
+  res.status(401).send("password error");
+ }
+  })
 
-      let logindata = req.body;
-      console.log(logindata.data.email);
-      adminmail= logindata.data.email;
-      adminpword= logindata.data.password;
-      console.log(adminemail);
-
-      adminmongo.findOne({"adminemail":adminmail , "password":adminpword}).then((data)=>{
-        console.log(data)})});
 
 
+  // let logindata = req.body;
+      // console.log(logindata.data.email);
+      // adminmail= logindata.data.email;
+      // adminpword= logindata.data.password;
+      // console.log(adminemail);
 
+      // adminmongo.findOne({"adminemail":adminmail , "password":adminpword}).then((data)=>{
+      //   console.log(data)})});
 
 
       // adminmongo.findOne({
@@ -67,7 +88,7 @@ post.save(function (err) {
       //     res.send({status: true , token})}
       //     else{
 
-      //     }})
+          })
       
       
       

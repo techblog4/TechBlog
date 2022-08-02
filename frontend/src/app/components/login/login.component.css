@@ -33,16 +33,17 @@
   
 }
 
-h3{
+h1{
   text-align: center;
   color: #ff666f;
   
 }
-.link{
+a{
     color: black;
 }
-.link:hover{
+a:hover{
   color: blue;
+  text-decoration: none;
   
 }
 .mat-button {
@@ -68,3 +69,6 @@ h3{
     width: 100%;
     
   }
+
+  
+

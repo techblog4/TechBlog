@@ -42,6 +42,7 @@ import {MatTreeModule} from '@angular/material/tree';
     TrainerDashboardComponent,
     AdminBlogListComponent,
     AdminBlogCategoryComponent,
+    
   ],
   imports: [
     BrowserModule,
