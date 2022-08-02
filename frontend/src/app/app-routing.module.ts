@@ -9,6 +9,9 @@ import { FooterComponent } from './components/footer/footer.component';
 import { HomeComponent } from './components/home/home.component';
 import { LoginComponent } from './components/login/login.component';
 import { SignUpComponent } from './components/sign-up/sign-up.component';
+import { StudentDashboardComponent } from './components/student-dashboard/student-dashboard.component';
+import { TrainerDashboardComponent } from './components/trainer-dashboard/trainer-dashboard.component';
+
  
 
 const routes: Routes = [
@@ -17,14 +20,11 @@ const routes: Routes = [
   {path:'signup',component:SignUpComponent},
   {path:'footer',component:FooterComponent},
   {path:'admin-dashboard',component:AdminDashboardComponent,
-    children: [
-      {path:'admin-blog-list',component:AdminBlogListComponent},
-      {path:'admin-approve-blog',component:AdminApproveBlogComponent},
-      {path:'admin-blog-category',component:AdminBlogCategoryComponent},
-      {path:'admin-change-password',component:AdminChangePasswordComponent}
-    ]
-  }
-  
+    children: [{path:'admin-blog-list',component:AdminBlogListComponent},
+    {path:'admin-blog-category',component:AdminBlogCategoryComponent}]
+  },
+  {path:'studenthome',component:StudentDashboardComponent},
+  {path:'trainerhome',component:TrainerDashboardComponent}
   
   
 ];

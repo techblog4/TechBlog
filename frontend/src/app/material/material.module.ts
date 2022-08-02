@@ -16,6 +16,7 @@ import {MatSelectModule} from '@angular/material/select';
 
 
 
+
 @NgModule({
   declarations: [],
   imports: [
@@ -28,7 +29,8 @@ import {MatSelectModule} from '@angular/material/select';
     MatInputModule,
     MatIconModule,
     MatRadioModule,
-    MatSelectModule
+    MatSelectModule,
+    
   ],
   exports:[
     MatDialogModule,
@@ -39,7 +41,8 @@ import {MatSelectModule} from '@angular/material/select';
     MatInputModule,
     MatIconModule,
     MatRadioModule,
-    MatSelectModule
+    MatSelectModule,
+    
 
   ]
 })
