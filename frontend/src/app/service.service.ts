@@ -16,6 +16,11 @@ export class ServiceService {
  loginadd=(data:any)=>{
    return this.http.post("http://localhost:4001/login",{data});
  }
+ 
+ homeadd(){
+  return this.http.get("http://localhost:4001/home")
+  
+ }
 }
 
 

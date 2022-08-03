@@ -1,1 +1,31 @@
-<p>trainer-dashboard works!</p>
+<div class="home">
+    <div class="container">
+        <form (ngSubmit)="onSubmit()">
+            <h1>Make your posts..</h1>
+          
+            <div>
+              <label for="title">Title :</label>&nbsp;
+              <input [(ngModel)]="model.name" type="text" name="name" id="name">
+            </div>
+            <div>
+                <label for="file">Image/Video :</label>&nbsp;
+                <input [(ngModel)]="model.file" type="file" name="file" id="file">
+              </div>
+            <label for="description">Description :</label>
+            <ckeditor
+              #editor
+              [(ngModel)]="model.description"
+              id="description"
+              name="description"
+            
+
+              >
+            </ckeditor>
+            <br>
+            <button type="submit">Submit</button> 
+        </form>
+</div></div>
+
+
+
+
