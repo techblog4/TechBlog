@@ -89,16 +89,16 @@ else{
 });
 
 
-app.get("/home",(res,req)=>{
-  res.header("Access-Control-Allow-Origin","*"); 
-  res.header("Access-Control-Allow-Methods:GET,POST,PUT,DELETE");
+// app.get("/home",(res,req)=>{
+//   res.header("Access-Control-Allow-Origin","*"); 
+//   res.header("Access-Control-Allow-Methods:GET,POST,PUT,DELETE");
     
-  homemongo.find()
-  .then(function(data){
-    res.send(data)
-})
+// //   homemongo.find()
+// //   .then(function(data){
+// //     res.send(data)
+// // })
     
-  })
+  //})
 
 
 
