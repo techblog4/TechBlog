@@ -29,7 +29,7 @@ import {MatTreeModule} from '@angular/material/tree';
 import { AdminApproveBlogComponent } from './components/admin-approve-blog/admin-approve-blog.component';
 import { MatSortModule } from '@angular/material/sort';
 import { AdminChangePasswordComponent } from './components/admin-change-password/admin-change-password.component';
-
+import { CKEditorModule } from 'ckeditor4-angular';
 
 
 
@@ -64,7 +64,8 @@ import { AdminChangePasswordComponent } from './components/admin-change-password
     MatTableModule,
     MatPaginatorModule,
     MatTreeModule,
-    MatSortModule
+    MatSortModule,
+    CKEditorModule
     
   ],
   providers: [],

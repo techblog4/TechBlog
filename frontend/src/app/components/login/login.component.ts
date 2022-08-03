@@ -45,15 +45,12 @@ onsubmitlogin(values:any){
             this.router.navigate(['trainerhome']);
             }
           else{
-              alert("error");
+              // alert("error");
+               this.router.navigate(['admin-dashboard']);
             }
+          
         });
           
       }   
        
     }
-
-
-      
-     
-

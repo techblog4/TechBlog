@@ -3,7 +3,7 @@ const cors = require("cors");
 const jwt =require("jsonwebtoken");
 const signupmongo=require("./src/model/signup");
 const adminmongo =require("./src/model/admin");
-// const { request } = require("express");
+const homemongo =require("./src/model/home");
 const app = new express();
 
 app.use(cors());
@@ -51,7 +51,7 @@ post.save(function (err) {
       let logindata= {
               email:req.body.data.email,
               password:req.body.data.password
-             }
+          }
   signupmongo.findOne({
         "email":logindata.email
         },
@@ -68,26 +68,41 @@ else{
   res.status(401).send("invalid authorization");
  }
   })
-
+  
+  
+   adminmongo.findOne({
+    "email":logindata.email,
+    "password":logindata.password
+    },
+    function(){
+      
+      if("email"===logindata.email && "password"===logindata.password)
+      {
+        res.send({status: true})
+      }
+      else{
+        res.send({status: false, data:"unauthorised attempt"});
+      }
+     
+    })
+   
 });
 
 
-  //  let logindata = req.body;
-  //      console.log(logindata.data.email);
-  //      adminmail= logindata.data.email;
-  //      adminpword= logindata.data.password;
-  //      console.log(adminemail);
+app.get("/home",(res,req)=>{
+  res.header("Access-Control-Allow-Origin","*"); 
+  res.header("Access-Control-Allow-Methods:GET,POST,PUT,DELETE");
+    
+  homemongo.find()
+  .then(function(data){
+    res.send(data)
+})
+    
+  })
 
-  //      adminmongo.findOne({"adminemail":adminmail , "password":adminpword}).then((data)=>{
-  //        console.log(data)})});
 
 
-      // adminmongo.findOne({
-      // //   if(adminpword==="password" &&adminmail=== "adminemail"){
-      //     let payload = {subject:uname+pword};
-      //     let token = jwt.sign(payload , "secretkey")
-      //     res.send({status: true , token})}
-      //     else{
+
 
       
   app.post("/addBlogCategory",(req,res)=>{
