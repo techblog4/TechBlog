@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { ServiceService } from 'src/app/service.service';
+import { PostserviceService } from 'src/app/postservice.service';
 import { Router } from '@angular/router';
 
 @Component({
@@ -28,7 +28,7 @@ export class StudentDashboardComponent implements OnInit {
         // this.router.navigate(['/'])
   }
 
-  constructor(private service:ServiceService,private router:Router) { }
+  constructor(private service:PostserviceService,private router:Router) { }
 
   ngOnInit(): void {
     
