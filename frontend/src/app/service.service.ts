@@ -21,6 +21,9 @@ export class ServiceService {
   return this.http.get("http://localhost:4001/home")
   
  }
+ useradd(data:any){
+  return this.http.post('http://localhost:4001/add' , {data:data})
+}
 }
 
 

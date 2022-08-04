@@ -9,9 +9,11 @@ export class TrainerDashboardComponent implements OnInit {
   title = 'Title';
   
   public model = {
-      name: '',
-      description: '<p></p>',
-      file:''
+      title: '',
+      description: '',
+      file:'',
+      authorname:'',
+      date:''
     };
     onSubmit() {
       console.log( `Form submit, model: ${ JSON.stringify( this.model ) }` );
