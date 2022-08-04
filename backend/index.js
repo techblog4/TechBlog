@@ -20,8 +20,8 @@ const PORT = process.env.PORT || 4001;
     
 //   homemongo.find()
 //   .then((data)=>{
-//     res.send(data)
-//    });
+//      res.send()
+//     });
     
 //   });
 
