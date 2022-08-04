@@ -4,6 +4,7 @@ const jwt =require("jsonwebtoken");
 const signupmongo=require("./src/model/signup");
 const adminmongo =require("./src/model/admin");
 const homemongo =require("./src/model/home");
+const usermongo=require("./src/model/usermongo");
 const app = new express();
 
 app.use(cors());
@@ -100,6 +101,25 @@ else{
     
   //})
 
+  app.post("/add", (req,res)=>{
+
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Methods: GET, POST, PUT, DELETE");
+
+    console.log(req.body)
+
+   var posts ={
+
+        title:req.body.data.title,
+        file:req.body.data.file,
+        authorname:req.body.data.authorname,
+        description:req.body.data.description,
+        date:req.body.data.date
+}
+    var posters = new usermongo(posts);
+    posters.save();
+
+});
 
 
 
