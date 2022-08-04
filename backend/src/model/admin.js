@@ -3,7 +3,7 @@ mongoose.connect("mongodb+srv://TechBlog:akjs1234@techblogcluster.iqvwdiy.mongod
 const schema =mongoose.Schema;
 const adminschema = new schema({
     adminemail:String,
-    password:String,
+    adminpassword:String,
     
 });
 var adminmongo =mongoose.model("admins",adminschema);

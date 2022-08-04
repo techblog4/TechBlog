@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import {MatDialog} from '@angular/material/dialog';
-import { MatDialogConfig } from '@angular/material/dialog';
-import { SignUpComponent } from '../sign-up/sign-up.component';
-import { LoginComponent } from '../login/login.component';
+// import { homeModel } from './homemodel';
+import { PostserviceService } from 'src/app/postservice.service';
+import { homeModel } from './homemodel';
+
 
 @Component({
   selector: 'app-home',
@@ -10,27 +10,15 @@ import { LoginComponent } from '../login/login.component';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
+img:homeModel[]|any;
+  constructor(private postserve:PostserviceService) { }
 
-  constructor(private MatDialog:MatDialog) { }
-
+ngOnInit(): void { 
+this.postserve.homeadd().subscribe((data)=>{
+   this.img= JSON.parse(JSON.stringify(data));
+   console.log(data);
   
-  
-oncreate(){
-  const dialogconfig=new MatDialogConfig();
-  dialogconfig.disableClose=true;
-  dialogconfig.autoFocus=true;
-  dialogconfig.width="40%";
-  
-  this.MatDialog.open(SignUpComponent,dialogconfig);
-}
-oncreate2(){
-  const dialogconfig=new MatDialogConfig();
-  dialogconfig.disableClose=true;
-  dialogconfig.autoFocus=true;
-  dialogconfig.width="40%";
-  
-  this.MatDialog.open(LoginComponent,dialogconfig);
-}
-ngOnInit(): void {  }
+})
+ }
  }
 

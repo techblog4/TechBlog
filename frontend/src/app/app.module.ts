@@ -29,8 +29,9 @@ import {MatTreeModule} from '@angular/material/tree';
 import { AdminApproveBlogComponent } from './components/admin-approve-blog/admin-approve-blog.component';
 import { MatSortModule } from '@angular/material/sort';
 import { AdminChangePasswordComponent } from './components/admin-change-password/admin-change-password.component';
-
-
+import { CKEditorModule } from 'ckeditor4-angular';
+import { PostserviceService } from './postservice.service';
+import { ServiceService } from './service.service';
 
 
 @NgModule({
@@ -64,12 +65,13 @@ import { AdminChangePasswordComponent } from './components/admin-change-password
     MatTableModule,
     MatPaginatorModule,
     MatTreeModule,
-    MatSortModule
+    MatSortModule,
+    CKEditorModule
     
   ],
-  providers: [],
+  providers: [PostserviceService,ServiceService],
   bootstrap: [AppComponent],
-  entryComponents:[SignUpComponent,LoginComponent]
+  // entryComponents:[SignUpComponent,LoginComponent]
   
 })
 export class AppModule { }

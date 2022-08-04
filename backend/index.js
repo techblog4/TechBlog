@@ -5,6 +5,8 @@ const signupmongo=require("./src/model/signup");
 const adminmongo =require("./src/model/admin");
 const blogcategorymongo = require("./src/model/addBlogCategory");
 // const { request } = require("express");
+const homemongo =require("./src/model/home");
+const usermongo=require("./src/model/usermongo");
 const app = new express();
 
 app.use(cors());
@@ -12,6 +14,18 @@ app.use(express.json());
 app.use(express.urlencoded({extended:true}));
 const PORT = process.env.PORT || 4001;
 
+
+
+// app.get("/home",(req,res)=>{
+//   res.header("Access-Control-Allow-Origin","*"); 
+//   res.header("Access-Control-Allow-Methods:GET,POST,PUT,DELETE");
+    
+//   homemongo.find()
+//   .then((data)=>{
+//      res.send()
+//     });
+    
+//   });
 
 app.post("/signup",(req,res)=>{
      res.header("Access-Control-Allow-Origin","*");
@@ -52,16 +66,17 @@ post.save(function (err) {
       let logindata= {
               email:req.body.data.email,
               password:req.body.data.password
-             }
+          }
   signupmongo.findOne({
         "email":logindata.email
         },
+        
 function(err,user){
 if(logindata.password==user.password){
 if(user.user=="student"){
   res.json({student:true}).status(200);
 }
-else{
+else {
   res.json({trainer:true}).status(200); 
 }
  }
@@ -69,6 +84,46 @@ else{
   res.status(401).send("invalid authorization");
  }
   })
+  
+  
+//    adminmongo.findOne({
+//     "email":logindata.email,
+//     "password":logindata.password
+//     },
+//     function(){
+      
+//       if("email"===logindata.email && "password"===logindata.password)
+//       {
+//         res.send({status: true})
+//       }
+//       else{
+//         res.send({status: false, data:"unauthorised attempt"});
+//       }
+     
+//     })
+   
+ });
+
+
+
+
+  app.post("/addpost", (req,res)=>{
+
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Methods: GET, POST, PUT, DELETE");
+
+    console.log(req.body)
+
+   var posts ={
+
+        title:req.body.data.title,
+        file:req.body.data.file,
+        authorname:req.body.data.authorname,
+        description:req.body.data.description,
+        date:req.body.data.date
+}
+    var posters = new usermongo(posts);
+    posters.save();
 
 });
 
@@ -93,21 +148,29 @@ blogCategoryDB.save(function (err) {
 });
 });
 
-const updateBlog = async (req, res) => {
-  try {
-    const blog = await Blog.findById(req.params.id);
+// const getBlogs = async (req, res) => {
+//   try {
+//     const blogs = await Blog.find();
+//     res.status(200).json(blogs);
+//   } catch {
+//     res.status(400);
+//     res.send({ error: "Unable to get all blogs!" });
+//   }
+// };
 
-    if (req.body.title) blog.title = req.body.title;
+// app.get("/getAllBlogs",(req,res)=>{
+//   usermongo.find()
+// });
+app.get("/getAllBlogs",(req,res)=>{
+  res.header("Access-Control-Allow-Origin","*"); 
+  res.header("Access-Control-Allow-Methods:GET,POST,PUT,DELETE");
+  usermongo.find().then((data)=>{
+     console.log(data);
+     res.send(data);
+    });
+    
+  });
 
-    if (req.body.blogBody) blog.blogBody = req.body.blogBody;
-
-    await blog.save();
-    res.send(blog);
-  } catch {
-    res.status(404);
-    res.send({ error: "Blog doesn't exist!" });
-  }
-};
 
   //  let logindata = req.body;
   //      console.log(logindata.data.email);
@@ -115,16 +178,6 @@ const updateBlog = async (req, res) => {
   //      adminpword= logindata.data.password;
   //      console.log(adminemail);
 
-  //      adminmongo.findOne({"adminemail":adminmail , "password":adminpword}).then((data)=>{
-  //        console.log(data)})});
-
-
-      // adminmongo.findOne({
-      // //   if(adminpword==="password" &&adminmail=== "adminemail"){
-      //     let payload = {subject:uname+pword};
-      //     let token = jwt.sign(payload , "secretkey")
-      //     res.send({status: true , token})}
-      //     else{
 
       
  
