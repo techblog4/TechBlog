@@ -20,8 +20,11 @@ const routes: Routes = [
   {path:'signup',component:SignUpComponent},
   {path:'footer',component:FooterComponent},
   {path:'admin-dashboard',component:AdminDashboardComponent,
-    children: [{path:'admin-blog-list',component:AdminBlogListComponent},
-    {path:'admin-blog-category',component:AdminBlogCategoryComponent}]
+    children: [
+      {path:'admin-blog-list',component:AdminBlogListComponent},
+      {path:'admin-blog-category',component:AdminBlogCategoryComponent},
+      {path:'admin-approve-blog',component:AdminApproveBlogComponent}
+    ]
   },
   {path:'studenthome',component:StudentDashboardComponent},
   {path:'trainerhome',component:TrainerDashboardComponent}

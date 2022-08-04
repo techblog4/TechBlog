@@ -10,6 +10,8 @@ import {MatInputModule} from '@angular/material/input';
 import {MatIconModule} from '@angular/material/icon';
 import {MatRadioModule} from '@angular/material/radio';
 import {MatSelectModule} from '@angular/material/select';
+import {MatChipsModule} from '@angular/material/chips';
+
 
 
 
@@ -42,7 +44,7 @@ import {MatSelectModule} from '@angular/material/select';
     MatIconModule,
     MatRadioModule,
     MatSelectModule,
-    
+    MatChipsModule
 
   ]
 })
