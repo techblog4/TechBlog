@@ -30,7 +30,8 @@ import { AdminApproveBlogComponent } from './components/admin-approve-blog/admin
 import { MatSortModule } from '@angular/material/sort';
 import { AdminChangePasswordComponent } from './components/admin-change-password/admin-change-password.component';
 import { CKEditorModule } from 'ckeditor4-angular';
-
+import { PostserviceService } from './postservice.service';
+import { ServiceService } from './service.service';
 
 
 @NgModule({
@@ -68,9 +69,9 @@ import { CKEditorModule } from 'ckeditor4-angular';
     CKEditorModule
     
   ],
-  providers: [],
+  providers: [PostserviceService,ServiceService],
   bootstrap: [AppComponent],
-  entryComponents:[SignUpComponent,LoginComponent]
+  // entryComponents:[SignUpComponent,LoginComponent]
   
 })
 export class AppModule { }

@@ -13,6 +13,18 @@ app.use(express.urlencoded({extended:true}));
 const PORT = process.env.PORT || 4001;
 
 
+
+// app.get("/home",(res,req)=>{
+//   res.header("Access-Control-Allow-Origin","*"); 
+//   res.header("Access-Control-Allow-Methods:GET,POST,PUT,DELETE");
+    
+//   homemongo.find()
+//   .then((data)=>{
+//     res.send(data)
+//    });
+    
+//   });
+
 app.post("/signup",(req,res)=>{
      res.header("Access-Control-Allow-Origin","*");
     res.header("Access-Control-Allow-Headers: Content-Type, application/json");
@@ -91,18 +103,9 @@ else {
  });
 
 
-// app.get("/home",(res,req)=>{
-//   res.header("Access-Control-Allow-Origin","*"); 
-//   res.header("Access-Control-Allow-Methods:GET,POST,PUT,DELETE");
-    
-// //   homemongo.find()
-// //   .then(function(data){
-// //     res.send(data)
-// // })
-    
-  //})
 
-  app.post("/add", (req,res)=>{
+
+  app.post("/addpost", (req,res)=>{
 
     res.header("Access-Control-Allow-Origin", "*");
     res.header("Access-Control-Allow-Methods: GET, POST, PUT, DELETE");
