@@ -46,14 +46,11 @@ onsubmitlogin(values:any){
             }
           else{
               alert("error");
+              //  this.router.navigate(['admin-dashboard']);
             }
+          
         });
           
       }   
        
     }
-
-
-      
-     
-
