@@ -3,6 +3,7 @@ const cors = require("cors");
 const jwt =require("jsonwebtoken");
 const signupmongo=require("./src/model/signup");
 const adminmongo =require("./src/model/admin");
+const blogcategorymongo = require("./src/model/addBlogCategory");
 // const { request } = require("express");
 const app = new express();
 
@@ -72,6 +73,42 @@ else{
 });
 
 
+app.post("/addblogcategory",(req,res)=>{
+  res.header("Access-Control-Allow-Origin","*");
+ res.header("Access-Control-Allow-Headers: Content-Type, application/json");
+ res.header("Access-Control-Allow-Methods:GET,POST,PATCH,PUT,DELETE,OPTIONS");
+ console.log(req.body);
+ var blogCategory = {
+     blogCategory:req.body.item.blogCategory
+ }
+var blogCategoryDB = new blogcategorymongo(blogCategory)
+blogCategoryDB.save(function (err) {
+ if (!err) {
+   res.json({status:true}).status(200);
+   
+ }
+ else{
+     console.log("error");
+ }
+});
+});
+
+const updateBlog = async (req, res) => {
+  try {
+    const blog = await Blog.findById(req.params.id);
+
+    if (req.body.title) blog.title = req.body.title;
+
+    if (req.body.blogBody) blog.blogBody = req.body.blogBody;
+
+    await blog.save();
+    res.send(blog);
+  } catch {
+    res.status(404);
+    res.send({ error: "Blog doesn't exist!" });
+  }
+};
+
   //  let logindata = req.body;
   //      console.log(logindata.data.email);
   //      adminmail= logindata.data.email;
@@ -90,18 +127,8 @@ else{
       //     else{
 
       
-  app.post("/addBlogCategory",(req,res)=>{
-   res.header("Access-Control-Allow-Origin","*");
-   res.header("Access-Control-Allow-Headers: Content-Type, Authorization");
-   res.header('Access-Control-Allow-Methods:GET,POST,PATCH,PUT,DELETE,OPTIONS');
-   console.log(req.body);
-   console.log("NOt required");})   
-      
-         
-    
-      
-      
-  
+ 
+
 app.listen(PORT,()=>{
     console.log("server is running");
 });
