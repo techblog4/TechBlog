@@ -56,12 +56,13 @@ post.save(function (err) {
   signupmongo.findOne({
         "email":logindata.email
         },
+        
 function(err,user){
 if(logindata.password==user.password){
 if(user.user=="student"){
   res.json({student:true}).status(200);
 }
-else{
+else {
   res.json({trainer:true}).status(200); 
 }
  }
@@ -71,23 +72,23 @@ else{
   })
   
   
-   adminmongo.findOne({
-    "email":logindata.email,
-    "password":logindata.password
-    },
-    function(){
+//    adminmongo.findOne({
+//     "email":logindata.email,
+//     "password":logindata.password
+//     },
+//     function(){
       
-      if("email"===logindata.email && "password"===logindata.password)
-      {
-        res.send({status: true})
-      }
-      else{
-        res.send({status: false, data:"unauthorised attempt"});
-      }
+//       if("email"===logindata.email && "password"===logindata.password)
+//       {
+//         res.send({status: true})
+//       }
+//       else{
+//         res.send({status: false, data:"unauthorised attempt"});
+//       }
      
-    })
+//     })
    
-});
+ });
 
 
 // app.get("/home",(res,req)=>{
@@ -129,7 +130,7 @@ else{
    res.header("Access-Control-Allow-Origin","*");
    res.header('Access-Control-Allow-Methods:GET,POST,PATCH,PUT,DELETE,OPTIONS');
    console.log(req.body);
-   console.log("NOt required");})   
+   console.log("NOt required");});   
       
          
     
