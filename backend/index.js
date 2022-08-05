@@ -1,4 +1,4 @@
-const express=require("express");
+const express = require("express");
 const cors = require("cors");
 const jwt =require("jsonwebtoken");
 const signupmongo=require("./src/model/signup");
