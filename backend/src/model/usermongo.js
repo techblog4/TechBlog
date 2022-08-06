@@ -4,7 +4,14 @@ const schema =mongoose.Schema;
 const userschema = new schema({
     title:String,
     file:String,
+
+    authorname:String,
+
+
     description:String,
+
+    description:String,    
+
     date1:String,
     isVerified:String
     

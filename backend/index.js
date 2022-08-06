@@ -16,7 +16,6 @@ const PORT = process.env.PORT || 4001;
 
 
 
-
 app.get("/home",(req,res)=>{
   res.header("Access-Control-Allow-Origin","*"); 
   res.header("Access-Control-Allow-Methods:GET,POST,PUT,DELETE");
@@ -127,6 +126,14 @@ app.post("/addpost", (req,res)=>{
         isVerified:'0',
         date1:new Date()
 
+
+
+
+
+
+
+
+
 }
     var posters = new usermongo(posts);
     posters.save();
@@ -154,23 +161,20 @@ blogCategoryDB.save(function (err) {
 });
 });
 
-// const getBlogs = async (req, res) => {
-//   try {
-//     const blogs = await Blog.find();
-//     res.status(200).json(blogs);
-//   } catch {
-//     res.status(400);
-//     res.send({ error: "Unable to get all blogs!" });
-//   }
-// };
 
-// app.get("/getAllBlogs",(req,res)=>{
-//   usermongo.find()
-// });
 app.get("/getAllBlogs",(req,res)=>{
   res.header("Access-Control-Allow-Origin","*"); 
   res.header("Access-Control-Allow-Methods:GET,POST,PUT,DELETE");
   usermongo.find().then((data)=>{
+     console.log(data);
+     res.send(data);
+    });
+    
+  });
+app.get("/getBlogById",(req,res)=>{
+  res.header("Access-Control-Allow-Origin","*"); 
+  res.header("Access-Control-Allow-Methods:GET,POST,PUT,DELETE");
+  usermongo.findById(req.params._id).then((data)=>{
      console.log(data);
      res.send(data);
     });
