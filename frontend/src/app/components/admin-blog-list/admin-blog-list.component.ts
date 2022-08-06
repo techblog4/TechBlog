@@ -96,8 +96,8 @@ ngOnInit() {
       console.log(res);
       this.Blogs = res;
       // this.time = this.Blogs._id.getTimestamp();
-      console.log(this.Blogs._id.getTimestamp());
-      alert(this.time);
+      // console.log(this.Blogs._id.getTimestamp());
+      // alert(this.time);
       this.length1 = this.Blogs.length;
       
       // id: id.toString();
