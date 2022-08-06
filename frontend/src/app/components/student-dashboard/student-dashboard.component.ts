@@ -15,7 +15,7 @@ export class StudentDashboardComponent implements OnInit {
       title: '',
       description: '',
       file:'',
-      authorname:'',
+      
       
     };
     onSubmit() {

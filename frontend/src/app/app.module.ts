@@ -31,11 +31,15 @@ import { CKEditorModule } from 'ckeditor4-angular';
 import { PostserviceService } from './postservice.service';
 import { ServiceService } from './service.service';
 import { AdminSingleBlogPageComponent } from './components/admin-single-blog-page/admin-single-blog-page.component';
-import { SinglepageComponent } from './singlepage/singlepage.component';
-import { SinglepagerightComponent } from './singlepageright/singlepageright.component';
+
 import { StudentNavbarComponent } from './components/student-navbar/student-navbar.component';
 import { StudentDashboardComponent } from './components/student-dashboard/student-dashboard.component';
 import { StudentViewblogsComponent } from './components/student-viewblogs/student-viewblogs.component';
+import { TrainerNavbarComponent } from './components/trainer-navbar/trainer-navbar.component';
+import { TrainerviewblogsComponent } from './components/trainerviewblogs/trainerviewblogs.component';
+import { SinglepageComponent } from './components/singlepage/singlepage.component';
+import { CategorylistComponent } from './components/categorylist/categorylist.component';
+import { InnerfooterComponent } from './components/innerfooter/innerfooter.component';
 
 @NgModule({
   declarations: [
@@ -52,11 +56,15 @@ import { StudentViewblogsComponent } from './components/student-viewblogs/studen
     AdminApproveBlogComponent,
     AdminChangePasswordComponent,
     AdminSingleBlogPageComponent,
-    SinglepageComponent,
-    SinglepagerightComponent,
+   
     StudentNavbarComponent,
     StudentDashboardComponent,
-    StudentViewblogsComponent
+    StudentViewblogsComponent,
+    TrainerNavbarComponent,
+    TrainerviewblogsComponent,
+    SinglepageComponent,
+    CategorylistComponent,
+    InnerfooterComponent
   ],
   imports: [
     BrowserModule,
