@@ -123,7 +123,7 @@ app.post("/addpost", (req,res)=>{
         file:req.body.data.file,
         authorname:req.body.data.authorname,
         description:req.body.data.description,
-        date:req.body.data.date
+       
 }
     var posters = new usermongo(posts);
     posters.save();
