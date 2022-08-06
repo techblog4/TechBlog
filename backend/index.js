@@ -125,6 +125,9 @@ app.post("/addpost", (req,res)=>{
         file:req.body.data.file,
         authorname:req.body.data.authorname,
         description:req.body.data.description,
+        isVerified:'0',
+        date1:new Date()
+
 }
     var posters = new usermongo(posts);
     posters.save();
@@ -173,12 +176,7 @@ app.get("/getBlogById",(req,res)=>{
   });
 
 
-  //  let logindata = req.body;
-  //      console.log(logindata.data.email);
-  //      adminmail= logindata.data.email;
-  //      adminpword= logindata.data.password;
-  //      console.log(adminemail);
-
+  
 
       
  

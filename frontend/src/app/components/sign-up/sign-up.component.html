@@ -14,11 +14,7 @@
             <mat-error *ngIf = "signup?.['name']?.errors?.['required'] && submittedsignup">Required  name</mat-error>
           </mat-form-field>
     
-            <!-- <mat-form-field appearance="outline">
-            <mat-label>Lastname</mat-label>
-            <input matInput placeholder="Enter your name" formControlName="lastname">
-            <mat-error *ngIf = "signup?.['lastname']?.errors?.['required'] && submittedsignup">Required last name</mat-error>
-            </mat-form-field> -->   
+               
             
             <mat-radio-group aria-label="Select an option" formControlName="user">
               <mat-radio-button class="radio" value="student">Student</mat-radio-button>
@@ -60,7 +56,7 @@
  
             <mat-dialog-actions class="centering">
              <button class="btn" mat-raised-button color="accent"[disabled]="!signupForm.valid">Submit</button>
-             <!-- <button class="btn" mat-raised-button color="primary" mat-dialog-close>Close</button> -->
+             
              <br>
             <span>Already Registered? <a class="link" routerLink="/login"><span style="color:crimson;">Login</span>
             </a></span>
