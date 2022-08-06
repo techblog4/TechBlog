@@ -1,9 +1,9 @@
 <div class="form">
 <h2>Categories</h2>
-<form [formGroup] ='categoryForm' (ngSubmit)= oncategorysubmit(categoryForm)>
+<form [formGroup] ='blogcategoryForm' (ngSubmit)= onsubmitblogcategory(blogcategoryForm.value)>
 <mat-form-field appearance="fill">
   <mat-label>Category Name</mat-label>
-  <input matInput formControlName="blogCategory" [(ngModel)]="categoryModel.blogCategory">
+  <input matInput formControlName="blogCategory">
 </mat-form-field>
 <button class="btn" mat-raised-button color="accent">Submit</button>
 </form>
