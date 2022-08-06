@@ -128,6 +128,11 @@ app.post("/addpost", (req,res)=>{
         isVerified:'0',
         date1:new Date()
 
+
+
+
+
+
 }
     var posters = new usermongo(posts);
     posters.save();
