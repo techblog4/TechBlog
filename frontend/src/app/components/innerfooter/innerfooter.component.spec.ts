@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { SinglepagerightComponent } from './singlepageright.component';
+import { InnerfooterComponent } from './innerfooter.component';
 
-describe('SinglepagerightComponent', () => {
-  let component: SinglepagerightComponent;
-  let fixture: ComponentFixture<SinglepagerightComponent>;
+describe('InnerfooterComponent', () => {
+  let component: InnerfooterComponent;
+  let fixture: ComponentFixture<InnerfooterComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ SinglepagerightComponent ]
+      declarations: [ InnerfooterComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(SinglepagerightComponent);
+    fixture = TestBed.createComponent(InnerfooterComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

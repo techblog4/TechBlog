@@ -46,7 +46,7 @@ onsubmitlogin(values:any){
           }
           else if(x.trainer){
             localStorage.setItem('token',x.token);
-            this.router.navigate(['trainerhome']);
+            this.router.navigate(['trainernavbar']);
             }
           else if(x.admin){
                  localStorage.setItem('token',x.token);
