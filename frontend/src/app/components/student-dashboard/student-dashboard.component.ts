@@ -16,7 +16,7 @@ export class StudentDashboardComponent implements OnInit {
       description: '',
       file:'',
       authorname:'',
-      date:''
+      
     };
     onSubmit() {
       console.log( `Form submit, model: ${ JSON.stringify( this.model ) }` );

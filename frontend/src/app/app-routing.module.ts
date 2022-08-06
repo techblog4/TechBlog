@@ -11,6 +11,8 @@ import { LoginComponent } from './components/login/login.component';
 import { SignUpComponent } from './components/sign-up/sign-up.component';
 import { StudentDashboardComponent } from './components/student-dashboard/student-dashboard.component';
 import { TrainerDashboardComponent } from './components/trainer-dashboard/trainer-dashboard.component';
+import { SinglepageComponent } from './singlepage/singlepage.component';
+import { SinglepagerightComponent } from './singlepageright/singlepageright.component';
 
  
 
@@ -24,7 +26,9 @@ const routes: Routes = [
     {path:'admin-blog-category',component:AdminBlogCategoryComponent}]
   },
   {path:'studenthome',component:StudentDashboardComponent},
-  {path:'trainerhome',component:TrainerDashboardComponent}
+  {path:'trainerhome',component:TrainerDashboardComponent},
+  {path:'singlepage',component:SinglepageComponent,
+children:[]}
   
   
 ];

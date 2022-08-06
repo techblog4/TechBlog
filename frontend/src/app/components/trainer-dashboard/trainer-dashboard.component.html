@@ -1,5 +1,10 @@
 <div class="home">
   <div class="container">
+
+    <a routerLink="/" class="homeicon"><button mat-icon-button aria-label="close mat-card-close" mat-card-close>
+      <mat-icon>home</mat-icon>
+      </button></a> 
+
       <form #form="ngForm" (ngSubmit)="form.valid && onSubmit()">
           <h1 style="color:rgb(233, 17, 17) ;font-size:bold">Make your posts..</h1>
         
@@ -25,12 +30,9 @@
             <label for="authorname">Authuor Name :</label>&nbsp;
             <input type="text" name="auth_name" id="auth_name" required class="form-control" #authorname="ngModel"[(ngModel)]="model.authorname">
           </div>
-          <div>
-            <label for="date">Date :</label>&nbsp;
-            <input type="datetime" name="date" id="date" required class="form-control" #date="ngModel"[(ngModel)]="model.date">
-          </div>
+          
           <br>
-          <button type="submit">Submit</button> 
+          <button type="submit"class="btn btn-info">Submit</button> 
       </form>
 </div></div>
 
