@@ -32,6 +32,8 @@ import { AdminChangePasswordComponent } from './components/admin-change-password
 import { CKEditorModule } from 'ckeditor4-angular';
 import { PostserviceService } from './postservice.service';
 import { ServiceService } from './service.service';
+import { SinglepageComponent } from './singlepage/singlepage.component';
+import { SinglepagerightComponent } from './singlepageright/singlepageright.component';
 
 
 @NgModule({
@@ -48,6 +50,8 @@ import { ServiceService } from './service.service';
     AdminBlogCategoryComponent,
     AdminApproveBlogComponent,
     AdminChangePasswordComponent,
+    SinglepageComponent,
+    SinglepagerightComponent,
   ],
   imports: [
     BrowserModule,

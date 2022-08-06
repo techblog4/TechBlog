@@ -10,7 +10,7 @@ import {MatInputModule} from '@angular/material/input';
 import {MatIconModule} from '@angular/material/icon';
 import {MatRadioModule} from '@angular/material/radio';
 import {MatSelectModule} from '@angular/material/select';
-
+import {MatSidenavModule} from '@angular/material/sidenav';
 
 
 
@@ -30,7 +30,7 @@ import {MatSelectModule} from '@angular/material/select';
     MatIconModule,
     MatRadioModule,
     MatSelectModule,
-    
+    MatSidenavModule
   ],
   exports:[
     MatDialogModule,
@@ -42,7 +42,7 @@ import {MatSelectModule} from '@angular/material/select';
     MatIconModule,
     MatRadioModule,
     MatSelectModule,
-    
+    MatSidenavModule
 
   ]
 })
