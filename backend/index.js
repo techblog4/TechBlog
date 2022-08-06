@@ -14,16 +14,16 @@ const PORT = process.env.PORT || 4001;
 
 
 
-// app.get("/home",(res,req)=>{
-//   res.header("Access-Control-Allow-Origin","*"); 
-//   res.header("Access-Control-Allow-Methods:GET,POST,PUT,DELETE");
+app.get("/home",(req,res)=>{
+  res.header("Access-Control-Allow-Origin","*"); 
+  res.header("Access-Control-Allow-Methods:GET,POST,PUT,DELETE");
     
-//   homemongo.find()
-//   .then((data)=>{
-//      res.send()
-//     });
+  homemongo.find()
+  .then((data)=>{
+     res.send(data)
+    });
     
-//   });
+  });
 
 app.post("/signup",(req,res)=>{
      res.header("Access-Control-Allow-Origin","*");
