@@ -11,6 +11,9 @@ export class PostserviceService {
 homeadd(){
   return this.http.get("http://localhost:4001/home");
 }
+getAllBlogs(){
+  return this.http.get("http://localhost:4001/getAllBlogs");
+}
 useradd(data:any){
   return this.http.post('http://localhost:4001/addpost' , {data:data})
 }

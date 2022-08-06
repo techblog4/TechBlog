@@ -3,6 +3,8 @@ const cors = require("cors");
 const jwt =require("jsonwebtoken");
 const signupmongo=require("./src/model/signup");
 const adminmongo =require("./src/model/admin");
+const blogcategorymongo = require("./src/model/addBlogCategory");
+// const { request } = require("express");
 const homemongo =require("./src/model/home");
 const usermongo=require("./src/model/usermongo");
 const app = new express();
@@ -11,6 +13,7 @@ app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({extended:true}));
 const PORT = process.env.PORT || 4001;
+
 
 
 
@@ -123,7 +126,8 @@ app.post("/addpost", (req,res)=>{
         file:req.body.data.file,
         authorname:req.body.data.authorname,
         description:req.body.data.description,
-        date:req.body.data.date
+        date:req.body.data.date,
+        date1:new Date("<YYYY-mm-dd>")
 }
     var posters = new usermongo(posts);
     posters.save();
@@ -131,20 +135,60 @@ app.post("/addpost", (req,res)=>{
 });
 
 
+app.post("/addblogcategory",(req,res)=>{
+  res.header("Access-Control-Allow-Origin","*");
+ res.header("Access-Control-Allow-Headers: Content-Type, application/json");
+ res.header("Access-Control-Allow-Methods:GET,POST,PATCH,PUT,DELETE,OPTIONS");
+ console.log(req.body);
+ var blogCategory = {
+     blogCategory:req.body.item.blogCategory
+ }
+var blogCategoryDB = new blogcategorymongo(blogCategory)
+blogCategoryDB.save(function (err) {
+ if (!err) {
+   res.json({status:true}).status(200);
+   
+ }
+ else{
+     console.log("error");
+ }
+});
+});
 
+// const getBlogs = async (req, res) => {
+//   try {
+//     const blogs = await Blog.find();
+//     res.status(200).json(blogs);
+//   } catch {
+//     res.status(400);
+//     res.send({ error: "Unable to get all blogs!" });
+//   }
+// };
 
-      
-  app.post("/addBlogCategory",(req,res)=>{
-   res.header("Access-Control-Allow-Origin","*");
-   res.header('Access-Control-Allow-Methods:GET,POST,PATCH,PUT,DELETE,OPTIONS');
-   console.log(req.body);
-   console.log("NOt required");});   
-      
-         
+// app.get("/getAllBlogs",(req,res)=>{
+//   usermongo.find()
+// });
+app.get("/getAllBlogs",(req,res)=>{
+  res.header("Access-Control-Allow-Origin","*"); 
+  res.header("Access-Control-Allow-Methods:GET,POST,PUT,DELETE");
+  usermongo.find().then((data)=>{
+     console.log(data);
+     res.send(data);
+    });
     
+  });
+
+
+  //  let logindata = req.body;
+  //      console.log(logindata.data.email);
+  //      adminmail= logindata.data.email;
+  //      adminpword= logindata.data.password;
+  //      console.log(adminemail);
+
+
       
-      
-  
+ 
+
 app.listen(PORT,()=>{
     console.log("server is running");
 });

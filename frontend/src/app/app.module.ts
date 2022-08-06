@@ -32,6 +32,7 @@ import { AdminChangePasswordComponent } from './components/admin-change-password
 import { CKEditorModule } from 'ckeditor4-angular';
 import { PostserviceService } from './postservice.service';
 import { ServiceService } from './service.service';
+import { AdminSingleBlogPageComponent } from './components/admin-single-blog-page/admin-single-blog-page.component';
 import { SinglepageComponent } from './singlepage/singlepage.component';
 import { SinglepagerightComponent } from './singlepageright/singlepageright.component';
 
@@ -50,6 +51,7 @@ import { SinglepagerightComponent } from './singlepageright/singlepageright.comp
     AdminBlogCategoryComponent,
     AdminApproveBlogComponent,
     AdminChangePasswordComponent,
+    AdminSingleBlogPageComponent,
     SinglepageComponent,
     SinglepagerightComponent,
   ],
