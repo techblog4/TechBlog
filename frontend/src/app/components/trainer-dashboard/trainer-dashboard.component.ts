@@ -24,7 +24,7 @@ export class TrainerDashboardComponent implements OnInit {
           console.log(data);
           
         })
-        // this.router.navigate(['/'])
+       
   }
 
   constructor(private service:PostserviceService,private router:Router) { }

@@ -183,12 +183,7 @@ app.get("/getAllBlogs",(req,res)=>{
   });
 
 
-  //  let logindata = req.body;
-  //      console.log(logindata.data.email);
-  //      adminmail= logindata.data.email;
-  //      adminpword= logindata.data.password;
-  //      console.log(adminemail);
-
+  
 
       
  
