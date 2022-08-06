@@ -5,6 +5,7 @@ import { AdminBlogCategoryComponent } from './components/admin-blog-category/adm
 import { AdminBlogListComponent } from './components/admin-blog-list/admin-blog-list.component';
 import { AdminChangePasswordComponent } from './components/admin-change-password/admin-change-password.component';
 import { AdminDashboardComponent } from './components/admin-dashboard/admin-dashboard.component';
+import { AdminSingleBlogPageComponent } from './components/admin-single-blog-page/admin-single-blog-page.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { HomeComponent } from './components/home/home.component';
 import { LoginComponent } from './components/login/login.component';
@@ -22,8 +23,15 @@ const routes: Routes = [
   {path:'signup',component:SignUpComponent},
   {path:'footer',component:FooterComponent},
   {path:'admin-dashboard',component:AdminDashboardComponent,
-    children: [{path:'admin-blog-list',component:AdminBlogListComponent},
-    {path:'admin-blog-category',component:AdminBlogCategoryComponent}]
+    children: [
+      {path:'admin-blog-list',component:AdminBlogListComponent,
+      children:[
+        {path:'admin-single-blog-page/:_id',component:AdminSingleBlogPageComponent}
+      ]},
+      {path:'admin-blog-category',component:AdminBlogCategoryComponent},
+      {path:'admin-approve-blog',component:AdminApproveBlogComponent},
+    
+    ]
   },
   {path:'studenthome',component:StudentDashboardComponent},
   {path:'trainerhome',component:TrainerDashboardComponent},
