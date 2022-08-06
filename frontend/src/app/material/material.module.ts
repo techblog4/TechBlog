@@ -43,7 +43,7 @@ import {MatSidenavModule} from '@angular/material/sidenav';
     MatIconModule,
     MatRadioModule,
     MatSelectModule,
-    MatChipsModule
+    MatChipsModule,
     MatSidenavModule
 
   ]
