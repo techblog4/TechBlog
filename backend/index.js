@@ -16,16 +16,17 @@ const PORT = process.env.PORT || 4001;
 
 
 
-// app.get("/home",(req,res)=>{
-//   res.header("Access-Control-Allow-Origin","*"); 
-//   res.header("Access-Control-Allow-Methods:GET,POST,PUT,DELETE");
+
+app.get("/home",(req,res)=>{
+  res.header("Access-Control-Allow-Origin","*"); 
+  res.header("Access-Control-Allow-Methods:GET,POST,PUT,DELETE");
     
-//   homemongo.find()
-//   .then((data)=>{
-//      res.send()
-//     });
+  homemongo.find()
+  .then((data)=>{
+     res.send(data)
+    });
     
-//   });
+  });
 
 app.post("/signup",(req,res)=>{
      res.header("Access-Control-Allow-Origin","*");
@@ -40,20 +41,27 @@ app.post("/signup",(req,res)=>{
         password:req.body.item.password,
       
     }
-   var post = new signupmongo(signups)
-//    user.save();
-
-    
-post.save(function (err) {
-    if (!err) {
-      res.json({status:true}).status(200);
-      
-    }
-    else{
-        console.log("error");
-    }
-  });
-});
+    signupmongo.findOne({
+      "email":signups.email
+      },
+      function(err,user){  
+        if(!user){
+              var post = new signupmongo(signups)
+              post.save(function (err) {
+              if (!err) {
+                res.json({status:true}).status(200);
+                
+              }
+              else{
+                  console.log("error");
+              }
+             }); }
+            else
+            {
+              res.json({userexist:true}).status(406);
+            }
+   
+ });});
 
 
     app.post("/login",(req,res)=>{
@@ -72,42 +80,40 @@ post.save(function (err) {
         },
         
 function(err,user){
-if(logindata.password==user.password){
+if(user) {
+  if(logindata.password==user.password){
 if(user.user=="student"){
-  res.json({student:true}).status(200);
+   let payload = {subject:logindata.email+logindata.password}
+   let token =jwt.sign(payload,'secretkey')
+     res.status(200).send({student:true,token});
+  
 }
-else {
-  res.json({trainer:true}).status(200); 
+else if(user.user=="trainer"){
+   let payload = {subject:logindata.email+logindata.password}
+   let token =jwt.sign(payload,'secretkey')
+   res.status(200).send({trainer:true,token});
+  
 }
- }
+else if(user.user=="admin"){
+     let payload = {subject:logindata.email+logindata.password}
+     let token =jwt.sign(payload,'secretkey')
+     res.status(200).send({admin:true,token});
+  
+}
+}
  else{
-  res.status(401).send("invalid authorization");
+  res.json({unathorised:true}).status(401);
  }
-  })
+}
+  else{
+    res.json({unathorised:true}).status(401);
+  }
+});
+});
   
   
-//    adminmongo.findOne({
-//     "email":logindata.email,
-//     "password":logindata.password
-//     },
-//     function(){
-      
-//       if("email"===logindata.email && "password"===logindata.password)
-//       {
-//         res.send({status: true})
-//       }
-//       else{
-//         res.send({status: false, data:"unauthorised attempt"});
-//       }
-     
-//     })
-   
- });
 
-
-
-
-  app.post("/addpost", (req,res)=>{
+app.post("/addpost", (req,res)=>{
 
     res.header("Access-Control-Allow-Origin", "*");
     res.header("Access-Control-Allow-Methods: GET, POST, PUT, DELETE");
