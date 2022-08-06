@@ -126,11 +126,8 @@ app.post("/addpost", (req,res)=>{
         file:req.body.data.file,
         authorname:req.body.data.authorname,
         description:req.body.data.description,
-
-       
-
-        
-        date1:new Date("<YYYY-mm-dd>")
+        isVerified:'0',
+        date1:new Date()
 
 
 
