@@ -120,7 +120,8 @@ else {
         file:req.body.data.file,
         authorname:req.body.data.authorname,
         description:req.body.data.description,
-        date:req.body.data.date
+        date:req.body.data.date,
+        date1:new Date("<YYYY-mm-dd>")
 }
     var posters = new usermongo(posts);
     posters.save();

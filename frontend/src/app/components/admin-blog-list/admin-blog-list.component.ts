@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewChild, AfterViewInit } from '@angular/core';
 // import {MatPaginator} from '@angular/material/paginator';
 import {MatTableDataSource} from '@angular/material/table';
+import { Router } from '@angular/router';
 // import {MatSort} from '@angular/material/sort';
 import { PostserviceService } from 'src/app/postservice.service';
 // import { blogListModel } from './blogListModel';
@@ -59,7 +60,7 @@ export interface UserData {
 
 export class AdminBlogListComponent implements OnInit {
   // blogs:blogListModel[]|any;
-  Books:any=[];
+  Blogs:any=[];
   // length:100;
   pageSize:10;
   pageSizeOptions: number[] = [5, 10, 25, 100];
@@ -69,6 +70,7 @@ export class AdminBlogListComponent implements OnInit {
 
   displayedColumns: string[] = ['id', 'title', 'file', 'authorname','date','actions'];
   dataSource: MatTableDataSource<UserData>;
+  time: any;
 
   // @ViewChild(MatPaginator) paginator: MatPaginator;
   // @ViewChild(MatSort) sort: MatSort;
@@ -92,8 +94,12 @@ ngOnInit() {
     {
       // this.books=JSON.parse(JSON.stringify(data))
       console.log(res);
-      this.Books = res;
-      this.length1 = this.Books.length;
+      this.Blogs = res;
+      // this.time = this.Blogs._id.getTimestamp();
+      console.log(this.Blogs._id.getTimestamp());
+      alert(this.time);
+      this.length1 = this.Blogs.length;
+      
       // id: id.toString();
       // title: name;
       // file: ;

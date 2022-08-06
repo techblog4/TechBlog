@@ -6,7 +6,6 @@ const userschema = new schema({
     file:String,
     authorname:String,
     description:String,
-    date:String
 });
 var usermongo =mongoose.model("useradd",userschema);
 module.exports=usermongo;

@@ -51,16 +51,17 @@
   </thead>
     <tbody>
         <!-- <tr>Hello</tr> -->
-        <tr *ngFor="let book of Books;let i = index; ">
+        <tr *ngFor="let blog of Blogs;let i = index; ">
             <td>{{i+1}}</td>
-            <td>{{book.title}}</td>
-            <td>{{book.file}}</td>
-            <td>{{book.authorname}}</td>
+            <td>{{blog.title}}</td>
+            <td>{{blog.file}}</td>
+            <td>{{blog.authorname}}</td>
             <!-- <td>{{book.description}}</td> -->
-            <td>{{book.date}}</td>
-            <td> <mat-chip-list aria-label="Fish selection">
-              <mat-chip color="accent" selected>View</mat-chip>
-</mat-chip-list>
+            <td>{{blog._id}}</td>
+            <td> 
+              <!-- <mat-chip-list aria-label="Fish selection"> -->
+              <a [routerLink]="['admin-single-blog-page', blog._id]">View</a>
+<!-- </mat-chip-list> -->
 
               <!-- <a class='btn btn-info btn-xs' href="#"><span class="glyphicon glyphicon-edit"></span> Edit</a>
               <a href="#" class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-remove"></span> Del</a> -->
@@ -80,3 +81,4 @@
 </mat-paginator>
 
 </div>
+<router-outlet></router-outlet>
