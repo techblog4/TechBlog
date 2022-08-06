@@ -6,7 +6,8 @@ const userschema = new schema({
     file:String,
     authorname:String,
     description:String,
-    date1:String
+    date1:String,
+    isVerified:String
     
 });
 var usermongo =mongoose.model("useradd",userschema);
