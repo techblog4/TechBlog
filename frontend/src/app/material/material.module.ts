@@ -11,8 +11,7 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatRadioModule} from '@angular/material/radio';
 import {MatSelectModule} from '@angular/material/select';
 import {MatChipsModule} from '@angular/material/chips';
-
-
+import {MatSidenavModule} from '@angular/material/sidenav';
 
 
 
@@ -32,7 +31,7 @@ import {MatChipsModule} from '@angular/material/chips';
     MatIconModule,
     MatRadioModule,
     MatSelectModule,
-    
+    MatSidenavModule
   ],
   exports:[
     MatDialogModule,
@@ -44,7 +43,8 @@ import {MatChipsModule} from '@angular/material/chips';
     MatIconModule,
     MatRadioModule,
     MatSelectModule,
-    MatChipsModule
+    MatChipsModule,
+    MatSidenavModule
 
   ]
 })

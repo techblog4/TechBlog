@@ -56,7 +56,7 @@ get signup(){
   if(x.status){
       this.router.navigate(['login']);
   }else{
-      alert("error");
+      alert("user already exist");
     }
 });
   

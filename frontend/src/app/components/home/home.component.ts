@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 // import { homeModel } from './homemodel';
 import { PostserviceService } from 'src/app/postservice.service';
-import { homeModel } from './homemodel';
+
 
 
 @Component({
@@ -10,7 +10,7 @@ import { homeModel } from './homemodel';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-img:homeModel[]|any;
+img:any;
   constructor(private postserve:PostserviceService) { }
 
 ngOnInit(): void { 

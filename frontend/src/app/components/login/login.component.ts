@@ -35,20 +35,26 @@ onsubmitlogin(values:any){
         //console.log({values});
         
       this.service.loginadd(values)
-      .subscribe((data)=>{
-           var x=JSON.parse(JSON.stringify(data))
+      .subscribe((res)=>{
+          
+           var x=JSON.parse(JSON.stringify(res));
+          
           console.log(x);
           if(x.student){
+              localStorage.setItem('token',x.token);
               this.router.navigate(['studenthome']);
           }
           else if(x.trainer){
+            localStorage.setItem('token',x.token);
             this.router.navigate(['trainerhome']);
             }
-          else{
-              alert("error");
-              //  this.router.navigate(['admin-dashboard']);
+          else if(x.admin){
+                 localStorage.setItem('token',x.token);
+                 this.router.navigate(['admin-dashboard']);
             }
-          
+          else if(x.unathorised){
+            alert("invalid email or password");
+          }
         });
           
       }   

@@ -1,8 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import {MaterialModule} from './material/material.module';
-
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './components/login/login.component';
@@ -33,6 +31,8 @@ import { CKEditorModule } from 'ckeditor4-angular';
 import { PostserviceService } from './postservice.service';
 import { ServiceService } from './service.service';
 import { AdminSingleBlogPageComponent } from './components/admin-single-blog-page/admin-single-blog-page.component';
+import { SinglepageComponent } from './singlepage/singlepage.component';
+import { SinglepagerightComponent } from './singlepageright/singlepageright.component';
 
 
 @NgModule({
@@ -50,6 +50,8 @@ import { AdminSingleBlogPageComponent } from './components/admin-single-blog-pag
     AdminApproveBlogComponent,
     AdminChangePasswordComponent,
     AdminSingleBlogPageComponent,
+    SinglepageComponent,
+    SinglepagerightComponent,
   ],
   imports: [
     BrowserModule,
