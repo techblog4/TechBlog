@@ -14,7 +14,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule} from '@angular/common/http';
 import {MatDialogModule, MatDialogRef} from '@angular/material/dialog';
 import { AdminDashboardComponent } from './components/admin-dashboard/admin-dashboard.component';
-import { StudentDashboardComponent } from './components/student-dashboard/student-dashboard.component';
+
 import { TrainerDashboardComponent } from './components/trainer-dashboard/trainer-dashboard.component';
 import {MatIconModule} from '@angular/material/icon';
 import {MatToolbarModule} from '@angular/material/toolbar';
@@ -35,7 +35,9 @@ import { ServiceService } from './service.service';
 import { AdminSingleBlogPageComponent } from './components/admin-single-blog-page/admin-single-blog-page.component';
 import { SinglepageComponent } from './singlepage/singlepage.component';
 import { SinglepagerightComponent } from './singlepageright/singlepageright.component';
-
+import { StudentNavbarComponent } from './components/student-navbar/student-navbar.component';
+import { StudentDashboardComponent } from './components/student-dashboard/student-dashboard.component';
+import { StudentViewblogsComponent } from './components/student-viewblogs/student-viewblogs.component';
 
 @NgModule({
   declarations: [
@@ -45,7 +47,7 @@ import { SinglepagerightComponent } from './singlepageright/singlepageright.comp
     HomeComponent,
     FooterComponent,
     AdminDashboardComponent,
-    StudentDashboardComponent,
+
     TrainerDashboardComponent,
     AdminBlogListComponent,
     AdminBlogCategoryComponent,
@@ -54,6 +56,9 @@ import { SinglepagerightComponent } from './singlepageright/singlepageright.comp
     AdminSingleBlogPageComponent,
     SinglepageComponent,
     SinglepagerightComponent,
+    StudentNavbarComponent,
+    StudentDashboardComponent,
+    StudentViewblogsComponent
   ],
   imports: [
     BrowserModule,
