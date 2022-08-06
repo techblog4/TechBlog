@@ -129,8 +129,10 @@ app.post("/addpost", (req,res)=>{
 
        
 
-        date:req.body.data.date,
+        
         date1:new Date("<YYYY-mm-dd>")
+
+
 
 }
     var posters = new usermongo(posts);
