@@ -129,8 +129,11 @@ app.post("/addpost", (req,res)=>{
 
        
 
-        date:req.body.data.date,
+        
         date1:new Date("<YYYY-mm-dd>")
+
+
+
 }
     var posters = new usermongo(posts);
     posters.save();
@@ -182,12 +185,7 @@ app.get("/getAllBlogs",(req,res)=>{
   });
 
 
-  //  let logindata = req.body;
-  //      console.log(logindata.data.email);
-  //      adminmail= logindata.data.email;
-  //      adminpword= logindata.data.password;
-  //      console.log(adminemail);
-
+  
 
       
  
