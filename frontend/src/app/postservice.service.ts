@@ -15,6 +15,6 @@ getAllBlogs(){
   return this.http.get("http://localhost:4001/getAllBlogs");
 }
 useradd(data:any){
-  return this.http.post('http://localhost:4001/addpost' , {data:data})
+  return this.http.post<any>('http://localhost:4001/addpost' , {data:data})
 }
 }

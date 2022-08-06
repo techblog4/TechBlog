@@ -126,6 +126,9 @@ app.post("/addpost", (req,res)=>{
         file:req.body.data.file,
         authorname:req.body.data.authorname,
         description:req.body.data.description,
+
+       
+
         date:req.body.data.date,
         date1:new Date("<YYYY-mm-dd>")
 }
