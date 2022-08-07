@@ -13,8 +13,7 @@ export class TrainerDashboardComponent implements OnInit {
   public model = {
       title: '',
       description: '',
-      file:'',
-      authorname:'',
+      file:''
       
     };
     onSubmit() {

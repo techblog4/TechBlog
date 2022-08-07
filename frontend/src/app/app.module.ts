@@ -12,7 +12,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule} from '@angular/common/http';
 import {MatDialogModule, MatDialogRef} from '@angular/material/dialog';
 import { AdminDashboardComponent } from './components/admin-dashboard/admin-dashboard.component';
-import { StudentDashboardComponent } from './components/student-dashboard/student-dashboard.component';
+
 import { TrainerDashboardComponent } from './components/trainer-dashboard/trainer-dashboard.component';
 import {MatIconModule} from '@angular/material/icon';
 import {MatToolbarModule} from '@angular/material/toolbar';
@@ -31,10 +31,19 @@ import { CKEditorModule } from 'ckeditor4-angular';
 import { PostserviceService } from './postservice.service';
 import { ServiceService } from './service.service';
 import { AdminSingleBlogPageComponent } from './components/admin-single-blog-page/admin-single-blog-page.component';
-import { SinglepageComponent } from './singlepage/singlepage.component';
-import { SinglepagerightComponent } from './singlepageright/singlepageright.component';
+// import { SinglepageComponent } from './singlepage/singlepage.component';
+// import { SinglepagerightComponent } from './singlepageright/singlepageright.component';
 import { AdminApproveBlogListComponent } from './components/admin-approve-blog-list/admin-approve-blog-list.component';
 
+
+import { StudentNavbarComponent } from './components/student-navbar/student-navbar.component';
+import { StudentDashboardComponent } from './components/student-dashboard/student-dashboard.component';
+import { StudentViewblogsComponent } from './components/student-viewblogs/student-viewblogs.component';
+import { TrainerNavbarComponent } from './components/trainer-navbar/trainer-navbar.component';
+import { TrainerviewblogsComponent } from './components/trainerviewblogs/trainerviewblogs.component';
+import { SinglepageComponent } from './components/singlepage/singlepage.component';
+import { CategorylistComponent } from './components/categorylist/categorylist.component';
+import { InnerfooterComponent } from './components/innerfooter/innerfooter.component';
 
 @NgModule({
   declarations: [
@@ -44,16 +53,22 @@ import { AdminApproveBlogListComponent } from './components/admin-approve-blog-l
     HomeComponent,
     FooterComponent,
     AdminDashboardComponent,
-    StudentDashboardComponent,
     TrainerDashboardComponent,
     AdminBlogListComponent,
     AdminBlogCategoryComponent,
     AdminApproveBlogComponent,
     AdminChangePasswordComponent,
     AdminSingleBlogPageComponent,
+    StudentNavbarComponent,
+    StudentDashboardComponent,
+    StudentViewblogsComponent,
+    TrainerNavbarComponent,
+    TrainerviewblogsComponent,
     SinglepageComponent,
-    SinglepagerightComponent,
+    // SinglepagerightComponent,
     AdminApproveBlogListComponent,
+    CategorylistComponent,
+    InnerfooterComponent
   ],
   imports: [
     BrowserModule,

@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { SinglepagerightComponent } from './singlepageright.component';
+import { StudentNavbarComponent } from './student-navbar.component';
 
-describe('SinglepagerightComponent', () => {
-  let component: SinglepagerightComponent;
-  let fixture: ComponentFixture<SinglepagerightComponent>;
+describe('StudentNavbarComponent', () => {
+  let component: StudentNavbarComponent;
+  let fixture: ComponentFixture<StudentNavbarComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ SinglepagerightComponent ]
+      declarations: [ StudentNavbarComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(SinglepagerightComponent);
+    fixture = TestBed.createComponent(StudentNavbarComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

@@ -42,11 +42,11 @@ onsubmitlogin(values:any){
           // console.log(x);
           if(x.student){
               localStorage.setItem('token',x.token);
-              this.router.navigate(['studenthome']);
+              this.router.navigate(['studentnavbar']);
           }
           else if(x.trainer){
             localStorage.setItem('token',x.token);
-            this.router.navigate(['trainerhome']);
+            this.router.navigate(['trainernavbar']);
             }
           else if(x.admin){
                  localStorage.setItem('token',x.token);

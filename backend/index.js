@@ -117,16 +117,21 @@ app.post("/addpost", (req,res)=>{
     res.header("Access-Control-Allow-Origin", "*");
     res.header("Access-Control-Allow-Methods: GET, POST, PUT, DELETE");
 
-    // console.log(req.body)
-
    var posts ={
 
         title:req.body.data.title,
         file:req.body.data.file,
-        authorname:req.body.data.authorname,
         description:req.body.data.description,
         isVerified:'0',
         date1:new Date()
+
+
+
+
+
+
+
+
 
 }
     var posters = new usermongo(posts);

@@ -1,9 +1,9 @@
 <div class="home">
   <div class="container">
 
-    <a routerLink="/" class="homeicon"><button mat-icon-button aria-label="close mat-card-close" mat-card-close>
+    <!-- <a routerLink="/" class="homeicon"><button mat-icon-button aria-label="close mat-card-close" mat-card-close>
       <mat-icon>home</mat-icon>
-      </button></a> 
+      </button></a>  -->
 
       <form #form="ngForm" (ngSubmit)="form.valid && onSubmit()">
           <h1 style="color:rgb(233, 17, 17) ;font-size:bold">Make your posts..</h1>
@@ -26,13 +26,10 @@
             [(ngModel)]="model.description"
             >
           </ckeditor>
-          <div>
-            <label for="authorname">Authuor Name :</label>&nbsp;
-            <input type="text" name="auth_name" id="auth_name" required class="form-control" #authorname="ngModel"[(ngModel)]="model.authorname">
-          </div>
+          
           
           <br>
-          <button type="submit"class="btn btn-info">Submit</button> 
+          <button type="submit"class="btn btn-success">Submit</button> 
       </form>
 </div></div>
 
