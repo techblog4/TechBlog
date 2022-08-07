@@ -1,18 +1,7 @@
-<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<!------ Include the above in your HEAD tag ---------->
 
-<head>
-<script src="https://raw.githack.com/creativetimofficial/argon-dashboard/master/assets/vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
-<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.3.1/css/all.min.css" rel="stylesheet">
-</head>
-<body>
   <div class="main-content">
     <div class="container mt-7">
       <!-- Table -->
-      <!-- <h2 class="mb-5">All Blogs</h2> -->
       <div class="row">
 
         <div class="col">
@@ -55,9 +44,7 @@
                     </td>
                     <td class="text-right">
                       <div class="dropdown">
-                        <!-- <a class="btn btn-sm btn-primary text-light" [routerLink]="['admin-single-blog-page', blog._id]" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">View
-                        </a> -->
-                        <button class="btn btn-primary" (click)="btnClick();">View</button>
+                        <button class="btn btn-primary" (click)="btnClick(blog._id);">View</button>
                       </div>
                     </td>
                   </tr>
@@ -94,44 +81,3 @@
       </div>
     </div>
   </div>
-  <router-outlet></router-outlet>
-  
-
-  <script src="https://raw.githack.com/creativetimofficial/argon-dashboard/master/assets/vendor/jquery/dist/jquery.min.js"></script>
-  <script src="https://raw.githack.com/creativetimofficial/argon-dashboard/master/assets/vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-
-</body>
-
-
-<!-- 
-  <div class="container">
-<table>
-  <thead>
-    <th>Sl. No</th>
-    <th>Blog Title</th>
-    <th>Blog File</th>
-    <th>Author Name</th>
-    <th>Date</th>
-    <th>Actions</th>
-  </thead>
-    <tbody>
-        <tr *ngFor="let blog of Blogs;let i = index; ">
-            <td>{{i+1}}</td>
-            <td>{{blog.title}}</td>
-            <td>{{blog.file}}</td>
-            <td>{{blog.authorname}}</td>
-            <td>{{blog._id}}</td>
-            <td> 
-              <a [routerLink]="['admin-single-blog-page', blog._id]">View</a>
-            </td>
-        </tr>
-    </tbody>
-</table>
-<mat-paginator [length]="length1"
-               [pageSize]="pageSize"
-               [pageSizeOptions]="pageSizeOptions"
-               aria-label="Select page">
-</mat-paginator>
-
-</div>
-<router-outlet></router-outlet> -->
