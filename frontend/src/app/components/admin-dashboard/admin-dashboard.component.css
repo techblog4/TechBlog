@@ -48,3 +48,19 @@ mat-toolbar{
 .settings-icon{
   justify-content: space-between;
 }
+.bg-navyblue{
+  background-color:#182D4B;
+}
+.bg-purple{
+  background-color:#9B59B6 ;
+}
+.bg-green{
+  background-color: #1ABC9C;
+}
+.bg-orange{
+  background-color: #EC7063  ;
+}
+.fa-square-plus,.fa-unlock-keyhole,.fa-right-from-bracket,.fa-rectangle-list{
+  font-size: 125px;
+  color: white;
+}
