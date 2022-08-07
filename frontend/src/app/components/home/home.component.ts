@@ -16,7 +16,7 @@ img:any;
 ngOnInit(): void { 
 this.postserve.homeadd().subscribe((data)=>{
    this.img= JSON.parse(JSON.stringify(data));
-   console.log(data);
+  //  console.log(data);
   
 })
  }

@@ -29,10 +29,8 @@ const routes: Routes = [
   {path:'footer',component:FooterComponent},
   {path:'admin-dashboard',component:AdminDashboardComponent,
     children: [
-      {path:'admin-blog-list',component:AdminBlogListComponent,
-      children:[
-        {path:'admin-single-blog-page/:_id',component:AdminSingleBlogPageComponent}
-      ]},
+      {path:'admin-blog-list',component:AdminBlogListComponent,},
+      {path:'admin-single-blog-page/:_id',component:AdminSingleBlogPageComponent},
       {path:'admin-blog-category',component:AdminBlogCategoryComponent},
       {path:'admin-approve-blog',component:AdminApproveBlogComponent},
     

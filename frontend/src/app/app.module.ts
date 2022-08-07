@@ -32,6 +32,7 @@ import { PostserviceService } from './postservice.service';
 import { ServiceService } from './service.service';
 import { AdminSingleBlogPageComponent } from './components/admin-single-blog-page/admin-single-blog-page.component';
 
+
 import { StudentNavbarComponent } from './components/student-navbar/student-navbar.component';
 import { StudentDashboardComponent } from './components/student-dashboard/student-dashboard.component';
 import { StudentViewblogsComponent } from './components/student-viewblogs/student-viewblogs.component';
@@ -49,14 +50,12 @@ import { InnerfooterComponent } from './components/innerfooter/innerfooter.compo
     HomeComponent,
     FooterComponent,
     AdminDashboardComponent,
-
     TrainerDashboardComponent,
     AdminBlogListComponent,
     AdminBlogCategoryComponent,
     AdminApproveBlogComponent,
     AdminChangePasswordComponent,
     AdminSingleBlogPageComponent,
-   
     StudentNavbarComponent,
     StudentDashboardComponent,
     StudentViewblogsComponent,
