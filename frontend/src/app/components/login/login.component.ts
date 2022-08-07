@@ -39,7 +39,7 @@ onsubmitlogin(values:any){
           
            var x=JSON.parse(JSON.stringify(res));
           
-          console.log(x);
+          // console.log(x);
           if(x.student){
               localStorage.setItem('token',x.token);
               this.router.navigate(['studenthome']);
@@ -53,7 +53,7 @@ onsubmitlogin(values:any){
                  this.router.navigate(['admin-dashboard']);
             }
           else if(x.unathorised){
-            alert("invalid email or password");
+            alert("Invalid email or password");
           }
         });
           

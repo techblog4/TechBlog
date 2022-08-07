@@ -33,6 +33,7 @@ import { ServiceService } from './service.service';
 import { AdminSingleBlogPageComponent } from './components/admin-single-blog-page/admin-single-blog-page.component';
 import { SinglepageComponent } from './singlepage/singlepage.component';
 import { SinglepagerightComponent } from './singlepageright/singlepageright.component';
+import { AdminApproveBlogListComponent } from './components/admin-approve-blog-list/admin-approve-blog-list.component';
 
 
 @NgModule({
@@ -52,6 +53,7 @@ import { SinglepagerightComponent } from './singlepageright/singlepageright.comp
     AdminSingleBlogPageComponent,
     SinglepageComponent,
     SinglepagerightComponent,
+    AdminApproveBlogListComponent,
   ],
   imports: [
     BrowserModule,

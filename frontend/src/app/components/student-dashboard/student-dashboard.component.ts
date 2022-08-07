@@ -19,10 +19,10 @@ export class StudentDashboardComponent implements OnInit {
       
     };
     onSubmit() {
-      console.log( `Form submit, model: ${ JSON.stringify( this.model ) }` );
+      // console.log( `Form submit, model: ${ JSON.stringify( this.model ) }` );
       this.service.useradd(this.model)
         .subscribe((data)=>{
-          console.log(data);
+          // console.log(data);
           
         })
         
