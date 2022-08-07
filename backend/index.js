@@ -169,6 +169,14 @@ app.get("/getAllBlogs",(req,res)=>{
     });
     
   });
+app.get("/getNotApprovedBlogs",(req,res)=>{
+  res.header("Access-Control-Allow-Origin","*"); 
+  res.header("Access-Control-Allow-Methods:GET,POST,PUT,DELETE");
+  usermongo.find({$and:[{isVerified:"0"}]}).then((data)=>{
+     res.send(data);
+    });
+    
+  });
 
 app.post("/getBlogById",(req,res)=>{
   res.header("Access-Control-Allow-Origin","*"); 

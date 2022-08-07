@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { AdminApproveBlogListComponent } from './components/admin-approve-blog-list/admin-approve-blog-list.component';
 import { AdminApproveBlogComponent } from './components/admin-approve-blog/admin-approve-blog.component';
 import { AdminBlogCategoryComponent } from './components/admin-blog-category/admin-blog-category.component';
 import { AdminBlogListComponent } from './components/admin-blog-list/admin-blog-list.component';
@@ -31,13 +30,9 @@ const routes: Routes = [
   {path:'admin-dashboard',component:AdminDashboardComponent,
     children: [
       {path:'admin-blog-list',component:AdminBlogListComponent,},
-      {path:'admin-single-blog-page',component:AdminSingleBlogPageComponent},
+      {path:'admin-single-blog-page/:_id',component:AdminSingleBlogPageComponent},
       {path:'admin-blog-category',component:AdminBlogCategoryComponent},
-      {path:'admin-approve-blog',component:AdminApproveBlogComponent,
-      children:[
-        {path:'approveList',component:AdminApproveBlogListComponent}
-      ]
-      },
+      {path:'admin-approve-blog',component:AdminApproveBlogComponent},
     
     ]
   },
