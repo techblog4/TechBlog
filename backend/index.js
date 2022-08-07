@@ -116,7 +116,6 @@ app.post("/addpost", (req,res)=>{
 
     res.header("Access-Control-Allow-Origin", "*");
     res.header("Access-Control-Allow-Methods: GET, POST, PUT, DELETE");
-    console.log(req.body)
 
    var posts ={
 
@@ -166,26 +165,20 @@ app.get("/getAllBlogs",(req,res)=>{
   res.header("Access-Control-Allow-Origin","*"); 
   res.header("Access-Control-Allow-Methods:GET,POST,PUT,DELETE");
   usermongo.find().then((data)=>{
-     console.log(data);
      res.send(data);
     });
     
   });
-app.get("/getBlogById",(req,res)=>{
+
+app.post("/getBlogById",(req,res)=>{
   res.header("Access-Control-Allow-Origin","*"); 
   res.header("Access-Control-Allow-Methods:GET,POST,PUT,DELETE");
-  usermongo.findById(req.params._id).then((data)=>{
-     console.log(data);
+  usermongo.findById(req.body.data).then((data)=>{
      res.send(data);
     });
     
   });
 
-
-  
-
-      
- 
 
 app.listen(PORT,()=>{
     console.log("server is running");

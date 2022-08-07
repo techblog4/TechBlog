@@ -30,14 +30,10 @@ export class AdminBlogCategoryComponent implements OnInit {
   } 
   onsubmitblogcategory(values:any){
     this.submittedblogcategory=true;
-    console.log({values});
     this.service.addblogcategory(values)
     .subscribe((data)=>{
     var x=JSON.parse(JSON.stringify(data))
-    console.log(x);
     if(x.status){
-      // console.log("Success");
-        // this.router.navigate(['admin-blog-category']);
     }else{
         alert("error");
       }

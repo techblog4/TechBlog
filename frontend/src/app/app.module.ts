@@ -31,6 +31,10 @@ import { CKEditorModule } from 'ckeditor4-angular';
 import { PostserviceService } from './postservice.service';
 import { ServiceService } from './service.service';
 import { AdminSingleBlogPageComponent } from './components/admin-single-blog-page/admin-single-blog-page.component';
+// import { SinglepageComponent } from './singlepage/singlepage.component';
+// import { SinglepagerightComponent } from './singlepageright/singlepageright.component';
+import { AdminApproveBlogListComponent } from './components/admin-approve-blog-list/admin-approve-blog-list.component';
+
 
 import { StudentNavbarComponent } from './components/student-navbar/student-navbar.component';
 import { StudentDashboardComponent } from './components/student-dashboard/student-dashboard.component';
@@ -49,20 +53,20 @@ import { InnerfooterComponent } from './components/innerfooter/innerfooter.compo
     HomeComponent,
     FooterComponent,
     AdminDashboardComponent,
-
     TrainerDashboardComponent,
     AdminBlogListComponent,
     AdminBlogCategoryComponent,
     AdminApproveBlogComponent,
     AdminChangePasswordComponent,
     AdminSingleBlogPageComponent,
-   
     StudentNavbarComponent,
     StudentDashboardComponent,
     StudentViewblogsComponent,
     TrainerNavbarComponent,
     TrainerviewblogsComponent,
     SinglepageComponent,
+    // SinglepagerightComponent,
+    AdminApproveBlogListComponent,
     CategorylistComponent,
     InnerfooterComponent
   ],
