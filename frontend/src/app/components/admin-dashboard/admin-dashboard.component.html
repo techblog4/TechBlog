@@ -101,14 +101,15 @@
           </div>
           <div class="main">
             <!-- <router-outlet></router-outlet> -->
-            <div class="container mb-5">
+            <!-- student dashboard html -->
+              <div class="container mb-5">
               <div class="row">
                 <div class="col-md-1"></div>
                 <div class="col-md-5">
                   <div class="card-body text-center bg-orange">
                     <i class="fa-solid fa-square-plus"></i>
                   </div>
-                  <div class="card-footer bg-warning">
+                  <div class="card-footer bg-footer">
                     <h2>create Blog</h2>
                   </div>
                 </div>
@@ -116,7 +117,7 @@
                   <div class="card-body text-center bg-purple">
                     <i class="fa-solid fa-rectangle-list"></i>
                   </div>
-                  <div class="card-footer bg-warning">
+                  <div class="card-footer bg-footer">
                     <h2>View Blogs</h2>
                   </div>
                 </div>
@@ -130,7 +131,7 @@
                   <div class="card-body text-center bg-green">
                     <i class="fa-solid fa-unlock-keyhole "></i>
                   </div>
-                  <div class="card-footer bg-warning">
+                  <div class="card-footer bg-footer">
                     <h2>Change Password</h2>
                   </div>
                 </div>
@@ -138,14 +139,127 @@
                   <div class="card-body text-center bg-navyblue">
                     <i class="fa-solid fa-right-from-bracket"></i>
                   </div>
-                  <div class="card-footer bg-warning">
+                  <div class="card-footer bg-footer">
                     <h2>Logout</h2>
                   </div>
                 </div>
                 <div class="col-md-1"></div>
               </div>
+            </div> 
+            <!-- admin dashboard html -->
+          <div class="container">
+            <div class="row" id="proBanner">
+              <div class="col-12">
+                <span class="align-items-center purchase-popup">
+                  <!-- <i class="mdi mdi-close"  (click)="toggleProBanner($event)"  id="bannerClose"></i> -->
+                </span>
+              </div>
+            </div>
+            <div class="page-header">
+              <h3 class="page-title">
+                <span class="page-title-icon bg-gradient-primary text-white mr-2">
+                  <i class="mdi mdi-home"></i>                 
+                </span>
+                Dashboard
+              </h3>
+              <nav aria-label="breadcrumb">
+                <ul class="breadcrumb">
+                  <li class="breadcrumb-item active" aria-current="page">
+                    <span></span>Overview
+                    <i class="mdi mdi-alert-circle-outline icon-sm text-primary align-middle"></i>
+                  </li>
+                </ul> 
+              </nav>
+            </div>
+            <div class="row">
+              <div class="col-md-4 stretch-card grid-margin">
+                <div class="card bg-gradient-danger card-img-holder text-white">
+                  <div class="card-body bg-1">
+                    <!-- <img src="assets/images/dashboard/circle.svg" class="card-img-absolute" alt="circle-image"/> -->
+                    <i class="fa-solid fa-battery-full"></i>
+                    <h4 class="font-weight-normal mb-3">Total Posts
+                      <i class="mdi mdi-chart-line mdi-24px float-right"></i>
+                    </h4>
+                    <h2 class="mb-5"> 15,0000</h2>
+                    <h6 class="card-text">Increased by 60%</h6>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-4 stretch-card grid-margin">
+                <div class="card bg-gradient-info card-img-holder text-white">
+                  <div class="card-body bg-2">
+                    <!-- <img src="assets/images/dashboard/circle.svg" class="card-img-absolute" alt="circle-image"/>  -->
+                    <i class="fa-solid fa-thumbs-up"></i>
+                    <h4 class="font-weight-normal mb-3">Approved posts
+                      <i class="mdi mdi-bookmark-outline mdi-24px float-right"></i>
+                    </h4>
+                    <h2 class="mb-5">45,6334</h2>
+                    <h6 class="card-text">Decreased by 10%</h6>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-4 stretch-card grid-margin">
+                <div class="card bg-gradient-success card-img-holder text-white">
+                  <div class="card-body bg-3">
+                    <!-- <img src="assets/images/dashboard/circle.svg" class="card-img-absolute" alt="circle-image"/>                                     -->
+                    <i class="fa-solid fa-battery-half"></i>
+                    <h4 class="font-weight-normal mb-3">Pending Posts
+                      <i class="mdi mdi-diamond mdi-24px float-right"></i>
+                    </h4>
+                    <h2 class="mb-5">95,5741</h2>
+                    <h6 class="card-text">Increased by 5%</h6>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="row mt-5">
+              <div class="col-md-4 stretch-card grid-margin">
+                <div class="card bg-gradient-danger card-img-holder text-white">
+                  <div class="card-body bg-4">
+                    <!-- <img src="assets/images/dashboard/circle.svg" class="card-img-absolute" alt="circle-image"/> -->
+                    <i class="fa-solid fa-xmark"></i>
+                    <h4 class="font-weight-normal mb-3">Rejected Posts
+                      <i class="mdi mdi-chart-line mdi-24px float-right"></i>
+                    </h4>
+                    <h2 class="mb-5"> 15,0000</h2>
+                    <h6 class="card-text">Increased by 60%</h6>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-4 stretch-card grid-margin">
+                <div class="card bg-gradient-info card-img-holder text-white">
+                  <div class="card-body bg-5">
+                    <!-- <img src="assets/images/dashboard/circle.svg" class="card-img-absolute" alt="circle-image"/>  -->
+                    <i class="fa-solid fa-key"></i>
+                    <h4 class="font-weight-normal mb-3">Change Password
+                      <i class="mdi mdi-bookmark-outline mdi-24px float-right"></i>
+                    </h4>
+                    <h2 class="mb-5">45,6334</h2>
+                    <h6 class="card-text">Decreased by 10%</h6>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-4 stretch-card grid-margin">
+                <div class="card bg-gradient-success card-img-holder text-white">
+                  <div class="card-body bg-6">
+                    <!-- <img src="assets/images/dashboard/circle.svg" class="card-img-absolute" alt="circle-image"/>                                     -->
+                    <i class="fa-regular fa-id-card"></i>
+                    <h4 class="font-weight-normal mb-3">Logout
+                      <i class="mdi mdi-diamond mdi-24px float-right"></i>
+                    </h4>
+                    <h2 class="mb-5">Go to Homepage</h2>
+                    <h6 class="card-text">Logged Out</h6>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
-      </div>
+          
+          </div>
+
+      </div> 
+
+
   </mat-sidenav-content>
 </mat-sidenav-container>
