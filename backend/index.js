@@ -1,18 +1,61 @@
 const express=require("express");
 const cors = require("cors");
 const jwt =require("jsonwebtoken");
+ var multer = require('multer');
+ var upload = multer({ dest: "public/files" });
 const signupmongo=require("./src/model/signup");
 const adminmongo =require("./src/model/admin");
 const blogcategorymongo = require("./src/model/addBlogCategory");
-// const { request } = require("express");
+ const { request } = require("express");
 const homemongo =require("./src/model/home");
 const usermongo=require("./src/model/usermongo");
 const app = new express();
 
+//  const PATH = './uploads';
+//  let storage = multer.diskStorage({
+//    destination: (req, file, cb) => {
+//      cb(null, PATH);
+//    },
+//    filename: (req, file, cb) => {
+//      cb(null, file.fieldname + '-' + Date.now())
+//    },
+
+//  });
+//  localStorage.setItem('file',filename);
+//  var upload = multer({
+//    storage: storage
+// });
+//  const upload2 = multer({ storage: storage }).getFilename.array('filename');
+//  console.log(upload2);
+//  console.log(upload.storage.getFilename.array('filename'));
+// console.log("storage");
 app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({extended:true}));
 const PORT = process.env.PORT || 4001;
+
+// app.get('/api', function (req, res) {
+//   res.end('File catcher');
+// });
+// POST File
+// app.post('/api/upload', upload.single('file'), function (req, res) {
+//   console.log("added");
+//   if (!req.file) {
+//     console.log("No file is available!");
+//     return res.send({
+//       success: false
+//     });
+//   } else {
+//     console.log('File is available!');
+//     return res.send({
+//       success: true
+//     })
+//   }
+// });
+
+
+
+
 
 
 
@@ -116,14 +159,31 @@ app.post("/addpost", (req,res)=>{
 
     res.header("Access-Control-Allow-Origin", "*");
     res.header("Access-Control-Allow-Methods: GET, POST, PUT, DELETE");
-
-   var posts ={
-
+    // if (!req.body.data.file) {
+    //   console.log("No file is available!");
+    //   console.log(req.body.data.file);
+    //   return res.send({
+    //     success: false
+    //   });
+    // } else {
+    //   console.log('File is available!');
+      // return res.send({
+      //   success: true
+      // })
+    //   id=req.body._id,
+    // console.log(storage.DiskStorage.getFile());
+    // console.log("multer");
+ 
+    var posts ={
+        
         title:req.body.data.title,
         file:req.body.data.file,
         description:req.body.data.description,
         isVerified:'0',
-        date1:new Date()
+        date1:new Date(),
+    }
+        
+   
 
 
 
@@ -133,9 +193,10 @@ app.post("/addpost", (req,res)=>{
 
 
 
-}
+
     var posters = new usermongo(posts);
     posters.save();
+  // }
 
 });
 
@@ -164,6 +225,8 @@ blogCategoryDB.save(function (err) {
 app.get("/getAllBlogs",(req,res)=>{
   res.header("Access-Control-Allow-Origin","*"); 
   res.header("Access-Control-Allow-Methods:GET,POST,PUT,DELETE");
+  
+  
   usermongo.find().then((data)=>{
      res.send(data);
     });

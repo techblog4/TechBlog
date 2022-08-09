@@ -41,6 +41,10 @@ import { TrainerviewblogsComponent } from './components/trainerviewblogs/trainer
 import { SinglepageComponent } from './components/singlepage/singlepage.component';
 import { CategorylistComponent } from './components/categorylist/categorylist.component';
 import { InnerfooterComponent } from './components/innerfooter/innerfooter.component';
+import { FileUploadModule } from 'ng2-file-upload';
+import { AdminDashboardChildComponent } from './components/admin-dashboard-child/admin-dashboard-child.component';
+import { TrainerDashboardChildComponent } from './components/trainer-dashboard-child/trainer-dashboard-child.component';
+import { StudentDashboardChildComponent } from './components/student-dashboard-child/student-dashboard-child.component';
 
 @NgModule({
   declarations: [
@@ -63,7 +67,11 @@ import { InnerfooterComponent } from './components/innerfooter/innerfooter.compo
     TrainerviewblogsComponent,
     SinglepageComponent,
     CategorylistComponent,
-    InnerfooterComponent
+    InnerfooterComponent,
+    AdminDashboardChildComponent,
+    TrainerDashboardChildComponent,
+    StudentDashboardChildComponent,
+   
   ],
   imports: [
     BrowserModule,
@@ -82,7 +90,8 @@ import { InnerfooterComponent } from './components/innerfooter/innerfooter.compo
     MatPaginatorModule,
     MatTreeModule,
     MatSortModule,
-    CKEditorModule
+    CKEditorModule,
+    FileUploadModule 
     
   ],
   providers: [PostserviceService,ServiceService],

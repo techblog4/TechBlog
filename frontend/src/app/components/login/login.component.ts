@@ -42,15 +42,15 @@ onsubmitlogin(values:any){
           // console.log(x);
           if(x.student){
               localStorage.setItem('token',x.token);
-              this.router.navigate(['studentnavbar']);
+              this.router.navigate(['studentnavbar/student-dashboard-child']);
           }
           else if(x.trainer){
             localStorage.setItem('token',x.token);
-            this.router.navigate(['trainernavbar']);
+            this.router.navigate(['trainernavbar/trainer-dashboard-child']);
             }
           else if(x.admin){
                  localStorage.setItem('token',x.token);
-                 this.router.navigate(['admin-dashboard']);
+                 this.router.navigate(['admin-dashboard/admin-dashboard-child']);
             }
           else if(x.unathorised){
             alert("Invalid email or password");

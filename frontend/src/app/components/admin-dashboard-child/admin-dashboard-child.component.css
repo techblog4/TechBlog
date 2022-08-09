@@ -1,0 +1,22 @@
+
+ .bg-1{
+    background-color: aquamarine;
+    }
+    .bg-2{
+      background-color: rgb(251, 166, 208);
+    }
+    .bg-3{
+      background-color: rgb(137, 188, 240);
+    }
+    .bg-4{
+      background-color: coral;
+    }
+    .bg-5{
+      background-color:rgb(186, 160, 239);
+    }
+    .bg-6{
+      background-color: rgb(139, 237, 160);
+    }
+    .fa-id-card,.fa-thumbs-up,.fa-xmark,.fa-battery-full,.fa-battery-half,.fa-key{
+      font-size: x-large;
+    }

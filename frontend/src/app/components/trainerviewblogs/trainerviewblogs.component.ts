@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { PostserviceService } from 'src/app/postservice.service';
 
 @Component({
   selector: 'app-trainerviewblogs',
@@ -6,10 +8,18 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./trainerviewblogs.component.css']
 })
 export class TrainerviewblogsComponent implements OnInit {
-
-  constructor() { }
-
+  Blogs:any=[];
+  time: any;
+  constructor(private postserve:PostserviceService, private router:Router) { }
+  btnClick=  (_id: any) => {
+    this.router.navigateByUrl('admin-dashboard/admin-single-blog-page/'+_id);
+  };
   ngOnInit(): void {
+    this.postserve.getTrainerBlogs().subscribe((res)=>
+    {
+      this.Blogs = res;
+      // this.length1 = this.Blogs.length;
+    });
   }
 
 }
