@@ -10,12 +10,18 @@ import { PostserviceService } from 'src/app/postservice.service';
 export class TrainerviewblogsComponent implements OnInit {
   Blogs:any=[];
   time: any;
+  public model = {
+    
+    currentEmail : localStorage.getItem('emailToken')
+    
+    
+  };
   constructor(private postserve:PostserviceService, private router:Router) { }
   btnClick=  (_id: any) => {
-    this.router.navigateByUrl('admin-dashboard/admin-single-blog-page/'+_id);
+    this.router.navigateByUrl('trainernavbar/trainer-single-blogpage/'+_id);
   };
   ngOnInit(): void {
-    this.postserve.getTrainerBlogs().subscribe((res)=>
+    this.postserve.getTrainerBlogs(this.model).subscribe((res)=>
     {
       this.Blogs = res;
       // this.length1 = this.Blogs.length;

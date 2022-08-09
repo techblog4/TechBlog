@@ -9,20 +9,20 @@ import { Router } from '@angular/router';
   styleUrls: ['./student-dashboard.component.css']
 })
 export class StudentDashboardComponent implements OnInit {
-  // title = 'Title';
+ 
   
   public model = {
       title: '',
       description: '',
       file:'',
-      
+      currentEmail : localStorage.getItem('studentEmailToken')
       
     };
     onSubmit() {
-      // console.log( `Form submit, model: ${ JSON.stringify( this.model ) }` );
+      
       this.service.useradd(this.model)
         .subscribe((data)=>{
-          // console.log(data);
+          console.log("success");
           
         })
         

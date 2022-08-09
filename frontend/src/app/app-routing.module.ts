@@ -11,6 +11,7 @@ import { AdminSingleBlogPageComponent } from './components/admin-single-blog-pag
 import { CategorylistComponent } from './components/categorylist/categorylist.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { HomeComponent } from './components/home/home.component';
+import { HomecardsComponent } from './components/homecards/homecards.component';
 import { InnerfooterComponent } from './components/innerfooter/innerfooter.component';
 import { LoginComponent } from './components/login/login.component';
 import { SignUpComponent } from './components/sign-up/sign-up.component';
@@ -22,6 +23,7 @@ import { StudentViewblogsComponent } from './components/student-viewblogs/studen
 import { TrainerDashboardChildComponent } from './components/trainer-dashboard-child/trainer-dashboard-child.component';
 import { TrainerDashboardComponent } from './components/trainer-dashboard/trainer-dashboard.component';
 import { TrainerNavbarComponent } from './components/trainer-navbar/trainer-navbar.component';
+import { TrainerSingleBlogpageComponent } from './components/trainer-single-blogpage/trainer-single-blogpage.component';
 import { TrainerviewblogsComponent } from './components/trainerviewblogs/trainerviewblogs.component';
 
  
@@ -53,10 +55,17 @@ const routes: Routes = [
   {path:'student-dashboard-child',component:StudentDashboardChildComponent}]},
 
   {path:'trainernavbar',canActivate:[AuthGuard],component:TrainerNavbarComponent,
-children:[{path:'trainerhome',component:TrainerDashboardComponent},
-{path:'trainerviewblogs',component:TrainerviewblogsComponent},
-{path:'trainer-dashboard-child',component:TrainerDashboardChildComponent}]}
- 
+
+   children:
+   [
+    {path:'trainerhome',component:TrainerDashboardComponent},
+    {path:'trainerviewblogs',component:TrainerviewblogsComponent},
+    {path:'trainer-dashboard-child',component:TrainerDashboardChildComponent},
+    {path:'trainer-single-blogpage/:_id',component:TrainerSingleBlogpageComponent}
+   ]
+  },
+  
+  {path:"homecards",component:HomecardsComponent}
   
 ];
 

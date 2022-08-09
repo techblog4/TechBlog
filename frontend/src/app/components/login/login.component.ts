@@ -38,14 +38,21 @@ onsubmitlogin(values:any){
       .subscribe((res)=>{
           
            var x=JSON.parse(JSON.stringify(res));
+           console.log(x);
+          console.log(x.decoded1);
           
           // console.log(x);
           if(x.student){
               localStorage.setItem('token',x.token);
+              localStorage.setItem('studentEmailToken',x.decoded1);
               this.router.navigate(['studentnavbar/student-dashboard-child']);
           }
           else if(x.trainer){
             localStorage.setItem('token',x.token);
+            localStorage.setItem('emailToken',x.decoded);
+    //  console.log(localStorage.setItem('decoded',x.decoded));
+
+
             this.router.navigate(['trainernavbar/trainer-dashboard-child']);
             }
           else if(x.admin){

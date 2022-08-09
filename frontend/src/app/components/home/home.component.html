@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="zxx">
 
@@ -7,9 +6,9 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <title> Tech Blog </title>
-  
-  <link href="//fonts.googleapis.com/css?family=Playfair+Display:400,400i,700&display=swap" rel="stylesheet">
-  <link href="//fonts.googleapis.com/css?family=Montserrat:300,300i,400,600,700,800&display=swap" rel="stylesheet">
+
+  <!-- <link href="//fonts.googleapis.com/css?family=Playfair+Display:400,400i,700&display=swap" rel="stylesheet">
+  <link href="//fonts.googleapis.com/css?family=Montserrat:300,300i,400,600,700,800&display=swap" rel="stylesheet"> -->
 
 
 
@@ -17,92 +16,37 @@
 
 <body>
 <!-- Headers-4 block -->
-<section class="w3l-header-6-main mobile-header ">
-    <div class="header-section-hny ">
-        <div class="header-top bgnav">
-            <div class="container ">
-                <!-- /header-top-inn-->
-                <div class="header-inn-top row">
-                    <div class="logo-brand col-6">
-                        <a class="navbar-brand" href="index.html">
-                            <img src="../../../assets/images/techblog-logo-header.png" alt="" title="Webzine" width="100%" height="50px" class="img-fluid" />
-                        </a>
-                    </div>
-                    <div class="menu-overlay-left col-6 ml-auto">
-                        <div class="two-pops d-flex">
-                           <a class="author-user mr-3" routerLink="/signup" mat-raised-button><span class="fa fa-user-plus"
-							aria-hidden="true"></span></a> 
-                      
-									<a class="author-user" routerLink="/login" mat-raised-button><span class="fa fa-user"
-										aria-hidden="true"></span></a>
-						           </div>
-                               
-                            </div>
-                        </div>
-                        
-                    </div>
-                </div>
-                <!-- //header-top-inn-->
-            </div>
-        
-        <header class="header-hny-block">
-            <div class="container">
-                 <!-- /.nav-collapse -->
-                 <nav class="navbar navbar-expand-lg navbar-light ">
-                      
-                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
-                            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                            <span class="navbar-toggler-icon"></span>
-                        </button>
-                        <div class="collapse navbar-collapse" id="navbarNav">
-                            <ul class="navbar-nav mr-lg-auto">
-                           
-                                
-                                <li class="nav-item">
-                                        <a class="nav-link" href="lifestyle.html">Home</a>
-                                </li>
-                                <li class="nav-item">
-                                     <a class="nav-link" routerLink="/footer">Contact</a>
-                                </li>
-                               
-                                <li class="nav-item dropdown">
-                                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                       All Categories</a>
-                                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                        <a class="dropdown-item" href="categorylist">ICTAK Events</a>
-                                        <a class="dropdown-item" href="categorylist">KKEM</a>
-                                    </div>
-                                </li>
-                            </ul>
-                            <div class="social-right">
-                                    <ul class="social-icons-top">
-                                        <li><a class="facebook" href="#"><span class="fa fa-facebook"
-                                                    aria-hidden="true"></span></a>
-                                        </li>
-                                        <li><a class="twitter" href="#"><span class="fa fa-twitter"
-                                                    aria-hidden="true"></span></a></li>
-                                        <li><a class="google" href="#"><span class="fa fa-google-plus"
-                                                    aria-hidden="true"></span></a>
-                                        </li>
-                                        <li><a class="instagram" href="#"><span class="fa fa-instagram"
-                                                    aria-hidden="true"></span></a>
-                                        </li>
-                                    </ul>
-                                </div>
-                        </div>
-                    </nav>
-                </div>
-                <!-- /.nav-collapse -->
-        </header>
-    
-</section>
+<nav class="navbar navbar-expand-lg navbar-light bg-color">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+      <!-- <a class="navbar-brand" href="#"><img src="../../../assets/images/techblog-logo-header.png" alt=""></a> -->
+      <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
+        <li class="nav-item mr-3 mt-2 navlink"><a routerLink="/">
+        Home </a></li>
+        <li class="nav-item mr-3 mt-2 navlink"><a routerLink="/">
+          Categories </a></li>
+        <li  class="nav-item mr-3 mt-2 navlink"><a routerLink="/">Logout</a></li>
+        <li class="nav-item">
+            <a class="author-user mr-3 ml-auto " routerLink="/signup" mat-raised-button><span class="fa fa-user-plus"
+                aria-hidden="true"></span></a> 
+        </li>
+        <li class="nav-item">
+            <a class="author-user" routerLink="/login" mat-raised-button><span class="fa fa-user"
+                aria-hidden="true"></span></a>
+        </li>
+      </ul>
+
+    </div>
+  </nav>
+
 <!-- background imagehome -->
 <header class="masthead d-flex align-items-center">
 	<div class="container px-4 px-lg-5 text-center">
 		<h1 class="mb-4">ICTAK-Tech Blog</h1>
 		<h3 class="mb-5"><em>Everything that you need to know about Tech.</em></h3>
-		<a class="btn btn-primary btn-xl" href="#about">Find Our Creations</a>
+		<a class="btn btn-primary btn-xl postbtn" routerLink="/login">Post Your Creations</a>
 	</div>
 </header>
 
@@ -111,91 +55,24 @@
 	<div class="container px-4 px-lg-5 text-center">
 		<div class="row gx-4 gx-lg-5 justify-content-center">
 			<div class="col-lg-10">
-				<h2>ICTAK Tech Blog is a hub for web developers to share their passion for building incredible Internet thinngs!</h2>
+				<h2 style="font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif ;">ICTAK Tech Blog is a hub for web developers to share their passion for building incredible Internet thinngs!</h2>
 				<p class="lead mb-5">
-				
-					
-					
 				</p>
-				<a class="btn btn-dark btn-xl" href="#services">View Blogs</a>
+				<a class="btn btn-dark btn-xl view" routerLink="/">View Blogs</a>
 			</div>
 		</div>
-	</div>
-</section>
+	</div></section>
 
-<section class="content-section" id="portfolio">
-    <div class="container px-4 px-lg-5">
-        <div class="content-section-heading text-center">
-            <h3 class="text-secondary mb-0">Portfolio</h3>
-            <h2 class="mb-5">Recent Projects</h2>
-        </div>
-        <div class="row gx-0">
-            <div class="col-lg-6">
-                <a class="portfolio-item" href="#!">
-                    <div class="caption">
-                        <div class="caption-content">
-                            <div class="h2">Stationary</div>
-                            <p class="mb-0">A yellow pencil with envelopes on a clean, blue backdrop!</p>
-                        </div>
-                    </div>
-                    <img class="img-fluid" src="../../../assets/images/ict1.jpg" alt="..." />
-                </a>
-            </div>
-            <div class="col-lg-6">
-                <a class="portfolio-item" href="#!">
-                    <div class="caption">
-                        <div class="caption-content">
-                            <div class="h2">Ice Cream</div>
-                            <p class="mb-0">A dark blue background with a colored pencil, a clip, and a tiny ice cream cone!</p>
-                        </div>
-                    </div>
-                    <img class="img-fluid" src="../../../assets/images/ict2.jpg" alt="..." />
-                </a>
-            </div>
-            <div class="col-lg-6">
-                <a class="portfolio-item" href="#!">
-                    <div class="caption">
-                        <div class="caption-content">
-                            <div class="h2">Strawberries</div>
-                            <p class="mb-0">Strawberries are such a tasty snack, especially with a little sugar on top!</p>
-                        </div>
-                    </div>
-                    <img class="img-fluid" src="../../../assets/images/ict3.png" alt="..." />
-                </a>
-            </div>
-            <div class="col-lg-6">
-                <a class="portfolio-item" href="#!">
-                    <div class="caption">
-                        <div class="caption-content">
-                            <div class="h2">Workspace</div>
-                            <p class="mb-0">A yellow workspace with some scissors, pencils, and other objects.</p>
-                        </div>
-                    </div>
-                    <img class="img-fluid" src="../../../assets/images/ict4.jpg" alt="..." />
-                </a>
-            </div>
-        </div>
-    </div>
-</section>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+<app-homecards></app-homecards>
 <!-- footer-66 -->
 <app-footer></app-footer>
 <!--//footer-66 -->
+
+<!-- script -->
+
+
+
+
 </body>
 
 </html>

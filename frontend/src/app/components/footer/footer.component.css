@@ -11,7 +11,7 @@ position: relative;
 border-bottom: 1px solid #373636;
 }
 .single-cta i {
-color: #ff666f;
+color:#1D809F;
 font-size: 30px;
 float: left;
 margin-top: 8px;
@@ -83,7 +83,7 @@ background: #3B5998;
 background: #55ACEE;
 }
 .google-bg{
-background: #ff666f;
+background: #1D809F;
 }
 .footer-widget-heading h3 {
 color: #fff;
@@ -99,7 +99,7 @@ left: 0;
 bottom: -15px;
 height: 2px;
 width: 50px;
-background: #ff666f;
+background: #1D809F;
 }
 .footer-widget ul li {
 display: inline-block;
@@ -108,7 +108,7 @@ width: 50%;
 margin-bottom: 12px;
 }
 .footer-widget ul li a:hover{
-color:#ff666f;
+color:#1D809F;
 }
 .footer-widget ul li a {
 color: #878787;
@@ -128,9 +128,9 @@ color: #fff;
 .subscribe-form button {
   position: absolute;
   right: 0;
-  background: #ff666f;
+  background: #1D809F;
   padding: 13px 20px;
-  border: 1px solid #ff666f;
+  border: 1px solid #1D809F;
   top: 0;
 }
 .subscribe-form button i {
@@ -148,16 +148,18 @@ font-size: 14px;
 color: #878787;
 }
 .copyright-text p a{
-color: #ff666f;
+color: #1D809F;
 }
 .footer-menu li {
 display: inline-block;
 margin-left: 20px;
 }
 .footer-menu li:hover a{
-color: #ff666f;
+color: #1D809F;
 }
 .footer-menu li a {
 font-size: 14px;
 color: #878787;
 }
+
+

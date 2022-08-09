@@ -18,20 +18,18 @@ export class TrainerDashboardComponent implements OnInit {
   public model = {
       title: '',
       description: '',
-      file:''
-     
+      file:'',
+      currentEmail : localStorage.getItem('emailToken')
       
       
     };
     
     onSubmit() {
       
-
-      // console.log( `Form submit, model: ${ JSON.stringify( this.model ) }` );
-      // let postId = localStorage.getItem("token");
+    
       this.service.useradd(this.model)
       .subscribe((data)=>{
-      // console.log(data);
+    
           
   })
        
