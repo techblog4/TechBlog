@@ -10,11 +10,22 @@
         
           <div>
             <label for="title">Title :</label>&nbsp;
-            <input  type="text" name="name" id="name" required class="form-control" #title="ngModel"[(ngModel)]="model.title">
+            <input  type="text" name="name" id="name" required class="form-control" #title="ngModel"[(ngModel)]="model.title" >
+           
           </div>
           <div>
               <label for="file">Image/Video :</label>&nbsp;
-              <input type="file" name="file" id="file" required class="form-control" #file="ngModel"[(ngModel)]="model.file">
+              <input type="file" name="file" id="file" required class="form-control" #file="ngModel" [(ngModel)]="model.file" 
+            
+              accept="image/x-png,image/gif,image/jpeg">
+              <!-- <button
+        type="button"
+        (click)="uploader.uploadAll()"
+        [disabled]="!uploader.getNotUploadedItems().length"
+      >
+        Upload
+      </button> -->
+         
             </div>
           <label for="description">Description :</label>
           <ckeditor
@@ -29,7 +40,8 @@
           
           
           <br>
-          <button type="submit"class="btn btn-success">Submit</button> 
+          <button type="submit"class="btn btn-success"
+  >Submit</button> 
       </form>
 </div></div>
 

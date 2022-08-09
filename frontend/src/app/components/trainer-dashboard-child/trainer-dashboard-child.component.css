@@ -1,0 +1,19 @@
+.bg-footer{
+    background-color:powderblue ;
+  }
+   .bg-navyblue{
+    background-color:rgb(251, 166, 208);
+  }
+  .bg-purple{
+    background-color:rgb(137, 188, 240) ;
+  }
+  .bg-green{
+    background-color: coral;
+  }
+  .bg-orange{
+    background-color:rgb(186, 160, 239) ;
+  }
+  .fa-square-plus,.fa-unlock-keyhole,.fa-right-from-bracket,.fa-rectangle-list{
+    font-size: 125px;
+    color: white;
+  }
