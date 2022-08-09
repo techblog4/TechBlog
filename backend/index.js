@@ -117,6 +117,10 @@ app.post("/signup",(req,res)=>{
               email:req.body.data.email,
               password:req.body.data.password
           }
+   
+          
+
+          
   signupmongo.findOne({
         "email":logindata.email
         },
@@ -127,13 +131,19 @@ if(user) {
 if(user.user=="student"){
    let payload = {subject:logindata.email+logindata.password}
    let token =jwt.sign(payload,'secretkey')
-     res.status(200).send({student:true,token});
+   let studentEmail = {subject:logindata.email};
+   let studentToken = jwt.sign(studentEmail.subject,'secretkey');
+   const decoded1 = jwt.verify(studentToken, "secretkey");
+     res.status(200).send({student:true,token,decoded1});
   
 }
 else if(user.user=="trainer"){
    let payload = {subject:logindata.email+logindata.password}
    let token =jwt.sign(payload,'secretkey')
-   res.status(200).send({trainer:true,token});
+   let payloadEmail = {subject:logindata.email};
+   let emailToken = jwt.sign(payloadEmail.subject,'secretkey');
+   const decoded = jwt.verify(emailToken, "secretkey");
+   res.status(200).send({trainer:true,token,decoded});
   
 }
 else if(user.user=="admin"){
@@ -172,7 +182,7 @@ app.post("/addpost", (req,res)=>{
       // })
     //   id=req.body._id,
     // console.log(storage.DiskStorage.getFile());
-    // console.log("multer");
+
  
     var posts ={
         
@@ -181,6 +191,7 @@ app.post("/addpost", (req,res)=>{
         description:req.body.data.description,
         isVerified:'0',
         date1:new Date(),
+        email:req.body.data.currentEmail
     }
         
    
@@ -249,6 +260,33 @@ app.post("/getBlogById",(req,res)=>{
     });
     
   });
+  app.post("/getUserName",(req,res)=>{
+    res.header("Access-Control-Allow-Origin","*"); 
+    res.header("Access-Control-Allow-Methods:GET,POST,PUT,DELETE");
+    email1=req.body.data.currentEmail;
+  
+    signupmongo.find({$and:[{email:email1}]}).then((data)=>{
+      console.log(data);
+       res.send(data);
+       
+      });
+      
+    });
+  app.post("/currentUserBlogs",(req,res)=>{
+    res.header("Access-Control-Allow-Origin","*"); 
+    res.header("Access-Control-Allow-Methods:GET,POST,PUT,DELETE");
+    
+        
+      
+      email1=req.body.data.currentEmail;
+  
+    usermongo.find({$and:[{email:email1}]}).then((data)=>{
+      console.log(data);
+       res.send(data);
+       
+      });
+      
+    });
 
 
 app.listen(PORT,()=>{

@@ -45,6 +45,8 @@ import { FileUploadModule } from 'ng2-file-upload';
 import { AdminDashboardChildComponent } from './components/admin-dashboard-child/admin-dashboard-child.component';
 import { TrainerDashboardChildComponent } from './components/trainer-dashboard-child/trainer-dashboard-child.component';
 import { StudentDashboardChildComponent } from './components/student-dashboard-child/student-dashboard-child.component';
+import { HomecardsComponent } from './components/homecards/homecards.component';
+import { TrainerSingleBlogpageComponent } from './components/trainer-single-blogpage/trainer-single-blogpage.component';
 
 @NgModule({
   declarations: [
@@ -71,6 +73,8 @@ import { StudentDashboardChildComponent } from './components/student-dashboard-c
     AdminDashboardChildComponent,
     TrainerDashboardChildComponent,
     StudentDashboardChildComponent,
+    HomecardsComponent,
+    TrainerSingleBlogpageComponent,
    
   ],
   imports: [

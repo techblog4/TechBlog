@@ -10,6 +10,7 @@ import { PostserviceService } from 'src/app/postservice.service';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
+  
 img:any;
   constructor(private postserve:PostserviceService) { }
 
