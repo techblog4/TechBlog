@@ -23,20 +23,21 @@ export class TrainerDashboardComponent implements OnInit {
       
       
     };
-    
+    constructor(private service:PostserviceService,private router:Router) { }
+
     onSubmit() {
       
     
       this.service.useradd(this.model)
       .subscribe((data)=>{
-    
+    // console.log(data);
+    this.router.navigate(['trainerviewblogs']);
           
   })
        
   }
 
-  constructor(private service:PostserviceService,private router:Router) { }
-
+  
   ngOnInit(): void {
     this.uploader.onAfterAddingFile = (file) => {
       file.withCredentials = false;
