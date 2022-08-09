@@ -183,21 +183,22 @@ app.post("/addpost", (req,res)=>{
     //   id=req.body._id,
     // console.log(storage.DiskStorage.getFile());
 
- 
+    const d = new Date();
+    var date=d.toDateString();
     var posts ={
         
         title:req.body.data.title,
         file:req.body.data.file,
         description:req.body.data.description,
         isVerified:'0',
-        date1:new Date(),
+        date1:date,
         email:req.body.data.currentEmail
     }
         
    
 
 
-
+   
 
 
 
