@@ -14,7 +14,7 @@ export class ServiceService {
     return  this.http.post("http://localhost:4001/addblogcategory",{item});
   }
  loginadd=(data:any)=>{
-   return this.http.post("http://localhost:4001/login",{data});
+   return this.http.post<any>("http://localhost:4001/login",{data});
  }
  loggedin(){
   return !!localStorage.getItem('token');

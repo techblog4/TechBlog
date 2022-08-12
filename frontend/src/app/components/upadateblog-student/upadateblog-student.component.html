@@ -1,0 +1,51 @@
+<div class="home">
+    <div class="container">
+  
+      <!-- <a routerLink="/" class="homeicon"><button mat-icon-button aria-label="close mat-card-close" mat-card-close>
+        <mat-icon>home</mat-icon>
+        </button></a>  -->
+  
+        <form #form="ngForm" (ngSubmit)="editPost()">
+            <h1 style="color:rgb(233, 17, 17) ;font-size:bold">Make your posts..</h1>
+          
+            <div>
+              <label for="title">Title :</label>&nbsp;
+              <input  type="text" name="name" id="name" required class="form-control" #title="ngModel"[(ngModel)]="Blogs.title" >
+             
+            </div>
+            <div>
+                <label for="file">Image/Video :</label>&nbsp;
+                <input type="file" name="file" id="file" required class="form-control" #file="ngModel" [(ngModel)]="Blogs.file" 
+              
+                accept="image/x-png,image/gif,image/jpeg">
+                <!-- <button
+          type="button"
+          (click)="uploader.uploadAll()"
+          [disabled]="!uploader.getNotUploadedItems().length"
+        >
+          Upload
+        </button> -->
+           
+              </div>
+            <label for="description">Description :</label>
+   
+            <ckeditor
+              #editor
+              id="description"
+              name="description"
+              required class="form-control"
+              #file="ngModel"
+              [(ngModel)]="Blogs.description"
+              >
+            </ckeditor>
+            
+            
+            <br>
+            <button type="submit"class="btn btn-success" >Submit</button> 
+        </form>
+  </div></div>
+  
+  
+  
+  
+

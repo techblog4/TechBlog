@@ -50,6 +50,7 @@ import { TrainerSingleBlogpageComponent } from './components/trainer-single-blog
 import { StudentSingleBlogpageComponentComponent } from './components/student-single-blogpage-component/student-single-blogpage-component.component';
 import { TokenInterceptorService } from './token-interceptor.service';
 import { UpdateblogsComponent } from './components/updateblogs/updateblogs.component';
+import { UpadateblogStudentComponent } from './components/upadateblog-student/upadateblog-student.component';
 
 @NgModule({
   declarations: [
@@ -80,6 +81,7 @@ import { UpdateblogsComponent } from './components/updateblogs/updateblogs.compo
     TrainerSingleBlogpageComponent,
     StudentSingleBlogpageComponentComponent,
     UpdateblogsComponent,
+    UpadateblogStudentComponent,
    
   ],
   imports: [

@@ -3,23 +3,21 @@ import { Router } from '@angular/router';
 import { PostserviceService } from 'src/app/postservice.service';
 import Swal from 'sweetalert2';
 @Component({
-  selector: 'app-updateblogs',
-  templateUrl: './updateblogs.component.html',
-  styleUrls: ['./updateblogs.component.css']
+  selector: 'app-upadateblog-student',
+  templateUrl: './upadateblog-student.component.html',
+  styleUrls: ['./upadateblog-student.component.css']
 })
-export class UpdateblogsComponent implements OnInit {
-    Blogs:any=[];
-
-  
-
-  constructor(public serve:PostserviceService,public router:Router) { }
+export class UpadateblogStudentComponent implements OnInit {
+  Blogs:any=[];
+  constructor(private serve:PostserviceService,private router:Router) { }
 
   ngOnInit(): void {
-  let postId = localStorage.getItem("editBlogId");
+    let postId = localStorage.getItem("editBlogId");
     this.serve.getPost(postId).subscribe((data)=>{
       this.Blogs=JSON.parse(JSON.stringify(data));
   })
   }
+
   editPost()
   {    
     this.serve.editPost(this.Blogs);  
@@ -31,8 +29,8 @@ export class UpdateblogsComponent implements OnInit {
       showConfirmButton: false,
       timer: 2000
     })
-    this.router.navigate(['trainernavbar/trainerviewblogs']);
+    this.router.navigate(['studentnavbar/studentviewblogs']);
   }
+
+  
 }
-
-
