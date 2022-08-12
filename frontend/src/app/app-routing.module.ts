@@ -26,6 +26,7 @@ import { TrainerDashboardComponent } from './components/trainer-dashboard/traine
 import { TrainerNavbarComponent } from './components/trainer-navbar/trainer-navbar.component';
 import { TrainerSingleBlogpageComponent } from './components/trainer-single-blogpage/trainer-single-blogpage.component';
 import { TrainerviewblogsComponent } from './components/trainerviewblogs/trainerviewblogs.component';
+import { UpadateblogStudentComponent } from './components/upadateblog-student/upadateblog-student.component';
 import { UpdateblogsComponent } from './components/updateblogs/updateblogs.component';
 
  
@@ -50,6 +51,7 @@ const routes: Routes = [
   {path:'innerfooter',component:InnerfooterComponent},
   {path:"homecards",component:HomecardsComponent},
   {path:"trainerupdate",component:UpdateblogsComponent},
+  {path:"studentupdate",component:UpadateblogStudentComponent},
   
  
   {path:'studentnavbar',canActivate:[AuthGuard],component:StudentNavbarComponent,

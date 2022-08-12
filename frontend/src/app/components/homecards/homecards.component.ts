@@ -10,11 +10,12 @@ export class HomecardsComponent implements OnInit {
   constructor(public postserve:PostserviceService) { }
 
   ngOnInit(): void {
-    this.postserve.carouselAdd().subscribe((data)=>{
+    this.postserve.carouselAdd().subscribe ((data)=>{
       this.images= JSON.parse(JSON.stringify(data));
-     //  console.log(data);
+    });
+      
      
-   })    
+     
   }
 
 }

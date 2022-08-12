@@ -39,14 +39,14 @@
                     
                     <td>
                       <div class="d-flex align-items-center">
-                        <span class="mr-2">{{blog._id}}</span>
+                        <span class="mr-2">{{blog.date1}}</span>
                       </div>
                     </td>
                     <td class="text-right">
                       <div class="dropdown">
                         <button class="btn btn-primary butn" (click)="btnClick(blog._id);">View</button>
                         <button class="btn btn-warning butn" style="cursor:pointer" (click)="editPost(blog)"> Edit</button>&nbsp;
-                        <button class="btn btn-danger butn" style="cursor:pointer"> Delete</button>
+                        <button class="btn btn-danger butn" style="cursor:pointer" (click)="deletePost(blog)"> Delete</button>
                       </div>
                     </td>
                   </tr>

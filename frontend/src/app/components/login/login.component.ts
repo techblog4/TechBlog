@@ -39,7 +39,7 @@ onsubmitlogin(values:any){
           
            var x=JSON.parse(JSON.stringify(res));
            console.log(x);
-          console.log(x.decoded1);
+           console.log(x.decoded1);
           
           // console.log(x);
           if(x.student){

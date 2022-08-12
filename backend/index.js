@@ -23,15 +23,15 @@ function verifyToken(req,res,next){
   if(!req.headers.authorization){
      return res.status(401).send("Unauthorized Access")
   }
-  var token = req.headers.authorization.split(' ')[1];
+  let token = req.headers.authorization.split(' ')[1];
  
- console.log(token)
+ console.log(token);
  if(token == "null"){
      return res.status(401).send("Unauthorized Access")
  }
 
- var payload= jwt.verify(token , "secretkey")
- console.log(payload)
+ let payload= jwt.verify(token , "secretkey")
+ console.log(payload);
  if(!payload){
      return res.status(401).send("Unauthorized Access")
  }
@@ -98,7 +98,7 @@ app.post("/signup",(req,res)=>{
  });});
 
 
-    app.post("/login",verifyToken,(req,res)=>{
+    app.post("/login",(req,res)=>{
       
       res.header("Access-Control-Allow-Origin","*");
       res.header("Access-Control-Allow-Headers: Content-Type, application/json");
@@ -258,10 +258,10 @@ app.post("/getBlogById",(req,res)=>{
       
     });
 
-    app.get('/update/:id',  (req, res) => {
+    app.get('/:id',  (req, res) => {
   
       const id = req.params.id;
-      console.log(id);
+     
         usermongo.findOne({"_id":id})
         .then((posts)=>{
             res.send(posts);
@@ -276,7 +276,7 @@ app.post("/getBlogById",(req,res)=>{
     title = req.body.title,
     file = req.body.file,
     
-    description = req.body.description,
+    description = req.body.description
    
     
    usermongo.findByIdAndUpdate({"_id":id},
@@ -289,6 +289,16 @@ app.post("/getBlogById",(req,res)=>{
        res.send();
    })
  })
+
+ app.delete('/remove/:id',(req,res)=>{
+   
+  id = req.params.id;
+  usermongo.findByIdAndDelete({"_id":id})
+  .then(()=>{
+      console.log('success')
+      res.send();
+  })
+});
 
 app.listen(PORT,()=>{
     console.log("server is running");

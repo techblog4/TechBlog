@@ -34,7 +34,7 @@ getUserName(data:any){
 }
 getPost(id:any){
   
-    return this.http.get("https://localhost:4001/update"+id);
+    return this.http.get("http://localhost:4001/"+id);
   
 }
 editPost(post:any){
@@ -42,5 +42,8 @@ editPost(post:any){
     return this.http.put("http://localhost:4001/update",post).
     subscribe((data) =>{console.log(data)}) ;
     
+}
+deletePost(id:any){
+  return this.http.delete("http://localhost:4001/remove/"+id)
 }
 }
