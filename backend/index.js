@@ -11,64 +11,56 @@ const homemongo =require("./src/model/home");
 const usermongo=require("./src/model/usermongo");
 const app = new express();
 
-//  const PATH = './uploads';
-//  let storage = multer.diskStorage({
-//    destination: (req, file, cb) => {
-//      cb(null, PATH);
-//    },
-//    filename: (req, file, cb) => {
-//      cb(null, file.fieldname + '-' + Date.now())
-//    },
 
-//  });
-//  localStorage.setItem('file',filename);
-//  var upload = multer({
-//    storage: storage
-// });
-//  const upload2 = multer({ storage: storage }).getFilename.array('filename');
-//  console.log(upload2);
-//  console.log(upload.storage.getFilename.array('filename'));
-// console.log("storage");
 app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({extended:true}));
 const PORT = process.env.PORT || 4001;
 
-// app.get('/api', function (req, res) {
-//   res.end('File catcher');
-// });
-// POST File
-// app.post('/api/upload', upload.single('file'), function (req, res) {
-//   console.log("added");
-//   if (!req.file) {
-//     console.log("No file is available!");
-//     return res.send({
-//       success: false
-//     });
-//   } else {
-//     console.log('File is available!');
-//     return res.send({
-//       success: true
-//     })
-//   }
-// });
+// Middleware Fuction to verify Token send from FrontEnd
+function verifyToken(req,res,next){
 
+  if(!req.headers.authorization){
+     return res.status(401).send("Unauthorized Access")
+  }
+  var token = req.headers.authorization.split(' ')[1];
+ 
+ console.log(token)
+ if(token == "null"){
+     return res.status(401).send("Unauthorized Access")
+ }
 
-
-
-
+ var payload= jwt.verify(token , "secretkey")
+ console.log(payload)
+ if(!payload){
+     return res.status(401).send("Unauthorized Access")
+ }
+ req.userId = payload.subject
+      next()
+ };
 
 
 app.get("/home",(req,res)=>{
   res.header("Access-Control-Allow-Origin","*"); 
   res.header("Access-Control-Allow-Methods:GET,POST,PUT,DELETE");
     
-  homemongo.find()
+  usermongo.find()
   .then((data)=>{
      res.send(data)
     });
     
   });
+
+  app.get("/homecarosel",(req,res)=>{
+    res.header("Access-Control-Allow-Origin","*"); 
+    res.header("Access-Control-Allow-Methods:GET,POST,PUT,DELETE");
+      
+    homemongo.find()
+    .then((data)=>{
+       res.send(data)
+      });
+      
+    });
 
 app.post("/signup",(req,res)=>{
      res.header("Access-Control-Allow-Origin","*");
@@ -106,7 +98,7 @@ app.post("/signup",(req,res)=>{
  });});
 
 
-    app.post("/login",(req,res)=>{
+    app.post("/login",verifyToken,(req,res)=>{
       
       res.header("Access-Control-Allow-Origin","*");
       res.header("Access-Control-Allow-Headers: Content-Type, application/json");
@@ -169,19 +161,8 @@ app.post("/addpost", (req,res)=>{
 
     res.header("Access-Control-Allow-Origin", "*");
     res.header("Access-Control-Allow-Methods: GET, POST, PUT, DELETE");
-    // if (!req.body.data.file) {
-    //   console.log("No file is available!");
-    //   console.log(req.body.data.file);
-    //   return res.send({
-    //     success: false
-    //   });
-    // } else {
-    //   console.log('File is available!');
-      // return res.send({
-      //   success: true
-      // })
-    //   id=req.body._id,
-    // console.log(storage.DiskStorage.getFile());
+  
+    
 
     const d = new Date();
     var date=d.toDateString();
@@ -194,21 +175,8 @@ app.post("/addpost", (req,res)=>{
         date1:date,
         email:req.body.data.currentEmail
     }
-        
-   
-
-
-   
-
-
-
-
-
-
-
-    var posters = new usermongo(posts);
+var posters = new usermongo(posts);
     posters.save();
-  // }
 
 });
 
@@ -278,8 +246,9 @@ app.post("/getBlogById",(req,res)=>{
     res.header("Access-Control-Allow-Methods:GET,POST,PUT,DELETE");
     
         
-      
+    
       email1=req.body.data.currentEmail;
+      console.log(email1);
   
     usermongo.find({$and:[{email:email1}]}).then((data)=>{
       console.log(data);
@@ -289,6 +258,37 @@ app.post("/getBlogById",(req,res)=>{
       
     });
 
+    app.get('/update/:id',  (req, res) => {
+  
+      const id = req.params.id;
+      console.log(id);
+        usermongo.findOne({"_id":id})
+        .then((posts)=>{
+            res.send(posts);
+        });
+    });
+
+    
+  app.put('/update',(req,res)=>{
+    console.log(req.body)
+    id=req.body._id,
+    
+    title = req.body.title,
+    file = req.body.file,
+    
+    description = req.body.description,
+   
+    
+   usermongo.findByIdAndUpdate({"_id":id},
+                                {$set:{
+                                "title":title,
+                                "file":file,
+                                "description":description
+                                }})
+   .then(function(){
+       res.send();
+   })
+ })
 
 app.listen(PORT,()=>{
     console.log("server is running");

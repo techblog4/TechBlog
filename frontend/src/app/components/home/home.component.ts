@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-// import { homeModel } from './homemodel';
-import { PostserviceService } from 'src/app/postservice.service';
+
 
 
 
@@ -11,15 +10,13 @@ import { PostserviceService } from 'src/app/postservice.service';
 })
 export class HomeComponent implements OnInit {
   
-img:any;
-  constructor(private postserve:PostserviceService) { }
+
+  constructor() { }
 
 ngOnInit(): void { 
-this.postserve.homeadd().subscribe((data)=>{
-   this.img= JSON.parse(JSON.stringify(data));
-  //  console.log(data);
-  
-})
+
+
  }
+ 
  }
 
