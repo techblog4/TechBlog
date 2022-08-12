@@ -50,9 +50,6 @@ onsubmitlogin(values:any){
           else if(x.trainer){
             localStorage.setItem('token',x.token);
             localStorage.setItem('emailToken',x.decoded);
-    //  console.log(localStorage.setItem('decoded',x.decoded));
-
-
             this.router.navigate(['trainernavbar/trainer-dashboard-child']);
             }
           else if(x.admin){
@@ -65,5 +62,6 @@ onsubmitlogin(values:any){
         });
           
       }   
-       
+      
     }
+    

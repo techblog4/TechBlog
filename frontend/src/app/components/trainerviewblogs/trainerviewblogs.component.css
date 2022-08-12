@@ -1510,5 +1510,9 @@ td, th {
         margin-bottom: 10px;
     }
   }
-  
+  .butn:hover{
+    transition: all 0.5s ease-in;
+      border-top-right-radius: 25px;
+      cursor: pointer;
+  }
   

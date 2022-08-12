@@ -17,10 +17,12 @@ export class ServiceService {
    return this.http.post("http://localhost:4001/login",{data});
  }
  loggedin(){
-  return !!localStorage.getItem('token')
+  return !!localStorage.getItem('token');
  }
  
-
+getToken(){
+  return localStorage.getItem('token');
+}
 }
 
 

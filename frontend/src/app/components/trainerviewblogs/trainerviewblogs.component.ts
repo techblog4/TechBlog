@@ -27,5 +27,11 @@ export class TrainerviewblogsComponent implements OnInit {
       // this.length1 = this.Blogs.length;
     });
   }
-
+  editPost(Blogs:any){
+    {
+      localStorage.setItem("editBlogId", Blogs._id.toString());
+      this.router.navigate(['trainerupdate']);
+  
+    }
+  }
 }
