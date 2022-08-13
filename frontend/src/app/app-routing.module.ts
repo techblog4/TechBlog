@@ -7,6 +7,7 @@ import { AdminBlogListComponent } from './components/admin-blog-list/admin-blog-
 import { AdminChangePasswordComponent } from './components/admin-change-password/admin-change-password.component';
 import { AdminDashboardChildComponent } from './components/admin-dashboard-child/admin-dashboard-child.component';
 import { AdminDashboardComponent } from './components/admin-dashboard/admin-dashboard.component';
+import { AdminSingleBlogApproveComponent } from './components/admin-single-blog-approve/admin-single-blog-approve.component';
 import { AdminSingleBlogPageComponent } from './components/admin-single-blog-page/admin-single-blog-page.component';
 import { CategorylistComponent } from './components/categorylist/categorylist.component';
 import { FooterComponent } from './components/footer/footer.component';
@@ -43,6 +44,7 @@ const routes: Routes = [
     children: [
       {path:'admin-blog-list',component:AdminBlogListComponent,},
       {path:'admin-single-blog-page/:_id',component:AdminSingleBlogPageComponent},
+      {path:'admin-aprove/:_id',component:AdminSingleBlogApproveComponent},
       {path:'admin-blog-category',component:AdminBlogCategoryComponent},
       {path:'admin-approve-blog',component:AdminApproveBlogComponent},
       {path:'admin-dashboard-child',component:AdminDashboardChildComponent}
