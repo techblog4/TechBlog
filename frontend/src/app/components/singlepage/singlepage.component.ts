@@ -16,12 +16,12 @@ export class SinglepageComponent implements OnInit {
     this.postserve.homeadd().subscribe((data)=>{
       this.posts= JSON.parse(JSON.stringify(data));
       //  console.log(this.posts);
-   
+    });
 
-    for(let i = 0;i<=this.posts.length;i++) {
-     this.posts.description = this.posts[i].description.replace(/<[^>]*>/g, '');
-    console.log(this.posts.description); 
-  }
+    // for(let i = 0;i<=this.posts.length;i++) {
+    //  this.posts.description = this.posts[i].description.replace(/<[^>]*>/g, '');
+    // console.log(this.posts.description); 
+  // }
       //  this.posts= this.posts.replace(/(<([^>]+)>)/gi, "");
      //  console.log(data);
   //    var temporalDivElement = document.createElement("div");
@@ -30,7 +30,7 @@ export class SinglepageComponent implements OnInit {
   //    // Retrieve the text property of the element (cross-browser support)
   //  this.posts.description = temporalDivElement.textContent || temporalDivElement.innerText || "";
      
-   })  
+  //  })  
    
    
   }
