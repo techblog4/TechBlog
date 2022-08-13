@@ -193,18 +193,6 @@ app.post("/addpost", (req,res)=>{
         date1:new Date(),
         email:req.body.data.currentEmail
     }
-        
-   
-
-
-
-
-
-
-
-
-
-
     var posters = new usermongo(posts);
     posters.save();
   // }
@@ -258,13 +246,21 @@ app.post("/getBlogById",(req,res)=>{
   usermongo.findById(req.body.data).then((data)=>{
      res.send(data);
     });
-    
   });
+
+app.post("/approveBlog",(req,res)=>{
+  res.header("Access-Control-Allow-Origin","*"); 
+  res.header("Access-Control-Allow-Methods:GET,POST,PUT,DELETE");
+  usermongo.findByIdAndUpdate({"_id":req.body.data},
+  {$set:{"isVerified":"1"}}).then((data)=>{
+     res.send(data);
+    });
+  });
+
   app.post("/getUserName",(req,res)=>{
     res.header("Access-Control-Allow-Origin","*"); 
     res.header("Access-Control-Allow-Methods:GET,POST,PUT,DELETE");
     email1=req.body.data.currentEmail;
-  
     signupmongo.find({$and:[{email:email1}]}).then((data)=>{
       console.log(data);
        res.send(data);
@@ -275,17 +271,11 @@ app.post("/getBlogById",(req,res)=>{
   app.post("/currentUserBlogs",(req,res)=>{
     res.header("Access-Control-Allow-Origin","*"); 
     res.header("Access-Control-Allow-Methods:GET,POST,PUT,DELETE");
-    
-        
-      
       email1=req.body.data.currentEmail;
-  
     usermongo.find({$and:[{email:email1}]}).then((data)=>{
       console.log(data);
-       res.send(data);
-       
+       res.send(data); 
       });
-      
     });
 
 

@@ -75,6 +75,7 @@ import { TrainerSingleBlogpageComponent } from './components/trainer-single-blog
     StudentDashboardChildComponent,
     HomecardsComponent,
     TrainerSingleBlogpageComponent,
+    
    
   ],
   imports: [
