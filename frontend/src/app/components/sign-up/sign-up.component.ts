@@ -30,9 +30,9 @@ export class SignUpComponent implements OnInit {
       },{
         validator:()=>{
           if(this.signupForm?.controls?.['password'].value !=this.signupForm?.controls?.['confirmpassword'].value){
-            console.log("inside condition")
+            // console.log("inside condition")
             this.signupForm.controls?.['confirmpassword'].setErrors({passwordMismatch:true})
-            console.log("success",this.signupForm)
+            // console.log("success",this.signupForm)
           }
         }
     
@@ -52,11 +52,11 @@ get signup(){
   this.service.addsignup(values)
   .subscribe((data)=>{
   var x=JSON.parse(JSON.stringify(data))
-  console.log(x);
+  // console.log(x);
   if(x.status){
       this.router.navigate(['login']);
   }else{
-      alert("error");
+      alert("user already exist");
     }
 });
   

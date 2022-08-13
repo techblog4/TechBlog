@@ -1,17 +1,34 @@
 <div class="home">
   <div class="container">
+
+    <!-- <a routerLink="/" class="homeicon"><button mat-icon-button aria-label="close mat-card-close" mat-card-close>
+      <mat-icon>home</mat-icon>
+      </button></a>  -->
+
       <form #form="ngForm" (ngSubmit)="form.valid && onSubmit()">
           <h1 style="color:rgb(233, 17, 17) ;font-size:bold">Make your posts..</h1>
         
           <div>
             <label for="title">Title :</label>&nbsp;
-            <input  type="text" name="name" id="name" required class="form-control" #title="ngModel"[(ngModel)]="model.title">
+            <input  type="text" name="name" id="name" required class="form-control" #title="ngModel"[(ngModel)]="model.title" >
+           
           </div>
           <div>
               <label for="file">Image/Video :</label>&nbsp;
-              <input type="file" name="file" id="file" required class="form-control" #file="ngModel"[(ngModel)]="model.file">
+              <input type="file" name="file" id="file" required class="form-control" #file="ngModel" [(ngModel)]="model.file" 
+            
+              accept="image/x-png,image/gif,image/jpeg">
+              <!-- <button
+        type="button"
+        (click)="uploader.uploadAll()"
+        [disabled]="!uploader.getNotUploadedItems().length"
+      >
+        Upload
+      </button> -->
+         
             </div>
           <label for="description">Description :</label>
+ 
           <ckeditor
             #editor
             id="description"
@@ -21,16 +38,10 @@
             [(ngModel)]="model.description"
             >
           </ckeditor>
-          <div>
-            <label for="authorname">Authuor Name :</label>&nbsp;
-            <input type="text" name="auth_name" id="auth_name" required class="form-control" #authorname="ngModel"[(ngModel)]="model.authorname">
-          </div>
-          <div>
-            <label for="date">Date :</label>&nbsp;
-            <input type="datetime" name="date" id="date" required class="form-control" #date="ngModel"[(ngModel)]="model.date">
-          </div>
+          
+          
           <br>
-          <button type="submit">Submit</button> 
+          <button type="submit"class="btn btn-success" >Submit</button> 
       </form>
 </div></div>
 

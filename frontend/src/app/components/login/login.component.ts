@@ -35,22 +35,33 @@ onsubmitlogin(values:any){
         //console.log({values});
         
       this.service.loginadd(values)
-      .subscribe((data)=>{
-           var x=JSON.parse(JSON.stringify(data))
-          console.log(x);
+      .subscribe((res)=>{
+          
+           var x=JSON.parse(JSON.stringify(res));
+           console.log(x);
+          console.log(x.decoded1);
+          
+          // console.log(x);
           if(x.student){
-              this.router.navigate(['studenthome']);
+              localStorage.setItem('token',x.token);
+              localStorage.setItem('studentEmailToken',x.decoded1);
+              this.router.navigate(['studentnavbar/student-dashboard-child']);
           }
           else if(x.trainer){
-            this.router.navigate(['trainerhome']);
+            localStorage.setItem('token',x.token);
+            localStorage.setItem('emailToken',x.decoded);
+            this.router.navigate(['trainernavbar/trainer-dashboard-child']);
             }
-          else{
-              alert("error");
-              //  this.router.navigate(['admin-dashboard']);
+          else if(x.admin){
+                 localStorage.setItem('token',x.token);
+                 this.router.navigate(['admin-dashboard/admin-dashboard-child']);
             }
-          
+          else if(x.unathorised){
+            alert("Invalid email or password");
+          }
         });
           
       }   
-       
+      
     }
+    

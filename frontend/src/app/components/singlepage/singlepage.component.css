@@ -1,0 +1,24 @@
+ *{
+    background-color: #95e3d0;
+  }
+  .container{
+    display: grid;
+  grid-template-columns: repeat(2,1fr);
+  grid-column-gap: 10%;
+  grid-row-gap: 10px;
+ 
+  }
+ .head{
+  text-align: center;
+  font-weight:500;
+  color:darkmagenta;
+  font-size:40px;
+  font-family:monospace;
+  
+ } 
+ .child{
+  margin-top: 10%;
+  }
+ .bg-white{
+  background-color: aliceblue;
+ }

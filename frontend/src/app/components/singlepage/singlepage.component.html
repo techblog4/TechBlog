@@ -1,0 +1,31 @@
+<div>
+<div><br>  
+<h1 class="head">Posts Created</h1> 
+<!-- <mat-card>
+    <a routerLink="/"><button mat-icon-button aria-label="close mat-card-close" mat-card-close>
+      <mat-icon>home</mat-icon>
+      </button></a>  -->
+</div> 
+     
+<div class="container">
+   
+<div class="child text-center" *ngFor='let i of posts'>
+<div class="card mb-5 shadow-sm bg-white"  data-aos="fade-up">
+    <div class="inner">
+    <img [src]="i.file" class="img-fluid" alt="">
+    </div>
+    <div class="card-body">
+    <h2 style="color:red ;">{{i.title}}</h2>
+    
+    <div class="card-text">
+    <p>{{i.description}}</p>
+    <h3>{{i.authorname}}</h3>
+    <p>{{i.date1}}</p>
+     <!-- <a rouerLink="" (click)="singleBlog(post)" style="margin-top: 2%; cursor: pointer;">Read More</a> -->
+    </div>
+</div>
+      
+</div>
+</div></div>
+</div>
+

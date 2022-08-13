@@ -1,0 +1,14 @@
+.commonstyle{
+    font-size:large;
+    color:deeppink;
+    
+    
+}
+.db{
+    color: black;
+}
+.butn:hover{
+    transition: all 0.5s ease-in;
+      border-top-right-radius: 25px;
+      cursor: pointer;
+  }

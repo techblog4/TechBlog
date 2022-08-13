@@ -10,15 +10,19 @@ export class ServiceService {
   addsignup=(item:any)=>{
     return  this.http.post("http://localhost:4001/signup",{item});
   }
-  addBlogCategory=(item:any)=>{
-    return  this.http.post("http://localhost:4001/addBlogCategory",item);
+  addblogcategory=(item:any)=>{
+    return  this.http.post("http://localhost:4001/addblogcategory",{item});
   }
  loginadd=(data:any)=>{
    return this.http.post("http://localhost:4001/login",{data});
  }
+ loggedin(){
+  return !!localStorage.getItem('token');
+ }
  
- 
-
+getToken(){
+  return localStorage.getItem('token');
+}
 }
 
 

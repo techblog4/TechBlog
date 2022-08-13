@@ -1,8 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import {MaterialModule} from './material/material.module';
-
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './components/login/login.component';
@@ -11,10 +9,10 @@ import { HomeComponent } from './components/home/home.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { HttpClientModule} from '@angular/common/http';
+import { HttpClientModule,HTTP_INTERCEPTORS} from '@angular/common/http';
 import {MatDialogModule, MatDialogRef} from '@angular/material/dialog';
 import { AdminDashboardComponent } from './components/admin-dashboard/admin-dashboard.component';
-import { StudentDashboardComponent } from './components/student-dashboard/student-dashboard.component';
+
 import { TrainerDashboardComponent } from './components/trainer-dashboard/trainer-dashboard.component';
 import {MatIconModule} from '@angular/material/icon';
 import {MatToolbarModule} from '@angular/material/toolbar';
@@ -32,7 +30,26 @@ import { AdminChangePasswordComponent } from './components/admin-change-password
 import { CKEditorModule } from 'ckeditor4-angular';
 import { PostserviceService } from './postservice.service';
 import { ServiceService } from './service.service';
+import { AdminSingleBlogPageComponent } from './components/admin-single-blog-page/admin-single-blog-page.component';
 
+
+import { StudentNavbarComponent } from './components/student-navbar/student-navbar.component';
+import { StudentDashboardComponent } from './components/student-dashboard/student-dashboard.component';
+import { StudentViewblogsComponent } from './components/student-viewblogs/student-viewblogs.component';
+import { TrainerNavbarComponent } from './components/trainer-navbar/trainer-navbar.component';
+import { TrainerviewblogsComponent } from './components/trainerviewblogs/trainerviewblogs.component';
+import { SinglepageComponent } from './components/singlepage/singlepage.component';
+import { CategorylistComponent } from './components/categorylist/categorylist.component';
+import { InnerfooterComponent } from './components/innerfooter/innerfooter.component';
+import { FileUploadModule } from 'ng2-file-upload';
+import { AdminDashboardChildComponent } from './components/admin-dashboard-child/admin-dashboard-child.component';
+import { TrainerDashboardChildComponent } from './components/trainer-dashboard-child/trainer-dashboard-child.component';
+import { StudentDashboardChildComponent } from './components/student-dashboard-child/student-dashboard-child.component';
+import { HomecardsComponent } from './components/homecards/homecards.component';
+import { TrainerSingleBlogpageComponent } from './components/trainer-single-blogpage/trainer-single-blogpage.component';
+import { StudentSingleBlogpageComponentComponent } from './components/student-single-blogpage-component/student-single-blogpage-component.component';
+import { TokenInterceptorService } from './token-interceptor.service';
+import { UpdateblogsComponent } from './components/updateblogs/updateblogs.component';
 
 @NgModule({
   declarations: [
@@ -42,12 +59,28 @@ import { ServiceService } from './service.service';
     HomeComponent,
     FooterComponent,
     AdminDashboardComponent,
-    StudentDashboardComponent,
     TrainerDashboardComponent,
     AdminBlogListComponent,
     AdminBlogCategoryComponent,
     AdminApproveBlogComponent,
     AdminChangePasswordComponent,
+    AdminSingleBlogPageComponent,
+    StudentNavbarComponent,
+    StudentDashboardComponent,
+    StudentViewblogsComponent,
+    TrainerNavbarComponent,
+    TrainerviewblogsComponent,
+    SinglepageComponent,
+    CategorylistComponent,
+    InnerfooterComponent,
+    AdminDashboardChildComponent,
+    TrainerDashboardChildComponent,
+    StudentDashboardChildComponent,
+    HomecardsComponent,
+    TrainerSingleBlogpageComponent,
+    StudentSingleBlogpageComponentComponent,
+    UpdateblogsComponent,
+   
   ],
   imports: [
     BrowserModule,
@@ -66,10 +99,18 @@ import { ServiceService } from './service.service';
     MatPaginatorModule,
     MatTreeModule,
     MatSortModule,
-    CKEditorModule
+    CKEditorModule,
+    FileUploadModule 
     
   ],
-  providers: [PostserviceService,ServiceService],
+  providers: [ PostserviceService,ServiceService,
+             {
+            provide:HTTP_INTERCEPTORS,
+            useClass:TokenInterceptorService,
+            multi: true
+             }
+            ],
+  
   bootstrap: [AppComponent],
   // entryComponents:[SignUpComponent,LoginComponent]
   

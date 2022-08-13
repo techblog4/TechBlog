@@ -1,54 +1,4 @@
-<!-- 
-<mat-sidenav-container class = "tp-container">
-    <mat-sidenav #drawer class="sidenav" mode="side">
-     <section class = "tp-section">
-        <mat-list>
-          <div mat-subheader><span>Dashboard</span></div>
-            <mat-list-item>
-              <mat-icon mat-list-icon>dashboard</mat-icon>
-              <div mat-line><a routerLink="/admin-dashboard"><span>Dashboard</span></a></div>
-              </mat-list-item>
-              <mat-divider></mat-divider>
-            <mat-list-item>
-              <mat-icon mat-list-icon>article</mat-icon>
-              <div mat-line><a routerLink="admin-blog-list"><span>Blog Posts</span></a></div>
-              </mat-list-item>
-              <mat-divider></mat-divider>
-            <mat-list-item>
-              <mat-icon mat-list-icon>view_list</mat-icon>
-              <div mat-line><a routerLink="admin-blog-category"><span>Categories</span></a></div>
-              </mat-list-item>
-              <mat-divider></mat-divider>
-            <mat-list-item>
-              <mat-icon mat-list-icon>manage_accounts</mat-icon>
-              <div mat-line><span>Change Password</span></div>
-            </mat-list-item>
-            <mat-divider></mat-divider>
-            <mat-list-item>
-              <mat-icon mat-list-icon>logout</mat-icon>
-              <div mat-line><a routerLink="/"><span>Log out</span></a></div>
-              </mat-list-item>
-            </mat-list>
-         </section>
-  </mat-sidenav>
-  <mat-sidenav-content>
-    <div class="toolbar">
-    <mat-toolbar>
-      <button mat-icon-button class="icon" aria-label="icon-button with menu icon">
-        <mat-icon (click)="drawer.toggle()">menu</mat-icon>
-      </button>
-      <span>Admin Dashboard</span>
-      <span class="spacer"></span>
-      <button mat-icon-button class="icon settings-icon" aria-label="icon-button with settings icon">
-        <mat-icon>settings</mat-icon>
-      </button>
-    </mat-toolbar>
-  </div>
-      <div>
-        <router-outlet></router-outlet>
-      </div>
-  </mat-sidenav-content>
-</mat-sidenav-container> -->
+
 <mat-sidenav-container>
   <mat-sidenav #sidebar mode="side" opened="">
       <section class = "tp-section">
@@ -57,7 +7,7 @@
            <mat-divider></mat-divider>
              <mat-list-item>
                <mat-icon mat-list-icon>dashboard</mat-icon>
-               <div mat-line><a routerLink="/admin-dashboard"><span>Dashboard</span></a></div>
+               <div mat-line><a routerLink="admin-dashboard-child"><span>Dashboard</span></a></div>
                </mat-list-item>
                <mat-divider></mat-divider>
                <mat-list-item>

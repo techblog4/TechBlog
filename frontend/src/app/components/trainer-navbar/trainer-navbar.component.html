@@ -1,0 +1,53 @@
+
+<mat-sidenav-container>
+    <mat-sidenav #sidebar mode="side" opened="">
+        <section class = "tp-section">
+           <mat-list>
+             <div mat-subheader><span>Dashboard</span></div>
+             <mat-divider></mat-divider>
+               <mat-list-item>
+                 <mat-icon mat-list-icon>dashboard</mat-icon>
+                 <div mat-line><a routerLink="trainer-dashboard-child"><span>Dashboard</span></a></div>
+                 </mat-list-item>
+                 <mat-divider></mat-divider>
+                 <mat-list-item>
+                  <mat-icon mat-list-icon>article</mat-icon>
+                  <div mat-line><a routerLink="trainerhome"><span>Create Blog</span></a></div>
+                  </mat-list-item>
+                  <mat-divider></mat-divider>
+               <mat-list-item>
+                 <mat-icon mat-list-icon>article</mat-icon>
+                 <div mat-line><a routerLink="trainerviewblogs"><span>View Blogs</span></a></div>
+                 </mat-list-item>
+                 <mat-divider></mat-divider>
+               <mat-list-item>
+                 <mat-icon mat-list-icon>manage_accounts</mat-icon>
+                 <div mat-line><span><a routerLink="admin-change-password"><span>Change Password</span></a></span></div>
+               </mat-list-item>
+               <mat-divider></mat-divider>
+               <mat-list-item>
+                 <mat-icon mat-list-icon>logout</mat-icon>
+                 <div mat-line><a routerLink="/"  ><span>Log out</span></a></div>
+                 </mat-list-item>
+               </mat-list>
+            </section>
+    </mat-sidenav>
+    <mat-sidenav-content>
+        <div class="content">
+            <div class="toolbar">
+                <mat-toolbar>
+                    <mat-icon (click)="sidebar.toggle()">menu</mat-icon>
+                    <!-- <div class="box">
+                        <mat-icon>search</mat-icon>
+                        <mat-icon>bookmark_border</mat-icon>
+                        <mat-icon>mail_outline</mat-icon>
+                    </div> -->
+                </mat-toolbar>
+            </div>
+            <div class="main">
+              <router-outlet></router-outlet>
+            </div>
+        </div>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+  

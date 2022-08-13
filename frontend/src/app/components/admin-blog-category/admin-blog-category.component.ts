@@ -1,10 +1,8 @@
 // import {FlatTreeControl} from '@angular/cdk/tree';
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, Validators } from '@angular/forms';
-// import {MatTreeFlatDataSource, MatTreeFlattener} from '@angular/material/tree';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ServiceService } from 'src/app/service.service';
-import { categoryModel} from './categoryModel';
 
 
 
@@ -14,22 +12,33 @@ import { categoryModel} from './categoryModel';
   styleUrls: ['./admin-blog-category.component.css']
 })
 export class AdminBlogCategoryComponent implements OnInit {
-  categoryModel=new categoryModel( "" );
-  hide=true; 
-  submitted=false;
-  constructor(public fb:FormBuilder,private service:ServiceService,private router:Router) {}
-  categoryForm =this.fb.group({
-    blogCategory:['',[Validators.required]]
-     })
-     get blogCategory(){
-      return this.categoryForm.controls
-    }
-  oncategorysubmit(values:any){
-    this.submitted=true;
-    this.service.addBlogCategory(this.categoryModel);
-    } 
+  blogcategoryhide=true;
+  submittedblogcategory=false;
+  blogcategoryForm!: FormGroup;
 
+  constructor(private fb:FormBuilder,private service:ServiceService,
+    private router:Router) { }  
+    
   ngOnInit(): void {
+    this.blogcategoryForm =this.fb.group({
+      blogCategory:['',[Validators.required]]
+    })
+    
   }
+  get blogcategory(){
+    return this.blogcategoryForm.controls
+  } 
+  onsubmitblogcategory(values:any){
+    this.submittedblogcategory=true;
+    this.service.addblogcategory(values)
+    .subscribe((data)=>{
+    var x=JSON.parse(JSON.stringify(data))
+    if(x.status){
+    }else{
+        alert("error");
+      }
+  });
+    
+  } 
 
 }
