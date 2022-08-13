@@ -1,12 +1,11 @@
 const express=require("express");
 const cors = require("cors");
 const jwt =require("jsonwebtoken");
- var multer = require('multer');
- var upload = multer({ dest: "public/files" });
+const multer = require('multer');
 const signupmongo=require("./src/model/signup");
 const adminmongo =require("./src/model/admin");
 const blogcategorymongo = require("./src/model/addBlogCategory");
- const { request } = require("express");
+const { request } = require("express");
 const homemongo =require("./src/model/home");
 const usermongo=require("./src/model/usermongo");
 const app = new express();
@@ -16,6 +15,8 @@ app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({extended:true}));
 const PORT = process.env.PORT || 4001;
+
+
 
 // Middleware Fuction to verify Token send from FrontEnd
 function verifyToken(req,res,next){
@@ -157,7 +158,7 @@ else if(user.user=="admin"){
   
   
 
-app.post("/addpost", (req,res)=>{
+app.post("/addpost", verifyToken,(req,res)=>{
 
     res.header("Access-Control-Allow-Origin", "*");
     res.header("Access-Control-Allow-Methods: GET, POST, PUT, DELETE");
@@ -173,15 +174,18 @@ app.post("/addpost", (req,res)=>{
         description:req.body.data.description,
         isVerified:'0',
         date1:date,
-        email:req.body.data.currentEmail
+        email:req.body.data.currentEmail,
+        // file: 'http://localhost:4001/uploads/'+ req.data.file.filename,
+       
     }
+
 var posters = new usermongo(posts);
     posters.save();
 
 });
 
 
-app.post("/addblogcategory",(req,res)=>{
+app.post("/addblogcategory",verifyToken,(req,res)=>{
   res.header("Access-Control-Allow-Origin","*");
  res.header("Access-Control-Allow-Headers: Content-Type, application/json");
  res.header("Access-Control-Allow-Methods:GET,POST,PATCH,PUT,DELETE,OPTIONS");
@@ -202,7 +206,7 @@ blogCategoryDB.save(function (err) {
 });
 
 
-app.get("/getAllBlogs",(req,res)=>{
+app.get("/getAllBlogs",verifyToken,(req,res)=>{
   res.header("Access-Control-Allow-Origin","*"); 
   res.header("Access-Control-Allow-Methods:GET,POST,PUT,DELETE");
   
@@ -212,7 +216,7 @@ app.get("/getAllBlogs",(req,res)=>{
     });
     
   });
-app.get("/getNotApprovedBlogs",(req,res)=>{
+app.get("/getNotApprovedBlogs",verifyToken,(req,res)=>{
   res.header("Access-Control-Allow-Origin","*"); 
   res.header("Access-Control-Allow-Methods:GET,POST,PUT,DELETE");
   usermongo.find({$and:[{isVerified:"0"}]}).then((data)=>{
@@ -221,7 +225,7 @@ app.get("/getNotApprovedBlogs",(req,res)=>{
     
   });
 
-app.post("/getBlogById",(req,res)=>{
+app.post("/getBlogById",verifyToken,(req,res)=>{
   res.header("Access-Control-Allow-Origin","*"); 
   res.header("Access-Control-Allow-Methods:GET,POST,PUT,DELETE");
   usermongo.findById(req.body.data).then((data)=>{
@@ -229,7 +233,7 @@ app.post("/getBlogById",(req,res)=>{
     });
     
   });
-  app.post("/getUserName",(req,res)=>{
+  app.post("/getUserName",verifyToken,(req,res)=>{
     res.header("Access-Control-Allow-Origin","*"); 
     res.header("Access-Control-Allow-Methods:GET,POST,PUT,DELETE");
     email1=req.body.data.currentEmail;
@@ -241,7 +245,7 @@ app.post("/getBlogById",(req,res)=>{
       });
       
     });
-  app.post("/currentUserBlogs",(req,res)=>{
+  app.post("/currentUserBlogs",verifyToken,(req,res)=>{
     res.header("Access-Control-Allow-Origin","*"); 
     res.header("Access-Control-Allow-Methods:GET,POST,PUT,DELETE");
     
@@ -269,7 +273,7 @@ app.post("/getBlogById",(req,res)=>{
     });
 
     
-  app.put('/update',(req,res)=>{
+  app.put('/update',verifyToken,(req,res)=>{
     console.log(req.body)
     id=req.body._id,
     
@@ -290,7 +294,7 @@ app.post("/getBlogById",(req,res)=>{
    })
  })
 
- app.delete('/remove/:id',(req,res)=>{
+ app.delete('/remove/:id',verifyToken,(req,res)=>{
    
   id = req.params.id;
   usermongo.findByIdAndDelete({"_id":id})
@@ -299,6 +303,20 @@ app.post("/getBlogById",(req,res)=>{
       res.send();
   })
 });
+app.get('/:_id',(req,res)=>
+{
+  const id = req.params.id;
+     
+  usermongo.findOne({"_id":_id},
+                    {$set:{
+                   "title":title,
+                   "file":file,
+                  "description":description
+    }})
+    .then((posts)=>{
+      res.send(posts);
+  });
+})
 
 app.listen(PORT,()=>{
     console.log("server is running");

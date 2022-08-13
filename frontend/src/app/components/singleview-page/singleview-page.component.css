@@ -1,0 +1,28 @@
+
+.bg-nav{
+    background-color:rgb(244 191 28);
+    padding: 25px;
+  }
+
+
+.navlink a{
+    text-decoration: none;
+    font-size:15px;
+    font-weight: 600;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    text-transform: uppercase;
+    color: black;
+  }
+  .navlink a:hover{
+    transition: all 0.25s ease-out;
+    color: white;
+  }
+  .box{
+    margin-top:15%;
+  }
+  .card-body{
+    font-size: larger;
+    font-weight:600;
+    color: maroon;
+    background-color: bisque;
+  }

@@ -5,7 +5,7 @@
         <mat-icon>home</mat-icon>
         </button></a>  -->
 
-        <form #form="ngForm" (ngSubmit)="form.valid && onSubmit()" class="frm" enctype= "multipart/form-data">
+        <form #form="ngForm" (ngSubmit)="form.valid && onSubmit()">
             <h1 style="color:rgb(233, 17, 17) ;font-size:bold">Make your posts..</h1>
           
             <div>
@@ -14,7 +14,7 @@
             </div>
             <div>
                 <label for="file">Image/Video :</label>&nbsp;
-                <input type="file" name="file" id="file" required class="form-control" #file="ngModel"[(ngModel)]="model.file">
+                <input type="file" name="file" id="file" required class="form-control" #file="ngModel"[(ngModel)]="model.file"> 
             </div>
             <label for="description">Description :</label>
             <ckeditor
@@ -35,3 +35,12 @@
 
 
 
+
+
+
+
+
+
+
+
+<!-- (change)="selectImage($event)" -->
