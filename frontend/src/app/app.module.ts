@@ -9,7 +9,7 @@ import { HomeComponent } from './components/home/home.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { HttpClientModule} from '@angular/common/http';
+import { HttpClientModule,HTTP_INTERCEPTORS} from '@angular/common/http';
 import {MatDialogModule, MatDialogRef} from '@angular/material/dialog';
 import { AdminDashboardComponent } from './components/admin-dashboard/admin-dashboard.component';
 
@@ -47,6 +47,11 @@ import { TrainerDashboardChildComponent } from './components/trainer-dashboard-c
 import { StudentDashboardChildComponent } from './components/student-dashboard-child/student-dashboard-child.component';
 import { HomecardsComponent } from './components/homecards/homecards.component';
 import { TrainerSingleBlogpageComponent } from './components/trainer-single-blogpage/trainer-single-blogpage.component';
+import { StudentSingleBlogpageComponentComponent } from './components/student-single-blogpage-component/student-single-blogpage-component.component';
+import { TokenInterceptorService } from './token-interceptor.service';
+import { UpdateblogsComponent } from './components/updateblogs/updateblogs.component';
+import { UpadateblogStudentComponent } from './components/upadateblog-student/upadateblog-student.component';
+import { SingleviewPageComponent } from './components/singleview-page/singleview-page.component';
 
 @NgModule({
   declarations: [
@@ -75,7 +80,10 @@ import { TrainerSingleBlogpageComponent } from './components/trainer-single-blog
     StudentDashboardChildComponent,
     HomecardsComponent,
     TrainerSingleBlogpageComponent,
-    
+    StudentSingleBlogpageComponentComponent,
+    UpdateblogsComponent,
+    UpadateblogStudentComponent,
+    SingleviewPageComponent,
    
   ],
   imports: [
@@ -99,7 +107,14 @@ import { TrainerSingleBlogpageComponent } from './components/trainer-single-blog
     FileUploadModule 
     
   ],
-  providers: [PostserviceService,ServiceService],
+  providers: [ PostserviceService,ServiceService,
+             {
+            provide:HTTP_INTERCEPTORS,
+            useClass:TokenInterceptorService,
+            multi: true
+             }
+            ],
+  
   bootstrap: [AppComponent],
   // entryComponents:[SignUpComponent,LoginComponent]
   

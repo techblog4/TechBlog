@@ -16,23 +16,29 @@ import { InnerfooterComponent } from './components/innerfooter/innerfooter.compo
 import { LoginComponent } from './components/login/login.component';
 import { SignUpComponent } from './components/sign-up/sign-up.component';
 import { SinglepageComponent } from './components/singlepage/singlepage.component';
+import { SingleviewPageComponent } from './components/singleview-page/singleview-page.component';
 import { StudentDashboardChildComponent } from './components/student-dashboard-child/student-dashboard-child.component';
 import { StudentDashboardComponent } from './components/student-dashboard/student-dashboard.component';
 import { StudentNavbarComponent } from './components/student-navbar/student-navbar.component';
+import { StudentSingleBlogpageComponentComponent } from './components/student-single-blogpage-component/student-single-blogpage-component.component';
 import { StudentViewblogsComponent } from './components/student-viewblogs/student-viewblogs.component';
 import { TrainerDashboardChildComponent } from './components/trainer-dashboard-child/trainer-dashboard-child.component';
 import { TrainerDashboardComponent } from './components/trainer-dashboard/trainer-dashboard.component';
 import { TrainerNavbarComponent } from './components/trainer-navbar/trainer-navbar.component';
 import { TrainerSingleBlogpageComponent } from './components/trainer-single-blogpage/trainer-single-blogpage.component';
 import { TrainerviewblogsComponent } from './components/trainerviewblogs/trainerviewblogs.component';
+import { UpadateblogStudentComponent } from './components/upadateblog-student/upadateblog-student.component';
+import { UpdateblogsComponent } from './components/updateblogs/updateblogs.component';
 
  
 
 const routes: Routes = [
-  {path:'',component:HomeComponent},
+  {path:'', component:HomeComponent},
   {path:'login',component:LoginComponent},
   {path:'signup',component:SignUpComponent},
   {path:'footer',component:FooterComponent},
+
+
   {path:'admin-dashboard',canActivate:[AuthGuard],component:AdminDashboardComponent,
     children: [
       {path:'admin-blog-list',component:AdminBlogListComponent,},
@@ -46,13 +52,27 @@ const routes: Routes = [
   {path:'categorylist',component:CategorylistComponent},
   {path:'singlepage',component:SinglepageComponent},
   {path:'innerfooter',component:InnerfooterComponent},
+  {path:"homecards",component:HomecardsComponent},
+  {path:"trainerupdate",component:UpdateblogsComponent},
+  {path:"studentupdate",component:UpadateblogStudentComponent},
+  {path:"singleviewpage",component:SingleviewPageComponent},
   
  
   {path:'studentnavbar',canActivate:[AuthGuard],component:StudentNavbarComponent,
- children:[
+ children:
+ [
   {path:'studenthome',component:StudentDashboardComponent},
   {path:'studentviewblogs',component:StudentViewblogsComponent},
-  {path:'student-dashboard-child',component:StudentDashboardChildComponent}]},
+  {path:'student-dashboard-child',component:StudentDashboardChildComponent},
+  {path:'student-single-blogpage/:_id',component:StudentSingleBlogpageComponentComponent}
+]
+},
+
+
+
+
+
+
 
   {path:'trainernavbar',canActivate:[AuthGuard],component:TrainerNavbarComponent,
 
@@ -63,9 +83,9 @@ const routes: Routes = [
     {path:'trainer-dashboard-child',component:TrainerDashboardChildComponent},
     {path:'trainer-single-blogpage/:_id',component:TrainerSingleBlogpageComponent}
    ]
-  },
+  }
   
-  {path:"homecards",component:HomecardsComponent}
+  
   
 ];
 

@@ -1,16 +1,16 @@
 
   <div class="main-content">
-    <div class="container mt-7">
+    <div class="container ">
       <!-- Table -->
-      <div class="row">
+      <div class="row ">
 
         <div class="col">
-          <div class="card shadow">
+          <div class="card shadow ">
             <div class="card-header border-0">
               <h3 class="mb-0">All Blogs</h3>
             </div>
             <div class="table-responsive">
-              <table class="table align-items-center table-flush">
+              <table class="table align-items-center table-flush ">
                 <thead class="thead-light">
                   <tr>
                     <th scope="col">Sl. No.</th>
@@ -39,12 +39,14 @@
                     
                     <td>
                       <div class="d-flex align-items-center">
-                        <span class="mr-2">{{blog._id}}</span>
+                        <span class="mr-2">{{blog.date1}}</span>
                       </div>
                     </td>
                     <td class="text-right">
                       <div class="dropdown">
-                        <button class="btn btn-primary" (click)="btnClick(blog._id);">View</button>
+                        <button class="btn btn-primary butn" (click)="btnClick(blog._id);">View</button>
+                        <button class="btn btn-warning butn" style="cursor:pointer" (click)="editPost(blog)"> Edit</button>&nbsp;
+                        <button class="btn btn-danger butn" style="cursor:pointer" (click)="deletePost(blog)"> Delete</button>
                       </div>
                     </td>
                   </tr>

@@ -1,74 +1,67 @@
 const express=require("express");
 const cors = require("cors");
 const jwt =require("jsonwebtoken");
- var multer = require('multer');
- var upload = multer({ dest: "public/files" });
+const multer = require('multer');
 const signupmongo=require("./src/model/signup");
 const adminmongo =require("./src/model/admin");
 const blogcategorymongo = require("./src/model/addBlogCategory");
- const { request } = require("express");
+const { request } = require("express");
 const homemongo =require("./src/model/home");
 const usermongo=require("./src/model/usermongo");
 const app = new express();
 
-//  const PATH = './uploads';
-//  let storage = multer.diskStorage({
-//    destination: (req, file, cb) => {
-//      cb(null, PATH);
-//    },
-//    filename: (req, file, cb) => {
-//      cb(null, file.fieldname + '-' + Date.now())
-//    },
 
-//  });
-//  localStorage.setItem('file',filename);
-//  var upload = multer({
-//    storage: storage
-// });
-//  const upload2 = multer({ storage: storage }).getFilename.array('filename');
-//  console.log(upload2);
-//  console.log(upload.storage.getFilename.array('filename'));
-// console.log("storage");
 app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({extended:true}));
 const PORT = process.env.PORT || 4001;
 
-// app.get('/api', function (req, res) {
-//   res.end('File catcher');
-// });
-// POST File
-// app.post('/api/upload', upload.single('file'), function (req, res) {
-//   console.log("added");
-//   if (!req.file) {
-//     console.log("No file is available!");
-//     return res.send({
-//       success: false
-//     });
-//   } else {
-//     console.log('File is available!');
-//     return res.send({
-//       success: true
-//     })
-//   }
-// });
 
 
+// Middleware Fuction to verify Token send from FrontEnd
+function verifyToken(req,res,next){
 
+  if(!req.headers.authorization){
+     return res.status(401).send("Unauthorized Access")
+  }
+  let token = req.headers.authorization.split(' ')[1];
+ 
+ console.log(token);
+ if(token == "null"){
+     return res.status(401).send("Unauthorized Access")
+ }
 
-
+ let payload= jwt.verify(token , "secretkey")
+ console.log(payload);
+ if(!payload){
+     return res.status(401).send("Unauthorized Access")
+ }
+ req.userId = payload.subject
+      next()
+ };
 
 
 app.get("/home",(req,res)=>{
   res.header("Access-Control-Allow-Origin","*"); 
   res.header("Access-Control-Allow-Methods:GET,POST,PUT,DELETE");
     
-  homemongo.find()
+  usermongo.find()
   .then((data)=>{
      res.send(data)
     });
     
   });
+
+  app.get("/homecarosel",(req,res)=>{
+    res.header("Access-Control-Allow-Origin","*"); 
+    res.header("Access-Control-Allow-Methods:GET,POST,PUT,DELETE");
+      
+    homemongo.find()
+    .then((data)=>{
+       res.send(data)
+      });
+      
+    });
 
 app.post("/signup",(req,res)=>{
      res.header("Access-Control-Allow-Origin","*");
@@ -165,42 +158,33 @@ else if(user.user=="admin"){
   
   
 
-app.post("/addpost", (req,res)=>{
+app.post("/addpost", verifyToken,(req,res)=>{
 
     res.header("Access-Control-Allow-Origin", "*");
     res.header("Access-Control-Allow-Methods: GET, POST, PUT, DELETE");
-    // if (!req.body.data.file) {
-    //   console.log("No file is available!");
-    //   console.log(req.body.data.file);
-    //   return res.send({
-    //     success: false
-    //   });
-    // } else {
-    //   console.log('File is available!');
-      // return res.send({
-      //   success: true
-      // })
-    //   id=req.body._id,
-    // console.log(storage.DiskStorage.getFile());
+  
+    
 
- 
+    const d = new Date();
+    var date=d.toDateString();
     var posts ={
         
         title:req.body.data.title,
         file:req.body.data.file,
         description:req.body.data.description,
         isVerified:'0',
-        date1:new Date(),
-        email:req.body.data.currentEmail
+        date1:date,
+        email:req.body.data.currentEmail,
+        // file: 'http://localhost:4001/uploads/'+ req.data.file.filename,
+       
     }
     var posters = new usermongo(posts);
     posters.save();
-  // }
 
 });
 
 
-app.post("/addblogcategory",(req,res)=>{
+app.post("/addblogcategory",verifyToken,(req,res)=>{
   res.header("Access-Control-Allow-Origin","*");
  res.header("Access-Control-Allow-Headers: Content-Type, application/json");
  res.header("Access-Control-Allow-Methods:GET,POST,PATCH,PUT,DELETE,OPTIONS");
@@ -221,7 +205,7 @@ blogCategoryDB.save(function (err) {
 });
 
 
-app.get("/getAllBlogs",(req,res)=>{
+app.get("/getAllBlogs",verifyToken,(req,res)=>{
   res.header("Access-Control-Allow-Origin","*"); 
   res.header("Access-Control-Allow-Methods:GET,POST,PUT,DELETE");
   
@@ -231,7 +215,7 @@ app.get("/getAllBlogs",(req,res)=>{
     });
     
   });
-app.get("/getNotApprovedBlogs",(req,res)=>{
+app.get("/getNotApprovedBlogs",verifyToken,(req,res)=>{
   res.header("Access-Control-Allow-Origin","*"); 
   res.header("Access-Control-Allow-Methods:GET,POST,PUT,DELETE");
   usermongo.find({$and:[{isVerified:"0"}]}).then((data)=>{
@@ -240,7 +224,7 @@ app.get("/getNotApprovedBlogs",(req,res)=>{
     
   });
 
-app.post("/getBlogById",(req,res)=>{
+app.post("/getBlogById",verifyToken,(req,res)=>{
   res.header("Access-Control-Allow-Origin","*"); 
   res.header("Access-Control-Allow-Methods:GET,POST,PUT,DELETE");
   usermongo.findById(req.body.data).then((data)=>{
@@ -257,7 +241,9 @@ app.post("/approveBlog",(req,res)=>{
     });
   });
 
-  app.post("/getUserName",(req,res)=>{
+  // app.post("/getUserName",(req,res)=>{
+    
+  app.post("/getUserName",verifyToken,(req,res)=>{
     res.header("Access-Control-Allow-Origin","*"); 
     res.header("Access-Control-Allow-Methods:GET,POST,PUT,DELETE");
     email1=req.body.data.currentEmail;
@@ -268,16 +254,73 @@ app.post("/approveBlog",(req,res)=>{
       });
       
     });
-  app.post("/currentUserBlogs",(req,res)=>{
+  app.post("/currentUserBlogs",verifyToken,(req,res)=>{
     res.header("Access-Control-Allow-Origin","*"); 
     res.header("Access-Control-Allow-Methods:GET,POST,PUT,DELETE");
       email1=req.body.data.currentEmail;
+      console.log(email1);
+  
     usermongo.find({$and:[{email:email1}]}).then((data)=>{
       console.log(data);
        res.send(data); 
       });
     });
 
+    app.get('/:id',  (req, res) => {
+  
+      const id = req.params.id;
+     
+        usermongo.findOne({"_id":id})
+        .then((posts)=>{
+            res.send(posts);
+        });
+    });
+
+    
+  app.put('/update',verifyToken,(req,res)=>{
+    console.log(req.body)
+    id=req.body._id,
+    
+    title = req.body.title,
+    file = req.body.file,
+    
+    description = req.body.description
+   
+    
+   usermongo.findByIdAndUpdate({"_id":id},
+                                {$set:{
+                                "title":title,
+                                "file":file,
+                                "description":description
+                                }})
+   .then(function(){
+       res.send();
+   })
+ })
+
+ app.delete('/remove/:id',verifyToken,(req,res)=>{
+   
+  id = req.params.id;
+  usermongo.findByIdAndDelete({"_id":id})
+  .then(()=>{
+      console.log('success')
+      res.send();
+  })
+});
+app.get('/:_id',(req,res)=>
+{
+  const id = req.params.id;
+     
+  usermongo.findOne({"_id":_id},
+                    {$set:{
+                   "title":title,
+                   "file":file,
+                  "description":description
+    }})
+    .then((posts)=>{
+      res.send(posts);
+  });
+})
 
 app.listen(PORT,()=>{
     console.log("server is running");

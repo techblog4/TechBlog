@@ -11618,7 +11618,15 @@ footer.footer {
 }
 .navlink a{
   text-decoration: none;
-  font-size:medium;
+  font-size:15px;
+  font-weight: 600;
+  font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  text-transform: uppercase;
+  color: black;
+}
+.navlink a:hover{
+  transition: all 0.25s ease-out;
+  color: white;
 }
 .view:hover{
   transition: all 0.5s ease-in;

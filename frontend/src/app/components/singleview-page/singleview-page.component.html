@@ -1,3 +1,4 @@
+
 <nav class="navbar navbar-expand-lg navbar-light bg-nav">
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -18,26 +19,19 @@
 </nav>
 
 
-<div class="bg-body">
-<br><br>
-<div class="text-center head">Posts Created</div>  
-<div class="container-fluid bg" >
 
-<div class="child text-center" *ngFor='let i of posts'>
-<div class="card mb-5 shadow-sm" data-aos="fade-up" >
-  <div class="inner">
-  <img [src]="i.file" class="img-fluid" alt="">
-  </div>
-  <div class="card-body">
-  <h2>{{i.title}}</h2>
-  
-  <div class="card-text">
-  <p>{{posts.description}}</p>
-  <h3>{{i.authorname}}</h3>
-  <p>{{i.date1}}</p>
- <a routerLink="/singleviewpage" (click)="singleBlog(i)" style="margin-top: 2%; cursor: pointer;"><button class="btn btn-sm">ReadMore</button></a>
-  </div>
-</div>
+<div class="container text-center box">
+  <div class="card">
+    <div class="card-header">
+      {{Blogs.file}}
+    </div>
+      <div class="card-body">
+        
+        Title:&nbsp; {{Blogs.title}}<br>
+        Description:&nbsp; {{Blogs.description}}<br>
+        Date: &nbsp;{{Blogs.date1}}<br>
+      </div>
     
-</div>
-</div></div></div>
+  </div>
+  </div>  
+
