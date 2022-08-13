@@ -17,6 +17,12 @@ export class SingleviewPageComponent implements OnInit {
     this.serve.singlePost(postId).subscribe((data)=>{
       this.Blogs=JSON.parse(JSON.stringify(data));
       console.log(this.Blogs);
+      var temporalDivElement = document.createElement("div");
+      // Set the HTML content with the providen
+      temporalDivElement.innerHTML = this.Blogs.description;
+      // Retrieve the text property of the element (cross-browser support)
+      this.Blogs.description = temporalDivElement.textContent || temporalDivElement.innerText || "";
+  
   })
   
   

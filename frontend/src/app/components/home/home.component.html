@@ -25,8 +25,18 @@
       <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
         <li class="nav-item mr-3 mt-2 navlink"><a routerLink="/">
         Home </a></li>
-        <li class="nav-item mr-3 mt-2 navlink"><a routerLink="/">
-          Categories </a></li>
+        <li class="nav-item dropdown">
+          <a class="nav-link mr-3 " href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Categories
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <a class="dropdown-item" href="#">KKEM</a>
+            <a class="dropdown-item" href="#">K-DISC</a>
+            <a class="dropdown-item" href="#">ICTAK-Events</a>
+            <a class="dropdown-item" href="#">WEBINAR</a>
+            <a class="dropdown-item" href="#">ACADEMIA MEETUP</a>
+          </div>
+        </li>
         <!--  <li  class="nav-item mr-3 mt-2 navlink"><a routerLink="/">Logout</a></li> -->
         <li class="nav-item">
             <a class="author-user mr-3 ml-auto " routerLink="/signup" mat-raised-button><span class="fa fa-user-plus"

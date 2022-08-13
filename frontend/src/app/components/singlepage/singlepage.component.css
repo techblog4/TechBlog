@@ -1,37 +1,36 @@
 .bg-body{
-  /* background-color: #95e3d0; */
-  background-color:lightgoldenrodyellow;
 
-  
+  background-color:lightgoldenrodyellow; 
+ 
 }
 .bg-nav{
-  background-color:lightgoldenrodyellow;
-
+  background-color:lightgoldenrodyellow; 
   padding: 25px;
 }
 .container-fluid{
-display: grid;
-grid-template-columns: repeat(2,1fr);
-grid-column-gap: 10%;
-grid-row-gap: 10px;
+  display: grid;
+  grid-template-columns: repeat(2,1fr);
+  grid-column-gap: 10%;
+  grid-row-gap: 10px;
 
 }
 .head{
-text-align: center;
-font-weight:800;
-color:black;
-font-size:35px;
-font-family:monospace;
-text-transform: uppercase;
+  text-align: center;
+  font-weight:800;
+  color:rgb(181, 32, 32);
+  font-size:35px;
+  font-family:monospace;
+  text-transform: uppercase;
+  font-style: italic;
 
 
 } 
 .child .card{
-margin-top: 10%;
-border: 3px solid whitesmoke;
-border-right-style: solid;
-font-weight: 500;
-font-size:medium;
+  margin-top: 10%;
+  border: 3px solid blanchedalmond;
+  border-right-style: solid;
+ font-weight: 500;
+ font-size:medium;
 
 }
 .navlink a{
@@ -44,23 +43,26 @@ font-size:medium;
 }
 .navlink a:hover{
   transition: all 0.25s ease-out;
-  color:crimson;
+  color:goldenrod
 }
 .btn:hover{
   
-    transition: all 0.5s ease-in;
-    border-top-right-radius: 20px;
-    cursor: pointer;
-    background-color: white;
+  transition: all 0.5s ease-in;
+  border-radius:50px;
+  cursor: pointer;
+  background-color: white;
 
 }
 .card-body{
-  background-color: #43d2c9;
-  color: white;
+  background-color: #afd684;
+  color: rgb(11, 74, 33);
+  border-bottom-left-radius: 30px;
 }
 .btn-sm{
-  background-color:rgb(194, 241, 255);
+  background-color:rgb(210, 236, 244);
+  border-radius:50px;
 }
 .card{
   border-top-right-radius:30px ;
+  
 }

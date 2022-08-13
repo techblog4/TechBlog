@@ -11638,8 +11638,31 @@ footer.footer {
     border-top-right-radius: 30px;
     cursor: pointer;
 }
+#navbarDropdownMenuLink {
+  text-decoration: none;
+  font-size:15px;
+  font-weight: 600;
+  font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  text-transform: uppercase;
+  color: black;
+}
+#navbarDropdownMenuLink:hover{
+  color: white;
 
+}
+.dropdown-menu{
+  line-height: 1cm;
 
+}
+.dropdown-item{
+  color:black;
 
-
+}
+.dropdown-item:hover{
+  padding-left:25px;
+  border-left:3px solid #055160 ;
+  color:#055160;
+  background-color: white;
+  overflow: hidden;
+}
 
