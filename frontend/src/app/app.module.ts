@@ -52,6 +52,7 @@ import { TokenInterceptorService } from './token-interceptor.service';
 import { UpdateblogsComponent } from './components/updateblogs/updateblogs.component';
 import { UpadateblogStudentComponent } from './components/upadateblog-student/upadateblog-student.component';
 import { SingleviewPageComponent } from './components/singleview-page/singleview-page.component';
+import { AdminSingleBlogApproveComponent } from './components/admin-single-blog-approve/admin-single-blog-approve.component';
 
 @NgModule({
   declarations: [
@@ -84,6 +85,7 @@ import { SingleviewPageComponent } from './components/singleview-page/singleview
     UpdateblogsComponent,
     UpadateblogStudentComponent,
     SingleviewPageComponent,
+    AdminSingleBlogApproveComponent,
    
   ],
   imports: [
