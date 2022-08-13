@@ -48,10 +48,10 @@ export class TrainerSingleBlogpageComponent implements OnInit {
         this.date = myObj.date1;
         this.description = myObj.description;
         var temporalDivElement = document.createElement("div");
-    // Set the HTML content with the providen
-    temporalDivElement.innerHTML = this.description;
-    // Retrieve the text property of the element (cross-browser support)
-    this.description = temporalDivElement.textContent || temporalDivElement.innerText || "";
+        // Set the HTML content with the providen
+        temporalDivElement.innerHTML = this.description;
+        // Retrieve the text property of the element (cross-browser support)
+        this.description = temporalDivElement.textContent || temporalDivElement.innerText || "";
       });
   });
   }

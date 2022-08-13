@@ -33,6 +33,7 @@ useradd(data:any){
 getUserName(data:any){
   return this.http.post<any>('http://localhost:4001/getUserName', {data:data})
 }
+
 getPost(id:any){
   
     return this.http.get("http://localhost:4001/"+id);
@@ -52,5 +53,10 @@ editPost(post:any){
 }
 deletePost(id:any){
   return this.http.delete("http://localhost:4001/remove/"+id)
+}
+
+approveBlog(data:any){
+  return this.http.post('http://localhost:4001/approveBlog', {data:data})
+  .subscribe(data=>{console.log(data)})
 }
 }

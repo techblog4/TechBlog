@@ -178,8 +178,7 @@ app.post("/addpost", verifyToken,(req,res)=>{
         // file: 'http://localhost:4001/uploads/'+ req.data.file.filename,
        
     }
-
-var posters = new usermongo(posts);
+    var posters = new usermongo(posts);
     posters.save();
 
 });
@@ -231,13 +230,23 @@ app.post("/getBlogById",verifyToken,(req,res)=>{
   usermongo.findById(req.body.data).then((data)=>{
      res.send(data);
     });
-    
   });
+
+app.post("/approveBlog",(req,res)=>{
+  res.header("Access-Control-Allow-Origin","*"); 
+  res.header("Access-Control-Allow-Methods:GET,POST,PUT,DELETE");
+  usermongo.findByIdAndUpdate({"_id":req.body.data},
+  {$set:{"isVerified":"1"}}).then((data)=>{
+     res.send(data);
+    });
+  });
+
+  // app.post("/getUserName",(req,res)=>{
+    
   app.post("/getUserName",verifyToken,(req,res)=>{
     res.header("Access-Control-Allow-Origin","*"); 
     res.header("Access-Control-Allow-Methods:GET,POST,PUT,DELETE");
     email1=req.body.data.currentEmail;
-  
     signupmongo.find({$and:[{email:email1}]}).then((data)=>{
       console.log(data);
        res.send(data);
@@ -248,18 +257,13 @@ app.post("/getBlogById",verifyToken,(req,res)=>{
   app.post("/currentUserBlogs",verifyToken,(req,res)=>{
     res.header("Access-Control-Allow-Origin","*"); 
     res.header("Access-Control-Allow-Methods:GET,POST,PUT,DELETE");
-    
-        
-    
       email1=req.body.data.currentEmail;
       console.log(email1);
   
     usermongo.find({$and:[{email:email1}]}).then((data)=>{
       console.log(data);
-       res.send(data);
-       
+       res.send(data); 
       });
-      
     });
 
     app.get('/:id',  (req, res) => {
