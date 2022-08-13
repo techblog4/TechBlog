@@ -1,2 +1,58 @@
+<mat-card>
 <h2>{{title}}</h2>
 <p>{{description}}</p>
+
+
+
+
+
+
+
+<mat-card>
+    <mat-card-content>  
+      <section class="example-section">
+        <label id="example-radio-group-label">Is sexual or adult only contents?</label>
+<mat-radio-group
+  aria-labelledby="example-radio-group-label"
+  class="example-radio-group"
+  [(ngModel)]="optionArray1">
+  <mat-radio-button class="example-radio-button" *ngFor="let option of options" [value]="option">
+    {{option}}
+  </mat-radio-button>
+</mat-radio-group>
+<!-- <div>Your option array is: {{optionArray1}}</div> -->
+      </section>
+      <section class="example-section">
+        <label id="example-radio-group-label">Is political or religious contents?</label>
+<mat-radio-group
+  aria-labelledby="example-radio-group-label"
+  class="example-radio-group"
+  [(ngModel)]="optionArray2">
+  <mat-radio-button class="example-radio-button" *ngFor="let option of options" [value]="option">
+    {{option}}
+  </mat-radio-button>
+</mat-radio-group>
+<!-- <div>Your option array is: {{optionArray2}}</div> -->
+      </section>
+      <section class="example-section">
+        <label id="example-radio-group-label">Is multi-level marketing or product promotion?</label>
+<mat-radio-group
+  aria-labelledby="example-radio-group-label"
+  class="example-radio-group"
+  [(ngModel)]="optionArray3">
+  <mat-radio-button class="example-radio-button" *ngFor="let option of options" [value]="option">
+    {{option}}
+  </mat-radio-button>
+</mat-radio-group>
+<!-- <div>Your option array is: {{optionArray2}}</div> -->
+      </section>
+    </mat-card-content>
+  </mat-card>
+
+
+
+<div class="dropdown">
+    <button class="btn btn-success btn-sm padding" (click)="approveBlog();">Approve</button>
+    <button class="btn btn-danger btn-sm padding" (click)="rejectBlog();">Reject</button>
+  </div>
+</mat-card>

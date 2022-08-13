@@ -2,13 +2,19 @@ import { Component, OnInit } from '@angular/core';
 import { Router,ActivatedRoute } from '@angular/router';
 import { PostserviceService } from 'src/app/postservice.service';
 import { usermongo } from './product';
+import Swal from 'sweetalert2';
+// import { ThemePalette } from '@angular/material/core';
+// import { MatButton } from '@angular/material/button';
 
+// const btn = document.getElementById('btn') as HTMLButtonElement | null;
+// btn?.setAttribute('disabled', '');
 
 @Component({
   selector: 'app-admin-single-blog-page',
   templateUrl: './admin-single-blog-page.component.html',
   styleUrls: ['./admin-single-blog-page.component.css']
 })
+
 export class AdminSingleBlogPageComponent implements OnInit {
   _id: string | null;
   sub: any;
@@ -16,13 +22,54 @@ export class AdminSingleBlogPageComponent implements OnInit {
   Blogs: Object;
   title: any;
   description: any;
+  date: any;
 
   constructor(private _Activatedroute:ActivatedRoute,
     private _router:Router,
     private _postService:PostserviceService) {
 
    }
+   optionArray1: string;
+   optionArray2: string;
+   optionArray3: string;
+   options: string[] = ['Yes', 'No']; 
+   
 
+approveBlog =  () => {
+    // this.router.navigateByUrl('admin-dashboard/admin-single-blog-page/'+_id);
+    this.sub=this._Activatedroute.paramMap.subscribe(params => { 
+    this._id = params.get('_id'); 
+    });
+
+    Swal.fire({
+      title: 'Are you sure?',
+      text: 'Approve Blog Post!!',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonText: 'Yes, approve!',
+      cancelButtonText: 'Cancel approval'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        this._postService.approveBlog(this._id);
+        this._router.navigate(['admin-dashboard/admin-approve-blog'])
+       Swal.fire({
+        position: 'top-end',
+        icon: 'success',
+        title: 'Approved successfully',
+        showConfirmButton: false,
+        timer: 1500
+      })
+    }
+    else{
+      this._router.navigate(['/']);
+    }
+   
+    })
+  };
+  
+  rejectBlog =  () => {
+    // this.router.navigateByUrl('admin-dashboard/admin-single-blog-page/'+_id);
+  };
   ngOnInit(): void {
     this.sub=this._Activatedroute.paramMap.subscribe(params => { 
        this._id = params.get('_id'); 
@@ -33,6 +80,12 @@ export class AdminSingleBlogPageComponent implements OnInit {
          const myObj = JSON.parse(myJSON);
          this.title = myObj.title;
          this.description = myObj.description;
+         this.date = myObj.date1;
+         var temporalDivElement = document.createElement("div");
+        // Set the HTML content with the providen
+        temporalDivElement.innerHTML = this.description;
+        // Retrieve the text property of the element (cross-browser support)
+        this.description = temporalDivElement.textContent || temporalDivElement.innerText || "";
        });
    });
 
