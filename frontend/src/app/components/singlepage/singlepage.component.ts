@@ -22,5 +22,11 @@ export class SinglepageComponent implements OnInit {
 //   // Set the HTML content with the providen
 //      temporalDivElement.innerHTML = this.description;
 //   // Retrieve the text property of the element (cross-browser support)
-//   this.description = temporalDivElement.textContent || temporalDivElement.innerText || "";
- }
+//this.description = temporalDivElement.textContent || temporalDivElement.innerText || "";
+singleBlog(post:any){
+
+}
+
+
+
+}
