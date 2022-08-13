@@ -51,7 +51,7 @@ approveBlog =  () => {
     }).then((result) => {
       if (result.isConfirmed) {
         this._postService.approveBlog(this._id);
-        // this.router.navigate(['blog'])
+        this._router.navigate(['admin-dashboard/admin-approve-blog'])
        Swal.fire({
         position: 'top-end',
         icon: 'success',
@@ -67,42 +67,6 @@ approveBlog =  () => {
     })
   };
   
-  // approveBlogz(){
-   
-  //   if(this.event){
-  //   Swal.fire({
-  //     title: 'Are you sure?',
-  //     text: 'Approve Blog Post!!',
-  //     icon: 'warning',
-  //     showCancelButton: true,
-  //     confirmButtonText: 'Yes, approve!',
-  //     cancelButtonText: 'No, keep it'
-  //   }).then((result) => {
-  //     if (result.isConfirmed) {
-  //       this.blogService.blogPost(this.checkedd);
-  //       this.router.navigate(['blog'])
-
-  //        // 
-  //      Swal.fire({
-  //       position: 'top-end',
-  //       icon: 'success',
-  //       title: 'Approved successfully',
-  //       showConfirmButton: false,
-  //       timer: 1500
-  //     })
-  //   }
-  //   else{
-  //     this.router.navigate(['/admin']);
-  //   }
-   
-  //   })
-  // }
-  // else{
-  //   alert("Choose a Blog Post");
-  // }
- 
-
-  // }
   rejectBlog =  () => {
     // this.router.navigateByUrl('admin-dashboard/admin-single-blog-page/'+_id);
   };
