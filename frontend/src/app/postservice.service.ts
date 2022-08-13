@@ -28,6 +28,7 @@ getBlogById(data:any){
 }
 useradd(data:any){
   return this.http.post<any>('http://localhost:4001/addpost', {data:data})
+  
 }
 getUserName(data:any){
   return this.http.post<any>('http://localhost:4001/getUserName', {data:data})
@@ -37,6 +38,12 @@ getPost(id:any){
     return this.http.get("http://localhost:4001/"+id);
   
 }
+singlePost(_id:any){
+  
+  return this.http.get("http://localhost:4001/"+_id);
+
+}
+
 editPost(post:any){
   console.log('client update')
     return this.http.put("http://localhost:4001/update",post).
