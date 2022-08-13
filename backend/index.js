@@ -175,9 +175,12 @@ app.post("/addpost", verifyToken,(req,res)=>{
         isVerified:'0',
         date1:date,
         email:req.body.data.currentEmail,
+        // userName:req.body.data.currentUser
         // file: 'http://localhost:4001/uploads/'+ req.data.file.filename,
        
     }
+  
+ 
     var posters = new usermongo(posts);
     posters.save();
 
@@ -247,8 +250,12 @@ app.post("/approveBlog",(req,res)=>{
     res.header("Access-Control-Allow-Origin","*"); 
     res.header("Access-Control-Allow-Methods:GET,POST,PUT,DELETE");
     email1=req.body.data.currentEmail;
+    
+    
+
     signupmongo.find({$and:[{email:email1}]}).then((data)=>{
-      console.log(data);
+    
+      
        res.send(data);
        
       });

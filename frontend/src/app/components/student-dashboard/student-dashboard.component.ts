@@ -10,15 +10,21 @@ import Swal from 'sweetalert2';
   styleUrls: ['./student-dashboard.component.css']
 })
 export class StudentDashboardComponent implements OnInit {
- 
+
   
   public model = {
       title: '',
       description: '',
       file:'',
-      currentEmail : localStorage.getItem('studentEmailToken')
-      
+      currentEmail : localStorage.getItem('studentEmailToken'),
+      // currentUser:localStorage.getItem('userName')
     };
+   
+    // public userEmail={
+    //   email :localStorage.getItem('studentEmailToken')
+    // }
+  //  userName: any;
+  
 
     constructor(private service:PostserviceService,private router:Router) { }
 
@@ -67,7 +73,18 @@ export class StudentDashboardComponent implements OnInit {
   
 
   ngOnInit(): void {
-    
-  }
+    // this.service.getUserName(this.userEmail).subscribe((data)=>{
+    //   this.userName=data[0].name;
+    //   localStorage.setItem('userName',this.userName);
+    //  })
+  
+    //  var name= localStorage.getItem('userName');
+    //  console.log(name);
+  
+  
+    }
+
+
+
 
 }
