@@ -15,11 +15,7 @@
   font-size:40px;
   font-family:monospace;
   
-  
-  
-  
-  
- } 
+} 
  .child .card{
   margin-top: 10%;
   border: 3px solid whitesmoke;
@@ -35,4 +31,10 @@
     font-size:medium;
     color: darkgreen;
   }
-  
+  .btn:hover{
+    
+      transition: all 0.5s ease-in;
+      border-top-right-radius: 20px;
+      cursor: pointer;
+
+  }
