@@ -15,10 +15,26 @@
   font-size:40px;
   font-family:monospace;
   
- } 
- .child{
+} 
+ .child .card{
   margin-top: 10%;
+  border: 3px solid whitesmoke;
+  border-right-style: solid;
+  border-right-color:coral;
+  color:darkmagenta;
+  font-weight: 500;
+  font-size:medium;
+  
   }
- .bg-white{
-  background-color: aliceblue;
- }
+  .navlink a{
+    text-decoration: none;
+    font-size:medium;
+    color: darkgreen;
+  }
+  .btn:hover{
+    
+      transition: all 0.5s ease-in;
+      border-top-right-radius: 20px;
+      cursor: pointer;
+
+  }

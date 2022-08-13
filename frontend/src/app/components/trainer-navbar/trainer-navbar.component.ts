@@ -14,5 +14,8 @@ export class TrainerNavbarComponent implements OnInit {
 
   ngOnInit(): void {
   }
- 
+  logoutUser(){
+    localStorage.removeItem('token')
+    this.router.navigate(['/'])
+   }
 }

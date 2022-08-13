@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
+import { ServiceService } from 'src/app/service.service';
 
 
 
@@ -11,7 +11,7 @@ import { Component, OnInit } from '@angular/core';
 export class HomeComponent implements OnInit {
   
 
-  constructor() { }
+  constructor(public serve:ServiceService) { }
 
 ngOnInit(): void { 
 
