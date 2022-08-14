@@ -4,7 +4,59 @@
 <mat-form-field appearance="fill">
   <mat-label>Category Name</mat-label>
   <input matInput formControlName="blogCategory">
-</mat-form-field>
-<button class="btn" mat-raised-button color="accent">Submit</button>
+</mat-form-field ><br>
+<button class="btn " mat-raised-button color="accent">Submit</button>
 </form>
+</div>
+
+
+
+<div class="main-content ">
+  <div class="container mt-5">
+    <!-- Table -->
+    <div class="row  " >
+   
+      <div class="col">
+        <div class="card shadow">
+          <div class="card-header border-0">
+            <h3 class="mb-0">Category List</h3>
+          </div>
+          <div class="table-responsive">
+            <table class="table align-items-center table-flush">
+              <thead class="thead-light">
+                <tr>
+                  <th scope="col">Sl. No.</th>
+                  <th scope="col">Blog Title</th>
+                  <th scope="col">Actions</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th scope="row">
+                    <div class="media align-items-center"*ngFor="let i = index;">
+                      <div class="media-body">
+                        <span class="mb-0 text-sm">{{i+1}}</span>
+                      </div>
+                    </div>
+                  </th>
+                  <td>sample</td>
+                  
+                  <td class="text-right">
+                    <div class="dropdown">
+                      <button class="btn btn-info btn-sm mr-3">Edit</button>
+                    </div>
+                    <div class="dropdown">
+                      <button class="btn btn-info btn-sm">Delete</button>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          
+        </div>
+      </div>
+      
+    </div>
+  </div>
 </div>
