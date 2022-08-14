@@ -25,3 +25,6 @@
     line-height: 1cm;
     color: darkgoldenrod;
   }
+  .card{
+    border: 1px solid darkgoldenrod;
+  }
