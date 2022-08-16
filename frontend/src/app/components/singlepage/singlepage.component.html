@@ -20,7 +20,7 @@
 
 <div class="bg-body">
 <br><br>
-<div class="text-center head">Posts Created</div>  
+<div class="text-center head">ALL BLOGS</div>  
 <div class="container-fluid bg" >
 
 <div class="child text-center" *ngFor='let i of posts'>
@@ -32,8 +32,8 @@
   <h2>{{i.title}}</h2>
   
   <div class="card-text">
-  <p>{{posts.description}}</p>
-  <h3>{{i.authorname}}</h3>
+  
+  <h3>{{i.userName}}</h3>
   <p>{{i.date1}}</p>
  <a routerLink="/singleviewpage" (click)="singleBlog(i)" style="margin-top: 2%; cursor: pointer;"><button class="btn btn-sm">ReadMore</button></a>
   </div>

@@ -17,3 +17,7 @@
     font-size: 125px;
     color: white;
   }
+  h2 a{
+    text-decoration: none;
+    color: black;
+  }

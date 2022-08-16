@@ -8,6 +8,8 @@
     <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
       <li class="nav-item mr-5 mt-2 navlink"><a routerLink="/">
       Home </a></li>
+      <li class="nav-item mr-5 mt-2 navlink"><a routerLink="/singlepage">
+        All blogs</a></li>
       <li class="nav-item mr-5 mt-2 navlink"><a routerLink="/signup">
         SignUp </a></li>
       <!--  <li  class="nav-item mr-3 mt-2 navlink"><a routerLink="/">Logout</a></li> -->
@@ -27,9 +29,11 @@
     </div>
       <div class="card-body">
         
-        Title:&nbsp; {{Blogs.title}}<br>
-        Description:&nbsp; {{Blogs.description}}<br>
-        Date: &nbsp;{{Blogs.date1}}<br>
+     <div class="para">{{Blogs.title}}<br>
+     </div>
+       <p>{{Blogs.date1}}<br></p>
+        
+         {{Blogs.description}}<br>
       </div>
     
   </div>

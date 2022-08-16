@@ -1,6 +1,6 @@
 .commonstyle{
     font-size:large;
-    color: deeppink;
+    color:deeppink;
     
     
 }
@@ -11,4 +11,20 @@
     transition: all 0.5s ease-in;
       border-top-right-radius: 25px;
       cursor: pointer;
+  }
+  .card-header{
+    text-align: center;
+    font-weight:550;
+    color: orangered;
+  }
+  p{
+    font-style: italic;
+  }
+  .card-body{
+    text-align: left;
+    line-height: 1cm;
+    color: darkgoldenrod;
+  }
+  .card{
+    border: 1px solid darkgoldenrod;
   }

@@ -212,7 +212,10 @@ app.post("/addpost",upload.single('image'), verifyToken,(req,res)=>{
         email:req.body.currentEmail,
         image: 'http://localhost:4001/images/'+ req.file.filename
        
+       
     }
+  
+ 
     var posters = new usermongo(posts);
 
     posters.save();
@@ -284,9 +287,7 @@ app.post("/approveBlog",(req,res)=>{
     res.header("Access-Control-Allow-Methods:GET,POST,PUT,DELETE");
     email1=req.body.data.currentEmail;
     signupmongo.find({$and:[{email:email1}]}).then((data)=>{
-      // console.log(data);
        res.send(data);
-       
       });
       
     });

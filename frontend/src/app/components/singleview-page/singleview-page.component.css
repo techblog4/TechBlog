@@ -21,8 +21,18 @@
     margin-top:15%;
   }
   .card-body{
-    font-size: larger;
-    font-weight:600;
+    line-height: 1cm;
+    
     color: maroon;
     background-color: bisque;
+    text-align: left;
+  }
+  .para{
+    text-align: center;
+    font-size: larger;
+    font-weight: bold;
+  }
+  p{
+    font-style: italic;
+    text-align: center;
   }
