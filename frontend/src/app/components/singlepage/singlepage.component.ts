@@ -17,7 +17,6 @@ export class SinglepageComponent implements OnInit {
    
     this.postserve.homeadd().subscribe((data)=>{
       this.posts= JSON.parse(JSON.stringify(data));
-      
      })
     
 

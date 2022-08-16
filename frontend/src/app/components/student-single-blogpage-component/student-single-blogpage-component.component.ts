@@ -23,6 +23,7 @@ export class StudentSingleBlogpageComponentComponent implements OnInit {
     };
 
   date: any;
+  image: any;
   
   constructor(private _Activatedroute:ActivatedRoute,
     private _router:Router,
@@ -43,6 +44,7 @@ export class StudentSingleBlogpageComponentComponent implements OnInit {
         this.title = myObj.title;
         this.date = myObj.date1;
         this.description = myObj.description;
+        this.image = myObj.image;
         var temporalDivElement = document.createElement("div");
     // Set the HTML content with the providen
        temporalDivElement.innerHTML = this.description;

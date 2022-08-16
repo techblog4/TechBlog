@@ -55,8 +55,6 @@ const routes: Routes = [
   {path:'singlepage',component:SinglepageComponent},
   {path:'innerfooter',component:InnerfooterComponent},
   {path:"homecards",component:HomecardsComponent},
-  {path:"trainerupdate",component:UpdateblogsComponent},
-  {path:"studentupdate",component:UpadateblogStudentComponent},
   {path:"singleviewpage",component:SingleviewPageComponent},
   
  
@@ -66,7 +64,9 @@ const routes: Routes = [
   {path:'studenthome',component:StudentDashboardComponent},
   {path:'studentviewblogs',component:StudentViewblogsComponent},
   {path:'student-dashboard-child',component:StudentDashboardChildComponent},
-  {path:'student-single-blogpage/:_id',component:StudentSingleBlogpageComponentComponent}
+  {path:'student-single-blogpage/:_id',component:StudentSingleBlogpageComponentComponent},
+  {path:"studentupdate",component:UpadateblogStudentComponent},
+
 ]
 },
 
@@ -83,7 +83,8 @@ const routes: Routes = [
     {path:'trainerhome',component:TrainerDashboardComponent},
     {path:'trainerviewblogs',component:TrainerviewblogsComponent},
     {path:'trainer-dashboard-child',component:TrainerDashboardChildComponent},
-    {path:'trainer-single-blogpage/:_id',component:TrainerSingleBlogpageComponent}
+    {path:'trainer-single-blogpage/:_id',component:TrainerSingleBlogpageComponent},
+    {path:"trainerupdate",component:UpdateblogsComponent},
    ]
   }
   

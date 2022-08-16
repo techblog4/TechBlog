@@ -17,20 +17,42 @@ export class UpadateblogStudentComponent implements OnInit {
       this.Blogs=JSON.parse(JSON.stringify(data));
   })
   }
-
-  editPost()
-  {    
-    this.serve.editPost(this.Blogs);  
-    
-    Swal.fire({
-      position: 'center',
-      icon: 'success',
-      title: 'Your post has been Updated',
-      showConfirmButton: false,
-      timer: 2000
-    })
-    this.router.navigate(['studentnavbar/studentviewblogs']);
+  selectImage(event:any){
+    if(event.target.files.length>0){
+      const file=event.target.files[0];
+      this.Blogs.image=file;
+    }
   }
+  editPost(){
+    const formData=new FormData();
+    formData.append('_id', this.Blogs._id)
+    formData.append('image', this.Blogs.image)
+    formData.append('title',this.Blogs.title)
+    formData.append('description',this.Blogs.description)
+    formData.append('currentEmail',localStorage.getItem('studentEmailToken') || '{}')
+    this.serve.editPost(formData);
+    Swal.fire({
+             position: 'top-end',
+             icon: 'success',
+             title: 'Your post has been updated',
+             showConfirmButton: false,
+             timer: 2000
+           }) 
+       this.router.navigate(['studentnavbar/studentviewblogs'])     
+  }
+  // editPost()
+  // {    
+  //   this.serve.editPost(this.Blogs);  
+    
+  //   Swal.fire({
+  //     position: 'center',
+  //     icon: 'success',
+  //     title: 'Your post has been Updated',
+  //     showConfirmButton: false,
+  //     timer: 2000
+  //   })
+  //   this.router.navigate(['studentnavbar/studentviewblogs']);
+  // }
 
   
 }
