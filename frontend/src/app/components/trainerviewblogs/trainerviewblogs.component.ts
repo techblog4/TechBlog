@@ -26,13 +26,12 @@ export class TrainerviewblogsComponent implements OnInit {
     this.postserve.getTrainerBlogs(this.model).subscribe((res)=>
     {
       this.Blogs = res;
-      // this.length1 = this.Blogs.length;
     });
   }
   editPost(Blogs:any){
     {
       localStorage.setItem("editBlogId", Blogs._id.toString());
-      this.router.navigate(['trainerupdate']);
+      this.router.navigate(['trainernavbar/trainerupdate']);
   
     }
   }

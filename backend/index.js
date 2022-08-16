@@ -79,12 +79,9 @@ function verifyToken(req,res,next){
 app.get("/home",(req,res)=>{
   res.header("Access-Control-Allow-Origin","*"); 
   res.header("Access-Control-Allow-Methods:GET,POST,PUT,DELETE");
-    
-  usermongo.find()
-  .then((data)=>{
+  usermongo.find({"isVerified":"1"}).then((data)=>{
      res.send(data)
     });
-    
   });
 
   app.get("/homecarosel",(req,res)=>{
@@ -200,7 +197,6 @@ app.post("/addpost",upload.single('image'), verifyToken,(req,res)=>{
   
    console.log(req.body);
   const file = req.file;
-  // console.log(file.filename);
     const d = new Date();
     var date=d.toDateString();
     var posts ={
@@ -211,7 +207,6 @@ app.post("/addpost",upload.single('image'), verifyToken,(req,res)=>{
         date1:date,
         email:req.body.currentEmail,
         image: 'http://localhost:4001/images/'+ req.file.filename
-       
        
     }
   
@@ -258,6 +253,14 @@ app.get("/getNotApprovedBlogs",verifyToken,(req,res)=>{
   res.header("Access-Control-Allow-Origin","*"); 
   res.header("Access-Control-Allow-Methods:GET,POST,PUT,DELETE");
   usermongo.find({$and:[{isVerified:"0"}]}).then((data)=>{
+     res.send(data);
+    });
+    
+  });
+app.get("/getBlogCategory",verifyToken,(req,res)=>{
+  res.header("Access-Control-Allow-Origin","*"); 
+  res.header("Access-Control-Allow-Methods:GET,POST,PUT,DELETE");
+  blogcategorymongo.find().then((data)=>{
      res.send(data);
     });
     
@@ -314,20 +317,25 @@ app.post("/approveBlog",(req,res)=>{
     });
 
     
-  app.put('/update',verifyToken,(req,res)=>{
-    // console.log(req.body)
+  app.put('/update',upload.single("image"),verifyToken,(req,res)=>{
+    if(req.file != undefined)
+    {
+    const file = req.file;
+    console.log(file);
+    img = 'http://localhost:4001/images/'+ req.file.filename;
+    }
+    else
+    {
+      img = req.body.image;
+    }
     id=req.body._id,
-    
     title = req.body.title,
-    file = req.body.file,
-    
     description = req.body.description
-   
-    
+    console.log("ID="+id);
    usermongo.findByIdAndUpdate({"_id":id},
                                 {$set:{
                                 "title":title,
-                                "file":file,
+                                "image": img,
                                 "description":description
                                 }})
    .then(function(){
@@ -339,6 +347,14 @@ app.post("/approveBlog",(req,res)=>{
    
   id = req.params.id;
   usermongo.findByIdAndDelete({"_id":id})
+  .then(()=>{
+      console.log('success')
+      res.send();
+  })
+});
+ app.delete('/deleteCategory/:id',verifyToken,(req,res)=>{
+  id = req.params.id;
+  blogcategorymongo.findByIdAndDelete({"_id":id})
   .then(()=>{
       console.log('success')
       res.send();

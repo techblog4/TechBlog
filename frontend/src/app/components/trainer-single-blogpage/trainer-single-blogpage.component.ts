@@ -15,6 +15,7 @@ export class TrainerSingleBlogpageComponent implements OnInit {
   userName: Object;
   title: any;
   description: any;
+  image:any;
 
   public model = {
     
@@ -47,6 +48,7 @@ export class TrainerSingleBlogpageComponent implements OnInit {
         this.title = myObj.title;
         this.date = myObj.date1;
         this.description = myObj.description;
+        this.image = myObj.image;
         var temporalDivElement = document.createElement("div");
         // Set the HTML content with the providen
         temporalDivElement.innerHTML = this.description;

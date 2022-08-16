@@ -14,10 +14,11 @@
              
             </div>
             <div>
-                <label for="file">Image/Video :</label>&nbsp;
-                <input type="file" name="file" id="file" required class="form-control" #file="ngModel" [(ngModel)]="Blogs.file" 
+                <label for="file">Image:</label>&nbsp;
+                <input type="file" class="form-control-file" name="image" [(ngModel)]="Blogs.image" #image="ngModel" (change)="selectImage($event)" required>
+                <!-- <input type="file" name="file" id="file" required class="form-control" #file="ngModel" [(ngModel)]="Blogs.file" 
               
-                accept="image/x-png,image/gif,image/jpeg">
+                accept="image/x-png,image/gif,image/jpeg"> -->
                 <!-- <button
           type="button"
           (click)="uploader.uploadAll()"

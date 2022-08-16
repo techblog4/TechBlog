@@ -18,6 +18,9 @@ carouselAdd(){
 getAllBlogs(){
   return this.http.get("http://localhost:4001/getAllBlogs");
 }
+getBlogCategory(){
+  return this.http.get("http://localhost:4001/getBlogCategory");
+}
 getNotApprovedBlogs(){
   return this.http.get("http://localhost:4001/getNotApprovedBlogs");
 }
@@ -54,6 +57,9 @@ editPost(post:any){
 }
 deletePost(id:any){
   return this.http.delete("http://localhost:4001/remove/"+id)
+}
+deleteCategory(id:any){
+  return this.http.delete("http://localhost:4001/deleteCategory/"+id)
 }
 
 approveBlog(data:any){

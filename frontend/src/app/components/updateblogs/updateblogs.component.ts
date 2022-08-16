@@ -20,18 +20,42 @@ export class UpdateblogsComponent implements OnInit {
       this.Blogs=JSON.parse(JSON.stringify(data));
   })
   }
-  editPost()
-  {    
-    this.serve.editPost(this.Blogs);  
+  selectImage(event:any){
+    if(event.target.files.length>0){
+      const file=event.target.files[0];
+      this.Blogs.image=file;
+    }
+  }
+
+  // editPost()
+  // {    
+  //   this.serve.editPost(this.Blogs);  
     
+  //   Swal.fire({
+  //     position: 'center',
+  //     icon: 'success',
+  //     title: 'Your post has been Updated',
+  //     showConfirmButton: false,
+  //     timer: 2000
+  //   })
+  //   this.router.navigate(['trainernavbar/trainerviewblogs']);
+  // }
+  editPost(){
+    const formData=new FormData();
+    formData.append('_id', this.Blogs._id)
+    formData.append('image', this.Blogs.image)
+    formData.append('title',this.Blogs.title)
+    formData.append('description',this.Blogs.description)
+    formData.append('currentEmail',localStorage.getItem('emailToken') || '{}')
+    this.serve.editPost(formData);
     Swal.fire({
-      position: 'center',
-      icon: 'success',
-      title: 'Your post has been Updated',
-      showConfirmButton: false,
-      timer: 2000
-    })
-    this.router.navigate(['trainernavbar/trainerviewblogs']);
+             position: 'top-end',
+             icon: 'success',
+             title: 'Your post has been updated',
+             showConfirmButton: false,
+             timer: 2000
+           }) 
+       this.router.navigate(['trainernavbar/trainerviewblogs'])     
   }
 }
 

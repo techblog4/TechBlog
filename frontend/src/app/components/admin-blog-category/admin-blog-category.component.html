@@ -11,10 +11,10 @@
 
   
 
-<div class="main-content ">
+<div class="main-content">
   <div class="container mt-5">
     <!-- Table -->
-    <div class="row  " >
+    <div class="row" >
    
       <div class="col">
         <div class="card shadow">
@@ -26,28 +26,18 @@
               <thead class="thead-light">
                 <tr>
                   <th scope="col">Sl. No.</th>
-                  <th scope="col">Blog Title</th>
-                  <th scope="col">Actions</th>
+                  <th scope="col">Category Name</th>
+                  <th scope="col"></th>
                 </tr>
               </thead>
               <tbody>
-                <tr>
-                  <th scope="row">
-                    <div class="media align-items-center"*ngFor="let i = index;">
-                      <div class="media-body">
-                        <span class="mb-0 text-sm">{{i+1}}</span>
-                      </div>
-                    </div>
-                  </th>
-                  <td>sample</td>
-                  
+                <tr *ngFor="let cat of categories; let i = index;">
+                  <td>{{i+1}}</td>
+                  <td>{{cat.blogCategory}}</td>
                   <td class="text-right">
-                    <div class="dropdown">
-                      <button class="btn btn-info btn-sm mr-3">Edit</button>
-                    </div>
-                    <div class="dropdown">
-                      <button class="btn btn-info btn-sm">Delete</button>
-                    </div>
+                    <button class="btn btn-primary mr-3" (click)="editPost(cat)"> Edit</button>&nbsp;
+                    <!-- <a href="javascript:void(0);" (click)="deletePost(cat)">A Tag</a> -->
+                    <button type="submit" class="btn btn-danger" (click)="deletePost(cat)"> Delete</button>
                   </td>
                 </tr>
               </tbody>

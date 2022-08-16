@@ -1,10 +1,7 @@
-<div class="home">
+<!-- <div class="home">
   <div class="container">
 
-    <!-- <a routerLink="/" class="homeicon"><button mat-icon-button aria-label="close mat-card-close" mat-card-close>
-      <mat-icon>home</mat-icon>
-      </button></a>  -->
-
+   
       <form #form="ngForm" (ngSubmit)="form.valid && onSubmit()">
           <h1 style="color:rgb(233, 17, 17) ;font-size:bold">Make your posts..</h1>
         
@@ -35,7 +32,44 @@
           <br>
           <button type="submit"class="btn btn-success" >Submit</button> 
       </form>
-</div></div>
+</div></div> -->
+
+
+
+<div class="home">
+  <div class="container">      
+    <form #adPost="ngForm" (ngSubmit)="createpost()" class="frm" enctype= "multipart/form-data" >
+      <h1 style="color:rgb(233, 17, 17) ;font-size:bold">Create your post..</h1>
+        <div>
+          <label for="title">Title :</label>&nbsp;
+          <input  type="text" name="name" id="name" required class="form-control" #title="ngModel"[(ngModel)]="posts.title" >
+         
+        </div>
+        <div>
+          <label for="file">Image :</label>&nbsp;
+          <input type="file" class="form-control-file" name="image" [(ngModel)]="posts.image" #image="ngModel" (change)="selectImage($event)" required>
+        </div>
+          <!-- <br>
+          <div class="form-group">
+            <label >Author *</label>
+          <input  class="form-control" name="author" placeholder="Author name" [(ngModel)]="posts.author" #author="ngModel" pattern="^[a-zA-Z0-9\s.']+$" required>
+          </div>
+          <br> -->
+          <label for="description">Description :</label>
+          <ckeditor
+            #editor
+            id="description"
+            name="description"
+            required class="form-control"
+            #file="ngModel"
+            [(ngModel)]="posts.description"
+            >
+          </ckeditor>
+          <br>
+          <button type="submit"class="btn btn-success" >Submit</button> 
+      </form> 
+      </div>
+      </div>
 
 
 

@@ -24,7 +24,7 @@ export class StudentDashboardComponent implements OnInit {
       const file=event.target.files[0];
       this.posts.image=file;
     }
-     }
+  }
 
      createpost(){
        const formData=new FormData();

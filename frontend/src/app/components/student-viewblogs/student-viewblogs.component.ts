@@ -32,7 +32,7 @@ export class StudentViewblogsComponent implements OnInit {
   editPost(Blogs:any){
     {
       localStorage.setItem("editBlogId", Blogs._id.toString());
-      this.router.navigate(['studentupdate']);
+      this.router.navigate(['studentnavbar/studentupdate']);
   
     }
   }
