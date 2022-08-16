@@ -53,8 +53,11 @@ import { UpdateblogsComponent } from './components/updateblogs/updateblogs.compo
 import { UpadateblogStudentComponent } from './components/upadateblog-student/upadateblog-student.component';
 import { SingleviewPageComponent } from './components/singleview-page/singleview-page.component';
 import { AdminSingleBlogApproveComponent } from './components/admin-single-blog-approve/admin-single-blog-approve.component';
+import { FileSelectDirective } from 'ng2-file-upload';
+
 
 @NgModule({
+  
   declarations: [
     AppComponent,
     LoginComponent,
@@ -86,8 +89,9 @@ import { AdminSingleBlogApproveComponent } from './components/admin-single-blog-
     UpadateblogStudentComponent,
     SingleviewPageComponent,
     AdminSingleBlogApproveComponent,
-   
+    
   ],
+
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -106,9 +110,13 @@ import { AdminSingleBlogApproveComponent } from './components/admin-single-blog-
     MatTreeModule,
     MatSortModule,
     CKEditorModule,
-    FileUploadModule 
-    
+    FileUploadModule,
   ],
+
+  exports: [
+    FileSelectDirective,
+    ],
+
   providers: [ PostserviceService,ServiceService,
              {
             provide:HTTP_INTERCEPTORS,

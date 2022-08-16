@@ -3,7 +3,7 @@ mongoose.connect("mongodb+srv://TechBlog:akjs1234@techblogcluster.iqvwdiy.mongod
 const schema =mongoose.Schema;
 const userschema = new schema({
     title:String,
-    file:String,
+    image:String,
     authorname:String,
     description:String,
     date1:String,

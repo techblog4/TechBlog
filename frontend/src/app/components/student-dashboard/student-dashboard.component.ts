@@ -1,73 +1,46 @@
 import { Component, OnInit } from '@angular/core';
-import { NgForm } from '@angular/forms';
 import { PostserviceService } from 'src/app/postservice.service';
 import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
-
 @Component({
   selector: 'app-student-dashboard',
   templateUrl: './student-dashboard.component.html',
   styleUrls: ['./student-dashboard.component.css']
 })
 export class StudentDashboardComponent implements OnInit {
+
+  posts={
+    title: '',
+    description: '',
+    image:''
+  }
+
+  constructor(private service:PostserviceService,private router:Router) {}
  
+  ngOnInit(): void {}
   
-  public model = {
-      title: '',
-      description: '',
-      file:'',
-      currentEmail : localStorage.getItem('studentEmailToken')
-      
-    };
+  selectImage(event:any){
+    if(event.target.files.length>0){
+      const file=event.target.files[0];
+      this.posts.image=file;
+    }
+     }
 
-    constructor(private service:PostserviceService,private router:Router) { }
-
-
-
-    // selectImage(event:any){
-    //   if(event.target.files.length>0){
-    //     const file=event.target.files[0];
-    //     this.model.file=file;
-    //   }
-    //    }
-
-
-
-    onSubmit() {
-
-      // const formData=new FormData();
-      // formData.append('file', this.model.file)
-      // formData.append('title',this.model.title)
-      // formData.append('description',this.model.description)
-      
-      // this.service.useradd(formData)
-      // .subscribe((data)=>{console.log(data)})
-      // console.log("Called");
-      // alert("Thank you, your post be will be uploaded soon!!!");
-      // this.router.navigate(['studentnavbar/studentviewblogs']);
-
-
-
-
-  this.service.useradd(this.model)
-      .subscribe((data)=>{
-       console.log("success");
-          
-        });
-        Swal.fire({
-          position: 'top-end',
-          icon: 'success',
-          title: 'Your post has been created',
-          showConfirmButton: false,
-          timer: 2000
-        }) 
-    this.router.navigate(['studentnavbar/studentviewblogs'])     
-  }
-
-  
-
-  ngOnInit(): void {
-    
-  }
+     createpost(){
+       const formData=new FormData();
+       formData.append('image', this.posts.image)
+       formData.append('title',this.posts.title)
+       formData.append('description',this.posts.description)
+       formData.append('currentEmail',localStorage.getItem('studentEmailToken') || '{}')
+       this.service.useradd(formData);
+       Swal.fire({
+                position: 'top-end',
+                icon: 'success',
+                title: 'Your post has been created',
+                showConfirmButton: false,
+                timer: 2000
+              }) 
+          this.router.navigate(['studentnavbar/studentviewblogs'])     
+        }
 
 }

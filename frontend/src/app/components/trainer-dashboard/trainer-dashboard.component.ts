@@ -39,20 +39,20 @@ export class TrainerDashboardComponent implements OnInit {
     onSubmit() {
       
     
-      this.service.useradd(this.model)
-      .subscribe((data)=>{
-    //  console.log(data)
+    //   this.service.useradd(this.model)
+    //   .subscribe((data)=>{
+    // //  console.log(data)
 
-      });
-      Swal.fire({
-        position: 'top-end',
-        icon: 'success',
-        title: 'Your post has been created',
-        showConfirmButton: false,
-        timer: 2000
-      }) 
+    //   });
+    //   Swal.fire({
+    //     position: 'top-end',
+    //     icon: 'success',
+    //     title: 'Your post has been created',
+    //     showConfirmButton: false,
+    //     timer: 2000
+    //   }) 
   
-      this.router.navigate(['trainernavbar/trainerviewblogs']) ;
+    //   this.router.navigate(['trainernavbar/trainerviewblogs']) ;
       
     } 
 

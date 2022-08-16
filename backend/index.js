@@ -1,11 +1,10 @@
 const express=require("express");
 const cors = require("cors");
 const jwt =require("jsonwebtoken");
-const multer = require('multer');
+const multer = require("multer");
 const signupmongo=require("./src/model/signup");
 const adminmongo =require("./src/model/admin");
 const blogcategorymongo = require("./src/model/addBlogCategory");
-const { request } = require("express");
 const homemongo =require("./src/model/home");
 const usermongo=require("./src/model/usermongo");
 const app = new express();
@@ -18,6 +17,42 @@ const PORT = process.env.PORT || 4001;
 
 
 
+
+//middleware function..static
+app.use(express.static('./public'));
+
+
+// multer setup
+
+// setting up storage folder destination and filename
+const storage = multer.diskStorage({
+    destination: function(req, file, callback) {
+      callback(null, './public/images');
+    },
+    filename: function (req, file, callback) {
+      callback(null, file.originalname);
+    }
+  });
+  
+ // specifying file type
+  const fileFilter = (req,file,callback)=>{
+   if(file.mimetype === 'image/jpeg' || file.mimetype === 'image/png'){
+   callback(null,true);
+   }
+   else{
+       callback(null,false);
+   }
+  }
+  
+  
+  const upload = multer({
+      storage: storage,
+      fileFilter:fileFilter
+    });
+  
+
+// multer ends
+
 // Middleware Fuction to verify Token send from FrontEnd
 function verifyToken(req,res,next){
 
@@ -26,13 +61,13 @@ function verifyToken(req,res,next){
   }
   let token = req.headers.authorization.split(' ')[1];
  
- console.log(token);
+//  console.log(token);
  if(token == "null"){
      return res.status(401).send("Unauthorized Access")
  }
 
  let payload= jwt.verify(token , "secretkey")
- console.log(payload);
+//  console.log(payload);
  if(!payload){
      return res.status(401).send("Unauthorized Access")
  }
@@ -67,7 +102,7 @@ app.post("/signup",(req,res)=>{
      res.header("Access-Control-Allow-Origin","*");
     res.header("Access-Control-Allow-Headers: Content-Type, application/json");
     res.header("Access-Control-Allow-Methods:GET,POST,PATCH,PUT,DELETE,OPTIONS");
-    console.log(req.body);
+    // console.log(req.body);
 
     var signups = {
         name:req.body.item.name,
@@ -158,27 +193,28 @@ else if(user.user=="admin"){
   
   
 
-app.post("/addpost", verifyToken,(req,res)=>{
+app.post("/addpost",upload.single('image'), verifyToken,(req,res)=>{
 
     res.header("Access-Control-Allow-Origin", "*");
     res.header("Access-Control-Allow-Methods: GET, POST, PUT, DELETE");
   
-    
-
+   console.log(req.body);
+  const file = req.file;
+  // console.log(file.filename);
     const d = new Date();
     var date=d.toDateString();
     var posts ={
         
-        title:req.body.data.title,
-        file:req.body.data.file,
-        description:req.body.data.description,
+        title:req.body.title,
+        description:req.body.description,
         isVerified:'0',
         date1:date,
-        email:req.body.data.currentEmail,
-        // file: 'http://localhost:4001/uploads/'+ req.data.file.filename,
+        email:req.body.currentEmail,
+        image: 'http://localhost:4001/images/'+ req.file.filename
        
     }
     var posters = new usermongo(posts);
+
     posters.save();
 
 });
@@ -188,7 +224,7 @@ app.post("/addblogcategory",verifyToken,(req,res)=>{
   res.header("Access-Control-Allow-Origin","*");
  res.header("Access-Control-Allow-Headers: Content-Type, application/json");
  res.header("Access-Control-Allow-Methods:GET,POST,PATCH,PUT,DELETE,OPTIONS");
- console.log(req.body);
+//  console.log(req.body);
  var blogCategory = {
      blogCategory:req.body.item.blogCategory
  }
@@ -248,7 +284,7 @@ app.post("/approveBlog",(req,res)=>{
     res.header("Access-Control-Allow-Methods:GET,POST,PUT,DELETE");
     email1=req.body.data.currentEmail;
     signupmongo.find({$and:[{email:email1}]}).then((data)=>{
-      console.log(data);
+      // console.log(data);
        res.send(data);
        
       });
@@ -261,7 +297,7 @@ app.post("/approveBlog",(req,res)=>{
       console.log(email1);
   
     usermongo.find({$and:[{email:email1}]}).then((data)=>{
-      console.log(data);
+      // console.log(data);
        res.send(data); 
       });
     });
@@ -278,7 +314,7 @@ app.post("/approveBlog",(req,res)=>{
 
     
   app.put('/update',verifyToken,(req,res)=>{
-    console.log(req.body)
+    // console.log(req.body)
     id=req.body._id,
     
     title = req.body.title,
@@ -307,6 +343,7 @@ app.post("/approveBlog",(req,res)=>{
       res.send();
   })
 });
+
 app.get('/:_id',(req,res)=>
 {
   const id = req.params.id;
@@ -321,6 +358,7 @@ app.get('/:_id',(req,res)=>
       res.send(posts);
   });
 })
+
 
 app.listen(PORT,()=>{
     console.log("server is running");

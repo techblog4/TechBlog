@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -26,10 +27,10 @@ getTrainerBlogs(data:any){
 getBlogById(data:any){
   return this.http.post("http://localhost:4001/getBlogById",{data:data})
 }
-useradd(data:any){
-  return this.http.post<any>('http://localhost:4001/addpost', {data:data})
+// useradd(data:any){
+//   return this.http.post<any>('http://localhost:4001/addpost', {data:data})
   
-}
+// }
 getUserName(data:any){
   return this.http.post<any>('http://localhost:4001/getUserName', {data:data})
 }
@@ -59,4 +60,10 @@ approveBlog(data:any){
   return this.http.post('http://localhost:4001/approveBlog', {data:data})
   .subscribe(data=>{console.log(data)})
 }
+
+useradd(post:any){
+  return this.http.post("http://localhost:4001/addpost", post)
+  .subscribe(data=>{console.log(data)})
+}
+
 }
