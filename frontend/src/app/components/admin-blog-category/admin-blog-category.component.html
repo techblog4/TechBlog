@@ -29,15 +29,13 @@
                   <th scope="col">Category Name</th>
                   <th scope="col"></th>
                 </tr>
-              </thead>
-              <tbody>
+               </thead>
+               <tbody>
                 <tr *ngFor="let cat of categories; let i = index;">
                   <td>{{i+1}}</td>
-                  <td>{{cat.blogCategory}}</td>
+                  <td >{{cat.blogCategory}}</td>
                   <td class="text-right">
-                    <button class="btn btn-primary mr-3" (click)="editPost(cat)"> Edit</button>&nbsp;
-                    <!-- <a href="javascript:void(0);" (click)="deletePost(cat)">A Tag</a> -->
-                    <button type="submit" class="btn btn-danger" (click)="deletePost(cat)"> Delete</button>
+                   <button type="submit" class="btn btn-danger" (click)="deletePost(cat)"> Delete</button>
                   </td>
                 </tr>
               </tbody>
@@ -49,5 +47,8 @@
       
     </div>
   </div>
-</div>
+</div><br>
 
+<footer>
+  <p>Copyright &copy; 2022 ICT Academy of Kerala All Rights Reserved.</p>
+</footer>
