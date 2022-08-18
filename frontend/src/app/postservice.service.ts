@@ -79,5 +79,8 @@ useradd(post:any){
   return this.http.post("http://localhost:4001/addpost", post)
   .subscribe(data=>{console.log(data)})
 }
+changePwd(data:any,adminEmail: any){
+  return this.http.post("http://localhost:4001/changePwd/"+adminEmail, data)
+}
 
 }

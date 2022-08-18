@@ -54,6 +54,7 @@ onsubmitlogin(values:any){
             }
           else if(x.admin){
                  localStorage.setItem('token',x.token);
+                 localStorage.setItem('adminEmailToken',x.decodedAdminEmail);
                  this.router.navigate(['admin-dashboard/admin-dashboard-child']);
             }
           else if(x.unathorised){
