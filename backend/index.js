@@ -397,8 +397,13 @@ app.get('/:_id',(req,res)=>
 
 app.post("/changePwd/:userEmail",(req,res)=>{
   res.header("Access-Control-Allow-Origin","*"); 
+  console.log("clrrr");
   res.header("Access-Control-Allow-Methods:GET,POST,PUT,DELETE");
+  console.log(req.body);
   email = req.params.userEmail;
+  
+  console.log(email);
+  console.log(req.body.password);
   signupmongo.updateOne({"email":email},
   {$set:{"password":req.body.password}}).then((data)=>{
      res.send(data);
