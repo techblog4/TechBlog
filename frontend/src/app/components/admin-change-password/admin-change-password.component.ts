@@ -61,7 +61,7 @@ changePwd(values:any){
     cancelButtonText: 'Cancel'
   }).then((result) => {
     if (result.isConfirmed) {
-      this.postService.approveBlog(values,this.adminEmail);
+      this.postService.changePwd(values,this.adminEmail);
       this.router.navigate(['admin-dashboard/admin-dashboard-child'])
      Swal.fire({
       position: 'top-end',
