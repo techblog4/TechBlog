@@ -10,6 +10,10 @@ export class SingleviewPageComponent implements OnInit {
   constructor(public serve:PostserviceService) { }
   Blogs:any=[];
   
+  categories: any;
+  selected: any;
+  routeLink: string;
+  
 
   ngOnInit(): void {
     let postId = localStorage.getItem("editBlogId");
@@ -24,7 +28,12 @@ export class SingleviewPageComponent implements OnInit {
       this.Blogs.description = temporalDivElement.textContent || temporalDivElement.innerText || "";
   
   })
-  
+  //categorydropdown menu
+  this.serve.getBlogCategory().subscribe((data)=>{
+    this.categories = JSON.parse(JSON.stringify(data));
+    this.routeLink = "/homecategory/";
+    console.log(this.categories);
+  })
   
 }
 }

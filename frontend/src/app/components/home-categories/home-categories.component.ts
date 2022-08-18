@@ -17,6 +17,10 @@ export class HomeCategoriesComponent implements OnInit {
   blogs: any;
   catId: any;
 
+  categories: any;
+  selected: any;
+  routeLink: string;
+
   constructor(private _Activatedroute:ActivatedRoute,private _router:Router,private _postService:PostserviceService) { }
 
   ngOnInit(): void {
@@ -34,6 +38,12 @@ export class HomeCategoriesComponent implements OnInit {
         this.catId = JSON.parse(category);
       }
       )
+          // category dropmenu
+      this._postService.getBlogCategory().subscribe((data)=>{
+        this.categories = JSON.parse(JSON.stringify(data));
+        this.routeLink = "/homecategory/";
+        console.log(this.categories);
+      });
   });
   }
   singleBlog(Blogs:any){

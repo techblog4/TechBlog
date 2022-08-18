@@ -20,6 +20,10 @@
     .fa-id-card,.fa-thumbs-up,.fa-xmark,.fa-battery-full,.fa-battery-half,.fa-key{
       font-size: x-large;
     }
+    a{
+      text-decoration: none;
+      color: white;
+    }
 
     footer{
       background-color:rgb(244, 235, 235);

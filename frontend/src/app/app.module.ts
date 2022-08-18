@@ -55,7 +55,6 @@ import { SingleviewPageComponent } from './components/singleview-page/singleview
 import { AdminSingleBlogApproveComponent } from './components/admin-single-blog-approve/admin-single-blog-approve.component';
 import { FileSelectDirective } from 'ng2-file-upload';
 import { HomeCategoriesComponent } from './components/home-categories/home-categories.component';
-import { HomesingleCategoryviewComponent } from './components/homesingle-categoryview/homesingle-categoryview.component';
 
 
 @NgModule({
@@ -91,8 +90,8 @@ import { HomesingleCategoryviewComponent } from './components/homesingle-categor
     UpadateblogStudentComponent,
     SingleviewPageComponent,
     AdminSingleBlogApproveComponent,
-    HomeCategoriesComponent,
-    HomesingleCategoryviewComponent,
+    HomeCategoriesComponent
+ 
     
   ],
 
