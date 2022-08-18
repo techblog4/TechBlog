@@ -16,7 +16,7 @@ pwdHide2=true;
 pwdHide3=true;
 submittedChangePwd=false;
 adminEmail = localStorage.getItem('adminEmailToken');
-// signupForm!: FormGroup;
+
   changePwdForm!: FormGroup;
 
 constructor(private fb:FormBuilder,private postService:PostserviceService,
@@ -25,7 +25,7 @@ private router:Router) { }
 ngOnInit(): void {
 
   this.changePwdForm =this.fb.group({
-    // currentpassword:['',[Validators.required,Validators.minLength(5)]],
+    
     password:['',[Validators.required,Validators.minLength(5)]],
     confirmpassword:['',[Validators.required,Validators.minLength(5)]],
     }
@@ -47,17 +47,7 @@ return this.changePwdForm.controls
 
 
 changePwd(values:any){
-  // this.submittedChangePwd=true;
-  //   this.postService.changePwd(values,this.adminEmail)
-  //   .subscribe((data)=>{
-  //     Swal.fire({
-  //       position: 'top-end',
-  //       icon: 'success',
-  //       title: 'Your password has been updated',
-  //       showConfirmButton: false,
-  //       timer: 2000
-  //     }) 
-  // });
+  
   
 
 
