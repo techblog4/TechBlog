@@ -278,12 +278,12 @@ app.post("/approveBlog/:category",(req,res)=>{
   res.header("Access-Control-Allow-Origin","*"); 
   res.header("Access-Control-Allow-Methods:GET,POST,PUT,DELETE");
   const cate = req.params.category;
-  console.log(cate);
-  console.log("Categoryzzz")
-  // usermongo.findByIdAndUpdate({"_id":req.body.data},
-  // {$set:{"isVerified":"1"}}).then((data)=>{
-  //    res.send(data);
-  //   });
+  // console.log(cate);
+  // console.log("Categoryzzz")
+  usermongo.findByIdAndUpdate({"_id":req.body.data},
+  {$set:{"isVerified":"1"},"category":cate}).then((data)=>{
+     res.send(data);
+    });
   });
 
   // app.post("/getUserName",(req,res)=>{

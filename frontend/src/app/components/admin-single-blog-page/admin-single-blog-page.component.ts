@@ -39,7 +39,6 @@ export class AdminSingleBlogPageComponent implements OnInit {
    
 
 approveBlog =  (selected: any) => {
-  // console.log(selected);
     this.sub = this._Activatedroute.paramMap.subscribe(params => { 
     this._id = params.get('_id'); 
     });
@@ -67,6 +66,30 @@ approveBlog =  (selected: any) => {
   };
   
   rejectBlog =  () => {
+    this.sub = this._Activatedroute.paramMap.subscribe(params => { 
+      this._id = params.get('_id'); 
+      });
+  
+      Swal.fire({
+        title: 'Are you sure?',
+        text: 'Reject Blog Post!!',
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonText: 'Yes, reject!',
+        cancelButtonText: 'Cancel reject'
+      }).then((result) => {
+        if (result.isConfirmed) {
+          this._postService.rejectBlog(this._id);
+          this._router.navigate(['admin-dashboard/admin-approve-blog'])
+         Swal.fire({
+          position: 'top-end',
+          icon: 'success',
+          title: 'Rejected successfully',
+          showConfirmButton: false,
+          timer: 1500
+        })
+      }
+      })
     // this.router.navigateByUrl('admin-dashboard/admin-single-blog-page/'+_id);
   };
   ngOnInit(): void {
