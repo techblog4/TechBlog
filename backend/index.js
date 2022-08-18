@@ -195,7 +195,7 @@ app.post("/addpost",upload.single('image'), verifyToken,(req,res)=>{
     res.header("Access-Control-Allow-Origin", "*");
     res.header("Access-Control-Allow-Methods: GET, POST, PUT, DELETE");
   
-   console.log(req.body);
+  //  console.log(req.body);
   const file = req.file;
     const d = new Date();
     var date=d.toDateString();
@@ -274,11 +274,14 @@ app.post("/getBlogById",verifyToken,(req,res)=>{
     });
   });
 
-app.post("/approveBlog",(req,res)=>{
+app.post("/approveBlog/:category",(req,res)=>{
   res.header("Access-Control-Allow-Origin","*"); 
   res.header("Access-Control-Allow-Methods:GET,POST,PUT,DELETE");
+  const cate = req.params.category;
+  // console.log(cate);
+  // console.log("Categoryzzz")
   usermongo.findByIdAndUpdate({"_id":req.body.data},
-  {$set:{"isVerified":"1"}}).then((data)=>{
+  {$set:{"isVerified":"1"},"category":cate}).then((data)=>{
      res.send(data);
     });
   });
@@ -298,7 +301,7 @@ app.post("/approveBlog",(req,res)=>{
     res.header("Access-Control-Allow-Origin","*"); 
     res.header("Access-Control-Allow-Methods:GET,POST,PUT,DELETE");
       email1=req.body.data.currentEmail;
-      console.log(email1);
+      // console.log(email1);
   
     usermongo.find({$and:[{email:email1}]}).then((data)=>{
       // console.log(data);
@@ -321,7 +324,7 @@ app.post("/approveBlog",(req,res)=>{
     if(req.file != undefined)
     {
     const file = req.file;
-    console.log(file);
+    // console.log(file);
     img = 'http://localhost:4001/images/'+ req.file.filename;
     }
     else
@@ -331,7 +334,7 @@ app.post("/approveBlog",(req,res)=>{
     id=req.body._id,
     title = req.body.title,
     description = req.body.description
-    console.log("ID="+id);
+    // console.log("ID="+id);
    usermongo.findByIdAndUpdate({"_id":id},
                                 {$set:{
                                 "title":title,
@@ -348,7 +351,7 @@ app.post("/approveBlog",(req,res)=>{
   id = req.params.id;
   usermongo.findByIdAndDelete({"_id":id})
   .then(()=>{
-      console.log('success')
+      // console.log('success')
       res.send();
   })
 });
@@ -356,7 +359,7 @@ app.post("/approveBlog",(req,res)=>{
   id = req.params.id;
   blogcategorymongo.findByIdAndDelete({"_id":id})
   .then(()=>{
-      console.log('success')
+      // console.log('success')
       res.send();
   })
 });

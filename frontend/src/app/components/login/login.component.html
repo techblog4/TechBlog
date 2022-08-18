@@ -28,7 +28,7 @@
              <mat-error *ngIf = "login?.['password']?.errors?.['required'] && submitted">Required password</mat-error>
            </mat-form-field>
            <mat-dialog-actions class="centering">
-            <button class="btn" mat-raised-button color="accent"[disabled]="!loginForm.valid">Submit</button>
+            <button class="btn" mat-raised-button color="accent" [disabled]="!loginForm.valid">Submit</button>
             <br>
           <span>New user? <a class="link" routerLink="/signup"><span style="color:crimson;">Register here.</span>
           </a></span>

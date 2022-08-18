@@ -8,7 +8,8 @@ const userschema = new schema({
     description:String,
     date1:String,
     isVerified:String,
-    email:String
+    email:String,
+    category:String
     
 });
 var usermongo =mongoose.model("useradd",userschema);
