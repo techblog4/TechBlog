@@ -7,6 +7,7 @@ const adminmongo =require("./src/model/admin");
 const blogcategorymongo = require("./src/model/addBlogCategory");
 const homemongo =require("./src/model/home");
 const usermongo=require("./src/model/usermongo");
+const { exists } = require("./src/model/signup");
 const app = new express();
 
 
@@ -173,8 +174,11 @@ else if(user.user=="trainer"){
 }
 else if(user.user=="admin"){
      let payload = {subject:logindata.email+logindata.password}
-     let token =jwt.sign(payload,'secretkey')
-     res.status(200).send({admin:true,token});
+     let token =jwt.sign(payload,'secretkey');
+     let adminEmail = {subject:logindata.email};
+      let adminEmailToken = jwt.sign(adminEmail.subject,'secretkey');
+      const decodedAdminEmail = jwt.verify(adminEmailToken, "secretkey");
+     res.status(200).send({admin:true,token,decodedAdminEmail});
   
 }
 }
@@ -323,8 +327,8 @@ app.post("/approveBlog/:category",(req,res)=>{
     });
     app.get('/getBlogByCategory/:id',  (req, res) => {
       const catId = req.params.id;
-      console.log("62fbdb79a9964cfc0f9ed123");
-      console.log(catId);
+      // console.log("62fbdb79a9964cfc0f9ed123");
+      // console.log(catId);
         usermongo.find({"category":catId})
         .then((posts)=>{
             res.send(posts);
@@ -390,6 +394,16 @@ app.get('/:_id',(req,res)=>
       res.send(posts);
   });
 })
+
+app.post("/changePwd/:userEmail",(req,res)=>{
+  res.header("Access-Control-Allow-Origin","*"); 
+  res.header("Access-Control-Allow-Methods:GET,POST,PUT,DELETE");
+  email = req.params.userEmail;
+  signupmongo.updateOne({"email":email},
+  {$set:{"password":req.body.password}}).then((data)=>{
+     res.send(data);
+    });
+  });
 
 
 app.listen(PORT,()=>{
