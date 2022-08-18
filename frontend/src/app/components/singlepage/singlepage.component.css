@@ -13,7 +13,7 @@
   display: grid;
   grid-template-columns: repeat(2,1fr);
   grid-column-gap: 10%;
-  grid-row-gap: 10px;
+  grid-row-gap: 100px;
   
 
 }
@@ -74,7 +74,7 @@
 
 .copyright-area{
   background: #202020;
-  padding: 25px 0;
+  padding: 22px 0;
   bottom: 0;
   width: 100%;
   height: 60px;
