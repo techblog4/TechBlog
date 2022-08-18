@@ -62,8 +62,8 @@ deleteCategory(id:any){
   return this.http.delete("http://localhost:4001/deleteCategory/"+id)
 }
 
-approveBlog(data:any){
-  return this.http.post('http://localhost:4001/approveBlog', {data:data})
+approveBlog(data:any,category: any){
+  return this.http.post("http://localhost:4001/approveBlog"+category, {data:data})
   .subscribe(data=>{console.log(data)})
 }
 

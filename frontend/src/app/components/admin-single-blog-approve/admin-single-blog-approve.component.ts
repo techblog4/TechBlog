@@ -16,6 +16,7 @@ export class AdminSingleBlogApproveComponent implements OnInit {
   title: any;
   description: any;
   date: any;
+  image: any;
   constructor(private _Activatedroute:ActivatedRoute,
     private _router:Router,
     private _postService:PostserviceService) { }
@@ -31,6 +32,7 @@ export class AdminSingleBlogApproveComponent implements OnInit {
         this.title = myObj.title;
         this.description = myObj.description;
         this.date = myObj.date1;
+        this.image = myObj.image;
         var temporalDivElement = document.createElement("div");
        // Set the HTML content with the providen
        temporalDivElement.innerHTML = this.description;
