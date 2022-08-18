@@ -14,8 +14,8 @@
                 <thead class="thead-light">
                   <tr>
                     <th scope="col">Sl. No.</th>
+                    <th scope="col">Blog Image</th>
                     <th scope="col">Blog Title</th>
-                    <th scope="col">Blog File</th>
                     <th scope="col">Author Email</th>
                     <th scope="col">Date</th>
                     <th scope="col">Actions</th>
@@ -30,11 +30,11 @@
                         </div>
                       </div>
                     </th>
-                    <td>{{blog.title}}</td>
                     <td>
-                      <span class="badge badge-dot mr-4">
-                        <i class="bg-warning"></i>{{blog.file}}</span>
+                      <img [src]="blog.image" alt="" height="60px" width="100px">
                     </td>
+                    <td>{{blog.title}}</td>
+                    
                     <td>{{blog.email}}</td>
                     <td>
                       <div class="d-flex align-items-center">

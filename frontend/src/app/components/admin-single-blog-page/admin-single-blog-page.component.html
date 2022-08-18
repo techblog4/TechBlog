@@ -1,5 +1,6 @@
 <mat-card>
 <h2>{{title}}</h2>
+<img [src]="image" alt="" height="500px" width="100%">
 <p>{{description}}</p>
 <mat-card>
     <mat-card-content>  
@@ -35,11 +36,28 @@
     {{option}}
   </mat-radio-button>
 </mat-radio-group>
+<!-- <div>
+  <label id="example-radio-group-label">Select</label>
+  <select name="" id="" >
+    <option *ngFor="let cat of categories; let i = index;"  [value]="cat._id">{{cat.blogCategory}}</option>
+  </select>
+</div> -->
+<h4>Select category</h4>
+<mat-form-field appearance="fill">
+  <mat-label>Blog category</mat-label>
+  <mat-select [(value)]="selected">
+    <mat-option *ngFor="let cat of categories" [value]="cat._id">
+      {{cat.blogCategory}}
+    </mat-option>
+  </mat-select>
+</mat-form-field>
       </section>
     </mat-card-content>
   </mat-card>
+  
 <div class="dropdown">
-    <button class="btn btn-success btn-sm padding" (click)="approveBlog();">Approve</button>
-    <button class="btn btn-danger btn-sm padding" (click)="rejectBlog();">Reject</button>
+  <p>You selected: {{selected}}</p>
+    <button class="btn btn-success btn-sm padding" (click)="approveBlog(selected);" [disabled]="!selected || !optionArray1 || !optionArray2 || !optionArray3">Approve</button>
+    <button class="btn btn-danger btn-sm padding" (click)="rejectBlog();" [disabled]="!optionArray1 || !optionArray2 || !optionArray3">Reject</button>
   </div>
 </mat-card>

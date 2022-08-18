@@ -74,12 +74,6 @@ export class AdminBlogCategoryComponent implements OnInit {
         showConfirmButton: false,
         timer: 2000
       }) 
-  // this.router.navigate(['admin-dashboard/admin-blog-category'])
-    // var x=JSON.parse(JSON.stringify(data))
-    // if(x.status){
-    // }else{
-    //     alert("error");
-    //   }
   });
     
   } 
