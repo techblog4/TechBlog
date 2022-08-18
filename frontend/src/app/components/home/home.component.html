@@ -22,22 +22,19 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
       <!-- <a class="navbar-brand" href="#"><img src="../../../assets/images/techblog-logo-header.png" alt=""></a> -->
+     
       <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
         <li class="nav-item mr-3 mt-2 navlink"><a routerLink="/">
         Home </a></li>
+        
         <li class="nav-item dropdown">
           <a class="nav-link mr-3 " href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             Categories
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-            <a class="dropdown-item" routerLink="/homecategory">KKEM</a>
-            <a class="dropdown-item" routerLink="/homecategory">K-DISC</a>
-            <a class="dropdown-item" routerLink="/homecategory">ICTAK-Events</a>
-            <a class="dropdown-item" routerLink="/homecategory">WEBINAR</a>
-            <a class="dropdown-item" routerLink="/homecategory">ACADEMIA MEETUP</a>
+            <a class="dropdown-item" *ngFor="let cat of categories" [routerLink]="routeLink+cat._id">{{cat.blogCategory}}</a>
           </div>
         </li>
-        <!--  <li  class="nav-item mr-3 mt-2 navlink"><a routerLink="/">Logout</a></li> -->
         <li class="nav-item">
             <a class="author-user mr-3 ml-auto " routerLink="/signup" mat-raised-button><span class="fa fa-user-plus"
                 aria-hidden="true"></span></a> 

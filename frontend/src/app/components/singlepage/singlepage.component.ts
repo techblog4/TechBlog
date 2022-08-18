@@ -26,7 +26,6 @@ singleBlog(Blogs:any){
   {
     localStorage.setItem("editBlogId",Blogs._id.toString());
     this.router.navigate(['singleviewpage']);
-
   }
 //  {
 //   let postId = localStorage.getItem("editBlogId");
