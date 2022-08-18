@@ -3,7 +3,6 @@
     <span class="navbar-toggler-icon"></span>
   </button>
   <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
-    <!-- <a class="navbar-brand" href="#"><img src="../../../assets/images/techblog-logo-header.png" alt=""></a> -->
     <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
       <li class="nav-item mr-5 mt-2 navlink"><a routerLink="/">
       Home </a></li>
@@ -11,46 +10,35 @@
         SignUp </a></li>
         <li class="nav-item mr-5 mt-2 navlink"><a routerLink="/homecategory">
         Categories </a></li>
-      <!--  <li  class="nav-item mr-3 mt-2 navlink"><a routerLink="/">Logout</a></li> -->
       <li class="nav-item mr-5 mt-2 navlink"><a routerLink="/login">
           LogIn </a></li>
     </ul>
-
   </div>
 </nav>
-
-
 <div class="bg-body">
 <br><br>
 <div class="text-center head">ALL BLOGS</div>  
-<div class="container bg mt-5" >
-
+<div class="container bg mt-5">
 <div  *ngFor='let i of posts'>
-  <div class="card">
-    
+  <div class="card"> 
     <img [src]="i.image" alt="" height="400px" width="100%" style=" border-top-right-radius:30px">
     <div class="card-body">
-     
       <div class="card-content">
-
         <h2 class="card-title">
           {{i.title}}
         </h2>
         <p class="card-text">
           {{i.date1}}
         </p>
-
         <a routerLink="/singleviewpage" (click)="singleBlog(i)" style="margin-top: 2%; cursor: pointer;"><button class="btn btn-sm">Read More...</button></a>
       </div>
     </div>
-  
 </div> 
 </div> 
 <br><br>
 </div>
 </div>
 <footer>
-  
   <div class="copyright-area">
     <div class="container-fluid">
         <div class="row">

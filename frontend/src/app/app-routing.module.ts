@@ -58,7 +58,7 @@ const routes: Routes = [
   {path:'innerfooter',component:InnerfooterComponent},
   {path:"homecards",component:HomecardsComponent},
   {path:"singleviewpage",component:SingleviewPageComponent},
-  {path:"homecategory",component:HomeCategoriesComponent},
+  {path:"homecategory/:id",component:HomeCategoriesComponent},
   {path:"homesinglecatagoryview",component:HomesingleCategoryviewComponent},
   
  
