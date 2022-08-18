@@ -4,7 +4,6 @@
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
-      <!-- <a class="navbar-brand" href="#"><img src="../../../assets/images/techblog-logo-header.png" alt=""></a> -->
       <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
         <li class="nav-item mr-5 mt-2 navlink"><a routerLink="/">
         Home </a></li>
@@ -12,7 +11,6 @@
         All blogs</a></li>
         <li class="nav-item mr-5 mt-2 navlink"><a routerLink="/signup">
           SignUp </a></li>
-        <!--  <li  class="nav-item mr-3 mt-2 navlink"><a routerLink="/">Logout</a></li> -->
         <li class="nav-item mr-5 mt-2 navlink"><a routerLink="/login">
             LogIn </a></li>
       </ul>
@@ -23,21 +21,23 @@
   
    <div class="bg-body">
   <br><br>
-  <div class="text-center head">ALL BLOGS</div> 
+  <div class="text-center head">{{catId.blogCategory}}</div> 
   <div class="container-fluid bg m-top" >
-  <div class="card">
+  <div class="card" *ngFor='let i of blogs'>
     <div class="card-image">
-      <img class="" src="https://img.freepik.com/vecteurs-libre/portrait-abstrait-design-plat-dans-style-artistique_23-2149123797.jpg?t=st=1659428436~exp=1659429036~hmac=3b06ab791fa57b831cae6318b7000247f282249652290cc19df86e6953f232d4" alt="">
+      <img class="" [src]="i.image" alt="">
     </div>
     <div class="card-content">
       <div class="card-text">
        <div class="cardtitle">
-          Card title
+          {{i.title}}
         </div>
         <div class="cardsentence">
-          date
+          {{i.date1}}
         </div>
-        <div class="button btn btn-lg">Read More...</div>
+        <div class="button btn btn-lg">
+          <a routerLink="/singleviewpage" (click)="singleBlog(i)" style="margin-top: 2%; cursor: pointer;">Read More</a>
+        </div>
       </div>
     </div>
   </div>

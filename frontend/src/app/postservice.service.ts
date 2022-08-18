@@ -39,9 +39,13 @@ getUserName(data:any){
 }
 
 getPost(id:any){
-  
     return this.http.get("http://localhost:4001/"+id);
-  
+}
+getCategoryById(id:any){
+    return this.http.get("http://localhost:4001/getCategoryById/"+id);
+}
+getBlogByCategory(id: any){
+  return this.http.get("http://localhost:4001/getBlogByCategory/"+id);
 }
 singlePost(_id:any){
   

@@ -278,8 +278,6 @@ app.post("/approveBlog/:category",(req,res)=>{
   res.header("Access-Control-Allow-Origin","*"); 
   res.header("Access-Control-Allow-Methods:GET,POST,PUT,DELETE");
   const cate = req.params.category;
-  // console.log(cate);
-  // console.log("Categoryzzz")
   usermongo.findByIdAndUpdate({"_id":req.body.data},
   {$set:{"isVerified":"1"},"category":cate}).then((data)=>{
      res.send(data);
@@ -310,10 +308,24 @@ app.post("/approveBlog/:category",(req,res)=>{
     });
 
     app.get('/:id',  (req, res) => {
-  
       const id = req.params.id;
-     
         usermongo.findOne({"_id":id})
+        .then((posts)=>{
+            res.send(posts);
+        });
+    });
+    app.get('/getCategoryById/:id',  (req, res) => {
+      const id = req.params.id;
+        blogcategorymongo.findOne({"_id":id})
+        .then((posts)=>{
+            res.send(posts);
+        });
+    });
+    app.get('/getBlogByCategory/:id',  (req, res) => {
+      const catId = req.params.id;
+      console.log("62fbdb79a9964cfc0f9ed123");
+      console.log(catId);
+        usermongo.find({"category":catId})
         .then((posts)=>{
             res.send(posts);
         });
