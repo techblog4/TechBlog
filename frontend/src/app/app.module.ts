@@ -12,12 +12,10 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule,HTTP_INTERCEPTORS} from '@angular/common/http';
 import {MatDialogModule, MatDialogRef} from '@angular/material/dialog';
 import { AdminDashboardComponent } from './components/admin-dashboard/admin-dashboard.component';
-
 import { TrainerDashboardComponent } from './components/trainer-dashboard/trainer-dashboard.component';
 import {MatIconModule} from '@angular/material/icon';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatSidenavModule} from '@angular/material/sidenav';
-
 import {MatListModule} from '@angular/material/list';
 import { AdminBlogListComponent } from './components/admin-blog-list/admin-blog-list.component';
 import { AdminBlogCategoryComponent } from './components/admin-blog-category/admin-blog-category.component';
@@ -31,8 +29,6 @@ import { CKEditorModule } from 'ckeditor4-angular';
 import { PostserviceService } from './postservice.service';
 import { ServiceService } from './service.service';
 import { AdminSingleBlogPageComponent } from './components/admin-single-blog-page/admin-single-blog-page.component';
-
-
 import { StudentNavbarComponent } from './components/student-navbar/student-navbar.component';
 import { StudentDashboardComponent } from './components/student-dashboard/student-dashboard.component';
 import { StudentViewblogsComponent } from './components/student-viewblogs/student-viewblogs.component';
@@ -55,6 +51,7 @@ import { SingleviewPageComponent } from './components/singleview-page/singleview
 import { AdminSingleBlogApproveComponent } from './components/admin-single-blog-approve/admin-single-blog-approve.component';
 import { FileSelectDirective } from 'ng2-file-upload';
 import { HomeCategoriesComponent } from './components/home-categories/home-categories.component';
+import { StudentChangePasswordComponent } from './components/student-change-password/student-change-password.component';
 
 
 @NgModule({
@@ -90,7 +87,8 @@ import { HomeCategoriesComponent } from './components/home-categories/home-categ
     UpadateblogStudentComponent,
     SingleviewPageComponent,
     AdminSingleBlogApproveComponent,
-    HomeCategoriesComponent
+    HomeCategoriesComponent,
+    StudentChangePasswordComponent
  
     
   ],
@@ -129,7 +127,7 @@ import { HomeCategoriesComponent } from './components/home-categories/home-categ
             ],
   
   bootstrap: [AppComponent],
-  // entryComponents:[SignUpComponent,LoginComponent]
+
   
 })
 export class AppModule { }

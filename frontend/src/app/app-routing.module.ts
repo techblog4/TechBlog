@@ -20,6 +20,7 @@ import { LoginComponent } from './components/login/login.component';
 import { SignUpComponent } from './components/sign-up/sign-up.component';
 import { SinglepageComponent } from './components/singlepage/singlepage.component';
 import { SingleviewPageComponent } from './components/singleview-page/singleview-page.component';
+import { StudentChangePasswordComponent } from './components/student-change-password/student-change-password.component';
 import { StudentDashboardChildComponent } from './components/student-dashboard-child/student-dashboard-child.component';
 import { StudentDashboardComponent } from './components/student-dashboard/student-dashboard.component';
 import { StudentNavbarComponent } from './components/student-navbar/student-navbar.component';
@@ -71,6 +72,7 @@ const routes: Routes = [
   {path:'student-dashboard-child',component:StudentDashboardChildComponent},
   {path:'student-single-blogpage/:_id',component:StudentSingleBlogpageComponentComponent},
   {path:"studentupdate",component:UpadateblogStudentComponent},
+  {path:"studentchangepassword",component:StudentChangePasswordComponent},
 
 ]
 },
