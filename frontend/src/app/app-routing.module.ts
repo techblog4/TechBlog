@@ -49,7 +49,8 @@ const routes: Routes = [
       {path:'admin-aprove/:_id',component:AdminSingleBlogApproveComponent},
       {path:'admin-blog-category',component:AdminBlogCategoryComponent},
       {path:'admin-approve-blog',component:AdminApproveBlogComponent},
-      {path:'admin-dashboard-child',component:AdminDashboardChildComponent}
+      {path:'admin-dashboard-child',component:AdminDashboardChildComponent},
+      {path:'admin-change-password',component:AdminChangePasswordComponent},
     
     ]
   },

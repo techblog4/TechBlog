@@ -30,15 +30,7 @@
 
 
 } 
-/* .child .card{
-  margin-top: 10%;
-  border: 3px solid blanchedalmond;
-  border-right-style: solid;
- font-weight: 500;
- font-size:medium;
- border-top-right-radius:30px ;
 
-} */
 .navlink a{
   text-decoration: none;
   font-size:15px;
@@ -51,14 +43,7 @@
   transition: all 0.25s ease-out;
   color:goldenrod
 }
-/* .btn:hover{
-  
-  transition: all 0.5s ease-in;
-  border-radius:50px;
-  cursor: pointer;
-  background-color: white;
 
-} */
 
 
  .copyright-area{
@@ -93,7 +78,6 @@
     display: block;
     color: initial;
     text-decoration: none;
-    /* width: 400px;  */
     height: 140px;
     background-color: #FBDA61;
     background-image: linear-gradient(45deg, #FBDA61 0%, #FF5ACD 100%);
