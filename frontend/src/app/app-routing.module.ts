@@ -14,7 +14,7 @@ import { FooterComponent } from './components/footer/footer.component';
 import { HomeCategoriesComponent } from './components/home-categories/home-categories.component';
 import { HomeComponent } from './components/home/home.component';
 import { HomecardsComponent } from './components/homecards/homecards.component';
-import { HomesingleCategoryviewComponent } from './components/homesingle-categoryview/homesingle-categoryview.component';
+
 import { InnerfooterComponent } from './components/innerfooter/innerfooter.component';
 import { LoginComponent } from './components/login/login.component';
 import { SignUpComponent } from './components/sign-up/sign-up.component';
@@ -60,7 +60,7 @@ const routes: Routes = [
   {path:"homecards",component:HomecardsComponent},
   {path:"singleviewpage",component:SingleviewPageComponent},
   {path:"homecategory/:id",component:HomeCategoriesComponent},
-  {path:"homesinglecatagoryview",component:HomesingleCategoryviewComponent},
+
   
  
   {path:'studentnavbar',canActivate:[AuthGuard],component:StudentNavbarComponent,
