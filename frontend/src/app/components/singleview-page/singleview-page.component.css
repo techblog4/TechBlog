@@ -67,7 +67,7 @@
     overflow: hidden;
   }
   
-  
+  /* footer */
 
   .copyright-area{
     background: #202020;
@@ -76,22 +76,22 @@
     width: 100%;
     height: 60px;
     }
-    .copyright-text p {
+  .copyright-text p {
     margin: 0;
     font-size: 14px;
     color: #878787;
     }
-    .copyright-text p a{
+  .copyright-text p a{
     color: #1D809F;
     }
-    .footer-menu li {
+  .footer-menu li {
     display: inline-block;
     margin-left: 20px;
     }
-    .footer-menu li:hover a{
+  .footer-menu li:hover a{
     color: #1D809F;
     }
-    .footer-menu li a {
+  .footer-menu li a {
     font-size: 14px;
     color: #878787;
     }

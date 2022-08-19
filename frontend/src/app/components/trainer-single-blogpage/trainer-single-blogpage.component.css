@@ -9,8 +9,8 @@
 }
 .butn:hover{
     transition: all 0.5s ease-in;
-      border-top-right-radius: 25px;
-      cursor: pointer;
+    border-top-right-radius: 25px;
+    cursor: pointer;
   }
   .card-header{
     text-align: center;

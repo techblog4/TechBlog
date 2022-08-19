@@ -1,15 +1,4 @@
-/* table {
-  width: 100%;
-}
 
-.mat-form-field {
-  font-size: 14px;
-  width: 100%;
-}
-
-td, th {
-  width: 25%;
-} */
 :root {
   --blue: #5e72e4;
   --indigo: #5603ad;
@@ -1503,6 +1492,9 @@ a.btn-icon-only {
 h3{
   color: #5603ad;
 }
+
+/* footer */
+
 footer{
   background-color:rgb(244, 235, 235);
   margin-left: -30px;

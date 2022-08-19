@@ -12,11 +12,16 @@
 }
 .container-fluid{
   display: grid;
+
+  grid-template-columns: repeat(2,1fr);
+  grid-column-gap: 10%;
+  grid-row-gap: 30%;
+
   grid-template-columns: repeat(3,1fr);
   grid-column-gap: 1%;
   grid-row-gap: 100px;
- 
 
+ 
 }
 .m-top{
   margin-top: 100px;
@@ -79,28 +84,33 @@
   width: 100%;
     
 }
-  .copyright-text p {
+.copyright-text p {
   margin: 0;
   font-size: 14px;
   color: #878787;
-  }
-  .copyright-text p a{
+}
+.copyright-text p a{
   color: #1D809F;
-  } 
-  .footer-menu li {
+} 
+.footer-menu li {
   display: inline-block;
   margin-left: 20px;
-  }
-  .footer-menu li:hover a{
+}
+.footer-menu li:hover a{
   color: #1D809F;
-  
-  }
-  .footer-menu li a {
+}
+.footer-menu li a {
   font-size: 14px;
   color: #878787;
+
+}
+  
+  /* .card {
+
   }
 /*   
    .card {
+
     display: block;
     color: initial;
     text-decoration: none;
@@ -112,11 +122,11 @@
     box-shadow: 0 35px 80px rgb(0,0,0,0.15);
     transition: 0.5s; 
     position: relative;
-  }
-  .card:hover {
+  } */
+  /* .card:hover {
     height: 350px;
-  }
-  .card-image {
+  } */
+  /* .card-image {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -131,8 +141,8 @@
     transition: 0.5s;
     box-shadow: 0 35px 80px rgb(0,0,0,0.15);
     overflow: hidden;
-  }
-  .card:hover .card-image {
+  } */
+  /* .card:hover .card-image {
     height: 190px;
     width: 190px;
     top: -20px;
@@ -141,8 +151,8 @@
   .card-image img {
     width: 100%;
     border-radius: 6px;
-  }
-  .card-content {
+  } */
+  /* .card-content {
     position: absolute;
     display: flex;
     justify-content: center;
@@ -157,8 +167,8 @@
     width: 100%;
     transition: 0.5s;
     transform: translateY(100px);
-  }
-  .card:hover .card-text {
+  } */
+  /* .card:hover .card-text {
     transform: none;
   }
   .cardtitle {
@@ -191,7 +201,13 @@
     opacity: 0.7;
     padding:5px;
 
-  }
+
+  } */
+ 
+  
+  
+
+  
      
       */
 
@@ -288,3 +304,4 @@
     
     } 
       
+

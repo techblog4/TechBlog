@@ -7,16 +7,14 @@
     flex-direction: column;
     margin: 15px 0;
     align-items: flex-start;
-  }
+}
   
-  .example-radio-button {
+.example-radio-button {
     margin: 5px;
-  }
-  .commonstyle{
+}
+.commonstyle{
     font-size:large;
     color:deeppink;
-    
-    
 }
 .db{
     color: black;
@@ -25,35 +23,34 @@
     transition: all 0.5s ease-in;
       border-top-right-radius: 25px;
       cursor: pointer;
-  }
-  .card-header{
+}
+.card-header{
     text-align: center;
     font-weight:550;
     color: #ff666f;
-  }
- 
-  p{
+}
+
+p{
     text-align: left;
     line-height: 1cm;
     color:maroon;
-  }
-  .card{
-    /* border: 1px solid darkgoldenrod; */
+}
+.card{
     border: none;
-  }
-  img{
+}
+img{
     padding-bottom: 30px;
-  }
-  h2{
+}
+h2{
     color:orangered;
-  }
-  .date{
+}
+.date{
     text-align: center;
     font-style: italic;
-  }
-  #example-radio-group-label{
+}
+#example-radio-group-label{
     color: red;
-  }
-  h4{
+}
+h4{
     color: blue;
-  }
+}
