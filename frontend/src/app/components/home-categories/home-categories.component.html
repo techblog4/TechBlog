@@ -28,7 +28,7 @@
   </nav>
   
   
-   <div class="bg-body">
+   <!-- <div class="bg-body">
   <br><br>
   <div class="text-center head">{{catId.blogCategory}}</div> 
   <div class="container-fluid bg m-top" >
@@ -52,31 +52,75 @@
   </div>
 </div> 
 
- </div> 
+ </div>  -->
+ <div class="bg-body">
+  <br><br>
 
- 
-
-
+  <!-- <div class="text-center head">{{catId.blogCategory}}</div> 
+  <div class="container-fluid bg m-top" >
+  <div class="card" *ngFor='let i of blogs'>
+    <div class="card-image">
+      <img class="" [src]="i.image" alt="" height="100%">
+    </div>
+    <div class="card-content">
+      <div class="card-text">
+       <div class="cardtitle">
+          {{i.title}}
+        </div>
+        <div class="cardsentence">
+          {{i.date1}}
+        </div>
+        <div class="button btn btn-lg">
+          <a routerLink="/singleviewpage" (click)="singleBlog(i)" style="margin-top: 2%; cursor: pointer;">Read More</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>  -->
 
   
-  <footer>
-    <div class="copyright-area">
-      <div class="container">
-          <div class="row">
-              <div class="col-xl-6 col-lg-6 text-center text-lg-left">
-                  <div class="copyright-text">
-                      <p>Copyright &copy;2022 ICT Academy of Kerala.  All rights reserved. </p>
-                  </div>
-              </div>
-              <div class="col-xl-6 col-lg-6 d-none d-lg-block text-right">
-                  <div class="footer-menu">
-                      <ul>
-                          <li><a routerLink="/">Home</a></li>
-                          <li><a routerLink="/footer">Contact</a></li>
-                      </ul>
-                  </div>
-              </div>
-          </div>
-      </div>
+   <div class="text-center head">{{catId.blogCategory}}</div> 
+  <div class="container-fluid bg m-top" >
+ <div class="cards-list" *ngFor='let i of blogs'>
+  <div class="card">
+  
+    <div class="card_image"> 
+      <img class="" [src]="i.image" alt="" height="100%">
+     </div>
+       <div class="card_title">
+          {{i.title}}
+        </div>
+        <div class="card_subtitle">
+          {{i.date1}}
+        </div>
+        <div class="button btn btn-sm">
+          <a routerLink="/singleviewpage" (click)="singleBlog(i)" style="margin-top: 2%; cursor: pointer;">Read More</a>
+        </div>
   </div>
-  </footer>
+ 
+</div> 
+</div>
+
+<footer class="mt-5">
+  <div class="copyright-area">
+    <div class="container">
+        <div class="row">
+            <div class="col-xl-6 col-lg-6 text-center text-lg-left">
+                <div class="copyright-text">
+                    <p>Copyright &copy;2022 ICT Academy of Kerala.  All rights reserved. </p>
+                </div>
+            </div>
+            <div class="col-xl-6 col-lg-6 d-none d-lg-block text-right">
+                <div class="footer-menu">
+                    <ul>
+                        <li><a routerLink="/">Home</a></li>
+                        <li><a routerLink="/footer">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</footer>
+</div>
+
