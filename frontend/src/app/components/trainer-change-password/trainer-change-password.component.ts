@@ -4,25 +4,23 @@ import { Router } from '@angular/router';
 import { PostserviceService } from 'src/app/postservice.service';
 import Swal from 'sweetalert2';
 
-
 @Component({
-  selector: 'app-student-change-password',
-  templateUrl: './student-change-password.component.html',
-  styleUrls: ['./student-change-password.component.css']
+  selector: 'app-trainer-change-password',
+  templateUrl: './trainer-change-password.component.html',
+  styleUrls: ['./trainer-change-password.component.css']
 })
-export class StudentChangePasswordComponent implements OnInit {
+export class TrainerChangePasswordComponent implements OnInit {
   pwdHide1=true;
   pwdHide2=true;
   pwdHide3=true;
   submittedChangePwd=false;
-  email = localStorage.getItem('studentEmailToken');
+  email = localStorage.getItem('emailToken');
   changePwdForm!: FormGroup;
-  
+
   constructor(private fb:FormBuilder,private postService:PostserviceService,
-  private router:Router) { }
-  
+    private router:Router) { }
+
   ngOnInit(): void {
-  
     this.changePwdForm =this.fb.group({ 
       password:['',[Validators.required,Validators.minLength(5)]],
       confirmpassword:['',[Validators.required,Validators.minLength(5)]],
@@ -34,26 +32,24 @@ export class StudentChangePasswordComponent implements OnInit {
           }
         }
       })
-      
   }
-  
-  get passwordChange(){
-  return this.changePwdForm.controls
-  } 
 
-  changePwd(values:any){
-    this.submittedChangePwd=true;
-      this.postService.changePwd(values,this.email)
-      .subscribe((data)=>{
-        this.router.navigate(['studentnavbar/student-dashboard-child']);
-        Swal.fire({
-          position: 'top-end',
-          icon: 'success',
-          title: 'Your password has been updated',
-          showConfirmButton: false,
-          timer: 2000
-        }) 
-    });
-  }
-  }    
+  get passwordChange(){
+    return this.changePwdForm.controls
+    } 
   
+    changePwd(values:any){
+      this.submittedChangePwd=true;
+        this.postService.changePwd(values,this.email)
+        .subscribe((data)=>{
+          this.router.navigate(['trainernavbar/trainer-dashboard-child']);
+          Swal.fire({
+            position: 'top-end',
+            icon: 'success',
+            title: 'Your password has been updated',
+            showConfirmButton: false,
+            timer: 2000
+          }) 
+      });
+    }
+    }   

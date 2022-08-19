@@ -26,6 +26,7 @@ import { StudentDashboardComponent } from './components/student-dashboard/studen
 import { StudentNavbarComponent } from './components/student-navbar/student-navbar.component';
 import { StudentSingleBlogpageComponentComponent } from './components/student-single-blogpage-component/student-single-blogpage-component.component';
 import { StudentViewblogsComponent } from './components/student-viewblogs/student-viewblogs.component';
+import { TrainerChangePasswordComponent } from './components/trainer-change-password/trainer-change-password.component';
 import { TrainerDashboardChildComponent } from './components/trainer-dashboard-child/trainer-dashboard-child.component';
 import { TrainerDashboardComponent } from './components/trainer-dashboard/trainer-dashboard.component';
 import { TrainerNavbarComponent } from './components/trainer-navbar/trainer-navbar.component';
@@ -92,6 +93,7 @@ const routes: Routes = [
     {path:'trainer-dashboard-child',component:TrainerDashboardChildComponent},
     {path:'trainer-single-blogpage/:_id',component:TrainerSingleBlogpageComponent},
     {path:"trainerupdate",component:UpdateblogsComponent},
+    {path:"trainerChangePwd",component:TrainerChangePasswordComponent},
    ]
   }
   
