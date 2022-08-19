@@ -1,51 +1,24 @@
-.commonstyle{
-    font-size:large;
-    color:deeppink;
-    
-    
-}
-.db{
-    color: black;
-}
-.butn:hover{
-    transition: all 0.5s ease-in;
-      border-top-right-radius: 25px;
-      cursor: pointer;
-  }
-  .card-header{
+ .card-header{
     text-align: center;
     font-weight:550;
-    color: #ff666f;
+    color: red;
+  
   }
-  /* p{
-    font-style: italic;
-  } */
+ 
+  
   .card-body{
     text-align: left;
     line-height: 1cm;
-    color: #000;
+    color:maroon;
   }
   .card{
-    /* border: 1px solid #000; */
-    border: none;
+    border: 5px solid bisque;
   }
-
-  /* footer{
-    background-color:rgb(244, 235, 235);
-    margin-left: -30px;
-    margin-bottom: -20px;
-    margin-top: 20px;
-  }
-  footer p {
-    padding: 20px 0;
-    text-align: center;
-    color: gray;
-    
-  } */
-/*   
-  footer img {
-    width: 44px;
-  } */
+ p{
+  font-style: italic;
+  color: maroon;
+ }
+ 
   footer{
     background-color:#f5f5f5;
     margin-left: -30px;

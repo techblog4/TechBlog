@@ -32,10 +32,10 @@
     color: #ff666f;
   }
  
-  .card-body{
+  p{
     text-align: left;
     line-height: 1cm;
-    color: #000;
+    color:maroon;
   }
   .card{
     /* border: 1px solid darkgoldenrod; */
@@ -43,4 +43,17 @@
   }
   img{
     padding-bottom: 30px;
+  }
+  h2{
+    color:orangered;
+  }
+  .date{
+    text-align: center;
+    font-style: italic;
+  }
+  #example-radio-group-label{
+    color: red;
+  }
+  h4{
+    color: blue;
   }
