@@ -27,10 +27,10 @@
         <div class="card bg-gradient-danger card-img-holder text-white">
           <div class="card-body bg-1">
             <!-- <img src="assets/images/dashboard/circle.svg" class="card-img-absolute" alt="circle-image"/> -->
-            <i class="fa-solid fa-battery-full"></i>
-            <h4 class="font-weight-normal mb-3">Total Posts
+            <a routerLink="/admin-dashboard/admin-blog-list"><i class="fa-solid fa-battery-full"></i></a>
+            <a routerLink="/admin-dashboard/admin-blog-list"><h4 class="font-weight-normal mb-3">Total Posts
               <i class="mdi mdi-chart-line mdi-24px float-right"></i>
-            </h4>
+            </h4></a>
             <h2 class="mb-5"> {{totalBlogs}}</h2>
             
           </div>
@@ -40,10 +40,10 @@
         <div class="card bg-gradient-info card-img-holder text-white">
           <div class="card-body bg-2">
             <!-- <img src="assets/images/dashboard/circle.svg" class="card-img-absolute" alt="circle-image"/>  -->
-            <i class="fa-solid fa-thumbs-up"></i>
-            <h4 class="font-weight-normal mb-3">Approved posts
+            <a routerLink="/admin-dashboard/admin-active-blogs">  <i class="fa-solid fa-thumbs-up"></i></a>
+          <a routerLink="/admin-dashboard/admin-active-blogs">  <h4 class="font-weight-normal mb-3">Approved posts
               <i class="mdi mdi-bookmark-outline mdi-24px float-right"></i>
-            </h4>
+            </h4></a>
             <h2 class="mb-5">{{approvedBlogs}}</h2>
             
           </div>
@@ -53,10 +53,10 @@
         <div class="card bg-gradient-success card-img-holder text-white">
           <div class="card-body bg-3">
             <!-- <img src="assets/images/dashboard/circle.svg" class="card-img-absolute" alt="circle-image"/>                                     -->
-            <i class="fa-solid fa-battery-half"></i>
-            <h4 class="font-weight-normal mb-3">Pending Posts
+          <a routerLink="/admin-dashboard/admin-approve-blog"> <i class="fa-solid fa-battery-half"></i></a>
+           <a routerLink="/admin-dashboard/admin-approve-blog"><h4 class="font-weight-normal mb-3">Pending Posts
               <i class="mdi mdi-diamond mdi-24px float-right"></i>
-            </h4>
+            </h4></a> 
             <h2 class="mb-5">{{pendingBlogs}}</h2>
             
           </div>
@@ -69,10 +69,10 @@
         <div class="card bg-gradient-danger card-img-holder text-white">
           <div class="card-body bg-4">
             <!-- <img src="assets/images/dashboard/circle.svg" class="card-img-absolute" alt="circle-image"/> -->
-            <i class="fa-solid fa-xmark"></i>
-            <h4 class="font-weight-normal mb-3">Rejected Posts
+            <a routerLink="/admin-dashboard/admin-rejected-blogs"><i class="fa-solid fa-xmark"></i></a>
+            <a routerLink="/admin-dashboard/admin-rejected-blogs"><h4 class="font-weight-normal mb-3">Rejected Posts
               <i class="mdi mdi-chart-line mdi-24px float-right"></i>
-            </h4>
+            </h4></a> 
             <h2 class="mb-5"> {{rejectedBlogs}}</h2>
             
           </div>
