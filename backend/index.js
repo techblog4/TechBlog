@@ -380,7 +380,8 @@ app.post("/rejectBlog",(req,res)=>{
                                 {$set:{
                                 "title":title,
                                 "image": img,
-                                "description":description
+                                "description":description,
+                                "isVerified":"0"
                                 }})
    .then(function(){
        res.send();
