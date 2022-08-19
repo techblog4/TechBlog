@@ -50,7 +50,7 @@
   </mat-card>
   
 <div class="dropdown">
-  <p>You selected: {{selected}}</p>
+  <!-- <p>You selected: {{selected}}</p> -->
     <button class="btn btn-success btn-sm padding" (click)="approveBlog(selected);" [disabled]="!selected || !optionArray1 || !optionArray2 || !optionArray3">Approve</button>
     <button class="btn btn-danger btn-sm padding" (click)="rejectBlog();" [disabled]="!optionArray1 || !optionArray2 || !optionArray3">Reject</button>
   </div>

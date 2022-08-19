@@ -18,6 +18,12 @@ carouselAdd(){
 getAllBlogs(){
   return this.http.get("http://localhost:4001/getAllBlogs");
 }
+activeBlogs(){
+  return this.http.get("http://localhost:4001/activeBlogs");
+}
+rejectedBlogs(){
+  return this.http.get("http://localhost:4001/rejectedBlogs");
+}
 getBlogCategory(){
   return this.http.get("http://localhost:4001/getBlogCategory");
 }
@@ -71,7 +77,7 @@ approveBlog(data:any,category: any){
   .subscribe(data=>{console.log(data)})
 }
 rejectBlog(data:any){
-  return this.http.post("http://localhost:4001/approveBlog/", {data:data})
+  return this.http.post("http://localhost:4001/rejectBlog/", {data:data})
   .subscribe(data=>{console.log(data)})
 }
 

@@ -139,11 +139,7 @@ app.post("/signup",(req,res)=>{
       let logindata= {
               email:req.body.data.email,
               password:req.body.data.password
-          }
-   
-          
-
-          
+          }       
   signupmongo.findOne({
         "email":logindata.email
         },
@@ -170,12 +166,28 @@ else if(user.user=="trainer"){
   
 }
 else if(user.user=="admin"){
-     let payload = {subject:logindata.email+logindata.password}
-     let token =jwt.sign(payload,'secretkey');
-     let adminEmail = {subject:logindata.email};
-      let adminEmailToken = jwt.sign(adminEmail.subject,'secretkey');
-      const decodedAdminEmail = jwt.verify(adminEmailToken, "secretkey");
-     res.status(200).send({admin:true,token,decodedAdminEmail});
+    usermongo.count().then((count1) => {
+      totalBlogs = count1;
+      usermongo.find({$and:[{isVerified:"1"}]}).count().then((count2) => {
+        approvedBlogs = count2;
+        usermongo.find({$and:[{isVerified:"0"}]}).count().then((count3) => {
+          pendingBlogs = count3;
+          usermongo.find({$and:[{isVerified:"2"}]}).count().then((count4) => {
+            rejectedBlogs = count4;
+            let payload = {subject:logindata.email+logindata.password}
+            let token =jwt.sign(payload,'secretkey');
+            let adminEmail = {subject:logindata.email};
+            let adminEmailToken = jwt.sign(adminEmail.subject,'secretkey');
+            const decodedAdminEmail = jwt.verify(adminEmailToken, "secretkey");
+            res.status(200).send({admin:true,token,decodedAdminEmail,totalBlogs,pendingBlogs,rejectedBlogs,approvedBlogs});
+          });
+        });
+      });
+    });
+    
+    
+    
+    
   
 }
 }
@@ -241,9 +253,23 @@ blogCategoryDB.save(function (err) {
 app.get("/getAllBlogs",verifyToken,(req,res)=>{
   res.header("Access-Control-Allow-Origin","*"); 
   res.header("Access-Control-Allow-Methods:GET,POST,PUT,DELETE");
-  
-  
   usermongo.find().then((data)=>{
+     res.send(data);
+    });
+    
+  });
+app.get("/activeBlogs",verifyToken,(req,res)=>{
+  res.header("Access-Control-Allow-Origin","*"); 
+  res.header("Access-Control-Allow-Methods:GET,POST,PUT,DELETE");
+  usermongo.find({$and:[{isVerified:"1"}]}).then((data)=>{
+     res.send(data);
+    });
+    
+  });
+app.get("/rejectedBlogs",verifyToken,(req,res)=>{
+  res.header("Access-Control-Allow-Origin","*"); 
+  res.header("Access-Control-Allow-Methods:GET,POST,PUT,DELETE");
+  usermongo.find({$and:[{isVerified:"2"}]}).then((data)=>{
      res.send(data);
     });
     
@@ -283,7 +309,15 @@ app.post("/approveBlog/:category",(req,res)=>{
     });
   });
 
-  // app.post("/getUserName",(req,res)=>{
+app.post("/rejectBlog",(req,res)=>{
+  res.header("Access-Control-Allow-Origin","*"); 
+  res.header("Access-Control-Allow-Methods:GET,POST,PUT,DELETE");
+  usermongo.findByIdAndUpdate({"_id":req.body.data},
+  {$set:{"isVerified":"2"}}).then((data)=>{
+     res.send(data);
+    });
+  });
+
     
   app.post("/getUserName",verifyToken,(req,res)=>{
     res.header("Access-Control-Allow-Origin","*"); 
@@ -292,8 +326,8 @@ app.post("/approveBlog/:category",(req,res)=>{
     signupmongo.find({$and:[{email:email1}]}).then((data)=>{
        res.send(data);
       });
-      
     });
+
   app.post("/currentUserBlogs",verifyToken,(req,res)=>{
     res.header("Access-Control-Allow-Origin","*"); 
     res.header("Access-Control-Allow-Methods:GET,POST,PUT,DELETE");
@@ -311,6 +345,7 @@ app.post("/approveBlog/:category",(req,res)=>{
             res.send(posts);
         });
     });
+
     app.get('/getCategoryById/:id',  (req, res) => {
       const id = req.params.id;
         blogcategorymongo.findOne({"_id":id})
@@ -318,6 +353,7 @@ app.post("/approveBlog/:category",(req,res)=>{
             res.send(posts);
         });
     });
+    
     app.get('/getBlogByCategory/:id',  (req, res) => {
       const catId = req.params.id;
         usermongo.find({"category":catId})

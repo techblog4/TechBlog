@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild, AfterViewInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { PostserviceService } from 'src/app/postservice.service';
 
@@ -12,12 +12,10 @@ import { PostserviceService } from 'src/app/postservice.service';
 
 export class AdminBlogListComponent implements OnInit {
   Blogs:any=[];
-  time: any;
-
   
 constructor(private postserve:PostserviceService, private router:Router) {}
 btnClick=  (_id: any) => {
-  this.router.navigateByUrl('admin-dashboard/admin-aprove/'+_id);
+  this.router.navigateByUrl('admin-dashboard/admin-blog-view/'+_id);
 };
 ngOnInit() {
  this.postserve.getAllBlogs().subscribe((res)=>
