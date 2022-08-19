@@ -52,6 +52,7 @@ import { AdminSingleBlogApproveComponent } from './components/admin-single-blog-
 import { FileSelectDirective } from 'ng2-file-upload';
 import { HomeCategoriesComponent } from './components/home-categories/home-categories.component';
 import { StudentChangePasswordComponent } from './components/student-change-password/student-change-password.component';
+import { TrainerChangePasswordComponent } from './components/trainer-change-password/trainer-change-password.component';
 
 
 @NgModule({
@@ -88,7 +89,8 @@ import { StudentChangePasswordComponent } from './components/student-change-pass
     SingleviewPageComponent,
     AdminSingleBlogApproveComponent,
     HomeCategoriesComponent,
-    StudentChangePasswordComponent
+    StudentChangePasswordComponent,
+    TrainerChangePasswordComponent
  
     
   ],

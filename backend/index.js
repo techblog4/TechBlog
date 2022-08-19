@@ -62,13 +62,11 @@ function verifyToken(req,res,next){
   }
   let token = req.headers.authorization.split(' ')[1];
  
-//  console.log(token);
  if(token == "null"){
      return res.status(401).send("Unauthorized Access")
  }
 
  let payload= jwt.verify(token , "secretkey")
-//  console.log(payload);
  if(!payload){
      return res.status(401).send("Unauthorized Access")
  }
@@ -100,7 +98,6 @@ app.post("/signup",(req,res)=>{
      res.header("Access-Control-Allow-Origin","*");
     res.header("Access-Control-Allow-Headers: Content-Type, application/json");
     res.header("Access-Control-Allow-Methods:GET,POST,PATCH,PUT,DELETE,OPTIONS");
-    // console.log(req.body);
 
     var signups = {
         name:req.body.item.name,
@@ -199,7 +196,6 @@ app.post("/addpost",upload.single('image'), verifyToken,(req,res)=>{
     res.header("Access-Control-Allow-Origin", "*");
     res.header("Access-Control-Allow-Methods: GET, POST, PUT, DELETE");
   
-  //  console.log(req.body);
   const file = req.file;
     const d = new Date();
     var date=d.toDateString();
@@ -226,7 +222,6 @@ app.post("/addblogcategory",verifyToken,(req,res)=>{
   res.header("Access-Control-Allow-Origin","*");
  res.header("Access-Control-Allow-Headers: Content-Type, application/json");
  res.header("Access-Control-Allow-Methods:GET,POST,PATCH,PUT,DELETE,OPTIONS");
-//  console.log(req.body);
  var blogCategory = {
      blogCategory:req.body.item.blogCategory
  }
@@ -303,10 +298,8 @@ app.post("/approveBlog/:category",(req,res)=>{
     res.header("Access-Control-Allow-Origin","*"); 
     res.header("Access-Control-Allow-Methods:GET,POST,PUT,DELETE");
       email1=req.body.data.currentEmail;
-      // console.log(email1);
   
     usermongo.find({$and:[{email:email1}]}).then((data)=>{
-      // console.log(data);
        res.send(data); 
       });
     });
@@ -327,8 +320,6 @@ app.post("/approveBlog/:category",(req,res)=>{
     });
     app.get('/getBlogByCategory/:id',  (req, res) => {
       const catId = req.params.id;
-      // console.log("62fbdb79a9964cfc0f9ed123");
-      // console.log(catId);
         usermongo.find({"category":catId})
         .then((posts)=>{
             res.send(posts);
@@ -340,7 +331,6 @@ app.post("/approveBlog/:category",(req,res)=>{
     if(req.file != undefined)
     {
     const file = req.file;
-    // console.log(file);
     img = 'http://localhost:4001/images/'+ req.file.filename;
     }
     else
@@ -350,7 +340,6 @@ app.post("/approveBlog/:category",(req,res)=>{
     id=req.body._id,
     title = req.body.title,
     description = req.body.description
-    // console.log("ID="+id);
    usermongo.findByIdAndUpdate({"_id":id},
                                 {$set:{
                                 "title":title,
@@ -367,7 +356,6 @@ app.post("/approveBlog/:category",(req,res)=>{
   id = req.params.id;
   usermongo.findByIdAndDelete({"_id":id})
   .then(()=>{
-      // console.log('success')
       res.send();
   })
 });
@@ -375,7 +363,6 @@ app.post("/approveBlog/:category",(req,res)=>{
   id = req.params.id;
   blogcategorymongo.findByIdAndDelete({"_id":id})
   .then(()=>{
-      // console.log('success')
       res.send();
   })
 });
@@ -397,13 +384,8 @@ app.get('/:_id',(req,res)=>
 
 app.post("/changePwd/:userEmail",(req,res)=>{
   res.header("Access-Control-Allow-Origin","*"); 
-  console.log("clrrr");
   res.header("Access-Control-Allow-Methods:GET,POST,PUT,DELETE");
-  console.log(req.body);
   email = req.params.userEmail;
-  
-  console.log(email);
-  console.log(req.body.password);
   signupmongo.updateOne({"email":email},
   {$set:{"password":req.body.password}}).then((data)=>{
      res.send(data);
