@@ -1,12 +1,14 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AuthGuard } from './auth.guard';
+import { AdminActiveBlogsComponent } from './components/admin-active-blogs/admin-active-blogs.component';
 import { AdminApproveBlogComponent } from './components/admin-approve-blog/admin-approve-blog.component';
 import { AdminBlogCategoryComponent } from './components/admin-blog-category/admin-blog-category.component';
 import { AdminBlogListComponent } from './components/admin-blog-list/admin-blog-list.component';
 import { AdminChangePasswordComponent } from './components/admin-change-password/admin-change-password.component';
 import { AdminDashboardChildComponent } from './components/admin-dashboard-child/admin-dashboard-child.component';
 import { AdminDashboardComponent } from './components/admin-dashboard/admin-dashboard.component';
+import { AdminRejectedBlogsComponent } from './components/admin-rejected-blogs/admin-rejected-blogs.component';
 import { AdminSingleBlogApproveComponent } from './components/admin-single-blog-approve/admin-single-blog-approve.component';
 import { AdminSingleBlogPageComponent } from './components/admin-single-blog-page/admin-single-blog-page.component';
 import { CategorylistComponent } from './components/categorylist/categorylist.component';
@@ -47,12 +49,14 @@ const routes: Routes = [
   {path:'admin-dashboard',canActivate:[AuthGuard],component:AdminDashboardComponent,
     children: [
       {path:'admin-blog-list',component:AdminBlogListComponent,},
-      {path:'admin-single-blog-page/:_id',component:AdminSingleBlogPageComponent},
-      {path:'admin-aprove/:_id',component:AdminSingleBlogApproveComponent},
+      {path:'blog-approve-page/:_id',component:AdminSingleBlogPageComponent},
+      {path:'admin-blog-view/:_id',component:AdminSingleBlogApproveComponent},
       {path:'admin-blog-category',component:AdminBlogCategoryComponent},
       {path:'admin-approve-blog',component:AdminApproveBlogComponent},
       {path:'admin-dashboard-child',component:AdminDashboardChildComponent},
       {path:'admin-change-password',component:AdminChangePasswordComponent},
+      {path:'admin-active-blogs',component:AdminActiveBlogsComponent},
+      {path:'admin-rejected-blogs',component:AdminRejectedBlogsComponent},
     
     ]
   },

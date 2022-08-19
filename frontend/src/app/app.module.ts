@@ -53,6 +53,8 @@ import { FileSelectDirective } from 'ng2-file-upload';
 import { HomeCategoriesComponent } from './components/home-categories/home-categories.component';
 import { StudentChangePasswordComponent } from './components/student-change-password/student-change-password.component';
 import { TrainerChangePasswordComponent } from './components/trainer-change-password/trainer-change-password.component';
+import { AdminActiveBlogsComponent } from './components/admin-active-blogs/admin-active-blogs.component';
+import { AdminRejectedBlogsComponent } from './components/admin-rejected-blogs/admin-rejected-blogs.component';
 
 
 @NgModule({
@@ -90,7 +92,9 @@ import { TrainerChangePasswordComponent } from './components/trainer-change-pass
     AdminSingleBlogApproveComponent,
     HomeCategoriesComponent,
     StudentChangePasswordComponent,
-    TrainerChangePasswordComponent
+    TrainerChangePasswordComponent,
+    AdminActiveBlogsComponent,
+    AdminRejectedBlogsComponent
  
     
   ],

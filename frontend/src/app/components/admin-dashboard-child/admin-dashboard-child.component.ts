@@ -6,7 +6,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./admin-dashboard-child.component.css']
 })
 export class AdminDashboardChildComponent implements OnInit {
-
+    totalBlogs = localStorage.getItem('totalBlogs'); 
+    approvedBlogs = localStorage.getItem('approvedBlogs');  
+    rejectedBlogs = localStorage.getItem('rejectedBlogs'); 
+    pendingBlogs = localStorage.getItem('pendingBlogs');
   constructor() { }
 
   ngOnInit(): void {

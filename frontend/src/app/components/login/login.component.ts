@@ -13,6 +13,7 @@ export class LoginComponent implements OnInit {
 hide=true; 
 submitted=false;
 loginForm!: FormGroup; 
+totalBlogs: any;
 
 constructor(public fb:FormBuilder,private service:ServiceService,
             private router:Router) { }
@@ -54,6 +55,10 @@ onsubmitlogin(values:any){
             }
           else if(x.admin){
                  localStorage.setItem('token',x.token);
+                 localStorage.setItem('totalBlogs',x.totalBlogs);
+                 localStorage.setItem('approvedBlogs',x.approvedBlogs);
+                 localStorage.setItem('pendingBlogs',x.pendingBlogs);
+                 localStorage.setItem('rejectedBlogs',x.rejectedBlogs);
                  localStorage.setItem('adminEmailToken',x.decodedAdminEmail);
                  this.router.navigate(['admin-dashboard/admin-dashboard-child']);
             }

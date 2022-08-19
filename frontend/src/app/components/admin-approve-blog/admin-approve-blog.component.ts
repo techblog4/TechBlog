@@ -16,7 +16,7 @@ export class AdminApproveBlogComponent implements OnInit {
 
   constructor(private postserve:PostserviceService, private router:Router) {}
   btnClick =  (_id: any) => {
-    this.router.navigateByUrl('admin-dashboard/admin-single-blog-page/'+_id);
+    this.router.navigateByUrl('admin-dashboard/blog-approve-page/'+_id);
   };
   
   ngOnInit(): void {
