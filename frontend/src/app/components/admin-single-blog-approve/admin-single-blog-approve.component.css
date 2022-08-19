@@ -4,9 +4,7 @@
     color: red;
   
   }
- 
-  
-  .card-body{
+ .card-body{
     text-align: left;
     line-height: 1cm;
     color:maroon;
@@ -14,11 +12,11 @@
   .card{
     border: 5px solid bisque;
   }
- p{
+  p{
   font-style: italic;
   color: maroon;
- }
- 
+  }
+  /* footer */
   footer{
     background-color:#f5f5f5;
     margin-left: -30px;

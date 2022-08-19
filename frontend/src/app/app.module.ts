@@ -35,8 +35,6 @@ import { StudentViewblogsComponent } from './components/student-viewblogs/studen
 import { TrainerNavbarComponent } from './components/trainer-navbar/trainer-navbar.component';
 import { TrainerviewblogsComponent } from './components/trainerviewblogs/trainerviewblogs.component';
 import { SinglepageComponent } from './components/singlepage/singlepage.component';
-import { CategorylistComponent } from './components/categorylist/categorylist.component';
-import { InnerfooterComponent } from './components/innerfooter/innerfooter.component';
 import { FileUploadModule } from 'ng2-file-upload';
 import { AdminDashboardChildComponent } from './components/admin-dashboard-child/admin-dashboard-child.component';
 import { TrainerDashboardChildComponent } from './components/trainer-dashboard-child/trainer-dashboard-child.component';
@@ -78,8 +76,6 @@ import { AdminRejectedBlogsComponent } from './components/admin-rejected-blogs/a
     TrainerNavbarComponent,
     TrainerviewblogsComponent,
     SinglepageComponent,
-    CategorylistComponent,
-    InnerfooterComponent,
     AdminDashboardChildComponent,
     TrainerDashboardChildComponent,
     StudentDashboardChildComponent,

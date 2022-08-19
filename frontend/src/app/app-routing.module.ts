@@ -11,13 +11,10 @@ import { AdminDashboardComponent } from './components/admin-dashboard/admin-dash
 import { AdminRejectedBlogsComponent } from './components/admin-rejected-blogs/admin-rejected-blogs.component';
 import { AdminSingleBlogApproveComponent } from './components/admin-single-blog-approve/admin-single-blog-approve.component';
 import { AdminSingleBlogPageComponent } from './components/admin-single-blog-page/admin-single-blog-page.component';
-import { CategorylistComponent } from './components/categorylist/categorylist.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { HomeCategoriesComponent } from './components/home-categories/home-categories.component';
 import { HomeComponent } from './components/home/home.component';
 import { HomecardsComponent } from './components/homecards/homecards.component';
-
-import { InnerfooterComponent } from './components/innerfooter/innerfooter.component';
 import { LoginComponent } from './components/login/login.component';
 import { SignUpComponent } from './components/sign-up/sign-up.component';
 import { SinglepageComponent } from './components/singlepage/singlepage.component';
@@ -60,9 +57,8 @@ const routes: Routes = [
     
     ]
   },
-  {path:'categorylist',component:CategorylistComponent},
+  
   {path:'singlepage',component:SinglepageComponent},
-  {path:'innerfooter',component:InnerfooterComponent},
   {path:"homecards",component:HomecardsComponent},
   {path:"singleviewpage",component:SingleviewPageComponent},
   {path:"homecategory/:id",component:HomeCategoriesComponent},
@@ -82,13 +78,7 @@ const routes: Routes = [
 ]
 },
 
-
-
-
-
-
-
-  {path:'trainernavbar',canActivate:[AuthGuard],component:TrainerNavbarComponent,
+{path:'trainernavbar',canActivate:[AuthGuard],component:TrainerNavbarComponent,
 
    children:
    [

@@ -1,15 +1,4 @@
-/* table {
-  width: 100%;
-}
 
-.mat-form-field {
-  font-size: 14px;
-  width: 100%;
-}
-
-td, th {
-  width: 25%;
-} */
 :root {
     --blue: #5e72e4;
     --indigo: #5603ad;
@@ -1521,7 +1510,7 @@ td, th {
     margin-bottom: -13px;
     margin-top: 30px;
     
-}
+  }
   footer p {
     padding: 20px 0;
     text-align: center;
@@ -1529,7 +1518,7 @@ td, th {
     font-size: small;
     font-weight:500;
     
-}
+  }
 
   footer img {
     width: 44px;
