@@ -1,7 +1,4 @@
-
-
 .bg-body{
-
   background-color:white; 
   height: 100%;
  
@@ -12,16 +9,13 @@
 }
 .container-fluid{
   display: grid;
-
   grid-template-columns: repeat(2,1fr);
   grid-column-gap: 10%;
   grid-row-gap: 30%;
-
   grid-template-columns: repeat(3,1fr);
   grid-column-gap: 1%;
   grid-row-gap: 100px;
 
- 
 }
 .m-top{
   margin-top: 100px;
@@ -105,111 +99,13 @@
 
 }
   
-  /* .card {
 
-  }
-/*   
-   .card {
-
-    display: block;
-    color: initial;
-    text-decoration: none;
-    height: 140px;
-    background-color: #e57cb6;
-    background-image: linear-gradient(45deg, #FBDA61 0%, #FF5ACD 100%);
-
-    border-radius: 20px;
-    box-shadow: 0 35px 80px rgb(0,0,0,0.15);
-    transition: 0.5s; 
-    position: relative;
-  } */
-  /* .card:hover {
-    height: 350px;
-  } */
-  /* .card-image {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    top: -40px;
-    background: transparent;
-    height: 120px;
-    width: 120px;
-    border-radius: 10px;
-    transition: 0.5s;
-    box-shadow: 0 35px 80px rgb(0,0,0,0.15);
-    overflow: hidden;
-  } */
-  /* .card:hover .card-image {
-    height: 190px;
-    width: 190px;
-    top: -20px;
-    transform: translateX(-50%) rotate(10deg);
-  }
-  .card-image img {
-    width: 100%;
-    border-radius: 6px;
-  } */
-  /* .card-content {
-    position: absolute;
-    display: flex;
-    justify-content: center;
-    align-items: flex-end;
-    overflow: hidden;
-    width: 100%;
-    height: 100%;
-  }
-  .card-text {
-    padding: 20px 40px;
-    text-align: center;
-    width: 100%;
-    transition: 0.5s;
-    transform: translateY(100px);
-  } */
-  /* .card:hover .card-text {
-    transform: none;
-  }
-  .cardtitle {
-    font-size: 14px;
-    font-weight: 600;
-    margin-top: -109px;
- 
-  }
-  
-  
-  
-  .btn{
-    background-color: #ff53be;
-    border-radius: 50px;
-    font-size: 15px;
-  }
-  .button a{
-    text-decoration: none;
-  }
-   .btn:hover{
-  
-  transition: all 0.5s ease-in;
-  border-radius:50px;
-  cursor: pointer;
-  background-color: #FBDA61;
-
-} 
-  .cardsentence {
-    font-size: 12px;
-    opacity: 0.7;
-    padding:5px;
-
-
-  } */
- 
   
   
 
   
      
-      */
+      
 
 
       .cards-list {
@@ -262,14 +158,7 @@
         font-size: 15px;
         font-style: italic;
       }
-       /* .card_subtitle{
-        text-align: center;
-        font-family: sans-serif;
-        font-weight: bold;
-        font-size: 15px;
-        background-color: rgba(0,0,0,0.5);
-        color: white;
-      }  */
+       
       .card:hover {
         transform: scale(0.9, 0.9);
         box-shadow: 5px 5px 30px 15px rgba(0,0,0,0.25), 
