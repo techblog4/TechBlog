@@ -9,7 +9,7 @@ import { PostserviceService } from 'src/app/postservice.service';
 export class SinglepageComponent implements OnInit {
   posts:any;
   description: any;
-  userName: any;
+  userName:any;
   categories: any;
   selected: any;
   routeLink: string;
