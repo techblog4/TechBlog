@@ -27,7 +27,7 @@ ngOnInit(): void {
   
   })
   //categorydropdown menu
-  this.serve.getBlogCategory().subscribe((data)=>{
+    this.serve.getBlogCategory().subscribe((data)=>{
     this.categories = JSON.parse(JSON.stringify(data));
     this.routeLink = "/homecategory/";
    

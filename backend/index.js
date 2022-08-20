@@ -276,7 +276,7 @@ app.get("/getAllBlogs",(req,res)=>{
     
 });
 
-// activated blogs in admin
+// active blogs in admin
 
 app.get("/activeBlogs",(req,res)=>{
   res.header("Access-Control-Allow-Origin","*"); 
