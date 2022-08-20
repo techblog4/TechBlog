@@ -10,15 +10,15 @@ import { PostserviceService } from 'src/app/postservice.service';
 export class AdminRejectedBlogsComponent implements OnInit {
   Blogs:any=[];
 
-  constructor(private postserve:PostserviceService, private router:Router) { }
+constructor(private postserve:PostserviceService, private router:Router) { }
 
-  ngOnInit(): void {
+ngOnInit(): void {
     this.postserve.rejectedBlogs().subscribe((res)=>
     {
       this.Blogs = res;
     });
   }
-  btnClick=  (_id: any) => {
+btnClick=  (_id: any) => {
     this.router.navigateByUrl('admin-dashboard/admin-blog-view/'+_id);
   };
 

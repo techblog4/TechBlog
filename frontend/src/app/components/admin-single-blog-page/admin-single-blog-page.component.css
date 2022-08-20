@@ -54,3 +54,6 @@ h2{
 h4{
     color: blue;
 }
+mat-card{
+    border: 3px solid bisque;
+}

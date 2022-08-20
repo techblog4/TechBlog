@@ -3,11 +3,6 @@ import { Router,ActivatedRoute } from '@angular/router';
 import { PostserviceService } from 'src/app/postservice.service';
 import { usermongo } from './product';
 import Swal from 'sweetalert2';
-// import { ThemePalette } from '@angular/material/core';
-// import { MatButton } from '@angular/material/button';
-
-// const btn = document.getElementById('btn') as HTMLButtonElement | null;
-// btn?.setAttribute('disabled', '');
 
 @Component({
   selector: 'app-admin-single-blog-page',
@@ -26,7 +21,7 @@ export class AdminSingleBlogPageComponent implements OnInit {
   image: any;
   categories: any;
 
-  constructor(private _Activatedroute:ActivatedRoute,
+constructor(private _Activatedroute:ActivatedRoute,
     private _router:Router,
     private _postService:PostserviceService) {
 
@@ -54,7 +49,7 @@ approveBlog =  (selected: any) => {
       if (result.isConfirmed) {
         this._postService.approveBlog(this._id,selected);
         this._router.navigate(['admin-dashboard/admin-approve-blog'])
-       Swal.fire({
+    Swal.fire({
         position: 'top-end',
         icon: 'success',
         title: 'Approved successfully',
@@ -65,7 +60,7 @@ approveBlog =  (selected: any) => {
     })
   };
   
-  rejectBlog =  () => {
+rejectBlog =  () => {
     this.sub = this._Activatedroute.paramMap.subscribe(params => { 
       this._id = params.get('_id'); 
       });
@@ -81,7 +76,7 @@ approveBlog =  (selected: any) => {
         if (result.isConfirmed) {
           this._postService.rejectBlog(this._id);
           this._router.navigate(['admin-dashboard/admin-approve-blog'])
-         Swal.fire({
+      Swal.fire({
           position: 'top-end',
           icon: 'success',
           title: 'Rejected successfully',
@@ -90,9 +85,8 @@ approveBlog =  (selected: any) => {
         })
       }
       })
-    // this.router.navigateByUrl('admin-dashboard/admin-single-blog-page/'+_id);
   };
-  ngOnInit(): void {
+ngOnInit(): void {
     this._postService.getBlogCategory().subscribe((data)=>{
       this.categories = JSON.parse(JSON.stringify(data))
     })
@@ -116,7 +110,7 @@ approveBlog =  (selected: any) => {
    });
 
   }
-  ngOnDestroy() {
+ngOnDestroy() {
     this.sub.unsubscribe();
   }
 

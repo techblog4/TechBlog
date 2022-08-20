@@ -18,7 +18,7 @@ btnClick=  (_id: any) => {
   this.router.navigateByUrl('admin-dashboard/admin-blog-view/'+_id);
 };
 ngOnInit() {
- this.postserve.getAllBlogs().subscribe((res)=>
+  this.postserve.getAllBlogs().subscribe((res)=>
     {
       this.Blogs = res;
     });

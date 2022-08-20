@@ -11,12 +11,11 @@ export class StudentNavbarComponent implements OnInit {
   showFiller = false;
   shouldRun = /(^|.)(stackblitz|webcontainer).(io|com)$/.test(window.location.host);
   
-  constructor(public router:Router,public serve:ServiceService) { }
+constructor(public router:Router,public serve:ServiceService) { }
 
-  ngOnInit(): void {
-  
-  }
- logoutUser(){
+ngOnInit(): void {
+}
+logoutUser(){
   localStorage.removeItem('token')
   this.router.navigate(['/'])
  }
