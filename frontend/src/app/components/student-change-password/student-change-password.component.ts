@@ -11,7 +11,7 @@ import Swal from 'sweetalert2';
   styleUrls: ['./student-change-password.component.css']
 })
 export class StudentChangePasswordComponent implements OnInit {
-  pwdHide1=true;
+  
   pwdHide2=true;
   pwdHide3=true;
   submittedChangePwd=false;
