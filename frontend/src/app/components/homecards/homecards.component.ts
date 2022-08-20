@@ -7,15 +7,12 @@ import { PostserviceService } from 'src/app/postservice.service';
 })
 export class HomecardsComponent implements OnInit {
  images:any; 
-  constructor(public postserve:PostserviceService) { }
+constructor(public postserve:PostserviceService) { }
 
-  ngOnInit(): void {
+ngOnInit(): void {
     this.postserve.carouselAdd().subscribe ((data)=>{
       this.images= JSON.parse(JSON.stringify(data));
     });
-      
-     
-     
-  }
+}
 
 }

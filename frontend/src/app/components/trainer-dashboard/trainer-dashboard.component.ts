@@ -13,21 +13,21 @@ export class TrainerDashboardComponent implements OnInit {
       description: '',
       image:'', 
     };
-    constructor(private service:PostserviceService,private router:Router) { }
-    ngOnInit(): void {}
+constructor(private service:PostserviceService,private router:Router) { }
+ngOnInit(): void {}
     selectImage(event:any){
       if(event.target.files.length>0){
         const file=event.target.files[0];
         this.posts.image=file;
       }
     }
-       createpost(){
-         const formData=new FormData();
-         formData.append('image', this.posts.image)
-         formData.append('title',this.posts.title)
-         formData.append('description',this.posts.description)
-         formData.append('currentEmail',localStorage.getItem('emailToken') || '{}')
-         this.service.useradd(formData);
+createpost(){
+      const formData=new FormData();
+      formData.append('image', this.posts.image)
+      formData.append('title',this.posts.title)
+      formData.append('description',this.posts.description)
+      formData.append('currentEmail',localStorage.getItem('emailToken') || '{}')
+      this.service.useradd(formData);
          Swal.fire({
                   position: 'top-end',
                   icon: 'success',
@@ -35,6 +35,6 @@ export class TrainerDashboardComponent implements OnInit {
                   showConfirmButton: false,
                   timer: 2000
                 }) 
-            this.router.navigate(['trainernavbar/trainerviewblogs'])     
+      this.router.navigate(['trainernavbar/trainerviewblogs'])     
           }
 }

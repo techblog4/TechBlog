@@ -7,9 +7,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FooterComponent implements OnInit {
   url="./assets/images/tech-logo-blue.png";
-  constructor() { }
+constructor() { }
 
-  ngOnInit(): void {
+ngOnInit(): void {
   }
 
 }

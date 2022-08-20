@@ -10,11 +10,11 @@ import { ServiceService } from 'src/app/service.service';
 export class TrainerNavbarComponent implements OnInit {
   showFiller = false;
   shouldRun = /(^|.)(stackblitz|webcontainer).(io|com)$/.test(window.location.host);
-  constructor(public serve:ServiceService,private router:Router) { }
+constructor(public serve:ServiceService,private router:Router) { }
 
-  ngOnInit(): void {
+ngOnInit(): void {
   }
-  logoutUser(){
+logoutUser(){
     localStorage.removeItem('token')
     this.router.navigate(['/'])
    }

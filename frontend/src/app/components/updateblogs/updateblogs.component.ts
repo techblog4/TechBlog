@@ -10,37 +10,21 @@ import Swal from 'sweetalert2';
 export class UpdateblogsComponent implements OnInit {
     Blogs:any=[];
 
-  
+constructor(public serve:PostserviceService,public router:Router) { }
 
-  constructor(public serve:PostserviceService,public router:Router) { }
-
-  ngOnInit(): void {
+ngOnInit(): void {
   let postId = localStorage.getItem("editBlogId");
     this.serve.getPost(postId).subscribe((data)=>{
       this.Blogs=JSON.parse(JSON.stringify(data));
   })
   }
-  selectImage(event:any){
+selectImage(event:any){
     if(event.target.files.length>0){
       const file=event.target.files[0];
       this.Blogs.image=file;
     }
   }
-
-  // editPost()
-  // {    
-  //   this.serve.editPost(this.Blogs);  
-    
-  //   Swal.fire({
-  //     position: 'center',
-  //     icon: 'success',
-  //     title: 'Your post has been Updated',
-  //     showConfirmButton: false,
-  //     timer: 2000
-  //   })
-  //   this.router.navigate(['trainernavbar/trainerviewblogs']);
-  // }
-  editPost(){
+editPost(){
     const formData=new FormData();
     formData.append('_id', this.Blogs._id)
     formData.append('image', this.Blogs.image)

@@ -14,7 +14,7 @@ export class HomeComponent implements OnInit {
   routeLink: string;
   
 
-  constructor(public postService:PostserviceService) { }
+constructor(public postService:PostserviceService) { }
 
 ngOnInit(): void { 
   this.postService.getBlogCategory().subscribe((data)=>{

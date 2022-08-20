@@ -6,17 +6,17 @@ import { HttpClient } from '@angular/common/http';
 })
 export class ServiceService {
 
-  constructor( private http:HttpClient) { }
-  addsignup=(item:any)=>{
+constructor( private http:HttpClient) { }
+addsignup=(item:any)=>{
     return  this.http.post("http://localhost:4001/signup",{item});
   }
-  addblogcategory=(item:any)=>{
+addblogcategory=(item:any)=>{
     return  this.http.post("http://localhost:4001/addblogcategory",{item});
   }
- loginadd=(data:any)=>{
+loginadd=(data:any)=>{
    return this.http.post<any>("http://localhost:4001/login",{data});
  }
- loggedin(){
+loggedin(){
   return !!localStorage.getItem('token');
  }
  

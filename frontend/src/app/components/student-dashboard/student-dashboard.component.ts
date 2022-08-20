@@ -14,26 +14,25 @@ export class StudentDashboardComponent implements OnInit {
     description: '',
     image:''
   }
-
-  constructor(private service:PostserviceService,private router:Router) {}
+constructor(private service:PostserviceService,private router:Router) {}
  
-  ngOnInit(): void {}
+ngOnInit(): void {}
   
-  selectImage(event:any){
+selectImage(event:any){
     if(event.target.files.length>0){
       const file=event.target.files[0];
       this.posts.image=file;
     }
   }
 
-     createpost(){
+createpost(){
        const formData=new FormData();
        formData.append('image', this.posts.image)
        formData.append('title',this.posts.title)
        formData.append('description',this.posts.description)
        formData.append('currentEmail',localStorage.getItem('studentEmailToken') || '{}')
        this.service.useradd(formData);
-       Swal.fire({
+        Swal.fire({
                 position: 'top-end',
                 icon: 'success',
                 title: 'Your post has been created',

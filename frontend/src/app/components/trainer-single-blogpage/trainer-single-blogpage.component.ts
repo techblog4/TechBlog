@@ -57,7 +57,7 @@ export class TrainerSingleBlogpageComponent implements OnInit {
       });
   });
   }
-  ngOnDestroy() {
+ngOnDestroy() {
     this.sub.unsubscribe();
   }
 }

@@ -39,7 +39,7 @@ export class AdminBlogCategoryComponent implements OnInit {
   }
   deletePost(blogCat:any)
   {
-    console.log(blogCat);
+
     this.postService.deleteCategory(blogCat._id)
       .subscribe((data) => {
         this.router.navigate(['admin-dashboard/admin-blog-category']);

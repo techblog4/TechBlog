@@ -12,31 +12,29 @@ export class StudentViewblogsComponent implements OnInit {
   Blogs:any=[];
   time: any;
   public model = {
-    
     currentEmail : localStorage.getItem('studentEmailToken')
     
-    
-  };
-  constructor(private postserve:PostserviceService, private router:Router) { }
-  btnClick=  (_id: any) => {
+};
+constructor(private postserve:PostserviceService, private router:Router) { }
+btnClick=  (_id: any) => {
     this.router.navigateByUrl('studentnavbar/student-single-blogpage/'+_id);
   };
-  ngOnInit(): void {
+ngOnInit(): void {
     this.postserve.getTrainerBlogs(this.model).subscribe((res)=>
     {
       this.Blogs = res;
-      // this.length1 = this.Blogs.length;
+      
     });
   }
 
-  editPost(Blogs:any){
+editPost(Blogs:any){
     {
       localStorage.setItem("editBlogId", Blogs._id.toString());
       this.router.navigate(['studentnavbar/studentupdate']);
   
     }
   }
-  deletePost(post:any)
+deletePost(post:any)
   {
     this.postserve.deletePost(post._id)
       .subscribe((data) => {
@@ -52,7 +50,7 @@ export class StudentViewblogsComponent implements OnInit {
           confirmButtonText: 'Yes, delete it!'
         }).then((result) => {
           if (result.isConfirmed) {
-            Swal.fire(
+        Swal.fire(
               'Deleted!',
               'Your file has been deleted.',
               'success'

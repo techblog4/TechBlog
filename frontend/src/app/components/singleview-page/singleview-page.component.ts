@@ -7,20 +7,18 @@ import { PostserviceService } from 'src/app/postservice.service';
   styleUrls: ['./singleview-page.component.css']
 })
 export class SingleviewPageComponent implements OnInit {
-  constructor(public serve:PostserviceService) { }
+constructor(public serve:PostserviceService) { }
   Blogs:any=[];
-  
+    //  categories
   categories: any;
   selected: any;
   routeLink: string;
   
-
-  ngOnInit(): void {
+ngOnInit(): void {
     let postId = localStorage.getItem("editBlogId");
-    console.log(postId);
     this.serve.singlePost(postId).subscribe((data)=>{
       this.Blogs=JSON.parse(JSON.stringify(data));
-      console.log(this.Blogs);
+      
       var temporalDivElement = document.createElement("div");
       // Set the HTML content with the providen
       temporalDivElement.innerHTML = this.Blogs.description;
@@ -32,7 +30,7 @@ export class SingleviewPageComponent implements OnInit {
   this.serve.getBlogCategory().subscribe((data)=>{
     this.categories = JSON.parse(JSON.stringify(data));
     this.routeLink = "/homecategory/";
-    console.log(this.categories);
+   
   })
   
 }

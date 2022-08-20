@@ -18,10 +18,10 @@ export class StudentChangePasswordComponent implements OnInit {
   email = localStorage.getItem('studentEmailToken');
   changePwdForm!: FormGroup;
   
-  constructor(private fb:FormBuilder,private postService:PostserviceService,
-  private router:Router) { }
+constructor(private fb:FormBuilder,private postService:PostserviceService,
+private router:Router) { }
   
-  ngOnInit(): void {
+ngOnInit(): void {
   
     this.changePwdForm =this.fb.group({ 
       password:['',[Validators.required,Validators.minLength(5)]],
@@ -35,17 +35,17 @@ export class StudentChangePasswordComponent implements OnInit {
         }
       })
       
-  }
+}
   
-  get passwordChange(){
+get passwordChange(){
   return this.changePwdForm.controls
-  } 
+} 
 
-  changePwd(values:any){
-    this.submittedChangePwd=true;
-      this.postService.changePwd(values,this.email)
-      .subscribe((data)=>{
-        this.router.navigate(['studentnavbar/student-dashboard-child']);
+changePwd(values:any){
+  this.submittedChangePwd=true;
+  this.postService.changePwd(values,this.email)
+    .subscribe((data)=>{
+     this.router.navigate(['studentnavbar/student-dashboard-child']);
         Swal.fire({
           position: 'top-end',
           icon: 'success',
@@ -55,5 +55,5 @@ export class StudentChangePasswordComponent implements OnInit {
         }) 
     });
   }
-  }    
+}    
   
