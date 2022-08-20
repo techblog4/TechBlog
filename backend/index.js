@@ -173,27 +173,14 @@ app.post("/login",(req,res)=>{
    res.status(200).send({trainer:true,token,decoded});
   
 }
-  else if(user.user=="admin"){
-    usermongo.count().then((count1) => {
-      totalBlogs = count1;
-      usermongo.find({$and:[{isVerified:"1"}]}).count().then((count2) => {
-        approvedBlogs = count2;
-        usermongo.find({$and:[{isVerified:"0"}]}).count().then((count3) => {
-          pendingBlogs = count3;
-          usermongo.find({$and:[{isVerified:"2"}]}).count().then((count4) => {
-            rejectedBlogs = count4;
-            let payload = {subject:logindata.email+logindata.password}
-            let token =jwt.sign(payload,'secretkey');
-            let adminEmail = {subject:logindata.email};
-            let adminEmailToken = jwt.sign(adminEmail.subject,'secretkey');
-            const decodedAdminEmail = jwt.verify(adminEmailToken, "secretkey");
-            res.status(200).send({admin:true,token,decodedAdminEmail,totalBlogs,pendingBlogs,rejectedBlogs,approvedBlogs});
-          });
-        });
-      });
-    });
-    
-    
+  else if(user.user=="admin")
+  {
+    let payload = {subject:logindata.email+logindata.password}
+    let token = jwt.sign(payload,'secretkey');
+    let adminEmail = {subject:logindata.email};
+    let adminEmailToken = jwt.sign(adminEmail.subject,'secretkey');
+    const decodedAdminEmail = jwt.verify(adminEmailToken, "secretkey");
+    res.status(200).send({admin:true,token,decodedAdminEmail});    
 }
 }
 else
@@ -207,6 +194,27 @@ else
   }
 });
 });
+
+  // Counts of all blog statuses
+  
+  app.get("/getBlogCounts",(req,res)=>{
+    res.header("Access-Control-Allow-Origin","*"); 
+    res.header("Access-Control-Allow-Methods:GET,POST,PUT,DELETE");
+    usermongo.count().then((count1) => {
+      totalBlogs = count1;
+      usermongo.find({$and:[{isVerified:"1"}]}).count().then((count2) => {
+        approvedBlogs = count2;
+        usermongo.find({$and:[{isVerified:"0"}]}).count().then((count3) => {
+          pendingBlogs = count3;
+          usermongo.find({$and:[{isVerified:"2"}]}).count().then((count4) => {
+            rejectedBlogs = count4;
+            res.status(200).send({totalBlogs,pendingBlogs,rejectedBlogs,approvedBlogs});
+          });
+        });
+      });
+    });
+      
+  });
   
 //create a post
 

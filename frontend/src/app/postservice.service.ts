@@ -55,7 +55,9 @@ singlePost(_id:any){
   return this.http.get("http://localhost:4001/"+_id);
 
 }
-
+getBlogCounts(){
+  return this.http.get("http://localhost:4001/getBlogCounts")
+}
 editPost(post:any){
   console.log('client update')
     return this.http.put("http://localhost:4001/update",post).
@@ -85,5 +87,6 @@ useradd(post:any){
 changePwd(data:any,adminEmail: any){
   return this.http.post("http://localhost:4001/changePwd/"+adminEmail, data)
 }
+
 
 }
