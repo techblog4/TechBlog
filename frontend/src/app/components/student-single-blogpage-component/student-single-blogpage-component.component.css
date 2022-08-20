@@ -9,34 +9,34 @@
 }
 .butn:hover{
     transition: all 0.5s ease-in;
-      border-top-right-radius: 25px;
-      cursor: pointer;
+    border-top-right-radius: 25px;
+    cursor: pointer;
   }
-  .card-header{
+.card-header{
     text-align: center;
     font-weight:550;
     color: orangered;
   }
-  p{
+p{
     font-style: italic;
   }
-  .card-body{
+.card-body{
     text-align: left;
     line-height: 1cm;
     color: darkgoldenrod;
   }
-  .card{
+.card{
     border: 1px solid darkgoldenrod;
   }
-
-  footer{
+/* footer */
+footer{
     background-color:rgb(244, 235, 235);
     margin-left: -30px;
     margin-bottom: -13px;
     margin-top: 30px;
     
 }
-  footer p {
+footer p {
     padding: 20px 0;
     text-align: center;
     color: gray;
@@ -46,7 +46,7 @@
     
 }
 
-  footer img {
+footer img {
     width: 44px;
 }
     

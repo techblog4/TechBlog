@@ -17,8 +17,6 @@ app.use(express.urlencoded({extended:true}));
 const PORT = process.env.PORT || 4001;
 
 
-
-
 //middleware function..static
 app.use(express.static('./public'));
 
@@ -74,6 +72,7 @@ function verifyToken(req,res,next){
       next()
  };
 
+//all approved blogs 
 
 app.get("/home",(req,res)=>{
   res.header("Access-Control-Allow-Origin","*"); 
@@ -83,7 +82,10 @@ app.get("/home",(req,res)=>{
     });
   });
 
-  app.get("/homecarosel",(req,res)=>{
+
+//carosel
+
+app.get("/homecarosel",(req,res)=>{
     res.header("Access-Control-Allow-Origin","*"); 
     res.header("Access-Control-Allow-Methods:GET,POST,PUT,DELETE");
       
@@ -94,10 +96,12 @@ app.get("/home",(req,res)=>{
       
     });
 
+// signup
+
 app.post("/signup",(req,res)=>{
-     res.header("Access-Control-Allow-Origin","*");
-    res.header("Access-Control-Allow-Headers: Content-Type, application/json");
-    res.header("Access-Control-Allow-Methods:GET,POST,PATCH,PUT,DELETE,OPTIONS");
+  res.header("Access-Control-Allow-Origin","*");
+  res.header("Access-Control-Allow-Headers: Content-Type, application/json");
+  res.header("Access-Control-Allow-Methods:GET,POST,PATCH,PUT,DELETE,OPTIONS");
 
     var signups = {
         name:req.body.item.name,
@@ -109,45 +113,49 @@ app.post("/signup",(req,res)=>{
     signupmongo.findOne({
       "email":signups.email
       },
-      function(err,user){  
-        if(!user){
-              var post = new signupmongo(signups)
-              post.save(function (err) {
-              if (!err) {
-                res.json({status:true}).status(200);
+    function(err,user){  
+      if(!user){
+          var post = new signupmongo(signups)
+          post.save(function (err) {
+            if (!err) {
+              res.json({status:true}).status(200);
                 
               }
-              else{
+            else
+              {
                   console.log("error");
               }
-             }); }
+             }); 
+            }
             else
             {
               res.json({userexist:true}).status(406);
             }
    
- });});
+ });
+});
 
+// login
 
-    app.post("/login",(req,res)=>{
+app.post("/login",(req,res)=>{
       
-      res.header("Access-Control-Allow-Origin","*");
-      res.header("Access-Control-Allow-Headers: Content-Type, application/json");
-      res.header("Access-Control-Allow-Headers: Content-Type, Authorization");
-      res.header("Access-Control-Allow-Methods:GET,POST,PUT,DELETE");
+  res.header("Access-Control-Allow-Origin","*");
+  res.header("Access-Control-Allow-Headers: Content-Type, application/json");
+  res.header("Access-Control-Allow-Headers: Content-Type, Authorization");
+  res.header("Access-Control-Allow-Methods:GET,POST,PUT,DELETE");
     
-      let logindata= {
+   let logindata= {
               email:req.body.data.email,
               password:req.body.data.password
           }       
-  signupmongo.findOne({
+   signupmongo.findOne({
         "email":logindata.email
         },
         
-function(err,user){
-if(user) {
+   function(err,user){
+  if(user) {
   if(logindata.password==user.password){
-if(user.user=="student"){
+  if(user.user=="student"){
    let payload = {subject:logindata.email+logindata.password}
    let token =jwt.sign(payload,'secretkey')
    let studentEmail = {subject:logindata.email};
@@ -156,7 +164,7 @@ if(user.user=="student"){
      res.status(200).send({student:true,token,decoded1});
   
 }
-else if(user.user=="trainer"){
+  else if(user.user=="trainer"){
    let payload = {subject:logindata.email+logindata.password}
    let token =jwt.sign(payload,'secretkey')
    let payloadEmail = {subject:logindata.email};
@@ -165,7 +173,7 @@ else if(user.user=="trainer"){
    res.status(200).send({trainer:true,token,decoded});
   
 }
-else if(user.user=="admin"){
+  else if(user.user=="admin"){
     usermongo.count().then((count1) => {
       totalBlogs = count1;
       usermongo.find({$and:[{isVerified:"1"}]}).count().then((count2) => {
@@ -186,29 +194,28 @@ else if(user.user=="admin"){
     });
     
     
-    
-    
-  
 }
 }
- else{
+else
+ {
   res.json({unathorised:true}).status(401);
  }
 }
-  else{
+else
+  {
     res.json({unathorised:true}).status(401);
   }
 });
 });
   
-  
+//create a post
 
 app.post("/addpost",upload.single('image'), verifyToken,(req,res)=>{
 
     res.header("Access-Control-Allow-Origin", "*");
     res.header("Access-Control-Allow-Methods: GET, POST, PUT, DELETE");
   
-  const file = req.file;
+    const file = req.file;
     const d = new Date();
     var date=d.toDateString();
     var posts ={
@@ -222,66 +229,80 @@ app.post("/addpost",upload.single('image'), verifyToken,(req,res)=>{
        
     }
   
- 
     var posters = new usermongo(posts);
-
     posters.save();
 
 });
 
 
+//add blogcategory
+
 app.post("/addblogcategory",verifyToken,(req,res)=>{
   res.header("Access-Control-Allow-Origin","*");
- res.header("Access-Control-Allow-Headers: Content-Type, application/json");
- res.header("Access-Control-Allow-Methods:GET,POST,PATCH,PUT,DELETE,OPTIONS");
- var blogCategory = {
+  res.header("Access-Control-Allow-Headers: Content-Type, application/json");
+  res.header("Access-Control-Allow-Methods:GET,POST,PATCH,PUT,DELETE,OPTIONS");
+  var blogCategory = {
      blogCategory:req.body.item.blogCategory
- }
-var blogCategoryDB = new blogcategorymongo(blogCategory)
-blogCategoryDB.save(function (err) {
+  }
+  var blogCategoryDB = new blogcategorymongo(blogCategory)
+  blogCategoryDB.save(function (err) {
  if (!err) {
    res.json({status:true}).status(200);
    
  }
- else{
+ else
+ {
      console.log("error");
  }
 });
 });
 
+// all blogs in admin
 
-app.get("/getAllBlogs",verifyToken,(req,res)=>{
+app.get("/getAllBlogs",(req,res)=>{
   res.header("Access-Control-Allow-Origin","*"); 
   res.header("Access-Control-Allow-Methods:GET,POST,PUT,DELETE");
-  usermongo.find().then((data)=>{
+   usermongo.find().then((data)=>{
      res.send(data);
     });
     
-  });
-app.get("/activeBlogs",verifyToken,(req,res)=>{
+});
+
+// activated blogs in admin
+
+app.get("/activeBlogs",(req,res)=>{
   res.header("Access-Control-Allow-Origin","*"); 
   res.header("Access-Control-Allow-Methods:GET,POST,PUT,DELETE");
-  usermongo.find({$and:[{isVerified:"1"}]}).then((data)=>{
+   usermongo.find({$and:[{isVerified:"1"}]}).then((data)=>{
      res.send(data);
     });
     
-  });
-app.get("/rejectedBlogs",verifyToken,(req,res)=>{
+});
+
+//rejected blogs in admin
+
+app.get("/rejectedBlogs",(req,res)=>{
   res.header("Access-Control-Allow-Origin","*"); 
   res.header("Access-Control-Allow-Methods:GET,POST,PUT,DELETE");
   usermongo.find({$and:[{isVerified:"2"}]}).then((data)=>{
      res.send(data);
     });
     
-  });
-app.get("/getNotApprovedBlogs",verifyToken,(req,res)=>{
+});
+
+//approve pending blogs in admin
+
+app.get("/getNotApprovedBlogs",(req,res)=>{
   res.header("Access-Control-Allow-Origin","*"); 
   res.header("Access-Control-Allow-Methods:GET,POST,PUT,DELETE");
-  usermongo.find({$and:[{isVerified:"0"}]}).then((data)=>{
+   usermongo.find({$and:[{isVerified:"0"}]}).then((data)=>{
      res.send(data);
     });
     
-  });
+});
+
+//blog categgories
+
 app.get("/getBlogCategory",(req,res)=>{
   res.header("Access-Control-Allow-Origin","*"); 
   res.header("Access-Control-Allow-Methods:GET,POST,PUT,DELETE");
@@ -289,27 +310,31 @@ app.get("/getBlogCategory",(req,res)=>{
      res.send(data);
     });
     
-  });
+});
+
 
 app.post("/getBlogById",verifyToken,(req,res)=>{
   res.header("Access-Control-Allow-Origin","*"); 
   res.header("Access-Control-Allow-Methods:GET,POST,PUT,DELETE");
-  usermongo.findById(req.body.data).then((data)=>{
+   usermongo.findById(req.body.data).then((data)=>{
      res.send(data);
     });
-  });
+});
 
-app.post("/approveBlog/:category",(req,res)=>{
+//approve blogs
+
+app.post("/approveBlog/:category",verifyToken,(req,res)=>{
   res.header("Access-Control-Allow-Origin","*"); 
   res.header("Access-Control-Allow-Methods:GET,POST,PUT,DELETE");
   const cate = req.params.category;
-  usermongo.findByIdAndUpdate({"_id":req.body.data},
-  {$set:{"isVerified":"1"},"category":cate}).then((data)=>{
+   usermongo.findByIdAndUpdate({"_id":req.body.data},
+    {$set:{"isVerified":"1"},"category":cate}).then((data)=>{
      res.send(data);
     });
-  });
+});
 
-app.post("/rejectBlog",(req,res)=>{
+
+app.post("/rejectBlog",verifyToken,(req,res)=>{
   res.header("Access-Control-Allow-Origin","*"); 
   res.header("Access-Control-Allow-Methods:GET,POST,PUT,DELETE");
   usermongo.findByIdAndUpdate({"_id":req.body.data},
@@ -319,51 +344,56 @@ app.post("/rejectBlog",(req,res)=>{
   });
 
     
-  app.post("/getUserName",verifyToken,(req,res)=>{
-    res.header("Access-Control-Allow-Origin","*"); 
-    res.header("Access-Control-Allow-Methods:GET,POST,PUT,DELETE");
-    email1=req.body.data.currentEmail;
+app.post("/getUserName",verifyToken,(req,res)=>{
+  res.header("Access-Control-Allow-Origin","*"); 
+  res.header("Access-Control-Allow-Methods:GET,POST,PUT,DELETE");
+  email1=req.body.data.currentEmail;
     signupmongo.find({$and:[{email:email1}]}).then((data)=>{
        res.send(data);
       });
-    });
+});
 
-  app.post("/currentUserBlogs",verifyToken,(req,res)=>{
-    res.header("Access-Control-Allow-Origin","*"); 
-    res.header("Access-Control-Allow-Methods:GET,POST,PUT,DELETE");
-      email1=req.body.data.currentEmail;
+
+app.post("/currentUserBlogs",verifyToken,(req,res)=>{
+  res.header("Access-Control-Allow-Origin","*"); 
+  res.header("Access-Control-Allow-Methods:GET,POST,PUT,DELETE");
+  email1=req.body.data.currentEmail;
   
     usermongo.find({$and:[{email:email1}]}).then((data)=>{
        res.send(data); 
       });
-    });
+});
 
-    app.get('/:id',  (req, res) => {
-      const id = req.params.id;
-        usermongo.findOne({"_id":id})
-        .then((posts)=>{
-            res.send(posts);
-        });
-    });
 
-    app.get('/getCategoryById/:id',  (req, res) => {
-      const id = req.params.id;
-        blogcategorymongo.findOne({"_id":id})
-        .then((posts)=>{
-            res.send(posts);
+app.get('/:id',  (req, res) => {
+  const id = req.params.id;
+    usermongo.findOne({"_id":id})
+      .then((posts)=>{
+          res.send(posts);
         });
-    });
-    
-    app.get('/getBlogByCategory/:id',  (req, res) => {
-      const catId = req.params.id;
-        usermongo.find({"category":catId})
-        .then((posts)=>{
-            res.send(posts);
+});
+
+
+app.get('/getCategoryById/:id',(req, res) => {
+  const id = req.params.id;
+    blogcategorymongo.findOne({"_id":id})
+      .then((posts)=>{
+        res.send(posts);
         });
-    });
+});
+
 
     
-  app.put('/update',upload.single("image"),verifyToken,(req,res)=>{
+app.get('/getBlogByCategory/:id',(req, res) => {
+  const catId = req.params.id;
+    usermongo.find({"category":catId})
+     .then((posts)=>{
+        res.send(posts);
+        });
+});
+
+    
+app.put('/update',upload.single("image"),verifyToken,(req,res)=>{
     if(req.file != undefined)
     {
     const file = req.file;
@@ -376,7 +406,7 @@ app.post("/rejectBlog",(req,res)=>{
     id=req.body._id,
     title = req.body.title,
     description = req.body.description
-   usermongo.findByIdAndUpdate({"_id":id},
+    usermongo.findByIdAndUpdate({"_id":id},
                                 {$set:{
                                 "title":title,
                                 "image": img,
@@ -386,48 +416,54 @@ app.post("/rejectBlog",(req,res)=>{
    .then(function(){
        res.send();
    })
- })
+});
 
- app.delete('/remove/:id',verifyToken,(req,res)=>{
-   
-  id = req.params.id;
+
+app.delete('/remove/:id',verifyToken,(req,res)=>{
+   id = req.params.id;
   usermongo.findByIdAndDelete({"_id":id})
   .then(()=>{
       res.send();
   })
 });
- app.delete('/deleteCategory/:id',verifyToken,(req,res)=>{
+
+
+
+app.delete('/deleteCategory/:id',verifyToken,(req,res)=>{
   id = req.params.id;
   blogcategorymongo.findByIdAndDelete({"_id":id})
-  .then(()=>{
-      res.send();
+   .then(()=>{
+    res.send();
   })
 });
 
+
 app.get('/:_id',(req,res)=>
-{
+ {
   const id = req.params.id;
-     
-  usermongo.findOne({"_id":_id},
+    usermongo.findOne({"_id":_id},
                     {$set:{
                    "title":title,
                    "file":file,
-                  "description":description
+                   "description":description,
+                   
     }})
     .then((posts)=>{
       res.send(posts);
   });
-})
+});
 
-app.post("/changePwd/:userEmail",(req,res)=>{
+
+
+app.post("/changePwd/:userEmail",verifyToken,(req,res)=>{
   res.header("Access-Control-Allow-Origin","*"); 
   res.header("Access-Control-Allow-Methods:GET,POST,PUT,DELETE");
   email = req.params.userEmail;
-  signupmongo.updateOne({"email":email},
-  {$set:{"password":req.body.password}}).then((data)=>{
-     res.send(data);
-    });
-  });
+   signupmongo.updateOne({"email":email},
+      {$set:{"password":req.body.password}}).then((data)=>{
+        res.send(data);
+      });
+});
 
 
 app.listen(PORT,()=>{

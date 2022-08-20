@@ -1,76 +1,101 @@
-
 <nav class="navbar navbar-expand-lg navbar-light bg-nav">
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
-      <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
-        <li class="nav-item mr-5 mt-2 navlink"><a routerLink="/">
-        Home </a></li>
-        <li class="nav-item mr-5 mt-2 navlink"><a routerLink="/singlepage">
-        All blogs</a></li>
-        <li class="nav-item dropdown">
-          <a class="nav-link mr-5 " href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Categories
-          </a>
-          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-            <a class="dropdown-item" *ngFor="let cat of categories" [routerLink]="routeLink+cat._id">{{cat.blogCategory}}</a>
-          </div>
-        </li>
-        
-        <li class="nav-item mr-5 mt-2 navlink"><a routerLink="/login">
-            LogIn </a></li>
-        <li class="nav-item mr-5 mt-2 navlink"><a routerLink="/signup">
-              SignUp </a></li>
-      </ul>
-  
-    </div>
-  </nav>
-  
-  
-   <div class="bg-body">
-  <br><br>
-  <div class="text-center head">{{catId.blogCategory}}</div> 
-  <div class="container-fluid bg m-top" >
-  <div class="card" *ngFor='let i of blogs'>
-    <div class="card-image">
-      <img class="" [src]="i.image" alt="" height="100%">
-    </div>
-    <div class="card-content">
-      <div class="card-text">
-       <div class="cardtitle">
-          {{i.title}}
+  <button
+    class="navbar-toggler"
+    type="button"
+    data-toggle="collapse"
+    data-target="#navbarTogglerDemo01"
+    aria-controls="navbarTogglerDemo01"
+    aria-expanded="false"
+    aria-label="Toggle navigation"
+  >
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+    <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
+      <li class="nav-item mr-5 mt-2 navlink"><a routerLink="/"> Home </a></li>
+      <li class="nav-item mr-5 mt-2 navlink">
+        <a routerLink="/singlepage"> All blogs</a>
+      </li>
+      <li class="nav-item dropdown">
+        <a
+          class="nav-link mr-5"
+          href="#"
+          id="navbarDropdownMenuLink"
+          role="button"
+          data-toggle="dropdown"
+          aria-haspopup="true"
+          aria-expanded="false"
+        >
+          Categories
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+          <a
+            class="dropdown-item"
+            *ngFor="let cat of categories"
+            [routerLink]="routeLink + cat._id"
+            >{{ cat.blogCategory }}</a
+          >
         </div>
-        <div class="cardsentence">
-          {{i.date1}}
+      </li>
+
+      <li class="nav-item mr-5 mt-2 navlink">
+        <a routerLink="/login"> LogIn </a>
+      </li>
+      <li class="nav-item mr-5 mt-2 navlink">
+        <a routerLink="/signup"> SignUp </a>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+<div class="bg-body">
+  <br /><br />
+
+  <div class="text-center head">{{ catId.blogCategory }}</div>
+  <div class="container-fluid bg m-top">
+    <div class="cards-list" *ngFor="let i of blogs">
+      <div class="card">
+        <div class="card_image">
+          <img class="" [src]="i.image" alt="" height="100%" />
         </div>
-        <div class="button btn btn-lg">
-          <a routerLink="/singleviewpage" (click)="singleBlog(i)" style="margin-top: 2%; cursor: pointer;">Read More</a>
+        <div class="card_title">
+          {{ i.title }} <br />
+          <p class="mt-1">{{ i.date1 }}</p>
+          <button class="button">
+            <a
+              routerLink="/singleviewpage"
+              (click)="singleBlog(i)"
+              style="margin-top: 2%; cursor: pointer"
+              >Read More</a
+            >
+          </button>
         </div>
       </div>
     </div>
   </div>
-</div> 
 
- </div> 
-  <footer>
+
+  <footer class="mt-5">
     <div class="copyright-area">
       <div class="container">
-          <div class="row">
-              <div class="col-xl-6 col-lg-6 text-center text-lg-left">
-                  <div class="copyright-text">
-                      <p>Copyright &copy;2022 ICT Academy of Kerala.  All rights reserved. </p>
-                  </div>
-              </div>
-              <div class="col-xl-6 col-lg-6 d-none d-lg-block text-right">
-                  <div class="footer-menu">
-                      <ul>
-                          <li><a routerLink="/">Home</a></li>
-                          <li><a routerLink="/footer">Contact</a></li>
-                      </ul>
-                  </div>
-              </div>
+        <div class="row">
+          <div class="col-xl-6 col-lg-6 text-center text-lg-left">
+            <div class="copyright-text">
+              <p>
+                Copyright &copy;2022 ICT Academy of Kerala. All rights reserved.
+              </p>
+            </div>
           </div>
+          <div class="col-xl-6 col-lg-6 d-none d-lg-block text-right">
+            <div class="footer-menu">
+              <ul>
+                <li><a routerLink="/">Home</a></li>
+                <li><a routerLink="/footer">Contact</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
       </div>
-  </div>
+    </div>
   </footer>
+</div>

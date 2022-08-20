@@ -1,18 +1,27 @@
 <div class="form">
-<h2>Categories</h2>
-<form [formGroup] ='blogcategoryForm' (ngSubmit)= onsubmitblogcategory(blogcategoryForm.value)>
-<mat-form-field appearance="fill">
-  <mat-label>Category Name</mat-label>
-  <input matInput formControlName="blogCategory">
-</mat-form-field ><br>
-<button class="btn" mat-raised-button color="accent" [disabled]="!blogcategoryForm.valid">Submit</button>
-</form>
+  <h2>Categories</h2>
+  <form
+    [formGroup]="blogcategoryForm"
+    (ngSubmit)="onsubmitblogcategory(blogcategoryForm.value)"
+  >
+    <mat-form-field appearance="fill">
+      <mat-label>Category Name</mat-label>
+      <input matInput formControlName="blogCategory" /> </mat-form-field
+    ><br />
+    <button
+      class="btn"
+      mat-raised-button
+      color="accent"
+      [disabled]="!blogcategoryForm.valid"
+    >
+      Submit
+    </button>
+  </form>
 </div>
 <div class="main-content">
   <div class="container mt-5">
     <!-- Table -->
-    <div class="row" >
-   
+    <div class="row">
       <div class="col">
         <div class="card shadow">
           <div class="card-header border-0">
@@ -26,22 +35,26 @@
                   <th scope="col">Category Name</th>
                   <th scope="col"></th>
                 </tr>
-               </thead>
-               <tbody>
-                <tr *ngFor="let cat of categories; let i = index;">
-                  <td>{{i+1}}</td>
-                  <td >{{cat.blogCategory}}</td>
+              </thead>
+              <tbody>
+                <tr *ngFor="let cat of categories; let i = index">
+                  <td>{{ i + 1 }}</td>
+                  <td>{{ cat.blogCategory }}</td>
                   <td class="text-right">
-                   <button type="submit" class="btn btn-danger" (click)="deletePost(cat)"> Delete</button>
+                    <button
+                      type="submit"
+                      class="btn btn-danger"
+                      (click)="deletePost(cat)"
+                    >
+                      Delete
+                    </button>
                   </td>
                 </tr>
               </tbody>
             </table>
           </div>
-          
         </div>
       </div>
-      
     </div>
   </div>
 </div>

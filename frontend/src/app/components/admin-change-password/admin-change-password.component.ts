@@ -15,8 +15,8 @@ pwdHide2=true;
 pwdHide3=true;
 submittedChangePwd=false;
 adminEmail = localStorage.getItem('adminEmailToken');
-// signupForm!: FormGroup;
-  changePwdForm!: FormGroup;
+
+changePwdForm!: FormGroup;
 
 constructor(private fb:FormBuilder,private postService:PostserviceService,
 private router:Router) { }
@@ -47,7 +47,7 @@ return this.changePwdForm.controls
 changePwd(values:any){
   this.submittedChangePwd=true;
     this.postService.changePwd(values,this.adminEmail)
-    .subscribe((data)=>{
+     .subscribe((data)=>{
       this.router.navigate(['admin-dashboard/admin-dashboard-child']);
       Swal.fire({
         position: 'top-end',

@@ -1504,7 +1504,9 @@ td, th {
   h3{
     color:rgb(0, 8, 255);
   }
-   footer{
+
+  /* footer */
+  footer{
     background-color:#f5f5f5;
     margin-left: -30px;
     margin-bottom: -15px;

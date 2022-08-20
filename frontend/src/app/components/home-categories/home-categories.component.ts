@@ -16,14 +16,14 @@ export class HomeCategoriesComponent implements OnInit {
   id: string | null;
   blogs: any;
   catId: any;
-
+           //  categories
   categories: any;
   selected: any;
   routeLink: string;
 
-  constructor(private _Activatedroute:ActivatedRoute,private _router:Router,private _postService:PostserviceService) { }
+constructor(private _Activatedroute:ActivatedRoute,private _router:Router,private _postService:PostserviceService) { }
 
-  ngOnInit(): void {
+ngOnInit(): void {
     this.sub=this._Activatedroute.paramMap.subscribe(params => { 
       this.id = params.get('id'); 
       let id = params.get('id'); 
@@ -39,14 +39,14 @@ export class HomeCategoriesComponent implements OnInit {
       }
       )
           // category dropmenu
-      this._postService.getBlogCategory().subscribe((data)=>{
+    this._postService.getBlogCategory().subscribe((data)=>{
         this.categories = JSON.parse(JSON.stringify(data));
         this.routeLink = "/homecategory/";
         console.log(this.categories);
       });
   });
   }
-  singleBlog(Blogs:any){
+singleBlog(Blogs:any){
     {
       localStorage.setItem("editBlogId",Blogs._id.toString());
       this._router.navigate(['singleviewpage']);

@@ -6,8 +6,6 @@ const blogschema = new schema({
     user:String,
     email:String,
     password:String,
-    
-    
 });
 var signupmongo =mongoose.model("signup",blogschema);
 module.exports=signupmongo;

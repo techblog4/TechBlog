@@ -17,19 +17,18 @@ export class StudentSingleBlogpageComponentComponent implements OnInit {
   title: any;
   description: any;
 
-  public model = {
-    
+public model = {
     currentEmail : localStorage.getItem('studentEmailToken')
     };
 
   date: any;
   image: any;
   
-  constructor(private _Activatedroute:ActivatedRoute,
+constructor(private _Activatedroute:ActivatedRoute,
     private _router:Router,
     private _postService:PostserviceService) { }
 
-  ngOnInit(): void {
+ngOnInit(): void {
     this._postService.getUserName(this.model).subscribe((data)=>{
       this.userName=data[0].name;
      })
@@ -53,7 +52,7 @@ export class StudentSingleBlogpageComponentComponent implements OnInit {
       });
   });
   }
-  ngOnDestroy() {
+ngOnDestroy() {
     this.sub.unsubscribe();
   }
 }

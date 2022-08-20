@@ -13,10 +13,7 @@ mat-sidenav-content{
   margin-left: 30px;
 }
 mat-toolbar{
-  
-      color: gray;
-  
-  
+  color: gray;
 }
 .box{
   margin-top: 15px;
@@ -25,26 +22,29 @@ mat-toolbar{
   justify-content:right;
 }
 
- .tp-container {
-   position: absolute;
-   top: 0;
-   bottom: 0;
-   left: 0;
-   right: 0;
-   background: #eee;
+.tp-container {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: #eee;
 }
- .tp-section mat-icon{
-   color:white;
+.tp-section mat-icon{
+  color:white;
 }
 .tp-section span{
   color:white;
 }
 .tp-section {
-   display: flex;
-   align-content: center;
-   align-items: center;
-   width:100%;   
+  display: flex;
+  align-content: center;
+  align-items: center;
+  width:100%;   
 }
 .settings-icon{
   justify-content: space-between;
+}
+a{
+  text-decoration: none;
 }

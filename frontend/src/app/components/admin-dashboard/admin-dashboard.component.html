@@ -1,65 +1,81 @@
-
 <mat-sidenav-container>
   <mat-sidenav #sidebar mode="side" opened="">
-      <section class = "tp-section">
-         <mat-list>
-           <div mat-subheader><span>Dashboard</span></div>
-           <mat-divider></mat-divider>
-             <mat-list-item>
-               <mat-icon mat-list-icon>dashboard</mat-icon>
-               <div mat-line><a routerLink="admin-dashboard-child"><span>Dashboard</span></a></div>
-               </mat-list-item>
-               <mat-divider></mat-divider>
-               <mat-list-item>
-                <mat-icon mat-list-icon>article</mat-icon>
-                <div mat-line><a routerLink="admin-blog-list"><span>All Blogs</span></a></div>
-                </mat-list-item>
-                <mat-divider></mat-divider>
-             <mat-list-item>
-               <mat-icon mat-list-icon>approval</mat-icon>
-               <div mat-line><a routerLink="admin-approve-blog"><span>Approve Pending</span></a></div>
-               </mat-list-item>
-             <mat-list-item>
-               <mat-icon mat-list-icon>library_add_check</mat-icon>
-               <div mat-line><a routerLink="admin-active-blogs"><span>Active Blogs</span></a></div>
-               </mat-list-item>
-             <mat-list-item>
-               <mat-icon mat-list-icon>backspace</mat-icon>
-               <div mat-line><a routerLink="admin-rejected-blogs"><span>Rejected Blogs</span></a></div>
-               </mat-list-item>
-               <mat-divider></mat-divider>
-             <mat-list-item>
-               <mat-icon mat-list-icon>view_list</mat-icon>
-               <div mat-line><a routerLink="admin-blog-category"><span>Categories</span></a></div>
-               </mat-list-item>
-               <mat-divider></mat-divider>
-             <mat-list-item>
-               <mat-icon mat-list-icon>manage_accounts</mat-icon>
-               <div mat-line><span><a routerLink="admin-change-password"><span>Change Password</span></a></span></div>
-             </mat-list-item>
-             <mat-divider></mat-divider>
-             <mat-list-item>
-               <mat-icon mat-list-icon>logout</mat-icon>
-               <div mat-line><a routerLink="/" *ngIf="serve.loggedin()" (click)="logoutUser()"><span>Log out</span></a></div>
-               </mat-list-item>
-             </mat-list>
-          </section>
+    <section class="tp-section">
+      <mat-list>
+        <div mat-subheader><span>Dashboard</span></div>
+        <mat-divider></mat-divider>
+        <mat-list-item>
+          <mat-icon mat-list-icon>dashboard</mat-icon>
+          <div mat-line>
+            <a routerLink="admin-dashboard-child"><span>Dashboard</span></a>
+          </div>
+        </mat-list-item>
+        <mat-divider></mat-divider>
+        <mat-list-item>
+          <mat-icon mat-list-icon>article</mat-icon>
+          <div mat-line>
+            <a routerLink="admin-blog-list"><span>All Blogs</span></a>
+          </div>
+        </mat-list-item>
+        <mat-divider></mat-divider>
+        <mat-list-item>
+          <mat-icon mat-list-icon>approval</mat-icon>
+          <div mat-line>
+            <a routerLink="admin-approve-blog"><span>Approve Pending</span></a>
+          </div>
+        </mat-list-item>
+        <mat-list-item>
+          <mat-icon mat-list-icon>library_add_check</mat-icon>
+          <div mat-line>
+            <a routerLink="admin-active-blogs"><span>Active Blogs</span></a>
+          </div>
+        </mat-list-item>
+        <mat-list-item>
+          <mat-icon mat-list-icon>backspace</mat-icon>
+          <div mat-line>
+            <a routerLink="admin-rejected-blogs"><span>Rejected Blogs</span></a>
+          </div>
+        </mat-list-item>
+        <mat-divider></mat-divider>
+        <mat-list-item>
+          <mat-icon mat-list-icon>view_list</mat-icon>
+          <div mat-line>
+            <a routerLink="admin-blog-category"><span>Categories</span></a>
+          </div>
+        </mat-list-item>
+        <mat-divider></mat-divider>
+        <mat-list-item>
+          <mat-icon mat-list-icon>manage_accounts</mat-icon>
+          <div mat-line>
+            <span
+              ><a routerLink="admin-change-password"
+                ><span>Change Password</span></a
+              ></span
+            >
+          </div>
+        </mat-list-item>
+        <mat-divider></mat-divider>
+        <mat-list-item>
+          <mat-icon mat-list-icon>logout</mat-icon>
+          <div mat-line>
+            <a routerLink="/" *ngIf="serve.loggedin()" (click)="logoutUser()"
+              ><span>Log out</span></a
+            >
+          </div>
+        </mat-list-item>
+      </mat-list>
+    </section>
   </mat-sidenav>
   <mat-sidenav-content>
-      <div class="content">
-          <div class="toolbar">
-              <mat-toolbar>
-                  <mat-icon (click)="sidebar.toggle()">menu</mat-icon>
-                  <!-- <div class="box">
-                      <mat-icon>search</mat-icon>
-                      <mat-icon>bookmark_border</mat-icon>
-                      <mat-icon>mail_outline</mat-icon>
-                  </div> -->
-              </mat-toolbar>
-          </div>
-          <div class="main">
-            <router-outlet></router-outlet>
-          </div>
+    <div class="content">
+      <div class="toolbar">
+        <mat-toolbar>
+          <mat-icon (click)="sidebar.toggle()">menu</mat-icon>
+        </mat-toolbar>
       </div>
+      <div class="main">
+        <router-outlet></router-outlet>
+      </div>
+    </div>
   </mat-sidenav-content>
 </mat-sidenav-container>

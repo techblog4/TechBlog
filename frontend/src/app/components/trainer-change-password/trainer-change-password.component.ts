@@ -17,10 +17,10 @@ export class TrainerChangePasswordComponent implements OnInit {
   email = localStorage.getItem('emailToken');
   changePwdForm!: FormGroup;
 
-  constructor(private fb:FormBuilder,private postService:PostserviceService,
-    private router:Router) { }
+constructor(private fb:FormBuilder,private postService:PostserviceService,
+  private router:Router) { }
 
-  ngOnInit(): void {
+ngOnInit(): void {
     this.changePwdForm =this.fb.group({ 
       password:['',[Validators.required,Validators.minLength(5)]],
       confirmpassword:['',[Validators.required,Validators.minLength(5)]],
@@ -33,17 +33,16 @@ export class TrainerChangePasswordComponent implements OnInit {
         }
       })
   }
-
-  get passwordChange(){
+get passwordChange(){
     return this.changePwdForm.controls
     } 
   
-    changePwd(values:any){
+changePwd(values:any){
       this.submittedChangePwd=true;
-        this.postService.changePwd(values,this.email)
+      this.postService.changePwd(values,this.email)
         .subscribe((data)=>{
           this.router.navigate(['trainernavbar/trainer-dashboard-child']);
-          Swal.fire({
+           Swal.fire({
             position: 'top-end',
             icon: 'success',
             title: 'Your password has been updated',
