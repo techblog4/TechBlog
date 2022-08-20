@@ -116,17 +116,15 @@
       <img class="" [src]="i.image" alt="" height="100%">
      </div>
        <div class="card_title">
-          {{i.title}}
+          {{i.title}} <br>
+         <p class="mt-1">{{i.date1}}</p>
+          <button class="button">
+            <a routerLink="/singleviewpage" (click)="singleBlog(i)" style="margin-top: 2%; cursor: pointer;">Read More</a>
+          </button> 
         </div>
-        <div class="card_subtitle">
-          {{i.date1}}
-        </div>
-        <div class="button btn btn-sm">
-          <a routerLink="/singleviewpage" (click)="singleBlog(i)" style="margin-top: 2%; cursor: pointer;">Read More</a>
-        </div>
-
+    
   </div>
- 
+  
 </div> 
 </div>
 
