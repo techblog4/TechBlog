@@ -1,115 +1,123 @@
 <div class="container">
-    <div class="row" id="proBanner">
-      <div class="col-12">
-        <span class="align-items-center purchase-popup">
-          <!-- <i class="mdi mdi-close"  (click)="toggleProBanner($event)"  id="bannerClose"></i> -->
-        </span>
-      </div>
+  <div class="row" id="proBanner">
+    <div class="col-12">
+      <span class="align-items-center purchase-popup"> </span>
     </div>
-    <div class="page-header">
-      <h3 class="page-title">
-        <span class="page-title-icon bg-gradient-primary text-white mr-2">
-          <i class="mdi mdi-home"></i>                 
-        </span>
-        Dashboard
-      </h3>
-      <nav aria-label="breadcrumb">
-        <ul class="breadcrumb">
-          <li class="breadcrumb-item active" aria-current="page">
-            <span></span>Overview
-            <i class="mdi mdi-alert-circle-outline icon-sm text-primary align-middle"></i>
-          </li>
-        </ul> 
-      </nav>
-    </div>
-    <div class="row">
-      <div class="col-md-4 stretch-card grid-margin">
-        <div class="card bg-gradient-danger card-img-holder text-white">
-          <div class="card-body bg-1">
-            <!-- <img src="assets/images/dashboard/circle.svg" class="card-img-absolute" alt="circle-image"/> -->
-            <a routerLink="/admin-dashboard/admin-blog-list"><i class="fa-solid fa-battery-full"></i></a>
-            <a routerLink="/admin-dashboard/admin-blog-list"><h4 class="font-weight-normal mb-3">Total Posts
-              <i class="mdi mdi-chart-line mdi-24px float-right"></i>
-            </h4></a>
-            <h2 class="mb-5"> {{totalBlogs}}</h2>
-            
-          </div>
-        </div>
-      </div>
-      <div class="col-md-4 stretch-card grid-margin">
-        <div class="card bg-gradient-info card-img-holder text-white">
-          <div class="card-body bg-2">
-            <!-- <img src="assets/images/dashboard/circle.svg" class="card-img-absolute" alt="circle-image"/>  -->
-            <a routerLink="/admin-dashboard/admin-active-blogs">  <i class="fa-solid fa-thumbs-up"></i></a>
-          <a routerLink="/admin-dashboard/admin-active-blogs">  <h4 class="font-weight-normal mb-3">Approved posts
-              <i class="mdi mdi-bookmark-outline mdi-24px float-right"></i>
-            </h4></a>
-            <h2 class="mb-5">{{approvedBlogs}}</h2>
-            
-          </div>
-        </div>
-      </div>
-      <div class="col-md-4 stretch-card grid-margin">
-        <div class="card bg-gradient-success card-img-holder text-white">
-          <div class="card-body bg-3">
-            <!-- <img src="assets/images/dashboard/circle.svg" class="card-img-absolute" alt="circle-image"/>                                     -->
-          <a routerLink="/admin-dashboard/admin-approve-blog"> <i class="fa-solid fa-battery-half"></i></a>
-           <a routerLink="/admin-dashboard/admin-approve-blog"><h4 class="font-weight-normal mb-3">Pending Posts
-              <i class="mdi mdi-diamond mdi-24px float-right"></i>
-            </h4></a> 
-            <h2 class="mb-5">{{pendingBlogs}}</h2>
-            
-          </div>
+  </div>
+  <div class="page-header">
+    <h3 class="page-title">
+      <span class="page-title-icon bg-gradient-primary text-white mr-2">
+        <i class="mdi mdi-home"></i>
+      </span>
+      Dashboard
+    </h3>
+    <nav aria-label="breadcrumb">
+      <ul class="breadcrumb">
+        <li class="breadcrumb-item active" aria-current="page">
+          <span></span>Overview
+          <i
+            class="mdi mdi-alert-circle-outline icon-sm text-primary align-middle"
+          ></i>
+        </li>
+      </ul>
+    </nav>
+  </div>
+  <div class="row">
+    <div class="col-md-4 stretch-card grid-margin">
+      <div class="card bg-gradient-danger card-img-holder text-white">
+        <div class="card-body bg-1">
+          <a routerLink="/admin-dashboard/admin-blog-list"
+            ><i class="fa-solid fa-battery-full"></i
+          ></a>
+          <a routerLink="/admin-dashboard/admin-blog-list"
+            ><h4 class="font-weight-normal mb-3">
+              Total Posts
+              <i class="mdi mdi-chart-line mdi-24px float-right"></i></h4
+          ></a>
+          <h2 class="mb-5">{{ totalBlogs }}</h2>
         </div>
       </div>
     </div>
-
-    <div class="row mt-5">
-      <div class="col-md-4 stretch-card grid-margin">
-        <div class="card bg-gradient-danger card-img-holder text-white">
-          <div class="card-body bg-4">
-            <!-- <img src="assets/images/dashboard/circle.svg" class="card-img-absolute" alt="circle-image"/> -->
-            <a routerLink="/admin-dashboard/admin-rejected-blogs"><i class="fa-solid fa-xmark"></i></a>
-            <a routerLink="/admin-dashboard/admin-rejected-blogs"><h4 class="font-weight-normal mb-3">Rejected Posts
-              <i class="mdi mdi-chart-line mdi-24px float-right"></i>
-            </h4></a> 
-            <h2 class="mb-5"> {{rejectedBlogs}}</h2>
-            
-          </div>
+    <div class="col-md-4 stretch-card grid-margin">
+      <div class="card bg-gradient-info card-img-holder text-white">
+        <div class="card-body bg-2">
+          <a routerLink="/admin-dashboard/admin-active-blogs">
+            <i class="fa-solid fa-thumbs-up"></i
+          ></a>
+          <a routerLink="/admin-dashboard/admin-active-blogs">
+            <h4 class="font-weight-normal mb-3">
+              Approved posts
+              <i class="mdi mdi-bookmark-outline mdi-24px float-right"></i></h4
+          ></a>
+          <h2 class="mb-5">{{ approvedBlogs }}</h2>
         </div>
       </div>
-      
-      <div class="col-md-4 stretch-card grid-margin">
-        <div class="card bg-gradient-info card-img-holder text-white">
-          <div class="card-body bg-5">
-            <!-- <img src="assets/images/dashboard/circle.svg" class="card-img-absolute" alt="circle-image"/>  -->
-            <a routerLink="/admin-dashboard/admin-change-password"><i class="fa-solid fa-key"></i></a>
-            <h4 class="font-weight-normal mb-3">Change Password
-              <i class="mdi mdi-bookmark-outline mdi-24px float-right"></i>
-            </h4>
-            <a routerLink="/admin-dashboard/admin-change-password">
-            <h2 class="mb-5">Confirm Your password</h2></a>
-            
-          </div>
-        </div>
-      </div>
-      <div class="col-md-4 stretch-card grid-margin">
-        <div class="card bg-gradient-success card-img-holder text-white">
-          <div class="card-body bg-6">
-            <!-- <img src="assets/images/dashboard/circle.svg" class="card-img-absolute" alt="circle-image"/>                                     -->
-            <a routerLink="/"><i class="fa-regular fa-id-card"></i></a>
-            <h4 class="font-weight-normal mb-3">Logout
-              <i class="mdi mdi-diamond mdi-24px float-right"></i>
-            </h4>
-            <a routerLink="/"><h2 class="mb-5">Go to Homepage</h2></a>
-            
-          </div>
+    </div>
+    <div class="col-md-4 stretch-card grid-margin">
+      <div class="card bg-gradient-success card-img-holder text-white">
+        <div class="card-body bg-3">
+          <a routerLink="/admin-dashboard/admin-approve-blog">
+            <i class="fa-solid fa-battery-half"></i
+          ></a>
+          <a routerLink="/admin-dashboard/admin-approve-blog"
+            ><h4 class="font-weight-normal mb-3">
+              Pending Posts
+              <i class="mdi mdi-diamond mdi-24px float-right"></i></h4
+          ></a>
+          <h2 class="mb-5">{{ pendingBlogs }}</h2>
         </div>
       </div>
     </div>
   </div>
 
-  <footer>
-    <p>Copyright &copy; 2022 ICT Academy of Kerala All Rights Reserved.</p>
-</footer>
+  <div class="row mt-5">
+    <div class="col-md-4 stretch-card grid-margin">
+      <div class="card bg-gradient-danger card-img-holder text-white">
+        <div class="card-body bg-4">
+          <a routerLink="/admin-dashboard/admin-rejected-blogs"
+            ><i class="fa-solid fa-xmark"></i
+          ></a>
+          <a routerLink="/admin-dashboard/admin-rejected-blogs"
+            ><h4 class="font-weight-normal mb-3">
+              Rejected Posts
+              <i class="mdi mdi-chart-line mdi-24px float-right"></i></h4
+          ></a>
+          <h2 class="mb-5">{{ rejectedBlogs }}</h2>
+        </div>
+      </div>
+    </div>
 
+    <div class="col-md-4 stretch-card grid-margin">
+      <div class="card bg-gradient-info card-img-holder text-white">
+        <div class="card-body bg-5">
+          <a routerLink="/admin-dashboard/admin-change-password"
+            ><i class="fa-solid fa-key"></i
+          ></a>
+          <h4 class="font-weight-normal mb-3">
+            Change Password
+            <i class="mdi mdi-bookmark-outline mdi-24px float-right"></i>
+          </h4>
+          <a routerLink="/admin-dashboard/admin-change-password">
+            <h2 class="mb-5">Confirm Your password</h2></a
+          >
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4 stretch-card grid-margin">
+      <div class="card bg-gradient-success card-img-holder text-white">
+        <div class="card-body bg-6">
+          <a routerLink="/"><i class="fa-regular fa-id-card"></i></a>
+          <h4 class="font-weight-normal mb-3">
+            Logout
+            <i class="mdi mdi-diamond mdi-24px float-right"></i>
+          </h4>
+          <a routerLink="/"><h2 class="mb-5">Go to Homepage</h2></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <p>Copyright &copy; 2022 ICT Academy of Kerala All Rights Reserved.</p>
+</footer>
