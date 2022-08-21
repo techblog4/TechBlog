@@ -27,6 +27,8 @@ createpost(){
       formData.append('title',this.posts.title)
       formData.append('description',this.posts.description)
       formData.append('currentEmail',localStorage.getItem('emailToken') || '{}')
+      formData.append('userType',localStorage.getItem('userTrainer') || '{}')
+      formData.append('currentUser',localStorage.getItem('currentTrainer') || '{}')
       this.service.useradd(formData);
          Swal.fire({
                   position: 'top-end',

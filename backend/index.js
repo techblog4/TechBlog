@@ -233,6 +233,8 @@ app.post("/addpost",upload.single('image'), verifyToken,(req,res)=>{
         isVerified:'0',
         date1:date,
         email:req.body.currentEmail,
+        userType:req.body.userType,
+        authorname:req.body.currentUser,
         image: 'http://localhost:4001/images/'+ req.file.filename
        
     }
@@ -357,6 +359,15 @@ app.post("/getUserName",verifyToken,(req,res)=>{
   res.header("Access-Control-Allow-Methods:GET,POST,PUT,DELETE");
   email1=req.body.data.currentEmail;
     signupmongo.find({$and:[{email:email1}]}).then((data)=>{
+       res.send(data);
+      });
+});
+app.post("/getCurrentUser",verifyToken,(req,res)=>{
+  res.header("Access-Control-Allow-Origin","*"); 
+  res.header("Access-Control-Allow-Methods:GET,POST,PUT,DELETE");
+  currentUserEmail=req.body.data;
+  console.log(currentUserEmail);
+    signupmongo.findOne({$and:[{email:currentUserEmail}]}).then((data)=>{
        res.send(data);
       });
 });

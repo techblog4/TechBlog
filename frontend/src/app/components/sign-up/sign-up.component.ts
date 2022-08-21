@@ -21,7 +21,7 @@ ngOnInit(): void {
   this.signupForm =this.fb.group({
       name:['',[Validators.required]],
       user:['',[Validators.required]],
-      email:['',[Validators.required,Validators.pattern('^([a-zA-Z0-9\.-_]+)@([a-zA-Z0-9-]+)\.([a-z]{2,8})(.[a-z]{2,8})?$')]],
+      email:['',[Validators.required,Validators.pattern('^([a-zA-Z0-9\.-_]+)@([a-zA-Z0-9-]+)\.([a-z]{2,3})(.[a-z]{2,3})$')]],
       password:['',[Validators.required,Validators.minLength(5)]],
       confirmpassword:['',[Validators.required]]
       },{
