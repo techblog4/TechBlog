@@ -40,6 +40,9 @@ getBlogById(data:any){
 getUserName(data:any){
   return this.http.post<any>('http://localhost:4001/getUserName', {data:data})
 }
+getCurrentUser(data:any){
+  return this.http.post<any>('http://localhost:4001/getCurrentUser', {data:data})
+}
 
 getPost(id:any){
     return this.http.get("http://localhost:4001/"+id);

@@ -14,7 +14,8 @@
                   <th scope="col">Sl. No.</th>
                   <th scope="col">Blog Image</th>
                   <th scope="col">Blog Title</th>
-                  <th scope="col">Author Email</th>
+                  <th scope="col">Author Type</th>
+                  <!-- <th scope="col">Author Email</th> -->
                   <th scope="col">Date</th>
                   <th scope="col">Actions</th>
                 </tr>
@@ -37,7 +38,8 @@
                     />
                   </td>
                   <td>{{ blog.title }}</td>
-                  <td>{{ blog.email }}</td>
+                  <td>{{ blog.userType }}</td>
+                  <!-- <td>{{ blog.email }}</td> -->
                   <td>
                     <div class="d-flex align-items-center">
                       <span class="mr-2">{{ blog.date1 }}</span>
@@ -46,7 +48,7 @@
                   <td class="text-right">
                     <div class="dropdown">
                       <button
-                        class="btn btn-primary"
+                        class="btn btn-primary btn-sm"
                         (click)="btnClick(blog._id)"
                       >
                         View
